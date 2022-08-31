@@ -63,8 +63,7 @@ class RunMethods:
     class_name: object
     methods: list[str]
 
-    def start(self):
+    def start(self) -> None:
         for each_method in self.methods:
             getattr(self.class_name, each_method)()
-
         # [getattr(self.class_name, each_method)() for each_method in self.methods]
