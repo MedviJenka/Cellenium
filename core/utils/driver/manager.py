@@ -25,7 +25,7 @@ class Engine:
     driver = None
     excel = ExcelReader()
 
-    def wait_for_element(self, element, seconds=3) -> None:
+    def wait_for_element(self, element: str, seconds=3) -> None:
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.presence_of_element_located(element))
 
@@ -64,4 +64,7 @@ class RunMethods:
     methods: list[str]
 
     def start(self):
-        [getattr(self.class_name, each_method)() for each_method in self.methods]
+        for each_method in self.methods:
+            getattr(self.class_name, each_method)()
+
+        # [getattr(self.class_name, each_method)() for each_method in self.methods]
