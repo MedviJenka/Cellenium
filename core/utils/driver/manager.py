@@ -44,6 +44,10 @@ class Engine:
                 return self.driver.find_element(By.CSS_SELECTOR, element)
             elif self.excel.read(sheet, name)['type'] == 'XPATH':
                 return self.driver.find_element(By.XPATH, element)
+            elif self.excel.read(sheet, name)['type'] == 'LINK_TEXT':
+                return self.driver.find_element(By.LINK_TEXT, element)
+            elif self.excel.read(sheet, name)['type'] == 'CLASS_NAME':
+                return self.driver.find_element(By.CLASS_NAME, element)
 
     def embed_image_into_cell(self, sheet_name) -> None:
         ...
