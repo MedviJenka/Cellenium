@@ -23,8 +23,24 @@ class ExcelReader:
             cache[result['name']] = result
 
         if cache[value]['name']:
-            return {
-                'locator': cache[value]['locator'],
-                'type': cache[value]['type'],
-                'image': cache[value]['image']
-            }
+            try:
+                return {
+                    'name': cache[value]['name'],
+                    'locator': cache[value]['locator'],
+                    'type': cache[value]['type'],
+                    'image': cache[value]['image']
+                }
+            except Exception:
+                raise "no such name in the cell sheet"
+
+    def get_name(self, key: str, value: str) -> str:
+        return self.read(key, value)['name']
+
+    def get_locator(self, key: str, value: str) -> str:
+        return self.read(key, value)['locator']
+
+    def get_type(self, key: str, value: str) -> str:
+        return self.read(key, value)['type']
+
+    def get_image(self, key: str, value: str) -> str:
+        return self.read(key, value)['image']

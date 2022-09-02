@@ -11,12 +11,15 @@ class IntroPage(DriverManager, Engine):
     def navigate(self) -> None:
         self.get_element('FirstPage', 'search').send_keys('cats')
 
+    def find_button(self) -> None:
+        self.get_element('FirstPage', 'button')
+
     def exit_all(self):
         self.teardown()
 
 
 def test() -> None:
-    methods = ['setup', 'navigate', 'exit_all']
+    methods = ['setup', 'navigate', 'find_button', 'exit_all']
     RunMethods(class_name=IntroPage(), methods=methods).start()
 
 
