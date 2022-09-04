@@ -21,7 +21,7 @@ class DriverManager(ABC):
 
 
 @dataclass
-class Engine:
+class DriverEngine:
 
     driver = None
     excel = ExcelReader()
@@ -29,20 +29,18 @@ class Engine:
 
     def wait_for_element(self, element: str, seconds=3) -> None:
         wait = WebDriverWait(self.driver, seconds)
-        wait.until(expected_conditions.presence_of_element_located(element))
+        wait.until(expected_conditions.visibility_of_element_located(element))
 
     def get_element(self, sheet: str, name: str):
-        element_name = self.excel.get_name(sheet, name)
         element_locator = self.excel.get_locator(sheet, name)
         element_type  = self.excel.get_type(sheet, name)
-        path = self.config.read('path', 'screenshots')
         try:
             self.wait_for_element(self.excel.get_name(sheet, name))
         except NoSuchTypeException as e:
             raise e
         finally:
-
             if element_type == 'NAME':
+                self.embed_image_into_cell(element_locator, element_locator)
                 return self.driver.find_element(By.NAME, element_locator)
             elif element_type == 'ID':
                 return self.driver.find_element(By.ID, element_locator)
@@ -55,12 +53,10 @@ class Engine:
             elif element_type == 'CLASS_NAME':
                 return self.driver.find_element(By.CLASS_NAME, element_locator)
 
-        self.driver.find_element(By.NAME, element_locator).screenshot(fr'{ path }/{ element_name }.png')
-
-    def embed_image_into_cell(self, key, value, image_name: str) -> None:
+    def embed_image_into_cell(self, element_locator: str, element_name) -> None:
         path = self.config.read('path', 'screenshots')
-        return self.get_element(key, value).screenshot(fr'{ path }/{ image_name }.png')
-        # return save_img
+        self.driver.find_element(By.NAME, element_locator).screenshot(fr'{ path }/{ element_name }.png')
+        # self.excel.set_image_size_and_location_in_cell(image)
 
     def teardown(self) -> None:
         try:
