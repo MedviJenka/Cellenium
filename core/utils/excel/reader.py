@@ -9,7 +9,7 @@ class ExcelReader:
     config = ConfigReader()
     path: str = config.read('path', 'page_base')
 
-    def read(self, sheet_name: str, value: str) -> dict[str]:
+    def _read(self, sheet_name: str, value: str) -> dict[str]:
         workbook = openpyxl.load_workbook(self.path)
         sheet = workbook[sheet_name]
         cache = {}
@@ -34,13 +34,13 @@ class ExcelReader:
                 raise "no such name in the cell sheet"
 
     def get_name(self, key: str, value: str) -> str:
-        return self.read(key, value)['name']
+        return self._read(key, value)['name']
 
     def get_locator(self, key: str, value: str) -> str:
-        return self.read(key, value)['locator']
+        return self._read(key, value)['locator']
 
     def get_type(self, key: str, value: str) -> str:
-        return self.read(key, value)['type']
+        return self._read(key, value)['type']
 
     def get_image(self, key: str, value: str) -> str:
-        return self.read(key, value)['image']
+        return self._read(key, value)['image']

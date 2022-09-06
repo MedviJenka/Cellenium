@@ -1,9 +1,9 @@
 from dataclasses import dataclass
-from core.utils.driver.manager import DriverManager, Engine, RunMethods
+from core.utils.driver.manager import DriverManager, DriverEngine, RunTest
 
 
 @dataclass
-class IntroPage(DriverManager, Engine):
+class IntroPage(DriverManager, DriverEngine):
 
     def setup(self) -> None:
         self.driver.get('https://www.google.com')
@@ -14,13 +14,13 @@ class IntroPage(DriverManager, Engine):
     def find_button(self) -> None:
         self.get_element('FirstPage', 'button')
 
-    def exit_all(self):
+    def exit_all(self) -> None:
         self.teardown()
 
 
 def test() -> None:
     methods = ['setup', 'navigate', 'find_button', 'exit_all']
-    RunMethods(class_name=IntroPage(), methods=methods).start()
+    RunTest(class_name=IntroPage(), methods=methods).start()
 
 
 if __name__ == '__main__':
