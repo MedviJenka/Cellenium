@@ -30,7 +30,7 @@ class DriverEngine:
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element))
 
-    def get_element(self, sheet: str, name: str):
+    def get_element(self, sheet: str, name: str) -> driver:
 
         path = self.config.read('path', 'screenshots')
         element_name = self.excel.get_name(sheet, name)
