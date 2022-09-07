@@ -1,13 +1,20 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-from core.utils.config.reader import ConfigReader
+from dataclasses import dataclass
 
-config = ConfigReader()
 
-driver = webdriver.Chrome(service=Service(executable_path=ChromeDriverManager().install()), options=Options())
-driver.get("https://www.google.com")
-driver.find_element(By.NAME, 'q').screenshot(fr'{ config.read("path", "screenshots") }/img.png')
+@dataclass
+class App:
 
+    name: str = ""
+
+    @property
+    def person(self):
+        return self.name
+
+    @person.setter
+    def set_name(self, name):
+        self.name = name
+
+
+app = App("jenia")
+a = app.set_name()
+print(a)
