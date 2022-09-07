@@ -19,8 +19,12 @@ class IntroPage(DriverManager, DriverEngine):
 
 
 def test() -> None:
-    methods = ['setup', 'navigate', 'find_button', 'exit_all']
-    RunTest(class_name=IntroPage(), methods=methods).start()
+
+    run_test = RunTest(class_name=IntroPage())
+    run_test.start(['setup',
+                    'navigate',
+                    'find_button',
+                    'exit_all'])
 
 
 if __name__ == '__main__':

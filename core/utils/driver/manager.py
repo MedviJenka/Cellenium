@@ -12,6 +12,7 @@ from core.utils.excel.reader import ExcelReader
 from os import system
 
 
+@dataclass
 class DriverManager(ABC):
 
     _webdriver = ChromeDriverManager()
@@ -32,14 +33,13 @@ class DriverEngine:
 
     def get_element(self, sheet: str, name: str) -> driver:
 
-        path = self.config.read('path', 'screenshots')
         element_name = self.excel.get_name(sheet, name)
         element_locator = self.excel.get_locator(sheet, name)
         element_type = self.excel.get_type(sheet, name)
 
         if element_type == 'NAME':
             try:
-                self.driver.save_screenshot(fr'{ path }/{ element_name }.png')
+                self.embed_image_into_cell(element_name)
             finally:
                 return self.driver.find_element(By.NAME, element_locator)
 
@@ -56,13 +56,13 @@ class DriverEngine:
 
     def embed_image_into_cell(self, element_name: str) -> None:
         path = self.config.read('path', 'screenshots')
-        return self.driver.screenshot(fr'{ path }/{ element_name }.png')
+        return self.driver.save_screenshot(fr'{ path }/{ element_name }.png')
 
     def teardown(self) -> None:
         try:
             self.driver.close()
             self.driver.quit()
-        except IOError:
+        except not self.driver:
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
 
@@ -70,8 +70,7 @@ class DriverEngine:
 @dataclass
 class RunTest:
 
-    class_name: object
-    methods: list[str]
+    class_name: object = __name__
 
-    def start(self) -> None:
-        [getattr(self.class_name, each_method)() for each_method in self.methods]
+    def start(self, methods: list[str]) -> None:
+        [getattr(self.class_name, each_method)() for each_method in methods]
