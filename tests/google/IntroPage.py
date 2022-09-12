@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from core.utils.driver.manager import DriverManager, DriverEngine, RunTest
+from core.utils.driver.manager import DriverManager, DriverEngine
+from core.utils.driver.run_tests import RunTests
 
 
 @dataclass
@@ -20,7 +21,7 @@ class IntroPage(DriverManager, DriverEngine):
 
 def test() -> None:
 
-    run_test = RunTest(class_name=IntroPage())
+    run_test = RunTests(class_name=IntroPage())
     run_test.start(['setup',
                     'navigate',
                     'find_button',

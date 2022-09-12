@@ -1,20 +1,18 @@
-from dataclasses import dataclass
+from functools import wraps
 
 
-@dataclass
-class App:
-
-    name: str = ""
-
-    @property
-    def person(self):
-        return self.name
-
-    @person.setter
-    def set_name(self, name):
-        self.name = name
+def app(function) -> any:
+    @wraps(function)
+    def talk(*args, **kwargs) -> any:
+        print('hi')
+        return function(*args, **kwargs)
+    return talk
 
 
-app = App("jenia")
-a = app.set_name()
-print(a)
+@app
+def main() -> any:
+    return 1 + 1
+
+
+if __name__ == "__main__":
+    print(app)
