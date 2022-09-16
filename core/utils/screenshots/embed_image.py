@@ -1,20 +1,26 @@
-from core.utils.excel.reader import ExcelReader
+import xlsxwriter
+
 from core.utils.config.reader import ConfigReader
-import openpyxl
-from PIL import Image
+
+from dataclasses import dataclass
+
+from core.utils.excel.reader import ExcelReader
 
 
-config = ConfigReader()
+@dataclass
+class Screenshot:
 
-width = 900
-height = 900
+    excel = ExcelReader()
+    config = ConfigReader()
 
-img = Image.open(r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\utils\screenshots\img.png')
-img = img.resize((width, height), Image.NEAREST)
-img.save(config.read('path', 'page_base'))
-
-wb = openpyxl.Workbook()
-ws = wb.worksheets[0]
-img = openpyxl.drawing.image.Image(r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\utils\screenshots\img.png')
-ws.add_image(img,'F10')
-wb.save(config.read('path', 'page_base'))
+    def embed_image_into_cell(self, *args) -> None:
+        path = self.config.read('path', 'screenshots')
+        element = self.get_element(*args)
+        image_location = fr'{path}/{self.excel.get_name(*args)}.png'
+        try:
+            return element.save_screenshot(image_location)
+        finally:
+            workbook = xlsxwriter.Workbook(image_location)
+            worksheet = workbook.add_worksheet()
+            worksheet.insert_image(self.excel.get_image(*args), image_location)
+            workbook.close()

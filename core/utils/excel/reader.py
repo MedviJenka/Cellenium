@@ -8,8 +8,9 @@ class ExcelReader:
 
     config = ConfigReader()
     path: str = config.read('path', 'page_base')
+    screenshots: str = config.read('path', 'screenshots')
 
-    def read(self, sheet_name: str, value: str) -> dict[str]:
+    def _read(self, sheet_name: str, value: str) -> dict[str]:
         workbook = openpyxl.load_workbook(self.path)
         sheet = workbook[sheet_name]
         cache = {}
@@ -33,14 +34,22 @@ class ExcelReader:
             except Exception:
                 raise "no such name in the cell sheet"
 
-    def get_name(self, key: str, value: str) -> str:
-        return self.read(key, value)['name']
+    def get_name(self, *args: str) -> str:
+        return self._read(*args)['name']
 
-    def get_locator(self, key: str, value: str) -> str:
-        return self.read(key, value)['locator']
+    def get_locator(self, *args: str) -> str:
+        return self._read(*args)['locator']
 
-    def get_type(self, key: str, value: str) -> str:
-        return self.read(key, value)['type']
+    def get_type(self, *args: str) -> str:
+        return self._read(*args)['type']
 
-    def get_image(self, key: str, value: str) -> str:
-        return self.read(key, value)['image']
+    def get_image(self, *args: str) -> str:
+        return self._read(*args)['image']
+
+    def embed_image_into_cell(self, sheet: str, name: str, image: str) -> None:
+        wb = openpyxl.Workbook()
+        ws = wb.worksheets[0]
+        img = openpyxl.drawing.image.Image(fr'{ self.screenshots }/{ image }')
+        img.anchor(ws.cell(self.get_image(sheet, name)))
+        ws.add_image(img)
+        wb.save(self.path)
