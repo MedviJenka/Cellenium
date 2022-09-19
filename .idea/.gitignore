@@ -1,4 +1,4 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-core/utils/config/config.ini
+./config/config.ini
