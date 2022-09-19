@@ -1,18 +1,18 @@
 from functools import wraps
 
 
-def app(function) -> any:
-    @wraps(function)
-    def talk(*args, **kwargs) -> any:
-        print('hi')
-        return function(*args, **kwargs)
-    return talk
+def say_hi(func) -> callable:
+    @wraps(func)
+    def __call__() -> None:
+        print("hi")
+
+    return __call__
 
 
-@app
-def main() -> any:
-    return 1 + 1
+@say_hi
+def say_bye() -> None:
+    print("bye")
 
 
 if __name__ == "__main__":
-    print(app)
+    say_bye()

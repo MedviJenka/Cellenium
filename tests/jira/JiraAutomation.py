@@ -1,5 +1,5 @@
-from core.utils.driver.manager import *
 from dataclasses import dataclass
+from core.utils.driver.manager import DriverManager, DriverEngine
 from core.utils.config.reader import ConfigReader
 from core.utils.driver.run_tests import RunTests
 
@@ -21,14 +21,13 @@ class WorkLog(DriverManager, DriverEngine):
     def navigate(self) -> None:
         self.get_element('Jira', 'drop_down').click()
         self.get_element('Jira', 'log_work').click()
-        self.get_element('Jira', 'time_spent').send_keys(self.config.read('jira', 'work_hours'))
+        self.get_element('Jira', 'time_spent').send_keys(f"{self.config.read('jira', 'work_hours')}h")
 
     def set_day(self) -> None:
         self.get_element('Jira', 'date').click()
         self._submit()
 
     def _submit(self) -> None:
-        self.get_element('Jira', 'log').click()
         self.get_element('Jira', 'log').click()
 
     def exit_all(self) -> None:
