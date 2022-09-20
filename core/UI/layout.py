@@ -1,5 +1,6 @@
 from dash import Dash, html
 from core.UI import dropdown
+import bar_chart
 
 
 def create_layout(app: Dash) -> html.Div:
@@ -13,6 +14,12 @@ def create_layout(app: Dash) -> html.Div:
                 children=[
                     dropdown.render(app)
                 ]
-            )
-        ]
+            ),
+            bar_chart.render(app),
+        ],
+        style={
+            'margin': 'auto',
+            'text-align': 'center',
+            'weight': 'bold'
+        }
     )
