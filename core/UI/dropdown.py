@@ -25,7 +25,10 @@ def render(app: Dash) -> html.Div:
                 id=ids.TESTS_DROPDOWN,
                 multi=True,
                 options=[{'label': test, 'value': test} for test in tests],
-                value=tests
+                value=tests,
+                style={
+                    'color': 'gray'
+                }
             ),
             html.Button(
                 id=ids.SELECT_ALL_TESTS,
@@ -33,8 +36,10 @@ def render(app: Dash) -> html.Div:
                 children=['select all'],
                 key=print("ok"),
                 style={
+                    'margin-top': '10px',
+                    'border-radius': '7px',
                     'height': '10%',
-                    'width': '100%',
+                    'width': '25%',
                     'backgroundColor': 'RGBA(144,238,144,50)',
                     'fontSize': '20px',
                     'fontWeight': 'bold'

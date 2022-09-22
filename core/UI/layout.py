@@ -15,7 +15,6 @@ def create_layout(app: Dash) -> html.Div:
                     dropdown.render(app)
                 ]
             ),
-            bar_chart.render(app),
         ],
         style={
             'margin': 'auto',

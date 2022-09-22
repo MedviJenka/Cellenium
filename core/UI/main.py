@@ -1,11 +1,11 @@
 from dash import Dash
-from dash_bootstrap_components.themes import DARKLY, BOOTSTRAP
+from dash_bootstrap_components.themes import DARKLY
 from core.UI.layout import create_layout
 
 
 def main() -> None:
     app = Dash(external_stylesheets=[DARKLY])
-    app.title = 'Test Report'
+    app.title = 'Report'
     app.layout = create_layout(app)
     app.run_server()
 
