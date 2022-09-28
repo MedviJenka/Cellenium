@@ -13,6 +13,7 @@
         <list>
           <option value="requests.models.Response.__getitem__" />
           <option value="openpyxl.drawing" />
+          <option value="str.read" />
         </list>
       </option>
     </inspection_tool>

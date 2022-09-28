@@ -1,6 +1,20 @@
 import openpyxl
 from dataclasses import dataclass
 from core.utils.config.reader import ConfigReader
+import csv
+
+
+import pandas as pd
+
+
+df = pd.read_csv('nations.csv')
+print(df)
+print('\n')
+
+for country in df['Country']:
+    print(country)
+
+
 
 
 @dataclass
@@ -53,3 +67,29 @@ class ExcelReader:
         img.anchor(ws.cell(self.get_image(sheet, name)))
         ws.add_image(img)
         wb.save(self.path)
+
+
+@dataclass
+class TestsPage:
+
+    config: str = ConfigReader()
+
+    def read(self) -> list[str]:
+        path = self.config.read('path', 'tests_page')
+        with open(path) as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            for each_row in csv_reader:
+                return each_row
+
+
+config = ConfigReader()
+
+
+def test() -> None:
+    csvReader = csv.DictReader(open(config.read('path', 'tests_page')))
+    for row in csvReader:
+        print(row)
+
+
+if __name__ == '__main__':
+    test()

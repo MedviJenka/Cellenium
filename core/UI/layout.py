@@ -1,11 +1,13 @@
 from dash import Dash, html
 from core.UI import dropdown
 import bar_chart
+import css
 
 
 def create_layout(app: Dash) -> html.Div:
     return html.Div(
-        className='app-div',
+        style=css.layout,
+        className='app',
         children=[
             html.H1(app.title),
             html.Hr(),
@@ -15,10 +17,6 @@ def create_layout(app: Dash) -> html.Div:
                     dropdown.render(app)
                 ]
             ),
+            html.Hr()
         ],
-        style={
-            'margin': 'auto',
-            'text-align': 'center',
-            'weight': 'bold'
-        }
     )
