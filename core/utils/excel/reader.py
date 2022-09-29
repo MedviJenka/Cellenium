@@ -4,19 +4,6 @@ from core.utils.config.reader import ConfigReader
 import csv
 
 
-import pandas as pd
-
-
-df = pd.read_csv('nations.csv')
-print(df)
-print('\n')
-
-for country in df['Country']:
-    print(country)
-
-
-
-
 @dataclass
 class ExcelReader:
 

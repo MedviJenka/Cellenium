@@ -14,6 +14,7 @@ from os import system
 from core.utils.screenshots.embed_image import Screenshot
 
 
+@dataclass
 class DriverManager(ABC):
 
     _webdriver = ChromeDriverManager()
