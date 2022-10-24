@@ -2,7 +2,6 @@ import logging
 import datetime
 from dataclasses import dataclass
 from core.utils.config.reader import ConfigReader
-import functools
 
 
 @dataclass

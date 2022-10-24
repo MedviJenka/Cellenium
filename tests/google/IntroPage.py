@@ -6,13 +6,13 @@ from core.utils.driver.run_tests import RunTests
 @dataclass
 class IntroPage(DriverManager, DriverEngine):
 
-    def setup(self) -> None:
-        self.driver.get('https://www.google.com')
+    def setup(self):
+        return self.get_web('https://www.google.com')
 
-    def navigate(self) -> None:
-        self.get_element('FirstPage', 'search').send_keys('cats')
+    def navigate(self):
+        return self.get_element('FirstPage', 'search').send_keys('cats')
 
-    def find_button(self) -> None:
+    def find_button(self):
         self.get_element('FirstPage', 'button')
 
     def exit_all(self) -> None:
@@ -20,9 +20,9 @@ class IntroPage(DriverManager, DriverEngine):
 
 
 def test() -> None:
-
-    run_test = RunTests(class_name=IntroPage())
-    run_test.start(['setup',
+    run_test = RunTests()
+    run_test.start(IntroPage(),
+                   ['setup',
                     'navigate',
                     'find_button',
                     'exit_all'])

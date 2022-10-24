@@ -30,6 +30,10 @@ class DriverEngine:
     config = ConfigReader()
     screenshot = Screenshot()
 
+    def get_web(self, value: str) -> None:
+        self.driver.get(value)
+        self.driver.maximize_window()
+
     def wait_for_element(self, element: str, seconds=3) -> None:
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element))
