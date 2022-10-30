@@ -1,4 +1,4 @@
-from core.utils.driver.run_tests import RunTests
+from core.components.driver.run_tests import RunTests
 from tests.google.IntroPage import IntroPage
 from tests.jira.JiraAutomation import WorkLog
 from tests.weathermap.CityWeather import TestCityWeather

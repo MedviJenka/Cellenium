@@ -1,10 +1,10 @@
 import xlsxwriter
 
-from core.utils.config.reader import ConfigReader
+from core.components.config.reader import ConfigReader
 
 from dataclasses import dataclass
 
-from core.utils.excel.reader import ExcelReader
+from core.components.excel.reader import ExcelReader
 
 
 @dataclass

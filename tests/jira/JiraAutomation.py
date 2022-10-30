@@ -1,7 +1,7 @@
 from dataclasses import dataclass
-from core.utils.driver.manager import DriverManager, DriverEngine
-from core.utils.config.reader import ConfigReader
-from core.utils.driver.run_tests import RunTests
+from core.components.driver.manager import DriverManager, DriverEngine
+from core.components.config.reader import ConfigReader
+from core.components.driver.run_tests import RunTests
 
 
 @dataclass

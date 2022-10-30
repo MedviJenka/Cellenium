@@ -1,7 +1,7 @@
 import logging
 import datetime
 from dataclasses import dataclass
-from core.utils.config.reader import ConfigReader
+from core.components.config.reader import ConfigReader
 
 
 @dataclass
@@ -25,11 +25,10 @@ class LogGenerator:
         return log.info(self.name)
 
 
-@LogGenerator
-def app():
-    return 1
-
-
-if __name__ == '__main__':
-    app()
-
+# @LogGenerator
+# def app():
+#     return 1
+#
+#
+# if __name__ == '__main__':
+#     app()

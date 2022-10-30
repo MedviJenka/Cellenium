@@ -1,4 +1,4 @@
-from core.utils.driver.manager import DriverManager
+from core.components.driver.manager import DriverManager
 from functools import wraps
 
 

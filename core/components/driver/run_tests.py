@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from core.utils.logs.generator import get_logger
+from core.components.logs.generator import get_logger
 
 
 @dataclass

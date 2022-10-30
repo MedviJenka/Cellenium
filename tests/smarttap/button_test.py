@@ -1,5 +1,5 @@
-from core.utils.driver.manager import DriverManager, DriverEngine
-from core.utils.driver.run_tests import RunTests
+from core.components.driver.manager import DriverManager, DriverEngine
+from core.components.driver.run_tests import RunTests
 from selenium.webdriver.common.action_chains import ActionChains
 
 

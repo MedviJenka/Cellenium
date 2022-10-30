@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from core.utils.driver.run_tests import RunTests
+from core.components.driver.run_tests import RunTests
 from core.api.requests.manager import RestRequests
 
 

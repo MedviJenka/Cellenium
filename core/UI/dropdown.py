@@ -1,6 +1,6 @@
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
-from core.utils.excel.reader import ExcelReader
+from core.components.excel.reader import ExcelReader
 import ids
 import css
 

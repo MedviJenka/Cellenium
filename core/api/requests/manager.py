@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from requests import Response
-from core.utils.config.reader import ConfigReader
+from core.components.config.reader import ConfigReader
 import datetime
 import requests
 

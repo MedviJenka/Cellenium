@@ -1,5 +1,5 @@
 from os import system
-from core.utils.config.reader import ConfigReader
+from core.components.config.reader import ConfigReader
 
 
 config = ConfigReader()

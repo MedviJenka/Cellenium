@@ -1,6 +1,6 @@
 import openpyxl
 from dataclasses import dataclass
-from core.utils.config.reader import ConfigReader
+from core.components.config.reader import ConfigReader
 import csv
 
 

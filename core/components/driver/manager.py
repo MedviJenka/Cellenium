@@ -8,10 +8,10 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from abc import ABC
-from core.utils.config.reader import ConfigReader
-from core.utils.excel.reader import ExcelReader
+from core.components.config.reader import ConfigReader
+from core.components.excel.reader import ExcelReader
 from os import system
-from core.utils.screenshots.embed_image import Screenshot
+from core.components.screenshots.embed_image import Screenshot
 
 
 @dataclass
