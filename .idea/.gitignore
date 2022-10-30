@@ -1,5 +1,5 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/config.ini/
-/jenkins.war/
+/config.ini
+/jenkins.war

@@ -39,7 +39,6 @@ class DriverEngine:
         wait.until(expected_conditions.visibility_of_element_located(element))
 
     def get_element(self, sheet: str, name: str) -> driver:
-
         # element_name = self.excel.get_name(sheet, name)
         element_locator = self.excel.get_locator(sheet, name)
         element_type = self.excel.get_type(sheet, name)

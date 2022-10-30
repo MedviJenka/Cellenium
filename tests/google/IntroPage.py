@@ -1,10 +1,13 @@
 from dataclasses import dataclass
 from core.components.driver.manager import DriverManager, DriverEngine
 from core.components.driver.run_tests import RunTests
+from core.components.logs.dummy import Log
 
 
 @dataclass
 class IntroPage(DriverManager, DriverEngine):
+
+    log = Log()
 
     def setup(self):
         return self.get_web('https://www.google.com')
