@@ -1,16 +1,13 @@
 from dataclasses import dataclass
 from core.components.driver.manager import DriverManager, DriverEngine
 from core.components.driver.run_tests import RunTests
-from core.components.logs.dummy import Log
 
 
 @dataclass
 class IntroPage(DriverManager, DriverEngine):
 
-    log = Log()
-
     def setup(self):
-        return self.get_web('https://www.google.com')
+        return self.get_web(web_link='https://www.google.com')
 
     def navigate(self):
         return self.get_element('FirstPage', 'search').send_keys('cats')
@@ -22,7 +19,7 @@ class IntroPage(DriverManager, DriverEngine):
         self.teardown()
 
 
-def test() -> None:
+def main() -> None:
     run_test = RunTests()
     run_test.start(IntroPage(),
                    ['setup',
@@ -32,4 +29,4 @@ def test() -> None:
 
 
 if __name__ == '__main__':
-    test()
+    main()

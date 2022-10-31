@@ -7,31 +7,44 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from abc import ABC
 from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
 from core.components.screenshots.embed_image import Screenshot
+import pytest
 
 
 @dataclass
 class DriverManager(ABC):
 
     _chrome_webdriver  = ChromeDriverManager()
-    _options = Options()
-    driver = webdriver.Chrome(service=Service(executable_path=_chrome_webdriver.install()), options=_options)
+    _firefox_webdriver = GeckoDriverManager()
+    _edge_webdriver    = EdgeChromiumDriverManager()
 
 
 @dataclass
-class DriverEngine:
+class DriverEngine(DriverManager):
 
     driver = None
     excel = ExcelReader()
     config = ConfigReader()
     screenshot = Screenshot()
+    _options = Options()
 
-    def get_web(self, web_link: str) -> None:
-        self.driver.get(web_link)
+    def get_web(self, request: webdriver, value: str) -> None:
+
+        if request == 'chrome':
+            self.driver = webdriver.Chrome(service=Service(executable_path=self._chrome_webdriver.install()), options=self._options)
+        elif request == 'firefox':
+            self.driver = webdriver.Edge(service=Service(executable_path=self._edge_webdriver.install()), options=self._options)
+        elif request == 'edge':
+            self.driver = webdriver.Firefox(service=Service(executable_path=self._firefox_webdriver.install()), options=self._options)
+        else:
+            raise 'No such driver class '
+        self.driver.get(value)
         self.driver.maximize_window()
 
     def wait_for_element(self, element: str, seconds=3) -> None:
