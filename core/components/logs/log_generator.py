@@ -21,6 +21,9 @@ def log(function):
 """
 
 
+
+
+
 @dataclass
 class Log:
 
@@ -38,4 +41,8 @@ class Log:
     def get_log() -> logging:
         logger = logging.getLogger()
         logger.setLevel('INFO')
-        logging.warning(__name__)
+        logger.setLevel('DEBUG')
+        logger.setLevel('WARNING')
+        logger.setLevel('ERROR')
+        logger.setLevel('FATAL')
+
