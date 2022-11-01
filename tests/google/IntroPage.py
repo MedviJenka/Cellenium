@@ -7,9 +7,7 @@ from core.components.driver.run_tests import RunTests
 class IntroPage(DriverEngine):
 
     def setup(self):
-        return self.get_web(web_driver='chrome',
-                            web_link='https://www.google.com',
-                            maximize_window=True)
+        return self.get_web(web_link='https://www.google.com', maximize_window=True)
 
     def navigate(self):
         return self.get_element('FirstPage', 'search').send_keys('cats')

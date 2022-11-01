@@ -19,7 +19,7 @@ class ServiceManager:
 
     chrome_driver = ChromeDriverManager()
 
-    def get_service(self, value='chrome'):
+    def set_service(self, value='chrome'):
         if value:
             return Service(executable_path=self.chrome_driver.install())
 
@@ -29,7 +29,7 @@ class DriverManager(ABC):
 
     _options = Options()
     service = ServiceManager()
-    driver: None = webdriver.Chrome(service=service.get_service(), options=_options)
+    driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
 
 
 @dataclass
@@ -49,7 +49,7 @@ class DriverEngine(DriverManager):
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element))
 
-    def get_element(self, sheet: str, name: str) -> DriverManager:
+    def get_element(self, sheet: str, name: str) -> DriverManager().driver:
         # element_name = self.excel.get_name(sheet, name)
         element_locator = self.excel.get_locator(sheet, name)
         element_type = self.excel.get_type(sheet, name)
