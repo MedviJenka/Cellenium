@@ -1,0 +1,692 @@
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:POST http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff/url {"url": "https://www.google.com"}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "POST /session/e51f9a3f167b9ec5c6205a5aa67f16ff/url HTTP/1.1" 200 14
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:POST http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff/window/maximize {}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "POST /session/e51f9a3f167b9ec5c6205a5aa67f16ff/window/maximize HTTP/1.1" 200 51
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:POST http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff/element {"using": "css selector", "value": "[name=\"q\"]"}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "POST /session/e51f9a3f167b9ec5c6205a5aa67f16ff/element HTTP/1.1" 200 88
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"0054fccc-3362-46a0-9e80-5fe16a5cb606"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:POST http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff/element/0054fccc-3362-46a0-9e80-5fe16a5cb606/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "0054fccc-3362-46a0-9e80-5fe16a5cb606"}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "POST /session/e51f9a3f167b9ec5c6205a5aa67f16ff/element/0054fccc-3362-46a0-9e80-5fe16a5cb606/value HTTP/1.1" 200 14
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:POST http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "POST /session/e51f9a3f167b9ec5c6205a5aa67f16ff/element HTTP/1.1" 200 88
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"d6fbe895-948a-4b17-b334-b1653a57f9bd"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:DELETE http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff/window {}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "DELETE /session/e51f9a3f167b9ec5c6205a5aa67f16ff/window HTTP/1.1" 200 12
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:DELETE http://localhost:49953/session/e51f9a3f167b9ec5c6205a5aa67f16ff {}
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:http://localhost:49953 "DELETE /session/e51f9a3f167b9ec5c6205a5aa67f16ff HTTP/1.1" 200 14
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Monday | October | 31/10/22 | 20:51:35 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:POST http://localhost:53146/session/2f6b368ae3baed9db61ff144ad3b6405/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:http://localhost:53146 "POST /session/2f6b368ae3baed9db61ff144ad3b6405/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:POST http://localhost:53146/session/2f6b368ae3baed9db61ff144ad3b6405/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:http://localhost:53146 "POST /session/2f6b368ae3baed9db61ff144ad3b6405/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"b29cdac8-662c-4901-a5c0-28be269986a9"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:POST http://localhost:53146/session/2f6b368ae3baed9db61ff144ad3b6405/element/b29cdac8-662c-4901-a5c0-28be269986a9/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "b29cdac8-662c-4901-a5c0-28be269986a9"}
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:http://localhost:53146 "POST /session/2f6b368ae3baed9db61ff144ad3b6405/element/b29cdac8-662c-4901-a5c0-28be269986a9/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:POST http://localhost:53146/session/2f6b368ae3baed9db61ff144ad3b6405/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:http://localhost:53146 "POST /session/2f6b368ae3baed9db61ff144ad3b6405/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"e6d08223-3ed0-4451-97ec-7e2ec1879351"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:DELETE http://localhost:53146/session/2f6b368ae3baed9db61ff144ad3b6405/window {}
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:http://localhost:53146 "DELETE /session/2f6b368ae3baed9db61ff144ad3b6405/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:DELETE http://localhost:53146/session/2f6b368ae3baed9db61ff144ad3b6405 {}
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:http://localhost:53146 "DELETE /session/2f6b368ae3baed9db61ff144ad3b6405 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:14:52 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:23 |:DEBUG:POST http://localhost:53189/session/540d60d97498fdf4e2981d4ed0a4631f/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:15:23 |:DEBUG:http://localhost:53189 "POST /session/540d60d97498fdf4e2981d4ed0a4631f/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:15:23 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:POST http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "POST /session/4333af698f7c0cf9bedc0170715601c1/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:POST http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1/window/maximize {}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "POST /session/4333af698f7c0cf9bedc0170715601c1/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:POST http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "POST /session/4333af698f7c0cf9bedc0170715601c1/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"7f9fa747-70df-40fa-bfe3-b3e94a5c5504"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:POST http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1/element/7f9fa747-70df-40fa-bfe3-b3e94a5c5504/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "7f9fa747-70df-40fa-bfe3-b3e94a5c5504"}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "POST /session/4333af698f7c0cf9bedc0170715601c1/element/7f9fa747-70df-40fa-bfe3-b3e94a5c5504/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:POST http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "POST /session/4333af698f7c0cf9bedc0170715601c1/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"1e4f5934-33b4-45c4-a042-e3952f128ec7"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:DELETE http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1/window {}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "DELETE /session/4333af698f7c0cf9bedc0170715601c1/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:DELETE http://localhost:53226/session/4333af698f7c0cf9bedc0170715601c1 {}
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:http://localhost:53226 "DELETE /session/4333af698f7c0cf9bedc0170715601c1 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:15:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:22:34 |:DEBUG:POST http://localhost:53679/session/f7093efc5a18165b007fe009a152f989/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:22:34 |:DEBUG:http://localhost:53679 "POST /session/f7093efc5a18165b007fe009a152f989/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:22:34 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:22:34 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:POST http://localhost:53716/session/63c5aa11dfb8085aa2d5a272e41bcdaa/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:http://localhost:53716 "POST /session/63c5aa11dfb8085aa2d5a272e41bcdaa/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:POST http://localhost:53716/session/63c5aa11dfb8085aa2d5a272e41bcdaa/window/maximize {}
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:http://localhost:53716 "POST /session/63c5aa11dfb8085aa2d5a272e41bcdaa/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:13 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:POST http://localhost:53751/session/f3a193b32cccbc8af6b9d24285f7a8c8/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:http://localhost:53751 "POST /session/f3a193b32cccbc8af6b9d24285f7a8c8/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:POST http://localhost:53751/session/f3a193b32cccbc8af6b9d24285f7a8c8/window/maximize {}
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:http://localhost:53751 "POST /session/f3a193b32cccbc8af6b9d24285f7a8c8/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:POST http://localhost:53751/session/f3a193b32cccbc8af6b9d24285f7a8c8/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:http://localhost:53751 "POST /session/f3a193b32cccbc8af6b9d24285f7a8c8/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"3537c04c-4ef2-45ba-93eb-060558088dd5"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:POST http://localhost:53751/session/f3a193b32cccbc8af6b9d24285f7a8c8/element/3537c04c-4ef2-45ba-93eb-060558088dd5/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "3537c04c-4ef2-45ba-93eb-060558088dd5"}
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:http://localhost:53751 "POST /session/f3a193b32cccbc8af6b9d24285f7a8c8/element/3537c04c-4ef2-45ba-93eb-060558088dd5/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:POST http://localhost:53751/session/f3a193b32cccbc8af6b9d24285f7a8c8/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:http://localhost:53751 "POST /session/f3a193b32cccbc8af6b9d24285f7a8c8/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"8e73a9c1-84bf-455b-aaf2-2491242ec951"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:29 |:DEBUG:DELETE http://localhost:53751/session/f3a193b32cccbc8af6b9d24285f7a8c8/window {}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:POST http://localhost:53776/session/f25aa64c275f3b79a924f7f155d5d851/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:http://localhost:53776 "POST /session/f25aa64c275f3b79a924f7f155d5d851/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:POST http://localhost:53776/session/f25aa64c275f3b79a924f7f155d5d851/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:http://localhost:53776 "POST /session/f25aa64c275f3b79a924f7f155d5d851/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"5985e3e2-c957-4a54-b0d6-7e7e82bd6ab8"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:POST http://localhost:53776/session/f25aa64c275f3b79a924f7f155d5d851/element/5985e3e2-c957-4a54-b0d6-7e7e82bd6ab8/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "5985e3e2-c957-4a54-b0d6-7e7e82bd6ab8"}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:http://localhost:53776 "POST /session/f25aa64c275f3b79a924f7f155d5d851/element/5985e3e2-c957-4a54-b0d6-7e7e82bd6ab8/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:POST http://localhost:53776/session/f25aa64c275f3b79a924f7f155d5d851/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:http://localhost:53776 "POST /session/f25aa64c275f3b79a924f7f155d5d851/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"bfe4ca78-7c13-46aa-87e4-0fbf258ef984"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:DELETE http://localhost:53776/session/f25aa64c275f3b79a924f7f155d5d851/window {}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:http://localhost:53776 "DELETE /session/f25aa64c275f3b79a924f7f155d5d851/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:DELETE http://localhost:53776/session/f25aa64c275f3b79a924f7f155d5d851 {}
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:http://localhost:53776 "DELETE /session/f25aa64c275f3b79a924f7f155d5d851 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:23:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:33:43 |:DEBUG:POST http://localhost:54526/session/b2d3d1ac692f33dc487795976f15621a/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:33:43 |:DEBUG:http://localhost:54526 "POST /session/b2d3d1ac692f33dc487795976f15621a/element HTTP/1.1" 404 1643
+Tuesday | November | 01/11/22 | 01:33:43 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: MicrosoftEdge=107.0.1418.24)","stacktrace":"Backtrace:\n\tMicrosoft::Applications::Events::EventProperties::SetProperty [0x00007FF7AA488592+9986]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA425DC2+1445298]\n\tOrdinal0 [0x00007FF7AA00FC8C+654476]\n\tOrdinal0 [0x00007FF7AA0536C2+931522]\n\tOrdinal0 [0x00007FF7AA053B10+932624]\n\tOrdinal0 [0x00007FF7AA08FC17+1178647]\n\tOrdinal0 [0x00007FF7AA073BDF+1063903]\n\tOrdinal0 [0x00007FF7AA045FF4+876532]\n\tOrdinal0 [0x00007FF7AA08CF70+1167216]\n\tOrdinal0 [0x00007FF7AA0739B3+1063347]\n\tOrdinal0 [0x00007FF7AA04506A+872554]\n\tOrdinal0 [0x00007FF7AA04402E+868398]\n\tOrdinal0 [0x00007FF7AA04570F+874255]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2E6108+135416]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D02CF+45759]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D374C+59196]\n\tOrdinal0 [0x00007FF7AA11B1F4+1749492]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42B6BA+1468074]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42FF54+1486660]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA4300AD+1487005]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA437E6B+1519195]\n\tBaseThreadInitThunk [0x00007FFD032B54E0+16]\n\tRtlUserThreadStart [0x00007FFD03E0485B+43]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1643', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:33:43 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:34:13 |:DEBUG:POST http://localhost:54567/session/2786f3308271c5009e125767e8d12aac/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:34:13 |:DEBUG:http://localhost:54567 "POST /session/2786f3308271c5009e125767e8d12aac/element HTTP/1.1" 404 1643
+Tuesday | November | 01/11/22 | 01:34:13 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: MicrosoftEdge=107.0.1418.24)","stacktrace":"Backtrace:\n\tMicrosoft::Applications::Events::EventProperties::SetProperty [0x00007FF7AA488592+9986]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA425DC2+1445298]\n\tOrdinal0 [0x00007FF7AA00FC8C+654476]\n\tOrdinal0 [0x00007FF7AA0536C2+931522]\n\tOrdinal0 [0x00007FF7AA053B10+932624]\n\tOrdinal0 [0x00007FF7AA08FC17+1178647]\n\tOrdinal0 [0x00007FF7AA073BDF+1063903]\n\tOrdinal0 [0x00007FF7AA045FF4+876532]\n\tOrdinal0 [0x00007FF7AA08CF70+1167216]\n\tOrdinal0 [0x00007FF7AA0739B3+1063347]\n\tOrdinal0 [0x00007FF7AA04506A+872554]\n\tOrdinal0 [0x00007FF7AA04402E+868398]\n\tOrdinal0 [0x00007FF7AA04570F+874255]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2E6108+135416]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D02CF+45759]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D374C+59196]\n\tOrdinal0 [0x00007FF7AA11B1F4+1749492]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42B6BA+1468074]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42FF54+1486660]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA4300AD+1487005]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA437E6B+1519195]\n\tBaseThreadInitThunk [0x00007FFD032B54E0+16]\n\tRtlUserThreadStart [0x00007FFD03E0485B+43]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1643', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:34:13 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:34:38 |:DEBUG:POST http://localhost:54603/session/1baced8f7c58904a6e0cca586b23ed07/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:34:38 |:DEBUG:http://localhost:54603 "POST /session/1baced8f7c58904a6e0cca586b23ed07/element HTTP/1.1" 404 1643
+Tuesday | November | 01/11/22 | 01:34:38 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: MicrosoftEdge=107.0.1418.24)","stacktrace":"Backtrace:\n\tMicrosoft::Applications::Events::EventProperties::SetProperty [0x00007FF7AA488592+9986]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA425DC2+1445298]\n\tOrdinal0 [0x00007FF7AA00FC8C+654476]\n\tOrdinal0 [0x00007FF7AA0536C2+931522]\n\tOrdinal0 [0x00007FF7AA053B10+932624]\n\tOrdinal0 [0x00007FF7AA08FC17+1178647]\n\tOrdinal0 [0x00007FF7AA073BDF+1063903]\n\tOrdinal0 [0x00007FF7AA045FF4+876532]\n\tOrdinal0 [0x00007FF7AA08CF70+1167216]\n\tOrdinal0 [0x00007FF7AA0739B3+1063347]\n\tOrdinal0 [0x00007FF7AA04506A+872554]\n\tOrdinal0 [0x00007FF7AA04402E+868398]\n\tOrdinal0 [0x00007FF7AA04570F+874255]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2E6108+135416]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D02CF+45759]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D374C+59196]\n\tOrdinal0 [0x00007FF7AA11B1F4+1749492]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42B6BA+1468074]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42FF54+1486660]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA4300AD+1487005]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA437E6B+1519195]\n\tBaseThreadInitThunk [0x00007FFD032B54E0+16]\n\tRtlUserThreadStart [0x00007FFD03E0485B+43]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1643', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:34:38 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:35:30 |:DEBUG:POST http://localhost:54659/session/7ea2bccd311a6f1bddec019090701934/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:35:30 |:DEBUG:http://localhost:54659 "POST /session/7ea2bccd311a6f1bddec019090701934/element HTTP/1.1" 404 1643
+Tuesday | November | 01/11/22 | 01:35:30 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: MicrosoftEdge=107.0.1418.24)","stacktrace":"Backtrace:\n\tMicrosoft::Applications::Events::EventProperties::SetProperty [0x00007FF7AA488592+9986]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA425DC2+1445298]\n\tOrdinal0 [0x00007FF7AA00FC8C+654476]\n\tOrdinal0 [0x00007FF7AA0536C2+931522]\n\tOrdinal0 [0x00007FF7AA053B10+932624]\n\tOrdinal0 [0x00007FF7AA08FC17+1178647]\n\tOrdinal0 [0x00007FF7AA073BDF+1063903]\n\tOrdinal0 [0x00007FF7AA045FF4+876532]\n\tOrdinal0 [0x00007FF7AA08CF70+1167216]\n\tOrdinal0 [0x00007FF7AA0739B3+1063347]\n\tOrdinal0 [0x00007FF7AA04506A+872554]\n\tOrdinal0 [0x00007FF7AA04402E+868398]\n\tOrdinal0 [0x00007FF7AA04570F+874255]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2E6108+135416]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D02CF+45759]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D374C+59196]\n\tOrdinal0 [0x00007FF7AA11B1F4+1749492]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42B6BA+1468074]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42FF54+1486660]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA4300AD+1487005]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA437E6B+1519195]\n\tBaseThreadInitThunk [0x00007FFD032B54E0+16]\n\tRtlUserThreadStart [0x00007FFD03E0485B+43]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1643', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:35:30 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:POST http://localhost:54772/session/62297dac8ea712f9d3f5836fb2a13219/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:http://localhost:54772 "POST /session/62297dac8ea712f9d3f5836fb2a13219/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:POST http://localhost:54772/session/62297dac8ea712f9d3f5836fb2a13219/window/maximize {}
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:http://localhost:54772 "POST /session/62297dac8ea712f9d3f5836fb2a13219/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:POST http://localhost:54785/session/0d945fcc200032ed577326c915b744e9/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:http://localhost:54785 "POST /session/0d945fcc200032ed577326c915b744e9/element HTTP/1.1" 404 1643
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: MicrosoftEdge=107.0.1418.24)","stacktrace":"Backtrace:\n\tMicrosoft::Applications::Events::EventProperties::SetProperty [0x00007FF7AA488592+9986]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA425DC2+1445298]\n\tOrdinal0 [0x00007FF7AA00FC8C+654476]\n\tOrdinal0 [0x00007FF7AA0536C2+931522]\n\tOrdinal0 [0x00007FF7AA053B10+932624]\n\tOrdinal0 [0x00007FF7AA08FC17+1178647]\n\tOrdinal0 [0x00007FF7AA073BDF+1063903]\n\tOrdinal0 [0x00007FF7AA045FF4+876532]\n\tOrdinal0 [0x00007FF7AA08CF70+1167216]\n\tOrdinal0 [0x00007FF7AA0739B3+1063347]\n\tOrdinal0 [0x00007FF7AA04506A+872554]\n\tOrdinal0 [0x00007FF7AA04402E+868398]\n\tOrdinal0 [0x00007FF7AA04570F+874255]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2E6108+135416]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D02CF+45759]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA2D374C+59196]\n\tOrdinal0 [0x00007FF7AA11B1F4+1749492]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42B6BA+1468074]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA42FF54+1486660]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA4300AD+1487005]\n\tMicrosoft::Applications::Events::EventProperty::EventProperty [0x00007FF7AA437E6B+1519195]\n\tBaseThreadInitThunk [0x00007FFD032B54E0+16]\n\tRtlUserThreadStart [0x00007FFD03E0485B+43]\n"}} | headers=HTTPHeaderDict({'Content-Length': '1643', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:37:24 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:POST http://localhost:54884/session/518a903bce001284fa48a617f01da143/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:http://localhost:54884 "POST /session/518a903bce001284fa48a617f01da143/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:POST http://localhost:54884/session/518a903bce001284fa48a617f01da143/window/maximize {}
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:http://localhost:54884 "POST /session/518a903bce001284fa48a617f01da143/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:POST http://localhost:54884/session/518a903bce001284fa48a617f01da143/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:http://localhost:54884 "POST /session/518a903bce001284fa48a617f01da143/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"5dcad1e0-49cc-4b28-b258-8f0fa842602d"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:POST http://localhost:54884/session/518a903bce001284fa48a617f01da143/element/5dcad1e0-49cc-4b28-b258-8f0fa842602d/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "5dcad1e0-49cc-4b28-b258-8f0fa842602d"}
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:http://localhost:54884 "POST /session/518a903bce001284fa48a617f01da143/element/5dcad1e0-49cc-4b28-b258-8f0fa842602d/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:POST http://localhost:54884/session/518a903bce001284fa48a617f01da143/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:http://localhost:54884 "POST /session/518a903bce001284fa48a617f01da143/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"421c6b51-db89-4014-9666-b0dfda5c6c72"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:39:50 |:DEBUG:DELETE http://localhost:54884/session/518a903bce001284fa48a617f01da143/window {}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:POST http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "POST /session/f11f450600ffcb61ef91db5185c1a6f3/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:POST http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3/window/maximize {}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "POST /session/f11f450600ffcb61ef91db5185c1a6f3/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:POST http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "POST /session/f11f450600ffcb61ef91db5185c1a6f3/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"12ed1b9f-5c05-48ab-9e50-8397cb2fb29f"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:POST http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3/element/12ed1b9f-5c05-48ab-9e50-8397cb2fb29f/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "12ed1b9f-5c05-48ab-9e50-8397cb2fb29f"}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "POST /session/f11f450600ffcb61ef91db5185c1a6f3/element/12ed1b9f-5c05-48ab-9e50-8397cb2fb29f/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:POST http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "POST /session/f11f450600ffcb61ef91db5185c1a6f3/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"2d0c8203-1993-4033-ae9f-d870f40c93dd"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:DELETE http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3/window {}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "DELETE /session/f11f450600ffcb61ef91db5185c1a6f3/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:DELETE http://localhost:54948/session/f11f450600ffcb61ef91db5185c1a6f3 {}
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:http://localhost:54948 "DELETE /session/f11f450600ffcb61ef91db5185c1a6f3 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:04 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:POST http://localhost:54987/session/a2172add3bcd889f0ec27b356d8c9769/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:http://localhost:54987 "POST /session/a2172add3bcd889f0ec27b356d8c9769/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:POST http://localhost:54987/session/a2172add3bcd889f0ec27b356d8c9769/window/maximize {}
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:http://localhost:54987 "POST /session/a2172add3bcd889f0ec27b356d8c9769/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:POST http://localhost:54987/session/a2172add3bcd889f0ec27b356d8c9769/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:http://localhost:54987 "POST /session/a2172add3bcd889f0ec27b356d8c9769/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"9d287a3a-05ac-4c2e-bc16-a73036a08891"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:POST http://localhost:54987/session/a2172add3bcd889f0ec27b356d8c9769/element/9d287a3a-05ac-4c2e-bc16-a73036a08891/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "9d287a3a-05ac-4c2e-bc16-a73036a08891"}
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:http://localhost:54987 "POST /session/a2172add3bcd889f0ec27b356d8c9769/element/9d287a3a-05ac-4c2e-bc16-a73036a08891/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:POST http://localhost:54987/session/a2172add3bcd889f0ec27b356d8c9769/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:http://localhost:54987 "POST /session/a2172add3bcd889f0ec27b356d8c9769/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"7580c710-653c-4031-8936-82b046225833"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:33 |:DEBUG:DELETE http://localhost:54987/session/a2172add3bcd889f0ec27b356d8c9769/window {}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:POST http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "POST /session/ae82de52b988571c42bc814014d3adaa/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:POST http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa/window/maximize {}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "POST /session/ae82de52b988571c42bc814014d3adaa/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:POST http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "POST /session/ae82de52b988571c42bc814014d3adaa/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"832a16ac-c7f1-4be3-ac5f-5e627afea53d"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:POST http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa/element/832a16ac-c7f1-4be3-ac5f-5e627afea53d/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "832a16ac-c7f1-4be3-ac5f-5e627afea53d"}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "POST /session/ae82de52b988571c42bc814014d3adaa/element/832a16ac-c7f1-4be3-ac5f-5e627afea53d/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:POST http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "POST /session/ae82de52b988571c42bc814014d3adaa/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"9e1f1217-6313-454e-b2a5-1e1aa4033845"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:DELETE http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa/window {}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "DELETE /session/ae82de52b988571c42bc814014d3adaa/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:DELETE http://localhost:55050/session/ae82de52b988571c42bc814014d3adaa {}
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:http://localhost:55050 "DELETE /session/ae82de52b988571c42bc814014d3adaa HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:40:50 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:POST http://localhost:55141/session/f89670eb3b5988ecc502411259ded349/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "POST /session/f89670eb3b5988ecc502411259ded349/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:POST http://localhost:55141/session/f89670eb3b5988ecc502411259ded349/window/maximize {}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "POST /session/f89670eb3b5988ecc502411259ded349/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:POST http://localhost:55141/session/f89670eb3b5988ecc502411259ded349/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "POST /session/f89670eb3b5988ecc502411259ded349/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"cb5e2e07-de21-4ed8-a4ab-f3b85f272236"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:POST http://localhost:55141/session/f89670eb3b5988ecc502411259ded349/element/cb5e2e07-de21-4ed8-a4ab-f3b85f272236/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "cb5e2e07-de21-4ed8-a4ab-f3b85f272236"}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "POST /session/f89670eb3b5988ecc502411259ded349/element/cb5e2e07-de21-4ed8-a4ab-f3b85f272236/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:POST http://localhost:55141/session/f89670eb3b5988ecc502411259ded349/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "POST /session/f89670eb3b5988ecc502411259ded349/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"8018630b-0952-4d87-90ee-e0bba3c75ed1"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:DELETE http://localhost:55141/session/f89670eb3b5988ecc502411259ded349/window {}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "DELETE /session/f89670eb3b5988ecc502411259ded349/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:DELETE http://localhost:55141/session/f89670eb3b5988ecc502411259ded349 {}
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:http://localhost:55141 "DELETE /session/f89670eb3b5988ecc502411259ded349 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:POST http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "POST /session/fbce7644e0554d4667fcaa762da96323/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:POST http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323/window/maximize {}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "POST /session/fbce7644e0554d4667fcaa762da96323/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:POST http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "POST /session/fbce7644e0554d4667fcaa762da96323/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"35f7dc32-33f4-4d91-859c-4647832f124d"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:POST http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323/element/35f7dc32-33f4-4d91-859c-4647832f124d/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "35f7dc32-33f4-4d91-859c-4647832f124d"}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "POST /session/fbce7644e0554d4667fcaa762da96323/element/35f7dc32-33f4-4d91-859c-4647832f124d/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:POST http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "POST /session/fbce7644e0554d4667fcaa762da96323/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"475eb3c4-964f-4f9f-914f-082ace7d1df7"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:DELETE http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323/window {}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "DELETE /session/fbce7644e0554d4667fcaa762da96323/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:DELETE http://localhost:55308/session/fbce7644e0554d4667fcaa762da96323 {}
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:http://localhost:55308 "DELETE /session/fbce7644e0554d4667fcaa762da96323 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:45:41 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:POST http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "POST /session/879bb48fe156a8b3a892fa7506e4e201/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:POST http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201/window/maximize {}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "POST /session/879bb48fe156a8b3a892fa7506e4e201/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:POST http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "POST /session/879bb48fe156a8b3a892fa7506e4e201/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"6d9196a5-2e42-4d6a-8075-2f8c8e6b4dea"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:POST http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201/element/6d9196a5-2e42-4d6a-8075-2f8c8e6b4dea/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "6d9196a5-2e42-4d6a-8075-2f8c8e6b4dea"}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "POST /session/879bb48fe156a8b3a892fa7506e4e201/element/6d9196a5-2e42-4d6a-8075-2f8c8e6b4dea/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:POST http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "POST /session/879bb48fe156a8b3a892fa7506e4e201/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"7f443762-4d76-4896-ab0a-fb07e781e5d1"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:DELETE http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201/window {}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "DELETE /session/879bb48fe156a8b3a892fa7506e4e201/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:DELETE http://localhost:55355/session/879bb48fe156a8b3a892fa7506e4e201 {}
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:http://localhost:55355 "DELETE /session/879bb48fe156a8b3a892fa7506e4e201 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 01:46:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:POST http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "POST /session/52a50ec24e827ceda4083150d0b750c2/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:POST http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2/window/maximize {}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "POST /session/52a50ec24e827ceda4083150d0b750c2/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:POST http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "POST /session/52a50ec24e827ceda4083150d0b750c2/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"1d290349-043b-492d-84c5-983bfc3179da"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:POST http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2/element/1d290349-043b-492d-84c5-983bfc3179da/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "1d290349-043b-492d-84c5-983bfc3179da"}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "POST /session/52a50ec24e827ceda4083150d0b750c2/element/1d290349-043b-492d-84c5-983bfc3179da/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:POST http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "POST /session/52a50ec24e827ceda4083150d0b750c2/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"68c03231-16c9-4672-8c24-f441d6de09e1"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:DELETE http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2/window {}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "DELETE /session/52a50ec24e827ceda4083150d0b750c2/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:DELETE http://localhost:59198/session/52a50ec24e827ceda4083150d0b750c2 {}
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:http://localhost:59198 "DELETE /session/52a50ec24e827ceda4083150d0b750c2 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:38:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:41:47 |:DEBUG:POST http://localhost:59568/session/11755a602937928980593eb739aaa715/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:41:47 |:DEBUG:http://localhost:59568 "POST /session/11755a602937928980593eb739aaa715/url HTTP/1.1" 404 916
+Tuesday | November | 01/11/22 | 13:41:47 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=107.0.5304.87)","stacktrace":"Backtrace:\n\tOrdinal0 [0x00D8ACD3+2075859]\n\tOrdinal0 [0x00D1EE61+1633889]\n\tOrdinal0 [0x00C1B7BD+571325]\n\tOrdinal0 [0x00C02E1A+470554]\n\tOrdinal0 [0x00C6AA0B+895499]\n\tOrdinal0 [0x00C7AC96+961686]\n\tOrdinal0 [0x00C67136+880950]\n\tOrdinal0 [0x00C3FEFD+720637]\n\tOrdinal0 [0x00C40F3F+724799]\n\tGetHandleVerifier [0x0103EED2+2769538]\n\tGetHandleVerifier [0x01030D95+2711877]\n\tGetHandleVerifier [0x00E1A03A+521194]\n\tGetHandleVerifier [0x00E18DA0+516432]\n\tOrdinal0 [0x00D2682C+1665068]\n\tOrdinal0 [0x00D2B128+1683752]\n\tOrdinal0 [0x00D2B215+1683989]\n\tOrdinal0 [0x00D36484+1729668]\n\tBaseThreadInitThunk [0x75FF6739+25]\n\tRtlGetFullPathName_UEx [0x775F8FD2+1218]\n\tRtlGetFullPathName_UEx [0x775F8F9D+1165]\n"}} | headers=HTTPHeaderDict({'Content-Length': '916', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:41:47 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:POST http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "POST /session/179dc313e55c2d7bb8d746a575dac4f9/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:POST http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9/window/maximize {}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "POST /session/179dc313e55c2d7bb8d746a575dac4f9/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:POST http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "POST /session/179dc313e55c2d7bb8d746a575dac4f9/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"3ed7929e-c4cb-4732-ab6e-477fe954baa3"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:POST http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9/element/3ed7929e-c4cb-4732-ab6e-477fe954baa3/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "3ed7929e-c4cb-4732-ab6e-477fe954baa3"}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "POST /session/179dc313e55c2d7bb8d746a575dac4f9/element/3ed7929e-c4cb-4732-ab6e-477fe954baa3/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:POST http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "POST /session/179dc313e55c2d7bb8d746a575dac4f9/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"98a2b35f-ca27-4737-b039-b7761c90ead3"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:DELETE http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9/window {}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "DELETE /session/179dc313e55c2d7bb8d746a575dac4f9/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:DELETE http://localhost:59798/session/179dc313e55c2d7bb8d746a575dac4f9 {}
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:http://localhost:59798 "DELETE /session/179dc313e55c2d7bb8d746a575dac4f9 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:46:17 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:POST http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "POST /session/4a91582880807f464d1092c2f3f67f78/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:POST http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78/window/maximize {}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "POST /session/4a91582880807f464d1092c2f3f67f78/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:POST http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "POST /session/4a91582880807f464d1092c2f3f67f78/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"381a6d5e-50db-415b-99a1-fa4a837a7884"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:POST http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78/element/381a6d5e-50db-415b-99a1-fa4a837a7884/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "381a6d5e-50db-415b-99a1-fa4a837a7884"}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "POST /session/4a91582880807f464d1092c2f3f67f78/element/381a6d5e-50db-415b-99a1-fa4a837a7884/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:POST http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "POST /session/4a91582880807f464d1092c2f3f67f78/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"ed497c2f-78a1-4b18-be88-0f8ecd0c8004"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:DELETE http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78/window {}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "DELETE /session/4a91582880807f464d1092c2f3f67f78/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:DELETE http://localhost:60124/session/4a91582880807f464d1092c2f3f67f78 {}
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:http://localhost:60124 "DELETE /session/4a91582880807f464d1092c2f3f67f78 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:51:59 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:POST http://localhost:60293/session/8a7feee5340d2a605ef57f6d4c14ac9c/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60293 "POST /session/8a7feee5340d2a605ef57f6d4c14ac9c/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:POST http://localhost:60293/session/8a7feee5340d2a605ef57f6d4c14ac9c/window/maximize {}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60293 "POST /session/8a7feee5340d2a605ef57f6d4c14ac9c/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:POST http://localhost:60293/session/8a7feee5340d2a605ef57f6d4c14ac9c/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60293 "POST /session/8a7feee5340d2a605ef57f6d4c14ac9c/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"6f87c87c-7330-4e61-bf30-98404d0c8082"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:POST http://localhost:60293/session/8a7feee5340d2a605ef57f6d4c14ac9c/element/6f87c87c-7330-4e61-bf30-98404d0c8082/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "6f87c87c-7330-4e61-bf30-98404d0c8082"}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60293 "POST /session/8a7feee5340d2a605ef57f6d4c14ac9c/element/6f87c87c-7330-4e61-bf30-98404d0c8082/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:POST http://localhost:60293/session/8a7feee5340d2a605ef57f6d4c14ac9c/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60293 "POST /session/8a7feee5340d2a605ef57f6d4c14ac9c/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"be71fa61-435a-47b5-a163-5bce3663a649"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:DELETE http://localhost:60281/session/edbec658a9c57caeccb190987b05a928/window {}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60281 "DELETE /session/edbec658a9c57caeccb190987b05a928/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:DELETE http://localhost:60281/session/edbec658a9c57caeccb190987b05a928 {}
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:http://localhost:60281 "DELETE /session/edbec658a9c57caeccb190987b05a928 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:54:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:POST http://localhost:60478/session/692e958d8d6cbe83bc479d18a3834f21/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:http://localhost:60478 "POST /session/692e958d8d6cbe83bc479d18a3834f21/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:POST http://localhost:60478/session/692e958d8d6cbe83bc479d18a3834f21/window/maximize {}
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:http://localhost:60478 "POST /session/692e958d8d6cbe83bc479d18a3834f21/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:POST http://localhost:60465/session/1bf9dc34d3fc3324dce958ea456562bf/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:http://localhost:60465 "POST /session/1bf9dc34d3fc3324dce958ea456562bf/element HTTP/1.1" 404 999
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: chrome=107.0.5304.87)","stacktrace":"Backtrace:\n\tOrdinal0 [0x00D8ACD3+2075859]\n\tOrdinal0 [0x00D1EE61+1633889]\n\tOrdinal0 [0x00C1B7BD+571325]\n\tOrdinal0 [0x00C4AC2F+764975]\n\tOrdinal0 [0x00C4AE1B+765467]\n\tOrdinal0 [0x00C7D0F2+970994]\n\tOrdinal0 [0x00C67364+881508]\n\tOrdinal0 [0x00C7B56A+963946]\n\tOrdinal0 [0x00C67136+880950]\n\tOrdinal0 [0x00C3FEFD+720637]\n\tOrdinal0 [0x00C40F3F+724799]\n\tGetHandleVerifier [0x0103EED2+2769538]\n\tGetHandleVerifier [0x01030D95+2711877]\n\tGetHandleVerifier [0x00E1A03A+521194]\n\tGetHandleVerifier [0x00E18DA0+516432]\n\tOrdinal0 [0x00D2682C+1665068]\n\tOrdinal0 [0x00D2B128+1683752]\n\tOrdinal0 [0x00D2B215+1683989]\n\tOrdinal0 [0x00D36484+1729668]\n\tBaseThreadInitThunk [0x75FF6739+25]\n\tRtlGetFullPathName_UEx [0x775F8FD2+1218]\n\tRtlGetFullPathName_UEx [0x775F8F9D+1165]\n"}} | headers=HTTPHeaderDict({'Content-Length': '999', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:57:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:POST http://localhost:60550/session/cb3537aad384d81a4b9b6fd2d67de20a/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:http://localhost:60550 "POST /session/cb3537aad384d81a4b9b6fd2d67de20a/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:POST http://localhost:60550/session/cb3537aad384d81a4b9b6fd2d67de20a/window/maximize {}
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:http://localhost:60550 "POST /session/cb3537aad384d81a4b9b6fd2d67de20a/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:POST http://localhost:60538/session/9cd65fc4a1ff6d31f18075bce0960fd7/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:http://localhost:60538 "POST /session/9cd65fc4a1ff6d31f18075bce0960fd7/element HTTP/1.1" 404 999
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: chrome=107.0.5304.87)","stacktrace":"Backtrace:\n\tOrdinal0 [0x00D8ACD3+2075859]\n\tOrdinal0 [0x00D1EE61+1633889]\n\tOrdinal0 [0x00C1B7BD+571325]\n\tOrdinal0 [0x00C4AC2F+764975]\n\tOrdinal0 [0x00C4AE1B+765467]\n\tOrdinal0 [0x00C7D0F2+970994]\n\tOrdinal0 [0x00C67364+881508]\n\tOrdinal0 [0x00C7B56A+963946]\n\tOrdinal0 [0x00C67136+880950]\n\tOrdinal0 [0x00C3FEFD+720637]\n\tOrdinal0 [0x00C40F3F+724799]\n\tGetHandleVerifier [0x0103EED2+2769538]\n\tGetHandleVerifier [0x01030D95+2711877]\n\tGetHandleVerifier [0x00E1A03A+521194]\n\tGetHandleVerifier [0x00E18DA0+516432]\n\tOrdinal0 [0x00D2682C+1665068]\n\tOrdinal0 [0x00D2B128+1683752]\n\tOrdinal0 [0x00D2B215+1683989]\n\tOrdinal0 [0x00D36484+1729668]\n\tBaseThreadInitThunk [0x75FF6739+25]\n\tRtlGetFullPathName_UEx [0x775F8FD2+1218]\n\tRtlGetFullPathName_UEx [0x775F8F9D+1165]\n"}} | headers=HTTPHeaderDict({'Content-Length': '999', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:57:36 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:POST http://localhost:60619/session/d12f6da34eeb751fddfc2ef2647a51d2/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:http://localhost:60619 "POST /session/d12f6da34eeb751fddfc2ef2647a51d2/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:POST http://localhost:60619/session/d12f6da34eeb751fddfc2ef2647a51d2/window/maximize {}
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:http://localhost:60619 "POST /session/d12f6da34eeb751fddfc2ef2647a51d2/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:POST http://localhost:60608/session/3be7867ab7e6a4a9b1f93693d4840d58/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:http://localhost:60608 "POST /session/3be7867ab7e6a4a9b1f93693d4840d58/element HTTP/1.1" 404 999
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:Remote response: status=404 | data={"value":{"error":"no such element","message":"no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[name=\"q\"]\"}\n  (Session info: chrome=107.0.5304.87)","stacktrace":"Backtrace:\n\tOrdinal0 [0x00D8ACD3+2075859]\n\tOrdinal0 [0x00D1EE61+1633889]\n\tOrdinal0 [0x00C1B7BD+571325]\n\tOrdinal0 [0x00C4AC2F+764975]\n\tOrdinal0 [0x00C4AE1B+765467]\n\tOrdinal0 [0x00C7D0F2+970994]\n\tOrdinal0 [0x00C67364+881508]\n\tOrdinal0 [0x00C7B56A+963946]\n\tOrdinal0 [0x00C67136+880950]\n\tOrdinal0 [0x00C3FEFD+720637]\n\tOrdinal0 [0x00C40F3F+724799]\n\tGetHandleVerifier [0x0103EED2+2769538]\n\tGetHandleVerifier [0x01030D95+2711877]\n\tGetHandleVerifier [0x00E1A03A+521194]\n\tGetHandleVerifier [0x00E18DA0+516432]\n\tOrdinal0 [0x00D2682C+1665068]\n\tOrdinal0 [0x00D2B128+1683752]\n\tOrdinal0 [0x00D2B215+1683989]\n\tOrdinal0 [0x00D36484+1729668]\n\tBaseThreadInitThunk [0x75FF6739+25]\n\tRtlGetFullPathName_UEx [0x775F8FD2+1218]\n\tRtlGetFullPathName_UEx [0x775F8F9D+1165]\n"}} | headers=HTTPHeaderDict({'Content-Length': '999', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:18 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:POST http://localhost:60692/session/bd2ead71aaccce08aad32d5b1f1cc7f7/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:http://localhost:60692 "POST /session/bd2ead71aaccce08aad32d5b1f1cc7f7/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:POST http://localhost:60692/session/bd2ead71aaccce08aad32d5b1f1cc7f7/window/maximize {}
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:http://localhost:60692 "POST /session/bd2ead71aaccce08aad32d5b1f1cc7f7/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:POST http://localhost:60692/session/bd2ead71aaccce08aad32d5b1f1cc7f7/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:http://localhost:60692 "POST /session/bd2ead71aaccce08aad32d5b1f1cc7f7/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"b06aa87c-1460-4ae4-92ee-c6729ae0cb06"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:POST http://localhost:60692/session/bd2ead71aaccce08aad32d5b1f1cc7f7/element/b06aa87c-1460-4ae4-92ee-c6729ae0cb06/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "b06aa87c-1460-4ae4-92ee-c6729ae0cb06"}
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:http://localhost:60692 "POST /session/bd2ead71aaccce08aad32d5b1f1cc7f7/element/b06aa87c-1460-4ae4-92ee-c6729ae0cb06/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:POST http://localhost:60692/session/bd2ead71aaccce08aad32d5b1f1cc7f7/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:http://localhost:60692 "POST /session/bd2ead71aaccce08aad32d5b1f1cc7f7/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"2576be0b-c1ed-4842-a285-e7fbb18666d7"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:58:54 |:DEBUG:DELETE http://localhost:60692/session/bd2ead71aaccce08aad32d5b1f1cc7f7/window {}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:POST http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "POST /session/e63ca7b03821379559b0b6b233f8adfa/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:POST http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa/window/maximize {}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "POST /session/e63ca7b03821379559b0b6b233f8adfa/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:POST http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "POST /session/e63ca7b03821379559b0b6b233f8adfa/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"948def23-5111-45b8-b65d-2aeb2efcc504"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:POST http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa/element/948def23-5111-45b8-b65d-2aeb2efcc504/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "948def23-5111-45b8-b65d-2aeb2efcc504"}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "POST /session/e63ca7b03821379559b0b6b233f8adfa/element/948def23-5111-45b8-b65d-2aeb2efcc504/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:POST http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "POST /session/e63ca7b03821379559b0b6b233f8adfa/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"82861881-4545-4d51-a52d-274b85c1ae1b"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:DELETE http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa/window {}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "DELETE /session/e63ca7b03821379559b0b6b233f8adfa/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:DELETE http://localhost:60752/session/e63ca7b03821379559b0b6b233f8adfa {}
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:http://localhost:60752 "DELETE /session/e63ca7b03821379559b0b6b233f8adfa HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 13:59:15 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:POST http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "POST /session/9e7014f46546125d73bd78fb1846c4fc/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:POST http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc/window/maximize {}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "POST /session/9e7014f46546125d73bd78fb1846c4fc/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:POST http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "POST /session/9e7014f46546125d73bd78fb1846c4fc/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"11b42f05-3c5b-4622-b391-023bb6edf028"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:POST http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc/element/11b42f05-3c5b-4622-b391-023bb6edf028/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "11b42f05-3c5b-4622-b391-023bb6edf028"}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "POST /session/9e7014f46546125d73bd78fb1846c4fc/element/11b42f05-3c5b-4622-b391-023bb6edf028/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:POST http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "POST /session/9e7014f46546125d73bd78fb1846c4fc/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"131ef460-7c63-4164-a1f4-16ffd79e5c4c"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:DELETE http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc/window {}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "DELETE /session/9e7014f46546125d73bd78fb1846c4fc/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:DELETE http://localhost:61046/session/9e7014f46546125d73bd78fb1846c4fc {}
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:http://localhost:61046 "DELETE /session/9e7014f46546125d73bd78fb1846c4fc HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:05:23 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:POST http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "POST /session/c01a43ee8757b1d5ab1f6b253fd0d391/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:POST http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391/window/maximize {}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "POST /session/c01a43ee8757b1d5ab1f6b253fd0d391/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:POST http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "POST /session/c01a43ee8757b1d5ab1f6b253fd0d391/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"beb884c9-c6d4-408e-8533-d6a9fefe1ca3"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:POST http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391/element/beb884c9-c6d4-408e-8533-d6a9fefe1ca3/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "beb884c9-c6d4-408e-8533-d6a9fefe1ca3"}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "POST /session/c01a43ee8757b1d5ab1f6b253fd0d391/element/beb884c9-c6d4-408e-8533-d6a9fefe1ca3/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:POST http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "POST /session/c01a43ee8757b1d5ab1f6b253fd0d391/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"88eb02eb-f6e0-4b63-8f56-96e05bfc2bb7"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:DELETE http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391/window {}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "DELETE /session/c01a43ee8757b1d5ab1f6b253fd0d391/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:DELETE http://localhost:61480/session/c01a43ee8757b1d5ab1f6b253fd0d391 {}
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:http://localhost:61480 "DELETE /session/c01a43ee8757b1d5ab1f6b253fd0d391 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:10:49 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:POST http://localhost:61524/session/7081148937337ad1822bc07d1aea2455/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "POST /session/7081148937337ad1822bc07d1aea2455/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:POST http://localhost:61524/session/7081148937337ad1822bc07d1aea2455/window/maximize {}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "POST /session/7081148937337ad1822bc07d1aea2455/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:POST http://localhost:61524/session/7081148937337ad1822bc07d1aea2455/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "POST /session/7081148937337ad1822bc07d1aea2455/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"2b573e63-39b2-4e30-9254-e8fb20dc5a14"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:POST http://localhost:61524/session/7081148937337ad1822bc07d1aea2455/element/2b573e63-39b2-4e30-9254-e8fb20dc5a14/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "2b573e63-39b2-4e30-9254-e8fb20dc5a14"}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "POST /session/7081148937337ad1822bc07d1aea2455/element/2b573e63-39b2-4e30-9254-e8fb20dc5a14/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:POST http://localhost:61524/session/7081148937337ad1822bc07d1aea2455/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "POST /session/7081148937337ad1822bc07d1aea2455/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"22edb753-495b-4778-a423-64a8097b2dd3"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:DELETE http://localhost:61524/session/7081148937337ad1822bc07d1aea2455/window {}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "DELETE /session/7081148937337ad1822bc07d1aea2455/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:DELETE http://localhost:61524/session/7081148937337ad1822bc07d1aea2455 {}
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:http://localhost:61524 "DELETE /session/7081148937337ad1822bc07d1aea2455 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:11:42 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:POST http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "POST /session/2c2eff3209eb279ed3c6243a1e9cbdc6/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:POST http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6/window/maximize {}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "POST /session/2c2eff3209eb279ed3c6243a1e9cbdc6/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:POST http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "POST /session/2c2eff3209eb279ed3c6243a1e9cbdc6/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"25ce2038-a322-42d9-a19e-54109ae58769"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:POST http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6/element/25ce2038-a322-42d9-a19e-54109ae58769/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "25ce2038-a322-42d9-a19e-54109ae58769"}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "POST /session/2c2eff3209eb279ed3c6243a1e9cbdc6/element/25ce2038-a322-42d9-a19e-54109ae58769/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:POST http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "POST /session/2c2eff3209eb279ed3c6243a1e9cbdc6/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"01dd4755-ed49-4e84-bc52-b3ee65a1596d"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:DELETE http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6/window {}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "DELETE /session/2c2eff3209eb279ed3c6243a1e9cbdc6/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:DELETE http://localhost:61827/session/2c2eff3209eb279ed3c6243a1e9cbdc6 {}
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:http://localhost:61827 "DELETE /session/2c2eff3209eb279ed3c6243a1e9cbdc6 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:20:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:POST http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "POST /session/5ca1a8a6b42741122ade20dba312cef4/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:POST http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4/window/maximize {}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "POST /session/5ca1a8a6b42741122ade20dba312cef4/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:POST http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "POST /session/5ca1a8a6b42741122ade20dba312cef4/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"9e1cc0bc-f9bd-422a-8116-727efa83d2b4"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:POST http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4/element/9e1cc0bc-f9bd-422a-8116-727efa83d2b4/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "9e1cc0bc-f9bd-422a-8116-727efa83d2b4"}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "POST /session/5ca1a8a6b42741122ade20dba312cef4/element/9e1cc0bc-f9bd-422a-8116-727efa83d2b4/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:POST http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "POST /session/5ca1a8a6b42741122ade20dba312cef4/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"0d9e8128-3d04-48c9-b71d-611776b0b950"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:DELETE http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4/window {}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "DELETE /session/5ca1a8a6b42741122ade20dba312cef4/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:DELETE http://localhost:62085/session/5ca1a8a6b42741122ade20dba312cef4 {}
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:http://localhost:62085 "DELETE /session/5ca1a8a6b42741122ade20dba312cef4 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 14:27:16 |:DEBUG:Finished Request

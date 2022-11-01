@@ -1,13 +1,15 @@
 from dataclasses import dataclass
-from core.components.driver.manager import DriverManager, DriverEngine
+from core.components.driver.manager import DriverEngine
 from core.components.driver.run_tests import RunTests
 
 
 @dataclass
-class IntroPage(DriverManager, DriverEngine):
+class IntroPage(DriverEngine):
 
     def setup(self):
-        return self.get_web(web_link='https://www.google.com')
+        return self.get_web(web_driver='chrome',
+                            web_link='https://www.google.com',
+                            maximize_window=True)
 
     def navigate(self):
         return self.get_element('FirstPage', 'search').send_keys('cats')

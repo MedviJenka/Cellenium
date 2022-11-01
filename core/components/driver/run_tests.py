@@ -3,7 +3,7 @@ from core.components.logs.log_generator import Log
 
 
 @dataclass
-class RunTests(Log):
+class RunTests:
 
     @Log.get_log()
     def start(self, class_name: object, methods: list[str]) -> None:

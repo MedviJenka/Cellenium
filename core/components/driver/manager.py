@@ -1,3 +1,4 @@
+from abc import ABC
 import xlsxwriter
 from selenium import webdriver
 from dataclasses import dataclass
@@ -7,7 +8,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
-from abc import ABC
 from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
@@ -15,30 +15,41 @@ from core.components.screenshots.embed_image import Screenshot
 
 
 @dataclass
-class DriverManager(ABC):
+class ServiceManager:
 
-    _chrome_webdriver  = ChromeDriverManager()
-    _options = Options()
-    driver = webdriver.Chrome(service=Service(executable_path=_chrome_webdriver.install()), options=_options)
+    chrome_driver = ChromeDriverManager()
+
+    def get_service(self, value='chrome'):
+        if value:
+            return Service(executable_path=self.chrome_driver.install())
 
 
 @dataclass
-class DriverEngine:
+class DriverManager(ABC):
 
-    driver = None
+    _options = Options()
+    service = ServiceManager()
+    driver: None = webdriver.Chrome(service=service.get_service(), options=_options)
+
+
+@dataclass
+class DriverEngine(DriverManager):
+
     excel = ExcelReader()
     config = ConfigReader()
     screenshot = Screenshot()
 
-    def get_web(self, web_link: str) -> None:
-        self.driver.get(web_link)
-        self.driver.maximize_window()
+    def get_web(self, web_link: str, web_driver='chrome', maximize_window=False) -> None:
+        if web_driver:
+            self.driver.get(web_link)
+            if maximize_window:
+                self.driver.maximize_window()
 
     def wait_for_element(self, element: str, seconds=3) -> None:
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element))
 
-    def get_element(self, sheet: str, name: str) -> driver:
+    def get_element(self, sheet: str, name: str) -> DriverManager:
         # element_name = self.excel.get_name(sheet, name)
         element_locator = self.excel.get_locator(sheet, name)
         element_type = self.excel.get_type(sheet, name)

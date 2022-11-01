@@ -30,4 +30,5 @@ class Log:
             logger.setLevel('WARNING')
             logger.setLevel('ERROR')
             logger.setLevel('FATAL')
+
         return decorator
