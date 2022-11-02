@@ -13,8 +13,7 @@ class Log:
     logs_path = config.read('path', 'logs')
     logging.basicConfig(filename=f'{logs_path}/{"logs.log"}',
                         datefmt=f'{time:%A | %B | %d/%m/%y | %X |}',
-                        level=logging.DEBUG,
-
+                        level=logging.INFO,
                         format='%(asctime)s:'
                                  '%(levelname)s:'
                                  '%(message)s')

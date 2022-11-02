@@ -6,8 +6,8 @@ from core.components.driver.run_tests import RunTests
 @dataclass
 class IntroPage(DriverEngine):
 
-    def setup(self):
-        return self.get_web(web_link='https://www.google.com', maximize_window=True)
+    def setup(self) -> None:
+        self.get_web(web_link='https://www.google.com', maximize_window=True)
 
     def navigate(self):
         return self.get_element('FirstPage', 'search').send_keys('cats')
@@ -21,11 +21,10 @@ class IntroPage(DriverEngine):
 
 def main() -> None:
     run_test = RunTests()
-    run_test.start(IntroPage(),
-                   ['setup',
-                    'navigate',
-                    'find_button',
-                    'exit_all'])
+    run_test.start(IntroPage(), ['setup',
+                                 'navigate',
+                                 'find_button',
+                                 'exit_all'])
 
 
 if __name__ == '__main__':

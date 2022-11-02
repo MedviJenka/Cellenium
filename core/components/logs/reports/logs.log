@@ -989,3 +989,85 @@ Tuesday | November | 01/11/22 | 14:41:26 |:DEBUG:DELETE http://localhost:62881/s
 Tuesday | November | 01/11/22 | 14:41:26 |:DEBUG:http://localhost:62881 "DELETE /session/64630eed0e32789b6ee5e125e5531080 HTTP/1.1" 200 14
 Tuesday | November | 01/11/22 | 14:41:26 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
 Tuesday | November | 01/11/22 | 14:41:26 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:POST http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04/url {"url": "https://www.google.com"}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "POST /session/e466376fc93dbe315434cd12e779ff04/url HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:POST http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04/window/maximize {}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "POST /session/e466376fc93dbe315434cd12e779ff04/window/maximize HTTP/1.1" 200 51
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":{"height":736,"width":1376,"x":-8,"y":-8}} | headers=HTTPHeaderDict({'Content-Length': '51', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:POST http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04/element {"using": "css selector", "value": "[name=\"q\"]"}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "POST /session/e466376fc93dbe315434cd12e779ff04/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"99e52939-048e-48f5-b6c8-97e41b8b5ea7"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:POST http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04/element/99e52939-048e-48f5-b6c8-97e41b8b5ea7/value {"text": "cats", "value": ["c", "a", "t", "s"], "id": "99e52939-048e-48f5-b6c8-97e41b8b5ea7"}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "POST /session/e466376fc93dbe315434cd12e779ff04/element/99e52939-048e-48f5-b6c8-97e41b8b5ea7/value HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:POST http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04/element {"using": "css selector", "value": "[name=\"btnK\"]"}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "POST /session/e466376fc93dbe315434cd12e779ff04/element HTTP/1.1" 200 88
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"c6332783-d77a-49a4-93dd-ff75e920745e"}} | headers=HTTPHeaderDict({'Content-Length': '88', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:DELETE http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04/window {}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "DELETE /session/e466376fc93dbe315434cd12e779ff04/window HTTP/1.1" 200 12
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":[]} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:DELETE http://localhost:58856/session/e466376fc93dbe315434cd12e779ff04 {}
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:http://localhost:58856 "DELETE /session/e466376fc93dbe315434cd12e779ff04 HTTP/1.1" 200 14
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+Tuesday | November | 01/11/22 | 19:27:06 |:DEBUG:Finished Request
+Wednesday | November | 02/11/22 | 02:50:39 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:50:39 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:50:39 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:50:39 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:50:39 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:51:07 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:51:07 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:51:07 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:51:07 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:51:07 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:51:31 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:51:31 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:51:31 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:51:31 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:51:31 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:51:40 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:51:40 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:51:40 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:51:40 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:51:40 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:51:46 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:51:46 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:51:46 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:51:46 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:51:46 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:52:13 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:52:13 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:52:13 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:52:13 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:52:13 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:54:39 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:54:39 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:54:39 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:54:39 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:54:39 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:55:36 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:55:36 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:55:36 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:55:36 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:55:36 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache
+Wednesday | November | 02/11/22 | 02:58:55 |:INFO:
+
+Wednesday | November | 02/11/22 | 02:58:55 |:INFO:====== WebDriver manager ======
+Wednesday | November | 02/11/22 | 02:58:55 |:INFO:Current google-chrome version is 107.0.5304
+Wednesday | November | 02/11/22 | 02:58:55 |:INFO:Get LATEST chromedriver version for 107.0.5304 google-chrome
+Wednesday | November | 02/11/22 | 02:58:55 |:INFO:Driver [C:\Users\medvi\.wdm\drivers\chromedriver\win32\107.0.5304.62\chromedriver.exe] found in cache

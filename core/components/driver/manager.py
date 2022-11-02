@@ -22,13 +22,15 @@ class ServiceManager:
     def set_service(self, value='chrome'):
         if value:
             return Service(executable_path=self.chrome_driver.install())
+        else:
+            ...
 
 
 @dataclass
 class DriverManager(ABC):
 
-    _options = Options()
     service = ServiceManager()
+    _options = Options()
     driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
 
 
@@ -39,8 +41,8 @@ class DriverEngine(DriverManager):
     config = ConfigReader()
     screenshot = Screenshot()
 
-    def get_web(self, web_link: str, web_driver='chrome', maximize_window=False) -> None:
-        if web_driver:
+    def get_web(self, web_link: str, maximize_window=False) -> None:
+        if self.driver:
             self.driver.get(web_link)
             if maximize_window:
                 self.driver.maximize_window()
