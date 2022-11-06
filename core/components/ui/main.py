@@ -1,6 +1,6 @@
 from dash import Dash
 from dash_bootstrap_components.themes import DARKLY
-from core.UI.layout import create_layout
+from core.components.ui.layout import create_layout
 
 
 def main() -> None:

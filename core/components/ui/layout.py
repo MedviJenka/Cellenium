@@ -1,6 +1,5 @@
 from dash import Dash, html
-from core.UI import dropdown
-import bar_chart
+from core.components.ui import dropdown
 import css
 
 

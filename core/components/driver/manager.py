@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from webdrivermanager import EdgeDriverManager
 from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
@@ -18,12 +19,13 @@ from core.components.screenshots.embed_image import Screenshot
 class ServiceManager:
 
     chrome_driver = ChromeDriverManager()
+    edge_driver = EdgeDriverManager()
 
-    def set_service(self, value='chrome'):
-        if value:
+    def set_service(self, _driver='chrome'):
+        if _driver:
             return Service(executable_path=self.chrome_driver.install())
-        else:
-            ...
+        elif _driver == 'edge':
+            return Service(executable_path=self.edge_driver.get_latest_version())
 
 
 @dataclass
@@ -31,7 +33,9 @@ class DriverManager(ABC):
 
     service = ServiceManager()
     _options = Options()
+    # _edge_options = EdgeOptions()
     driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
+    # edge_driver: None = webdriver.Edge(service=service.set_service(_driver='edge'), options=_edge_options)
 
 
 @dataclass
@@ -46,6 +50,10 @@ class DriverEngine(DriverManager):
             self.driver.get(web_link)
             if maximize_window:
                 self.driver.maximize_window()
+        # if _driver == 'edge':
+        #     self.edge_driver.get(web_link)
+        #     if maximize_window:
+        #         self.edge_driver.maximize_window()
 
     def wait_for_element(self, element: str, seconds=3) -> None:
         wait = WebDriverWait(self.driver, seconds)

@@ -31,15 +31,11 @@ class TestButton(DriverManager, DriverEngine):
         self.teardown()
 
 
-def test() -> None:
+def main() -> callable:
 
     run_test = RunTests()
-    run_test.start(TestButton(),
+    run_test.run_a_single_test(TestButton(),
                    ['setup',
                     'navigate',
                     '_find_button',
                     'exit_all'])
-
-
-if __name__ == '__main__':
-    test()

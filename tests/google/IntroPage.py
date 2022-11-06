@@ -10,7 +10,7 @@ class IntroPage(DriverEngine):
         self.get_web(web_link='https://www.google.com', maximize_window=True)
 
     def navigate(self):
-        return self.get_element('FirstPage', 'search').send_keys('cats')
+        self.get_element('FirstPage', 'search').send_keys('cats')
 
     def find_button(self):
         self.get_element('FirstPage', 'button')
@@ -19,13 +19,10 @@ class IntroPage(DriverEngine):
         self.teardown()
 
 
-def main() -> None:
+def main() -> callable:
     run_test = RunTests()
-    run_test.start(IntroPage(), ['setup',
+    run_test.run_a_single_test(IntroPage(), ['setup',
                                  'navigate',
                                  'find_button',
-                                 'exit_all'])
-
-
-if __name__ == '__main__':
-    main()
+                                 'exit_all'
+                                ])

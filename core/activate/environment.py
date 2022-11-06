@@ -13,5 +13,9 @@ def save_requirements() -> None:
     system(fr"pip freeze { config.read('path', 'project') }/venv")
 
 
+def install_requirements() -> None:
+    system(fr"pip install -r { config.read('path', 'requirement') }")
+
+
 if __name__ == '__main__':
     ...
