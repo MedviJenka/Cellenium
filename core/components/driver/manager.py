@@ -13,6 +13,7 @@ from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
 from core.components.screenshots.embed_image import Screenshot
+from selenium.webdriver.support.ui import Select
 
 
 @dataclass
@@ -33,9 +34,7 @@ class DriverManager(ABC):
 
     service = ServiceManager()
     _options = Options()
-    # _edge_options = EdgeOptions()
     driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
-    # edge_driver: None = webdriver.Edge(service=service.set_service(_driver='edge'), options=_edge_options)
 
 
 @dataclass
@@ -50,17 +49,12 @@ class DriverEngine(DriverManager):
             self.driver.get(web_link)
             if maximize_window:
                 self.driver.maximize_window()
-        # if _driver == 'edge':
-        #     self.edge_driver.get(web_link)
-        #     if maximize_window:
-        #         self.edge_driver.maximize_window()
 
     def wait_for_element(self, element: str, seconds=3) -> None:
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element))
 
     def get_element(self, sheet: str, name: str) -> DriverManager().driver:
-        # element_name = self.excel.get_name(sheet, name)
         element_locator = self.excel.get_locator(sheet, name)
         element_type = self.excel.get_type(sheet, name)
         element_image = self.excel.get_image(sheet, name)
@@ -92,6 +86,13 @@ class DriverEngine(DriverManager):
             worksheet = workbook.add_worksheet()
             worksheet.insert_image(self.excel.get_image(*args), image_location)
             workbook.close()
+
+    def dropdown(self, sheet: str, name: str, text: str = '', value: str = '') -> None:
+        select = Select(self.driver.find_element(sheet, name))
+        if text:
+            select.select_by_value(text)
+        elif value:
+            select.select_by_visible_text(value)
 
     def teardown(self) -> None:
         try:
