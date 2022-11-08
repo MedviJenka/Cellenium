@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from core.components.driver.manager import DriverEngine
-from core.components.driver.run_tests import RunTests
+from core.components.driver.run_tests import run_single_test
 
 
 @dataclass
@@ -20,9 +20,11 @@ class IntroPage(DriverEngine):
 
 
 def main() -> callable:
-    run_test = RunTests()
-    run_test.run_a_single_test(IntroPage(), ['setup',
-                                 'navigate',
-                                 'find_button',
-                                 'exit_all'
-                                ])
+    run_single_test(IntroPage(), ['setup',
+                                  'navigate',
+                                  'find_button',
+                                  'exit_all'])
+
+
+if __name__ == '__main__':
+    main()

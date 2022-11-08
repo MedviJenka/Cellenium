@@ -1,11 +1,11 @@
 from dataclasses import dataclass
-from core.components.driver.manager import DriverManager, DriverEngine
+from core.components.driver.manager import DriverEngine
 from core.components.config.reader import ConfigReader
-from core.components.driver.run_tests import RunTests
+from core.components.driver.run_tests import run_single_test
 
 
 @dataclass
-class WorkLog(DriverManager, DriverEngine):
+class WorkLog(DriverEngine):
 
     config: str = ConfigReader()
 
@@ -32,14 +32,12 @@ class WorkLog(DriverManager, DriverEngine):
 
 
 def test() -> None:
-    run_test = RunTests(class_name=WorkLog())
-    run_test.start(methods=[
-        'setup',
-        'login',
-        'navigate',
-        'set_day',
-        'exit_all'
-    ])
+
+    run_single_test(WorkLog(), methods=['setup',
+                                        'login',
+                                        'navigate',
+                                        'set_day',
+                                        'exit_all'])
 
 
 if __name__ == '__main__':

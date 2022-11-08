@@ -1,5 +1,5 @@
 from abc import ABC
-import xlsxwriter
+from functools import wraps
 from selenium import webdriver
 from dataclasses import dataclass
 from selenium.webdriver.chrome.options import Options
@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
-from webdrivermanager import EdgeDriverManager
+from webdrivermanager.edge import EdgeDriverManager
 from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
@@ -22,10 +22,10 @@ class ServiceManager:
     chrome_driver = ChromeDriverManager()
     edge_driver = EdgeDriverManager()
 
-    def set_service(self, _driver='chrome'):
-        if _driver:
+    def set_service(self, browser='chrome'):
+        if browser:
             return Service(executable_path=self.chrome_driver.install())
-        elif _driver == 'edge':
+        elif browser == 'edge':
             return Service(executable_path=self.edge_driver.get_latest_version())
 
 
@@ -40,8 +40,8 @@ class DriverManager(ABC):
 @dataclass
 class DriverEngine(DriverManager):
 
-    excel = ExcelReader()
-    config = ConfigReader()
+    excel      = ExcelReader()
+    config     = ConfigReader()
     screenshot = Screenshot()
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
@@ -76,16 +76,7 @@ class DriverEngine(DriverManager):
         elif element_type == 'CLASS_NAME':
             return self.driver.find_element(By.CLASS_NAME, element_locator)
 
-    def embed_image_into_cell(self, *args) -> None:
-        path = self.config.read('path', 'screenshots')
-        image_location = fr'{path}/{self.excel.get_name(*args)}.png'
-        try:
-            return self.driver.save_screenshot(image_location)
-        finally:
-            workbook = xlsxwriter.Workbook(image_location)
-            worksheet = workbook.add_worksheet()
-            worksheet.insert_image(self.excel.get_image(*args), image_location)
-            workbook.close()
+    def embed_image_into_cell(self, *args) -> None: ...
 
     def dropdown(self, sheet: str, name: str, text: str = '', value: str = '') -> None:
         select = Select(self.driver.find_element(sheet, name))
@@ -93,6 +84,13 @@ class DriverEngine(DriverManager):
             select.select_by_value(text)
         elif value:
             select.select_by_visible_text(value)
+
+    @staticmethod
+    def validate() -> callable:
+        @wraps
+        def text() -> any:
+            ...
+        return text
 
     def teardown(self) -> None:
         try:
