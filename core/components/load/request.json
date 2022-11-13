@@ -1,0 +1,16 @@
+{
+  "method": "GET",
+  "base_url": "https://nextgenkube.ai-logix.net",
+  "url": "/api/audit",
+  "headers": {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2Njc0NjM0MDYsImV4cCI6MTY5ODk5OTQwNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJyb2xlIjoiQWRtaW5Sb2xlIiwiYXVkY1RlbmFudCI6ImFkNDFkNmMzLTY3ZjAtNDdjYy05ZGUzLWUwN2ZkMTg1YzFjNyJ9.ozBMwcD49WondM0eTz3KCCOqKDjuLWearmaadyIDwdo"},
+
+  "body": {},
+  "source_file": "",
+  "global_environment_variables": {"url": ""},
+  "content_type": "",
+  "files": "",
+  "location_res": "ST\\test_data\\TestCases\\NewGen\\REST_Requests\\results"
+}
