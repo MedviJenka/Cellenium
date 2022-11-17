@@ -27,6 +27,7 @@
           <option value="openpyxl.drawing" />
           <option value="str.read" />
           <option value="core.components.driver.temp.chrome_driver_logic.get" />
+          <option value="tuple.__next__" />
         </list>
       </option>
     </inspection_tool>

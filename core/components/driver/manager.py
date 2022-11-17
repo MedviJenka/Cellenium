@@ -56,11 +56,16 @@ class DriverEngine(DriverManager):
 
     def get_element(self, sheet: str, name: str) -> webdriver:
         element_locator = self.excel.get_locator(sheet, name)
-        element_type = self.excel.get_type(sheet, name)
+        element_type    = self.excel.get_type(sheet, name)
+        element_name    = self.excel.get_name(sheet, name)
+        path            = self.config.read('path', 'screenshots')
 
         if element_type == 'NAME':
-            self.save_element_screenshot(sheet, name)
-            return self.driver.find_element(By.NAME, element_locator)
+            element = self.driver.find_element(By.NAME, element_locator)
+            try:
+                return element
+            finally:
+                element.screenshot(f'{path}/{element_name}.png')
 
         elif element_type == 'ID':
             return self.driver.find_element(By.ID, element_locator)
@@ -77,24 +82,18 @@ class DriverEngine(DriverManager):
         elif element_type == 'CLASS_NAME':
             return self.driver.find_element(By.CLASS_NAME, element_locator)
 
-    def save_element_screenshot(self, sheet: str, name: str) -> None:
-        element = self.get_element(sheet, name)
-        element_name = self.excel.get_name(sheet, name)
+    def __embed_image_into_cell(self, sheet: str, name: str) -> None:
         path = self.config.read('path', 'screenshots')
-        element.screenshot(f'{path}/{element_name}.jpeg')
+        element = self.get_element(sheet, name)
+        image_location = fr'{path}/{self.excel.get_name(sheet, name)}.png'
 
-    # def __embed_image_into_cell(self, sheet: str, name: str) -> None:
-    #     path = self.config.read('path', 'screenshots')
-    #     element = self.get_element(sheet, name)
-    #     image_location = fr'{path}/{self.excel.get_name(sheet, name)}.png'
-    #
-    #     try:
-    #         element.screenshot(image_location)
-    #     finally:
-    #         workbook = xlsxwriter.Workbook(image_location)
-    #         worksheet = workbook.add_worksheet()
-    #         worksheet.insert_image(self.excel.get_image(sheet, name), image_location)
-    #         workbook.close()
+        try:
+            element.screenshot(image_location)
+        finally:
+            workbook = xlsxwriter.Workbook(image_location)
+            worksheet = workbook.add_worksheet()
+            worksheet.insert_image(self.excel.get_image(sheet, name), image_location)
+            workbook.close()
 
     def dropdown(self, sheet: str, name: str, text: str = '', value: str = '') -> None:
         select = Select(self.driver.find_element(sheet, name))
