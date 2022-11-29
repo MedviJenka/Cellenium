@@ -18,7 +18,7 @@ logging.basicConfig(filename=f'{logs_path}/{"logs.log"}',
 def log() -> logging:
 
     @wraps
-    def decorator() -> None:
+    def decorator() -> callable:
         logger = logging.getLogger()
         logger.setLevel('INFO')
         logger.setLevel('DEBUG')

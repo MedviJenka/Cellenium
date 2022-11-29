@@ -13,8 +13,9 @@ from webdrivermanager.edge import EdgeDriverManager
 from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
-from core.components.screenshots.embed_image import Screenshot
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 @dataclass
@@ -43,7 +44,6 @@ class DriverEngine(DriverManager):
 
     excel      = ExcelReader()
     config     = ConfigReader()
-    screenshot = Screenshot()
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link)
@@ -82,13 +82,16 @@ class DriverEngine(DriverManager):
         elif element_type == 'CLASS_NAME':
             return self.driver.find_element(By.CLASS_NAME, element_locator)
 
-    def __embed_image_into_cell(self, sheet: str, name: str) -> None:
+        self.wait_for_element(name, 3)
+
+    async def _embed_image_into_cell(self, sheet: str, name: str) -> any:
         path = self.config.read('path', 'screenshots')
         element = self.get_element(sheet, name)
         image_location = fr'{path}/{self.excel.get_name(sheet, name)}.png'
 
         try:
-            element.screenshot(image_location)
+            return element.screenshot(image_location)
+
         finally:
             workbook = xlsxwriter.Workbook(image_location)
             worksheet = workbook.add_worksheet()
@@ -106,11 +109,19 @@ class DriverEngine(DriverManager):
         element_locator = self.excel.get_locator(sheet, name)
         return self.driver.value_of_css_property(element_locator)
 
+    def get_console_output(self) -> str: ...
+
+    def press_keyboard_key(self, key: str) -> None:
+        action = ActionChains(self.driver)
+        press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
+        return press.perform()
+
     @staticmethod
-    def validate() -> callable:
-        @wraps
+    def validate(function) -> callable:
+        @wraps(function)
         def text() -> any:
             assert ...
+            function()
         return text
 
     def teardown(self) -> None:

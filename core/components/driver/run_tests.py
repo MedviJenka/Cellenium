@@ -1,4 +1,4 @@
-from core.components.logs.log_generator import log
+from core.static.logs.log_generator import log
 import unittest
 from typing import Type
 from unittest import TestCase
