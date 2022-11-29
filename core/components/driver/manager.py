@@ -50,9 +50,10 @@ class DriverEngine(DriverManager):
         if maximize_window:
             self.driver.maximize_window()
 
-    def wait_for_element(self, element: str, seconds=3) -> None:
+    def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
+        element_locator = self.excel.get_locator(sheet, name)
         wait = WebDriverWait(self.driver, seconds)
-        wait.until(expected_conditions.visibility_of_element_located(element))
+        wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, sheet: str, name: str) -> webdriver:
         element_locator = self.excel.get_locator(sheet, name)
@@ -82,9 +83,7 @@ class DriverEngine(DriverManager):
         elif element_type == 'CLASS_NAME':
             return self.driver.find_element(By.CLASS_NAME, element_locator)
 
-        self.wait_for_element(name, 3)
-
-    async def _embed_image_into_cell(self, sheet: str, name: str) -> any:
+    def _embed_image_into_cell(self, sheet: str, name: str) -> any:
         path = self.config.read('path', 'screenshots')
         element = self.get_element(sheet, name)
         image_location = fr'{path}/{self.excel.get_name(sheet, name)}.png'

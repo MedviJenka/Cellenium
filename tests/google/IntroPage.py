@@ -11,6 +11,7 @@ class IntroPage(DriverEngine):
 
     def navigate(self):
         self.get_element('FirstPage', 'search').send_keys('cats')
+        self.wait_for_element('FirstPage', 'search', seconds=3)
         self.press_keyboard_key('ENTER')
 
     def find_button(self):
