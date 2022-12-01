@@ -110,7 +110,7 @@ class DriverEngine(DriverManager):
 
     def get_console_output(self) -> str: ...
 
-    def press_keyboard_key(self, key: str) -> None:
+    def press_keyboard_key(self, key: str) -> ActionChains:
         action = ActionChains(self.driver)
         press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
         return press.perform()

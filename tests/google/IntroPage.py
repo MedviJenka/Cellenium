@@ -9,12 +9,12 @@ class IntroPage(DriverEngine):
     def setup(self) -> None:
         self.get_web(web_link='https://www.google.com', maximize_window=True)
 
-    def navigate(self):
+    def navigate(self) -> None:
         self.get_element('FirstPage', 'search').send_keys('cats')
         self.wait_for_element('FirstPage', 'search', seconds=3)
         self.press_keyboard_key('ENTER')
 
-    def find_button(self):
+    def find_button(self) -> None:
         self.get_element('FirstPage', 'button')
 
     def exit_all(self) -> None:
