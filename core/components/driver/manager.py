@@ -104,8 +104,6 @@ class DriverEngine(DriverManager):
         elif value:
             select.select_by_visible_text(value)
 
-    def get_console_output(self) -> str: ...
-
     def press_keyboard_key(self, key: str) -> ActionChains:
         action = ActionChains(self.driver)
         press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
@@ -126,10 +124,4 @@ class Validations(DriverEngine):
         element_locator = self.excel.get_locator(sheet, name)
         assert self.driver.value_of_css_property(element_locator)
 
-    @staticmethod
-    def validate(function) -> callable:
-        @wraps(function)
-        def text() -> any:
-            assert ...
-            function()
-        return text
+    def validate_console_output(self) -> None: ...
