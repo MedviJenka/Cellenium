@@ -104,24 +104,12 @@ class DriverEngine(DriverManager):
         elif value:
             select.select_by_visible_text(value)
 
-    def validate_css_value(self, sheet: str, name: str) -> DriverManager:
-        element_locator = self.excel.get_locator(sheet, name)
-        return self.driver.value_of_css_property(element_locator)
-
     def get_console_output(self) -> str: ...
 
     def press_keyboard_key(self, key: str) -> ActionChains:
         action = ActionChains(self.driver)
         press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
         return press.perform()
-
-    @staticmethod
-    def validate(function) -> callable:
-        @wraps(function)
-        def text() -> any:
-            assert ...
-            function()
-        return text
 
     def teardown(self) -> None:
         try:
@@ -130,3 +118,18 @@ class DriverEngine(DriverManager):
         except not self.driver:
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
+
+
+class Validations(DriverEngine):
+
+    def validate_css_value(self, sheet: str, name: str) -> None:
+        element_locator = self.excel.get_locator(sheet, name)
+        assert self.driver.value_of_css_property(element_locator)
+
+    @staticmethod
+    def validate(function) -> callable:
+        @wraps(function)
+        def text() -> any:
+            assert ...
+            function()
+        return text
