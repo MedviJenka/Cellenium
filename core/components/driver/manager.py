@@ -97,8 +97,8 @@ class DriverEngine(DriverManager):
             worksheet.insert_image(self.excel.get_image(sheet, name), image_location)
             workbook.close()
 
-    def dropdown(self, sheet: str, name: str, text: str = '', value: str = '') -> None:
-        select = Select(self.driver.find_element(sheet, name))
+    def dropdown(self, sheet: str, name: str, text: str, value: str) -> None:
+        select = Select(self.driver.get_element(sheet, name))
         if text:
             select.select_by_value(text)
         elif value:
