@@ -7,8 +7,14 @@ from dataclasses import dataclass
 @dataclass
 class CompareImages:
 
+    """
+    :param: original ................ path for original image to compare
+    :param: compare ................. path for screenshot
+    :param: show_full_data .......... extra data which emphasizes image difference
+    """
+
     @staticmethod
-    def find_difference(original: str, compare: str) -> None:
+    def find_difference(original: str, compare: str, show_full_data=False) -> str:
 
         # load and resize images
         before = cv2.imread(original)
@@ -43,19 +49,22 @@ class CompareImages:
                 cv2.drawContours(mask, [c], 0, (255, 255, 255), -1)
                 cv2.drawContours(filled_after, [c], 0, (250, 0, 0), -1)
 
-        result = round(score * 100)
+        cv2.imshow('before', before)
+        cv2.imshow('after', after)
+        cv2.waitKey()
+
+        if show_full_data:
+            cv2.imshow('diff', diff)
+            cv2.imshow('diff_box', diff_box)
+            cv2.imshow('mask', mask)
+            cv2.imshow('filled after', filled_after)
+            cv2.waitKey()
+
         result_text = f"Image Similarity: {round(score * 100)}%"
         print(result_text)
-
+        result = round(score * 100)
         print("LESS THAN 75% SIMILARITY, CONSULT WITH DEVELOPER") if result < 75 else print("seems good")
-
-        # cv2.imshow('before', before)
-        cv2.imshow('after', after)
-        # cv2.imshow('diff', diff)
-        # cv2.imshow('diff_box', diff_box)
-        # cv2.imshow('mask', mask)
-        # cv2.imshow('filled after', filled_after)
-        cv2.waitKey()
+        return result_text
 
 
 def test1() -> None:
@@ -64,8 +73,20 @@ def test1() -> None:
                                    compare=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web2.jpg")
 
 
+def test2() -> None:
+    compare_images = CompareImages()
+    compare_images.find_difference(original=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web.jpg",
+                                   compare=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web2.jpg",
+                                   show_full_data=True)
+
+
+def test3() -> None:
+    ...
+
+
 def main() -> None:
     test1()
+    test2()
 
 
 if __name__ == '__main__':
