@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11aa2b3-f1d7-424e-97aa-d0f5ee69ff83" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

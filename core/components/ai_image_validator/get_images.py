@@ -60,10 +60,11 @@ class CompareImages:
             cv2.imshow('filled after', filled_after)
             cv2.waitKey()
 
-        result_text = f"Image Similarity: {round(score * 100)}%"
+        result = score * 100
+        result_text = f"Image Similarity: {result:.1f}%"
         print(result_text)
-        result = round(score * 100)
-        print("LESS THAN 75% SIMILARITY, CONSULT WITH DEVELOPER") if result < 75 else print("seems good")
+
+        print("LOW SIMILARITY, CONSULT WITH THE DEVELOPER") if result < 95 else print("seems good")
         return result_text
 
 
@@ -76,17 +77,20 @@ def test1() -> None:
 def test2() -> None:
     compare_images = CompareImages()
     compare_images.find_difference(original=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web.jpg",
-                                   compare=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web2.jpg",
-                                   show_full_data=True)
+                                   compare=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web2.jpg")
 
 
 def test3() -> None:
-    ...
+    compare_images = CompareImages()
+    compare_images.find_difference(original=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web.jpg",
+                                   compare=r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web3.jpg",
+                                   show_full_data=True)
 
 
 def main() -> None:
     test1()
     test2()
+    test3()
 
 
 if __name__ == '__main__':
