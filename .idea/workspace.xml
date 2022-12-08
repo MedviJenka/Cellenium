@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11aa2b3-f1d7-424e-97aa-d0f5ee69ff83" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/CACHEDIR.TAG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/v/cache/lastfailed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/v/cache/nodeids" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.pytest_cache/v/cache/stepwise" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/img_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/left.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/right.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/sc1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/components/driver/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/driver/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/utils/jenkins" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/components/ai_image_validator" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -46,6 +44,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\evgenyp\Cellenium\core\components\ai_image_validator" />
       <recent name="C:\Users\evgenyp\Cellenium\core\utils\jenkins" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -56,7 +55,7 @@
       <recent name="C:\Users\evgenyp\Cellenium\tests\jira" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.IntroPage">
+  <component name="RunManager" selected="Python tests.Python tests in get_images.py">
     <configuration name="IntroPage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CelleniumProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,27 +69,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/google/IntroPage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="dummy (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CelleniumProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/components/logs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/components/logs/dummy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -120,18 +98,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in JiraAutomation.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="get_images" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CelleniumProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/jira" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/components/ai_image_validator" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/jira/JiraAutomation.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in dummy.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -148,13 +133,27 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests in get_images.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="CelleniumProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/components/ai_image_validator" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/core/components/ai_image_validator/get_images.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests in get_images.py" />
+        <item itemvalue="Python.get_images" />
         <item itemvalue="Python.IntroPage" />
         <item itemvalue="Python.dummy (2)" />
         <item itemvalue="Python tests.Python tests in dummy.py" />
-        <item itemvalue="Python.dummy (1)" />
-        <item itemvalue="Python tests.Python tests in JiraAutomation.py" />
       </list>
     </recent_temporary>
   </component>
@@ -190,6 +189,13 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

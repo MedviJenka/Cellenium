@@ -11,6 +11,7 @@ class IntroPage(DriverEngine):
 
     def navigate(self) -> None:
         self.get_element('FirstPage', 'search').send_keys('cats')
+        self.take_screenshot('web2')
         self.wait_for_element('FirstPage', 'search', seconds=3)
         self.press_keyboard_key('ENTER')
 
@@ -22,10 +23,7 @@ class IntroPage(DriverEngine):
 
 
 def main() -> callable:
-    run_single_test(IntroPage(), ['setup',
-                                  'navigate',
-                                  'find_button',
-                                  'exit_all'])
+    run_single_test(IntroPage(), ['setup', 'navigate', 'exit_all'])
 
 
 if __name__ == '__main__':
