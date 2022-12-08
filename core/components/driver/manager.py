@@ -1,5 +1,4 @@
 from abc import ABC
-from functools import wraps
 import xlsxwriter
 from selenium import webdriver
 from dataclasses import dataclass
@@ -8,14 +7,14 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 from webdrivermanager.edge import EdgeDriverManager
 from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 
 
 @dataclass
@@ -34,7 +33,7 @@ class ServiceManager:
 @dataclass
 class DriverManager(ABC):
 
-    service = ServiceManager()
+    service  = ServiceManager()
     _options = Options()
     driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
 
@@ -42,13 +41,17 @@ class DriverManager(ABC):
 @dataclass
 class DriverEngine(DriverManager):
 
-    excel      = ExcelReader()
-    config     = ConfigReader()
+    excel  = ExcelReader()
+    config = ConfigReader()
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link)
         if maximize_window:
             self.driver.maximize_window()
+
+    def take_screenshot(self, name: str) -> None:
+        path = r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports"
+        self.driver.save_screenshot(fr'{path}/{name}.jpg')
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
         element_locator = self.excel.get_locator(sheet, name)
@@ -63,10 +66,11 @@ class DriverEngine(DriverManager):
 
         if element_type == 'NAME':
             element = self.driver.find_element(By.NAME, element_locator)
-            try:
-                return element
-            finally:
-                element.screenshot(f'{path}/{element_name}.png')
+            return element
+            # try:
+            #     return element
+            # finally:
+            #     element.screenshot(f'{path}/{element_name}.png')
 
         elif element_type == 'ID':
             return self.driver.find_element(By.ID, element_locator)
