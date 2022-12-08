@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11aa2b3-f1d7-424e-97aa-d0f5ee69ff83" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/get_images.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/img_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/left.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/right.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/ai_image_validator/sc1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/driver/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/driver/manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
