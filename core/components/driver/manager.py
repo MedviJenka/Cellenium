@@ -189,7 +189,7 @@ class CompareImages:
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
         print(result_text)
-        print("LOW SIMILARITY, CONSULT WITH THE DEVELOPER") if result < 95 else print("seems good")
+        print("LOW SIMILARITY, CONSULT WITH THE DEVELOPER") if result < 95 else print("GOOD")
 
         if show_full_data:
             cv2.imshow('diff', diff)
@@ -197,39 +197,3 @@ class CompareImages:
             cv2.imshow('mask', mask)
             cv2.imshow('filled after', filled_after)
             cv2.waitKey()
-
-
-path1 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web.jpg'
-path2 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web2.jpg'
-path3 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web3.jpg'
-
-
-def test1() -> None:
-    compare = CompareImages()
-    compare.find_difference(path1, path2, show_full_data=True)
-
-
-def test2() -> None:
-    compare = CompareImages()
-    compare.find_difference(path2, path3, show_full_data=True)
-
-
-def test3() -> None:
-    compare = CompareImages()
-    compare.find_difference(path2, path2)
-
-
-def test4() -> None:
-    compare = CompareImages()
-    compare.find_difference(path1, path2)
-
-
-def main() -> None:
-    test1()
-    test2()
-    test3()
-    test4()
-
-
-if __name__ == '__main__':
-    main()
