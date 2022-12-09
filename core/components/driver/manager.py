@@ -23,6 +23,10 @@ from dataclasses import dataclass
 @dataclass
 class ServiceManager:
 
+    """
+    :param: chrome .............. choose driver (for now supports only chrome)
+    """
+
     chrome_driver = ChromeDriverManager()
     edge_driver = EdgeDriverManager()
 
@@ -53,7 +57,7 @@ class DriverEngine(DriverManager):
             self.driver.maximize_window()
 
     def take_screenshot(self, name: str) -> None:
-        path = r"C:\Users\evgenyp\Cellenium\core\static\screenshots\reports"
+        path = self.config.read('path', 'screenshots')
         self.driver.save_screenshot(fr'{path}/{name}.jpg')
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
@@ -193,3 +197,39 @@ class CompareImages:
             cv2.imshow('mask', mask)
             cv2.imshow('filled after', filled_after)
             cv2.waitKey()
+
+
+path1 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web.jpg'
+path2 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web2.jpg'
+path3 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web3.jpg'
+
+
+def test1() -> None:
+    compare = CompareImages()
+    compare.find_difference(path1, path2, show_full_data=True)
+
+
+def test2() -> None:
+    compare = CompareImages()
+    compare.find_difference(path2, path3, show_full_data=True)
+
+
+def test3() -> None:
+    compare = CompareImages()
+    compare.find_difference(path2, path2)
+
+
+def test4() -> None:
+    compare = CompareImages()
+    compare.find_difference(path1, path2)
+
+
+def main() -> None:
+    test1()
+    test2()
+    test3()
+    test4()
+
+
+if __name__ == '__main__':
+    main()
