@@ -24,7 +24,9 @@ from dataclasses import dataclass
 class ServiceManager:
 
     """
-    :param: chrome .............. choose driver (for now supports only chrome)
+    :param: chrome_driver .............. driver.exe (for now supports only chrome)
+    :param: edge_driver ...............  driver.exe (for now supports only chrome)
+    :param: browser ...................  for now supports only chrome
     """
 
     chrome_driver = ChromeDriverManager()
@@ -148,7 +150,7 @@ class CompareImages:
     """
 
     @staticmethod
-    def find_difference(original: str, compare: str, show_full_data=False) -> None:
+    def find_difference(original: str, compare: str, show_full_data=False) -> int:
 
         # load and resize images
         before = cv2.imread(original)
@@ -159,7 +161,7 @@ class CompareImages:
         # Convert images to grayscale
         before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
         after_gray = cv2.cvtColor(after, cv2.COLOR_BGR2GRAY)
-        (score, diff) = structural_similarity(before_gray, after_gray, full=True)
+        score, diff = structural_similarity(before_gray, after_gray, full=True)
 
         diff = (diff * 255).astype("uint8")
         diff_box = cv2.merge([diff, diff, diff])
@@ -179,9 +181,9 @@ class CompareImages:
                 x, y, w, h = cv2.boundingRect(i)
                 cv2.rectangle(before, (x, y), (x + w, y + h), (36, 255, 12), 1)
                 cv2.rectangle(after, (x, y), (x + w, y + h), (36, 255, 12), 1)
-                cv2.rectangle(diff_box, (x, y), (x + w, y + h), (0, 255, 0), 1)
-                cv2.drawContours(mask, [i], 0, (255, 255, 255), -1)
-                cv2.drawContours(filled_after, [i], 0, (250, 0, 0), -1)
+                # cv2.rectangle(diff_box, (x, y), (x + w, y + h), (0, 255, 0), 1)
+                # cv2.drawContours(mask, [i], 0, (255, 255, 255), -1)
+                # cv2.drawContours(filled_after, [i], 0, (250, 0, 0), -1)
 
         cv2.imshow('before', before)
         cv2.imshow('after', after)
@@ -197,3 +199,5 @@ class CompareImages:
             cv2.imshow('mask', mask)
             cv2.imshow('filled after', filled_after)
             cv2.waitKey()
+
+        return result
