@@ -177,9 +177,9 @@ class CompareImages:
             area = cv2.contourArea(i)
             if area > 40:
                 x, y, w, h = cv2.boundingRect(i)
-                cv2.rectangle(before, (x, y), (x + w, y + h), (36, 255, 12), 2)
-                cv2.rectangle(after, (x, y), (x + w, y + h), (36, 255, 12), 2)
-                cv2.rectangle(diff_box, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                cv2.rectangle(before, (x, y), (x + w, y + h), (36, 255, 12), 1)
+                cv2.rectangle(after, (x, y), (x + w, y + h), (36, 255, 12), 1)
+                cv2.rectangle(diff_box, (x, y), (x + w, y + h), (0, 255, 0), 1)
                 cv2.drawContours(mask, [i], 0, (255, 255, 255), -1)
                 cv2.drawContours(filled_after, [i], 0, (250, 0, 0), -1)
 

@@ -1,12 +1,14 @@
 from core.components.driver.manager import CompareImages
 from core.components.driver.run_tests import run_single_test
+import unittest
+
 
 path1 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web.jpg'
 path2 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web2.jpg'
 path3 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web3.jpg'
 
 
-class TestCompareImages:
+class TestCompareImages(unittest.TestCase):
 
     @staticmethod
     def test1() -> None:
