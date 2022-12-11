@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1a9696-2ac2-40a4-9e70-df1776f7bb45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/components/driver/compare_images.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/components/driver/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/driver/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/module_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/module/module_tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/module/module_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/module/module_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +52,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -68,7 +70,7 @@
       <recent name="C:\Users\evgenyp\Cellenium\core\aaa" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in module_tests.py">
+  <component name="RunManager" selected="Python tests.Python tests for module_tests.TestCompareImages.test3">
     <configuration name="manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CelleniumProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -82,27 +84,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/components/driver/manager.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="reader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CelleniumProject" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core/components/config" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/components/config/reader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,6 +111,20 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for module_tests.TestCompareImages.test3" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="CelleniumProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/module" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;module_tests.TestCompareImages.test3&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in manager.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -162,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for module_tests.TestCompareImages.test3" />
+        <item itemvalue="Python.manager" />
         <item itemvalue="Python tests.Python tests in module_tests.py" />
         <item itemvalue="Python.static" />
-        <item itemvalue="Python.manager" />
         <item itemvalue="Python tests.Python tests in manager.py" />
-        <item itemvalue="Python.reader" />
       </list>
     </recent_temporary>
   </component>
