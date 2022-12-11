@@ -2,9 +2,9 @@ from core.components.driver.compare_images import CompareImages
 import unittest
 
 
-path1 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web.jpg'
-path2 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web2.jpg'
-path3 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\screenshots\reports\web3.jpg'
+path1 = r'C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web.jpg'
+path2 = r'C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web2.jpg'
+path3 = r'C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\web3.jpg'
 
 
 class TestCompareImages(unittest.TestCase):
@@ -19,11 +19,11 @@ class TestCompareImages(unittest.TestCase):
 
     def test3(self) -> None:
         compare = CompareImages()
-        assert compare.find_difference(path2, path2) == 100
+        self.assertEquals(compare.find_difference(path2, path2), 100)
 
     def test4(self) -> None:
         compare = CompareImages()
-        assert compare.find_difference(path1, path3) > 90
+        self.assertGreater(compare.find_difference(path1, path3), 90)
 
 
 test_compare_images = TestCompareImages()
