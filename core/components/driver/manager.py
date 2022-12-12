@@ -190,6 +190,7 @@ class CompareImages:
         cv2.waitKey()
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
+
         print(result_text)
         print("LOW SIMILARITY, CONSULT WITH THE DEVELOPER") if result < 95 else print("GOOD")
 
@@ -201,3 +202,7 @@ class CompareImages:
             cv2.waitKey()
 
         return result
+
+
+if __name__ == '__main__':
+    DriverManager()

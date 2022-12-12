@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f1a9696-2ac2-40a4-9e70-df1776f7bb45" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/static/screenshots/reports/original.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/static/screenshots/reports/result.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/components/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/config/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/components/config/reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/config/reader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/static/path.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/static/temp/dummy.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/static/temp/dummy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/driver/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/driver/manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/module/module_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/module/module_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
