@@ -1,5 +1,9 @@
 from dataclasses import dataclass
 from configparser import ConfigParser
+from core.static.enums.constants import Data
+
+
+path = Data.CURRENT_PATH.value
 
 
 @dataclass

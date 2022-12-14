@@ -2,5 +2,5 @@ from enum import Enum
 from pathlib import Path
 
 
-class Static(Enum):
+class Data(Enum):
     CURRENT_PATH = Path.cwd()
