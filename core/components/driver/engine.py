@@ -14,6 +14,7 @@ from skimage.metrics import structural_similarity
 import cv2
 import numpy as np
 from core.components.driver.manager import DriverManager
+import json
 
 
 @dataclass
@@ -105,17 +106,28 @@ class CompareImages:
     """
     :param: original ................ path for original image to compare
     :param: compare ................. path for screenshot
-    :param: show_full_data .......... extra data which emphasizes image difference
+    :param: percentage_threshold .... wanted percentage of success
+    :param: resolution .......... image resolution
     """
 
     @staticmethod
-    def find_difference(original: str, compare: str, show_full_data=False) -> int:
+    def _read_json(path: str) -> dict:
+        output = json.load(open(path))
+        return {
+            'original': output['original'],
+            'actual': output['actual'],
+            'percentage_threshold': output['percentage_threshold'],
+            'resolution': output['resolution']
+        }
 
+    def find_difference(self, path: str) -> str:
+
+        data = self._read_json(path)
         # load and resize images
-        before = cv2.imread(original)
-        after = cv2.imread(compare)
-        before = cv2.resize(before, (800, 800))
-        after = cv2.resize(after, (800, 800))
+        before = cv2.imread(data['original'])
+        after = cv2.imread(data['actual'])
+        before = cv2.resize(before, (data['resolution']))
+        after = cv2.resize(after, (data['resolution']))
 
         # Convert images to grayscale
         before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
@@ -151,16 +163,9 @@ class CompareImages:
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
         print(result_text)
-        print("LOW SIMILARITY, CONSULT WITH THE DEVELOPER") if result < 95 else print("GOOD")
+        print("LOW SIMILARITY, CONSULT WITH THE DEVELOPER") if result < data['percentage_threshold'] else print("GOOD")
 
-        if show_full_data:
-            cv2.imshow('diff', diff)
-            cv2.imshow('diff_box', diff_box)
-            cv2.imshow('mask', mask)
-            cv2.imshow('filled after', filled_after)
-            cv2.waitKey()
-
-        return result
+        return result_text
 
 
 class Validations(DriverEngine):
