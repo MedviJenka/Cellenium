@@ -1,27 +1,38 @@
-import sys
-from functools import wraps
+import logging
 
 
-def log_decorator(_func=None):
-    def log_decorator_info(func):
-        @wraps(func)
-        def log_decorator_wrapper(self, *args, **kwargs):
-            """Build logger object"""
-            logger_obj = log.get_logger(log_file_name=self.log_file_name, log_sub_dir=self.log_file_dir)
+log_file = "./logfile.log"
+log_level = logging.DEBUG
+logging.basicConfig(level=log_level, filename=log_file, filemode="w+",
+                    format="%(asctime)-15s %(levelname)-8s %(message)s")
+logger = logging.getLogger("baker_logger")
 
-            """log function beginning"""
-            logger_obj.info("Begin function")
-            try:
-                """ log return value from the function """
-                value = func(self, *args, **kwargs)
-                logger_obj.info(f"Returned: - End function {value!r}")
-            except:
-                """log exception if occurs in function"""
-                logger_obj.error(f"Exception: {str(sys.exc_info()[1])}")
-                raise
-            return value
-        return log_decorator_wrapper
-    if _func is None:
-        return log_decorator_info
-    else:
-        return log_decorator_info(_func)
+
+def wrap(pre, post):
+    """ Wrapper """
+    def decorate(func):
+        """ Decorator """
+        def call(*args, **kwargs):
+            """ Actual wrapping """
+            pre(func)
+            result = func(*args, **kwargs)
+            post(func)
+            return result
+        return call
+    return decorate
+
+
+def entering(func):
+    """ Pre function logging """
+    logger.debug("Entered %s", func.__name__)
+
+
+def exiting(func):
+    """ Post function logging """
+    logger.debug("Exited  %s", func.__name__)
+
+
+@wrap(entering, exiting)
+def bake_pie(amount):
+    """ Bakes a certain amount of pies """
+    print("I baked %d pies" % amount)

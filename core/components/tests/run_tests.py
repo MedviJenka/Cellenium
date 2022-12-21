@@ -5,14 +5,13 @@ from unittest import TestCase
 from unittest.suite import TestSuite
 
 
-@log()
+@log
 def run_single_test(class_name: object, methods: list[str]) -> None:
     for each_method in methods:
         getattr(class_name, each_method)()
         print(f'test steps: {each_method}')
 
 
-@log()
 def run_multiple_tests(class_name: Type[TestCase]) -> None:
     suite = TestSuite()
     tests = unittest.TestLoader()

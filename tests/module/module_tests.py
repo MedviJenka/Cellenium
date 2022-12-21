@@ -2,20 +2,19 @@ from core.components.driver.engine import CompareImages
 import unittest
 
 
-path1 = r'C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\img.png'
-path2 = r'C:\Users\evgenyp\Cellenium\core\static\screenshots\reports\img_1.png'
+path1 = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\json\data.json'
+
+
+compare = CompareImages()
 
 
 class TestCompareImages(unittest.TestCase):
 
     def test1(self) -> None:
-        compare = CompareImages()
-        compare.find_difference(path1, path2)
+        compare.find_difference(path1)
 
     def test2(self) -> None:
-        compare = CompareImages()
-        compare.find_difference(path1, path2, resolution=(1200, 1200))
-        self.assertIsNone(compare.find_difference(path1, path2))
+        assert compare.find_difference(path1)
 
 
 test_compare_images = TestCompareImages()

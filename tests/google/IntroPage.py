@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from core.components.driver.engine import DriverEngine
-from core.components.driver.run_tests import run_single_test
+from core.components.tests.run_tests import run_single_test
 
 
 @dataclass
