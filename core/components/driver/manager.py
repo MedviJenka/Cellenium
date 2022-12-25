@@ -1,10 +1,10 @@
-from abc import ABC
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdrivermanager.edge import EdgeDriverManager
 from dataclasses import dataclass
+from abc import ABCMeta
 
 
 @dataclass
@@ -27,7 +27,7 @@ class ServiceManager:
 
 
 @dataclass
-class DriverManager(ABC):
+class DriverManager(metaclass=ABCMeta):
 
     service  = ServiceManager()
     _options = Options()

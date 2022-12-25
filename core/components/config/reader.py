@@ -10,7 +10,7 @@ path = Data.CURRENT_PATH.value
 class ConfigReader:
 
     config = ConfigParser()
-    path: str = r'C:\Users\evgenyp\Cellenium\core\components\config\config.ini'
+    path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\components\config\config.ini'
 
     def read(self, key: str, value: str) -> str:
         self.config.read(self.path)

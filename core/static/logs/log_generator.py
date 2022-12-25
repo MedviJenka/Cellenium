@@ -3,27 +3,38 @@ import logging
 from core.components.config.reader import ConfigReader
 from functools import wraps
 
+config = ConfigReader()
+time = datetime.now()
+log_path = config.read('path', 'logs')
+time_stamp = f'{time: "%A | %B | %d/%m/%y | %X"}'
 
-def log(func):
 
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        config = ConfigReader()
-        time = datetime.now()
-        logs_path = config.read('path', 'logs')
-        logging.basicConfig(filename=f'{logs_path}/{"logs.log"}',
-                            datefmt=f'{time:%A | %B | %d/%m/%y | %X |}',
-                            level=logging.INFO,
-                            format='%(asctime)s:'
-                                   '%(levelname)s:'
-                                   '%(message)s')
-        logging.info(f'{func.__name__}, arguments: {args, kwargs}')
-        result = func(*args, **kwargs)
-        logging.info(f'{func.__name__} returned {result}')
-        logging.debug(f'{func.__name__} returned {result}')
-        logging.error(f'{func.__name__} returned {result}')
-        logging.fatal(f'{func.__name__} returned {result}')
+def log_setup(level):
+    logger = logging.getLogger()
+    logger.setLevel(level)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    if log_path:
+        file_handler = logging.FileHandler(log_path)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
 
-        return result
+    # Create a StreamHandler to log to the console
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
 
-    return wrapper
+
+# def log(func) -> logging:
+#
+#     @wraps(func)
+#     def decorator(*args, **kwargs) -> callable:
+#
+#         result = func(*args, **kwargs)
+#         logging.info(f"Function {func.__name__} called args: {args, kwargs} and returned {result}")
+#         logging.basicConfig(filename=f'{log_path}/{"logs.log"}',
+#                             datefmt=f'{time: "%A | %B | %d/%m/%y | %X"}',
+#                             format='%(asctime)s: %(levelname)s: %(message)s',
+#                             level=logging.INFO)
+#         return result
+#
+#     return decorator

@@ -1,11 +1,9 @@
-from core.static.logs.log_generator import log
 import unittest
 from typing import Type
 from unittest import TestCase
 from unittest.suite import TestSuite
 
 
-@log
 def run_single_test(class_name: object, methods: list[str]) -> None:
     for each_method in methods:
         getattr(class_name, each_method)()

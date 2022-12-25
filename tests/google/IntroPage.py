@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from core.components.driver.engine import DriverEngine
+from core.components.ui.image import CompareImages
 from core.components.tests.run_tests import run_single_test
 
 
@@ -15,6 +16,11 @@ class IntroPage(DriverEngine):
         self.wait_for_element('FirstPage', 'search', seconds=3)
         self.press_keyboard_key('ENTER')
 
+    @staticmethod
+    def compare() -> None:
+        compare_images = CompareImages()
+        compare_images.find_difference(r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\json\data.json')
+
     def find_button(self) -> None:
         self.get_element('FirstPage', 'button')
 
@@ -23,7 +29,7 @@ class IntroPage(DriverEngine):
 
 
 def main() -> callable:
-    run_single_test(IntroPage(), ['setup', 'exit_all'])
+    run_single_test(IntroPage(), ['setup', 'compare', 'exit_all'])
 
 
 if __name__ == '__main__':
