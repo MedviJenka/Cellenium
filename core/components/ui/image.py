@@ -3,9 +3,7 @@ import numpy as np
 import json
 from core.components.config.reader import ConfigReader
 from skimage.metrics import structural_similarity
-
-
-config = ConfigReader()
+from time import strftime
 
 
 class CompareImages:
@@ -16,6 +14,15 @@ class CompareImages:
     :param: percentage_threshold .... wanted percentage of success
     :param: resolution .............. image resolution
     """
+
+    config = ConfigReader()
+
+    @staticmethod
+    def _image_name() -> list[str]:
+        time_stamp = strftime("%A%B-%d-%Y")
+        time1 = 'original.png'
+        time2 = f'actual_image_{time_stamp}.png'
+        return [time1, time2]
 
     @staticmethod
     def _read_json(path: str) -> dict:
@@ -68,14 +75,21 @@ class CompareImages:
 
         cv2.imshow('before', before)
         cv2.imshow('after', after)
-        screenshot_path = config.read('path', 'screenshots')
-        cv2.imwrite(fr'{screenshot_path}\before.png', before)
-        cv2.imwrite(fr'{screenshot_path}\after.png', after)
-        cv2.destroyAllWindows()
+        screenshot_path = self.config.read('path', 'screenshots')
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
+
+        cv2.imwrite(fr'{screenshot_path}/{self._image_name()[0]}', before)
+        cv2.imwrite(fr'{screenshot_path}/{self._image_name()[1]}', after)
+        cv2.destroyAllWindows()
 
         if result >= data['percentage_threshold']:
             return f"GOOD , {result_text}"
         else:
             raise Exception(f"LOW SIMILARITY ({result_text}), CONSULT WITH THE DEVELOPER")
+
+
+if __name__ == "__main__":
+    compare = CompareImages()
+    a = compare._image_name()
+    print(a)
