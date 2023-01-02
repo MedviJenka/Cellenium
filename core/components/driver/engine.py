@@ -10,20 +10,15 @@ from core.components.config.reader import ConfigReader
 from core.components.excel.reader import ExcelReader
 from os import system
 from dataclasses import dataclass
-from skimage.metrics import structural_similarity
-import cv2
 from core.components.driver.manager import DriverManager
-import numpy as np
-import json
 
 
 config = ConfigReader()
+excel  = ExcelReader()
 
 
 @dataclass
 class DriverEngine(DriverManager):
-
-    excel  = ExcelReader()
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link)
@@ -35,13 +30,13 @@ class DriverEngine(DriverManager):
         self.driver.save_screenshot(fr'{path}/{name}.jpg')
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
-        element_locator = self.excel.get_locator(sheet, name)
+        element_locator = excel.get_locator(sheet, name)
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, sheet: str, name: str) -> webdriver:
-        element_locator = self.excel.get_locator(sheet, name)
-        element_type    = self.excel.get_type(sheet, name)
+        element_locator = excel.get_locator(sheet, name)
+        element_type    = excel.get_type(sheet, name)
         # element_name    = self.excel.get_name(sheet, name)
         # path            = self.config.read('path', 'screenshots')
 
@@ -71,7 +66,7 @@ class DriverEngine(DriverManager):
     def _embed_image_into_cell(self, sheet: str, name: str) -> any:
         path = config.read('path', 'screenshots')
         element = self.get_element(sheet, name)
-        image_location = fr'{path}/{self.excel.get_name(sheet, name)}.png'
+        image_location = fr'{path}/{excel.get_name(sheet, name)}.png'
 
         try:
             return element.screenshot(image_location)
@@ -79,7 +74,7 @@ class DriverEngine(DriverManager):
         finally:
             workbook = xlsxwriter.Workbook(image_location)
             worksheet = workbook.add_worksheet()
-            worksheet.insert_image(self.excel.get_image(sheet, name), image_location)
+            worksheet.insert_image(excel.get_image(sheet, name), image_location)
             workbook.close()
 
     def dropdown(self, sheet: str, name: str, text: str, value: str) -> None:
@@ -101,5 +96,3 @@ class DriverEngine(DriverManager):
         except not self.driver:
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
-
-

@@ -4,6 +4,18 @@ import json
 from core.components.config.reader import ConfigReader
 from skimage.metrics import structural_similarity
 from time import strftime
+from dataclasses import dataclass
+
+
+@dataclass
+class InputData:
+
+    original: str
+    actual: str
+    save: str
+    success_rate: int
+    resolution: list[int]
+    break_test: bool
 
 
 class CompareImages:
@@ -11,40 +23,36 @@ class CompareImages:
     """
     :param: original ................ path for original image to compare
     :param: compare ................. path for screenshot
-    :param: percentage_threshold .... wanted percentage of success
+    :param: save .................... path for save images
+    :param: success_rate ............ wanted percentage of success
     :param: resolution .............. image resolution
+    :param: break_test .............. choose if the test will be stopped
     """
 
     config = ConfigReader()
 
     @staticmethod
-    def _image_name() -> list[str]:
+    def _image_name() -> str:
         time_stamp = strftime("%A%B-%d-%Y")
-        time1 = 'original.png'
         time2 = f'actual_image_{time_stamp}.png'
-        return [time1, time2]
+        return time2
 
     @staticmethod
     def _read_json(path: str) -> dict:
-        output = json.load(open(path))
-        return {
-            'original': output['original'],
-            'actual': output['actual'],
-            'percentage_threshold': output['percentage_threshold'],
-            'resolution': output['resolution']
-        }
+        with open(path, 'r', encoding='utf-8') as json_file:
+            file = json.load(json_file)
+            return file
 
     def find_difference(self, path: str) -> str:
-        data = self._read_json(path)
-
+        data = InputData(**self._read_json(path))
         # load and resize images
-        before = cv2.imread(data['original'])
-        after = cv2.imread(data['actual'])
+        before = cv2.imread(data.original)
+        after = cv2.imread(data.actual)
 
-        before = cv2.resize(before, data['resolution'])
-        after = cv2.resize(after, data['resolution'])
-        before = cv2.resize(before, (data['resolution']))
-        after = cv2.resize(after, (data['resolution']))
+        before = cv2.resize(before, data.resolution)
+        after = cv2.resize(after, data.resolution)
+        before = cv2.resize(before, data.resolution)
+        after = cv2.resize(after, data.resolution)
 
         # Convert images to grayscale
         before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
@@ -75,21 +83,18 @@ class CompareImages:
 
         cv2.imshow('before', before)
         cv2.imshow('after', after)
-        screenshot_path = self.config.read('path', 'screenshots')
+
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
 
-        cv2.imwrite(fr'{screenshot_path}/{self._image_name()[0]}', before)
-        cv2.imwrite(fr'{screenshot_path}/{self._image_name()[1]}', after)
+        screenshot_path = data.save
+        cv2.imwrite(fr'{screenshot_path}/{self._image_name()}', after)
         cv2.destroyAllWindows()
 
-        if result >= data['percentage_threshold']:
-            return f"GOOD , {result_text}"
+        if data.break_test:
+            if result >= data.success_rate:
+                return f"GOOD , {result_text}"
+            else:
+                raise Exception(f"LOW SIMILARITY ({result_text}), CONSULT WITH THE DEVELOPER")
         else:
-            raise Exception(f"LOW SIMILARITY ({result_text}), CONSULT WITH THE DEVELOPER")
-
-
-if __name__ == "__main__":
-    compare = CompareImages()
-    a = compare._image_name()
-    print(a)
+            pass

@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdrivermanager.edge import EdgeDriverManager
 from dataclasses import dataclass
-from abc import ABCMeta
+from abc import ABC
 
 
 @dataclass
@@ -27,13 +27,8 @@ class ServiceManager:
 
 
 @dataclass
-class DriverManager(metaclass=ABCMeta):
+class DriverManager(ABC):
 
     service  = ServiceManager()
     _options = Options()
     driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
-
-
-if __name__ == '__main__':
-    ServiceManager()
-    DriverManager()

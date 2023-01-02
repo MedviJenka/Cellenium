@@ -1,6 +1,8 @@
 {
   "original": "C:\\Users\\medvi\\IdeaProjects\\CelleniumProject\\core\\static\\screenshots\\reports\\1.png",
   "actual": "C:\\Users\\medvi\\IdeaProjects\\CelleniumProject\\core\\static\\screenshots\\reports\\2.png",
-  "percentage_threshold": 50,
-  "resolution": [800, 800]
+  "save": "C:\\Users\\medvi\\IdeaProjects\\CelleniumProject\\core\\static\\screenshots\\results",
+  "success_rate": 50,
+  "resolution": [800, 800],
+  "break_test": false
 }
