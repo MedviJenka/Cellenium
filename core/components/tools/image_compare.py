@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
-import json
-from core.components.config.reader import ConfigReader
+from core.components.functional.methods import read_json
 from skimage.metrics import structural_similarity
 from time import strftime
 from dataclasses import dataclass
@@ -29,22 +28,14 @@ class CompareImages:
     :param: break_test .............. choose if the test will be stopped
     """
 
-    config = ConfigReader()
-
     @staticmethod
     def _image_name() -> str:
         time_stamp = strftime("%A%B-%d-%Y")
         time2 = f'actual_image_{time_stamp}.png'
         return time2
 
-    @staticmethod
-    def _read_json(path: str) -> dict:
-        with open(path, 'r', encoding='utf-8') as json_file:
-            file = json.load(json_file)
-            return file
-
     def find_difference(self, path: str) -> str:
-        data = InputData(**self._read_json(path))
+        data = InputData(**read_json(path))
         # load and resize images
         before = cv2.imread(data.original)
         after = cv2.imread(data.actual)

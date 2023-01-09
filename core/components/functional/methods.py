@@ -4,6 +4,7 @@ import unittest
 from typing import Type
 from unittest import TestCase
 from unittest.suite import TestSuite
+import json
 
 
 def read_config(key: str, value: str) -> str:
@@ -11,6 +12,12 @@ def read_config(key: str, value: str) -> str:
     path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
+
+
+def read_json(path: str) -> dict:
+    with open(path, 'r', encoding='utf-8') as json_file:
+        file = json.load(json_file)
+        return file
 
 
 def read_excel(sheet_name: str, value: str) -> dict[str]:
