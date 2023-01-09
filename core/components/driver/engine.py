@@ -6,15 +6,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from core.components.config.reader import ConfigReader
-from core.components.excel.reader import ExcelReader
+from core.components.functional.methods import (read_config,
+                                                get_locator,
+                                                get_type,
+                                                get_name,
+                                                get_image)
 from os import system
 from dataclasses import dataclass
 from core.components.driver.manager import DriverManager
-
-
-config = ConfigReader()
-excel  = ExcelReader()
 
 
 @dataclass
@@ -26,17 +25,17 @@ class DriverEngine(DriverManager):
             self.driver.maximize_window()
 
     def take_screenshot(self, name: str) -> None:
-        path = config.read('path', 'screenshots')
+        path = read_config('path', 'screenshots')
         self.driver.save_screenshot(fr'{path}/{name}.jpg')
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
-        element_locator = excel.get_locator(sheet, name)
+        element_locator = get_locator(sheet, name)
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, sheet: str, name: str) -> webdriver:
-        element_locator = excel.get_locator(sheet, name)
-        element_type    = excel.get_type(sheet, name)
+        element_locator = get_locator(sheet, name)
+        element_type    = get_type(sheet, name)
         # element_name    = self.excel.get_name(sheet, name)
         # path            = self.config.read('path', 'screenshots')
 
@@ -64,9 +63,9 @@ class DriverEngine(DriverManager):
             return self.driver.find_element(By.CLASS_NAME, element_locator)
 
     def _embed_image_into_cell(self, sheet: str, name: str) -> any:
-        path = config.read('path', 'screenshots')
+        path = read_config('path', 'screenshots')
         element = self.get_element(sheet, name)
-        image_location = fr'{path}/{excel.get_name(sheet, name)}.png'
+        image_location = fr'{path}/{get_name(sheet, name)}.png'
 
         try:
             return element.screenshot(image_location)
@@ -74,11 +73,11 @@ class DriverEngine(DriverManager):
         finally:
             workbook = xlsxwriter.Workbook(image_location)
             worksheet = workbook.add_worksheet()
-            worksheet.insert_image(excel.get_image(sheet, name), image_location)
+            worksheet.insert_image(get_image(sheet, name), image_location)
             workbook.close()
 
-    def dropdown(self, sheet: str, name: str, text: str, value: str) -> None:
-        select = Select(self.driver.get_element(sheet, name))
+    def dropdown(self, text=None, value=None) -> None:
+        select = Select(self.driver.get_element)
         if text:
             select.select_by_value(text)
         elif value:
