@@ -5,6 +5,8 @@ from typing import Type
 from unittest import TestCase
 from unittest.suite import TestSuite
 import json
+import logging
+from datetime import datetime
 
 
 def read_config(key: str, value: str) -> str:
@@ -63,9 +65,10 @@ def get_image(*args: str) -> str:
 
 
 def run_single_test(class_name: object, methods: list[str]) -> None:
+    logs = log()
     for each_method in methods:
         getattr(class_name, each_method)()
-        print(f'test steps: {each_method}')
+        logs.info(f'test steps: {each_method}')
 
 
 def run_multiple_tests(class_name: Type[TestCase]) -> None:
@@ -75,3 +78,21 @@ def run_multiple_tests(class_name: Type[TestCase]) -> None:
     suite.addTest(tests.loadTestsFromTestCase(class_name))
     run = unittest.TextTestRunner()
     run.run(suite)
+
+
+def log() -> logging:
+    time = datetime.now()
+    time_format = f'{time: %A | %B | %X}'
+    path = read_config('path', 'logs')
+    logging.basicConfig(filename=path,
+                        format=f'%(levelname)s:{time_format} :: %(message)s',
+                        level=logging.DEBUG)
+    logging.getLogger()
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+    file_handler = logging.FileHandler(path)
+    file_handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter(f'% {time_format} - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    return logger

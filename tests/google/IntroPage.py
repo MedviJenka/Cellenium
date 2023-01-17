@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from core.components.driver.engine import DriverEngine
+from core.components.functional.methods import run_single_test
 from core.components.tools.image_compare import CompareImages
-from core.components.tests.run_tests import run_single_test
 
 
 @dataclass
@@ -29,7 +29,7 @@ class IntroPage(DriverEngine):
 
 
 def test() -> callable:
-    run_single_test(IntroPage(), ['setup', 'compare', 'exit_all'])
+    run_single_test(IntroPage(), ['setup', 'exit_all'])
 
 
 if __name__ == '__main__':

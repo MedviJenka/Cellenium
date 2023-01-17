@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
-from core.components.functional.methods import read_json
+from core.components.functional.methods import read_json, read_config
 from skimage.metrics import structural_similarity
-from time import strftime
 from dataclasses import dataclass
 
 
@@ -29,12 +28,12 @@ class CompareImages:
     """
 
     @staticmethod
-    def _image_name() -> str:
-        time_stamp = strftime("%A%B-%d-%Y")
-        time2 = f'actual_image_{time_stamp}.png'
-        return time2
+    def _image_name(path: str) -> str:
+        image_path = path.split('\\')[-1]
+        image = image_path.partition('.')[0]
+        return image
 
-    def find_difference(self, path: str) -> str:
+    def compare_images(self, path: str) -> str:
         data = InputData(**read_json(path))
         # load and resize images
         before = cv2.imread(data.original)
@@ -77,9 +76,7 @@ class CompareImages:
 
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
-
-        screenshot_path = data.save
-        cv2.imwrite(fr'{screenshot_path}/{self._image_name()}', after)
+        cv2.imwrite(fr'{data.save}/{self._image_name(data.actual)}.png', after)
         cv2.destroyAllWindows()
 
         if data.break_test:
@@ -89,3 +86,8 @@ class CompareImages:
                 raise Exception(f"LOW SIMILARITY ({result_text}), CONSULT WITH THE DEVELOPER")
         else:
             pass
+
+
+if __name__ == '__main__':
+    app = CompareImages()
+    app.compare_images(read_config('json', 'image_compare_data'))

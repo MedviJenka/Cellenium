@@ -30,6 +30,7 @@
           <option value="core.components.driver.temp.chrome_driver_logic.get" />
           <option value="tuple.__next__" />
           <option value="str.size" />
+          <option value="tuple.value" />
         </list>
       </option>
     </inspection_tool>
