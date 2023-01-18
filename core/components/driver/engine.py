@@ -6,14 +6,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from core.components.functional.methods import (read_config,
-                                                get_locator,
-                                                get_type,
-                                                get_name,
-                                                get_image)
+from core.components.functional.methods import *
 from os import system
 from dataclasses import dataclass
 from core.components.driver.manager import DriverManager
+import json
+
+from core.components.tools.image_compare import CompareImages
 
 
 @dataclass
@@ -24,9 +23,16 @@ class DriverEngine(DriverManager):
         if maximize_window:
             self.driver.maximize_window()
 
-    def take_screenshot(self, name: str) -> None:
+    def take_screenshot(self, name: str, compare_images=False) -> None:
         path = read_config('path', 'screenshots')
-        self.driver.save_screenshot(fr'{path}/{name}.jpg')
+        image_compare_data = read_config('json', 'image_compare_data')
+        updated_image_path = fr'{path}/{name}.png'
+        self.driver.save_screenshot(updated_image_path)
+
+        if compare_images:
+            write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
+            app = CompareImages()
+            app.compare_images(read_config('json', 'image_compare_data'))
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
         element_locator = get_locator(sheet, name)

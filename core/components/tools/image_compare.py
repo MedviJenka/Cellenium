@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from core.components.functional.methods import read_json, read_config
+from core.components.functional.methods import read_json
 from skimage.metrics import structural_similarity
 from dataclasses import dataclass
 
@@ -8,9 +8,8 @@ from dataclasses import dataclass
 @dataclass
 class InputData:
 
-    original: str
-    actual: str
-    save: str
+    original_image_path: str
+    actual_image_path: str
     success_rate: int
     resolution: list[int]
     break_test: bool
@@ -36,8 +35,8 @@ class CompareImages:
     def compare_images(self, path: str) -> str:
         data = InputData(**read_json(path))
         # load and resize images
-        before = cv2.imread(data.original)
-        after = cv2.imread(data.actual)
+        before = cv2.imread(data.original_image_path)
+        after = cv2.imread(data.actual_image_path)
 
         before = cv2.resize(before, data.resolution)
         after = cv2.resize(after, data.resolution)
@@ -76,7 +75,7 @@ class CompareImages:
 
         result = score * 100
         result_text = f"Image Similarity: {result:.1f}%"
-        cv2.imwrite(fr'{data.save}/{self._image_name(data.actual)}.png', after)
+        cv2.imwrite(fr'{data.actual_image_path}/{self._image_name(data.actual_image_path)}.png', after)
         cv2.destroyAllWindows()
 
         if data.break_test:
@@ -86,8 +85,3 @@ class CompareImages:
                 raise Exception(f"LOW SIMILARITY ({result_text}), CONSULT WITH THE DEVELOPER")
         else:
             pass
-
-
-if __name__ == '__main__':
-    app = CompareImages()
-    app.compare_images(read_config('json', 'image_compare_data'))

@@ -22,6 +22,13 @@ def read_json(path: str) -> dict:
         return file
 
 
+def write_json(path: str,  key: str, value: str) -> None:
+    data = read_json(path)
+    data[key] = value
+    with open(path, 'w', encoding='utf-8') as json_file:
+        json.dump(data, json_file)
+
+
 def read_excel(sheet_name: str, value: str) -> dict[str]:
     path = read_config('path', 'page_base')
     workbook = openpyxl.load_workbook(path)
