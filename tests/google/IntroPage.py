@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from core.components.driver.engine import DriverEngine
 from core.components.functional.methods import run_single_test
-from core.components.tools.image_compare import CompareImages
+
 
 
 @dataclass
@@ -12,7 +12,9 @@ class IntroPage(DriverEngine):
 
     def test_screenshot_method(self) -> None:
         element = self.get_element('FirstPage', 'search').send_keys('cats')
-        self.take_screenshot(name=element, compare_images=True)
+        self.take_screenshot(name=element,
+                             compare_images=True,
+                             original_image_path=r'"C:\Users\medvi\OneDrive\Desktop\Screenshot .png"')
 
     def navigate(self) -> None:
         self.get_element('FirstPage', 'search').send_keys('cats')

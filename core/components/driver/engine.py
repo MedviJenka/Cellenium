@@ -23,13 +23,14 @@ class DriverEngine(DriverManager):
         if maximize_window:
             self.driver.maximize_window()
 
-    def take_screenshot(self, name: str, compare_images=False) -> None:
+    def take_screenshot(self, name: str, compare_images=False, original_image_path=None) -> None:
         path = read_config('path', 'screenshots')
         image_compare_data = read_config('json', 'image_compare_data')
         updated_image_path = fr'{path}/{name}.png'
         self.driver.save_screenshot(updated_image_path)
 
         if compare_images:
+            write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
             app = CompareImages()
             app.compare_images(read_config('json', 'image_compare_data'))
