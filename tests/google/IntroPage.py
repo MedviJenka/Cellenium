@@ -3,7 +3,6 @@ from core.components.driver.engine import DriverEngine
 from core.components.functional.methods import run_single_test
 
 
-
 @dataclass
 class IntroPage(DriverEngine):
 
@@ -14,7 +13,7 @@ class IntroPage(DriverEngine):
         element = self.get_element('FirstPage', 'search').send_keys('cats')
         self.take_screenshot(name=element,
                              compare_images=True,
-                             original_image_path=r'"C:\Users\medvi\OneDrive\Desktop\Screenshot .png"')
+                             original_image_path=r"C:\Users\medvi\OneDrive\Desktop\Screenshot.png")
 
     def navigate(self) -> None:
         self.get_element('FirstPage', 'search').send_keys('cats')

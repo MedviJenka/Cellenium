@@ -1,47 +1,39 @@
 import cv2
 import numpy as np
-from core.components.functional.methods import read_json
 from skimage.metrics import structural_similarity
-from dataclasses import dataclass
+import os
 
 
-@dataclass
-class InputData:
-
-    original_image_path: str
-    actual_image_path: str
-    success_rate: int
-    resolution: list[int]
-    break_test: bool
-
-
-class CompareImages:
+class Logic:
 
     """
     :param: original ................ path for original image to compare
     :param: compare ................. path for screenshot
-    :param: save .................... path for save images
     :param: success_rate ............ wanted percentage of success
     :param: resolution .............. image resolution
     :param: break_test .............. choose if the test will be stopped
     """
 
     @staticmethod
-    def _image_name(path: str) -> str:
-        image_path = path.split('\\')[-1]
-        image = image_path.partition('.')[0]
-        return image
+    def _image_name(actual_image_path: str) -> str:
+        image_name = os.path.split(actual_image_path)
+        return image_name[1]
 
-    def compare_images(self, path: str) -> str:
-        data = InputData(**read_json(path))
+    def compare_images(self,
+                       original_image_path: str,
+                       actual_image_path: str,
+                       success_rate: int,
+                       resolution: list[int, int],
+                       break_test: bool) -> str:
+
         # load and resize images
-        before = cv2.imread(data.original_image_path)
-        after = cv2.imread(data.actual_image_path)
+        before = cv2.imread(original_image_path)
+        after = cv2.imread(actual_image_path)
 
-        before = cv2.resize(before, data.resolution)
-        after = cv2.resize(after, data.resolution)
-        before = cv2.resize(before, data.resolution)
-        after = cv2.resize(after, data.resolution)
+        before = cv2.resize(before, resolution)
+        after = cv2.resize(after, resolution)
+        before = cv2.resize(before, resolution)
+        after = cv2.resize(after, resolution)
 
         # Convert images to grayscale
         before_gray = cv2.cvtColor(before, cv2.COLOR_BGR2GRAY)
@@ -74,14 +66,14 @@ class CompareImages:
         cv2.imshow('after', after)
 
         result = score * 100
-        result_text = f"Image Similarity: {result:.1f}%"
-        cv2.imwrite(fr'{data.actual_image_path}/{self._image_name(data.actual_image_path)}.png', after)
+
+        cv2.imwrite(fr'{actual_image_path}/{self._image_name(actual_image_path)}.png', after)
         cv2.destroyAllWindows()
 
-        if data.break_test:
-            if result >= data.success_rate:
-                return f"GOOD , {result_text}"
+        if break_test:
+            if result >= success_rate:
+                return f"Image Similarity: {result:.1f}%"
             else:
-                raise Exception(f"LOW SIMILARITY ({result_text}), CONSULT WITH THE DEVELOPER")
+                raise Exception(f"LOW SIMILARITY ({result}/100%), CONSULT WITH THE DEVELOPER")
         else:
             pass

@@ -11,7 +11,7 @@ from datetime import datetime
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\utils\config.ini'
+    path: str = r'C:\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 

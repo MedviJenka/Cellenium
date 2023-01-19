@@ -6,11 +6,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+
+from core.components.functional.executor import CompareImages
 from core.components.functional.methods import *
 from os import system
 from dataclasses import dataclass
 from core.components.driver.manager import DriverManager
-from core.components.tools.image_compare import CompareImages
 
 
 @dataclass
@@ -31,7 +32,7 @@ class DriverEngine(DriverManager):
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
             app = CompareImages()
-            app.compare_images(read_config('json', 'image_compare_data'))
+            app.execute(read_config('json', 'image_compare_data'))
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
         element_locator = get_locator(sheet, name)
