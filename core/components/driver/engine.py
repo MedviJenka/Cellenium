@@ -10,8 +10,6 @@ from core.components.functional.methods import *
 from os import system
 from dataclasses import dataclass
 from core.components.driver.manager import DriverManager
-import json
-
 from core.components.tools.image_compare import CompareImages
 
 
@@ -102,3 +100,4 @@ class DriverEngine(DriverManager):
         except not self.driver:
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
+            raise Exception("driver's N/A")
