@@ -71,11 +71,11 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def run_test(class_name: object, methods: list[str], run_all=False) -> None:
+def run_test(class_name: object, methods: list[str]) -> None:
 
     logs = log()
 
-    if run_all:
+    if methods == ['*']:
         for each_step in dir(class_name):
             if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
                 getattr(class_name, each_step)()
