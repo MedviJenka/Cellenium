@@ -71,20 +71,18 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def run_single_test(class_name: object, methods: list[str]) -> None:
+def run_test(class_name: object, methods: list[str], run_all=False) -> None:
+
     logs = log()
-    for each_method in methods:
-        getattr(class_name, each_method)()
-        logs.info(f'test steps: {each_method}')
 
-
-def run_multiple_tests(class_name: Type[TestCase]) -> None:
-    suite = TestSuite()
-    tests = unittest.TestLoader()
-    suite.addTest(tests.loadTestsFromTestCase(class_name))
-    suite.addTest(tests.loadTestsFromTestCase(class_name))
-    run = unittest.TextTestRunner()
-    run.run(suite)
+    if run_all:
+        for each_step in dir(class_name):
+            if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
+                getattr(class_name, each_step)()
+    else:
+        for each_method in methods:
+            getattr(class_name, each_method)()
+            logs.info(f'test steps: {each_method}')
 
 
 def log() -> logging:
