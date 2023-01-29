@@ -1,17 +1,15 @@
 from configparser import ConfigParser
 import openpyxl
-import unittest
-from typing import Type
-from unittest import TestCase
-from unittest.suite import TestSuite
 import json
-import logging
 from datetime import datetime
+import logging
+from functools import wraps
+from typing import Callable
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Cellenium\core\static\utils\config.ini'
+    path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -73,8 +71,6 @@ def get_image(*args: str) -> str:
 
 def run_test(class_name: object, methods: list[str]) -> None:
 
-    logs = log()
-
     if methods == ['*']:
         for each_step in dir(class_name):
             if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
@@ -82,22 +78,20 @@ def run_test(class_name: object, methods: list[str]) -> None:
     else:
         for each_method in methods:
             getattr(class_name, each_method)()
-            logs.info(f'test steps: {each_method}')
 
 
-def log() -> logging:
-    time = datetime.now()
-    time_format = f'{time: %A | %B | %X}'
-    path = read_config('path', 'logs')
-    logging.basicConfig(filename=path,
-                        format=f'%(levelname)s:{time_format} :: %(message)s',
-                        level=logging.DEBUG)
-    logging.getLogger()
-    logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
-    file_handler = logging.FileHandler(path)
-    file_handler.setLevel(logging.DEBUG)
-    formatter = logging.Formatter(f'% {time_format} - %(name)s - %(levelname)s - %(message)s')
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-    return logger
+def log_decorator(func: Callable[..., any]) -> Callable[..., any]:
+    @wraps(func)
+    def wrapper(*args, **kwargs) -> logging:
+        time = datetime.now()
+        time_format = f'{time: %A | %B | %X}'
+        path = read_config('path', 'logs')
+        logging.basicConfig(filename=path,
+                            format=f'%(levelname)s:{time_format} :: %(message)s',
+                            level=logging.DEBUG)
+        file_handler = logging.FileHandler(path)
+        formatter = logging.Formatter(f'% {time_format} - %(name)s - %(levelname)s - %(message)s')
+        file_handler.setFormatter(formatter)
+
+        return func(*args, **kwargs)
+    return wrapper

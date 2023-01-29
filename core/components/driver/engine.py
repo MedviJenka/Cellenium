@@ -6,8 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-
-from core.components.functional.executor import CompareImages
+from core.components.tools.image_compare.image_compare_executor import ImageCompare
 from core.components.functional.methods import *
 from os import system
 from dataclasses import dataclass
@@ -31,7 +30,7 @@ class DriverEngine(DriverManager):
         if compare_images:
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
-            app = CompareImages()
+            app = ImageCompare()
             app.execute(read_config('json', 'image_compare_data'))
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
@@ -67,20 +66,6 @@ class DriverEngine(DriverManager):
 
         elif element_type == 'CLASS_NAME':
             return self.driver.find_element(By.CLASS_NAME, element_locator)
-
-    def _embed_image_into_cell(self, sheet: str, name: str) -> any:
-        path = read_config('path', 'screenshots')
-        element = self.get_element(sheet, name)
-        image_location = fr'{path}/{get_name(sheet, name)}.png'
-
-        try:
-            return element.screenshot(image_location)
-
-        finally:
-            workbook = xlsxwriter.Workbook(image_location)
-            worksheet = workbook.add_worksheet()
-            worksheet.insert_image(get_image(sheet, name), image_location)
-            workbook.close()
 
     def dropdown(self, text=None, value=None) -> None:
         select = Select(self.driver.get_element)
