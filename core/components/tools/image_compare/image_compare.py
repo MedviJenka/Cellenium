@@ -90,10 +90,17 @@ class Logic:
         original_image = cv2.imread(original_image_path)
         actual_image = cv2.imread(actual_image_path)
 
+        before_gray = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
+        after_gray = cv2.cvtColor(actual_image_path, cv2.COLOR_BGR2GRAY)
+        score, diff = structural_similarity(before_gray, after_gray, full=True)
+        result = score * 100
+
         to_gray = cv2.cvtColor(original_image, cv2.COLOR_BGR2GRAY)
         ret, thresh = cv2.threshold(to_gray, 127, 255, 0)
         contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         cv2.drawContours(actual_image, contours, -1, (255, 0, 0), 1)
+
+        print(f'result is {result}%')
 
         image_name = self._get_image_name(actual_image_path)['image_name']
         image_path_folder = self._get_image_name(actual_image_path)['folder_path']
