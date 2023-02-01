@@ -3,7 +3,7 @@ import requests
 
 
 BASE_URL: str = "https://api.openweathermap.org/data/2.5/weather"
-API = BASE_URL + "?q={city_name}&appid={api_key}&units=metric"
+API = BASE_URL + "/?q={city_name}&appid={api_key}&units=metric"
 
 
 @dataclass

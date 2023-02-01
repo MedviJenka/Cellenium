@@ -1,16 +1,15 @@
 from dataclasses import dataclass
-from requests import Response
-from core.components.config.reader import ConfigReader
-import datetime
 import requests
+from requests import Response
+from core.components.functional.methods import read_config
+import datetime
 
 
 @dataclass
 class RestRequests:
 
-    config = ConfigReader()
     url: str = "https://api.openweathermap.org/data/2.5/weather?"
-    api_key: str = config.read('open_weather', 'API_KEY')
+    api_key: str = read_config('open_weather', 'API_KEY')
 
     # ~~~~~~~~~ Global Data ~~~~~~~~~~~
     def get_response_status_code(self) -> Response:
