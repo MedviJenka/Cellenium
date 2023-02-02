@@ -1,16 +1,13 @@
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
-from core.components.excel.reader import ExcelReader
 import ids
 import css
-
-
-excel = ExcelReader()
+from core.components.functional.methods import get_name
 
 
 def render(app: Dash) -> html.Div:
 
-    tests = [excel.get_name('FirstPage', 'button'), excel.get_name('FirstPage', 'search')]
+    tests = [get_name('FirstPage', 'button'), get_name('FirstPage', 'search')]
 
     @app.callback(
         Output(ids.TESTS_DROPDOWN, 'value'),

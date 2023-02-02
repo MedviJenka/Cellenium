@@ -71,13 +71,18 @@ def get_image(*args: str) -> str:
 
 def run_test(class_name: object, methods: list[str]) -> None:
 
-    if methods == ['*']:
-        for each_step in dir(class_name):
-            if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
-                getattr(class_name, each_step)()
-    else:
-        for each_method in methods:
-            getattr(class_name, each_method)()
+    try:
+        if methods == ['*']:
+            for each_step in dir(class_name):
+                if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
+                    getattr(class_name, each_step)()
+        else:
+            for each_method in methods:
+                getattr(class_name, each_method)()
+    except Exception:
+        global driver
+        driver.get("https://www.google.com")
+        raise
 
 
 def log_decorator(func: Callable[..., any]) -> Callable[..., any]:

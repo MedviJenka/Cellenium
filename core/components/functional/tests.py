@@ -1,5 +1,5 @@
 from unittest import TestCase
-from core.components.functional.methods import run_single_test, log
+from core.components.functional.methods import run_test
 
 
 class Test(TestCase):
@@ -15,4 +15,4 @@ class Test(TestCase):
 
 
 if __name__ == '__main__':
-    run_single_test(Test(), ['test1', 'test2', 'test3'])
+    run_test(Test(), ['test1', 'test2', 'test3'])

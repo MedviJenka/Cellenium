@@ -1,18 +1,17 @@
 from locust import HttpUser, task, between
-from core.components.config.reader import ConfigReader
 from dataclasses import dataclass
 import requests
+from core.components.functional.methods import read_config
 
 
 @dataclass
 class QuickstartUser(HttpUser):
 
     wait_time = between(1, 5)
-    config = ConfigReader()
 
     @task
     def hello_world(self):
-        json = self.config.read('path', 'request')
+        json = read_config('path', 'request')
         _request = requests.Request(json=json)
         self.client.get(_request)
 

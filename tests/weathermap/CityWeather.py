@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from core.components.driver.run_tests import RunTests
-from core.api.requests.manager import RestRequests
+from core.components.api.manager import RestRequests
+from core.components.functional.methods import run_test
 
 
 @dataclass
@@ -14,9 +14,7 @@ class TestCityWeather:
 
 
 def test() -> None:
-    test_city_weather = TestCityWeather()
-    run = RunTests(test_city_weather)
-    run.start(["get_beer_sheva_temperature"])
+    run_test(TestCityWeather(), ["get_beer_sheva_temperature"])
 
 
 if __name__ == "__main__":

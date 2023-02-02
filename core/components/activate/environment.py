@@ -1,26 +1,23 @@
 from os import system
-from core.components.config.reader import ConfigReader
+from core.components.functional.methods import read_config
 import subprocess
 
 
-config = ConfigReader()
-
-
 def create() -> None:
-    system(fr"python -m venv { config.read('path', 'project') }/venv")
+    system(fr"python -m venv { read_config('path', 'project') }/venv")
 
 
 def run_venv() -> None:
     subprocess.Popen(['powershell.exe',
-                      fr'-ExecutionPolicy {config.read("path", "project")}/venv/Scripts/Activate.ps1'])
+                      fr'-ExecutionPolicy {read_config("path", "project")}/venv/Scripts/Activate.ps1'])
 
 
 def save_requirements() -> None:
-    system(fr"pip freeze { config.read('path', 'project') }/venv")
+    system(fr"pip freeze {read_config('path', 'project') }/venv")
 
 
 def install_requirements() -> None:
-    system(fr"pip install -r { config.read('path', 'requirement') }")
+    system(fr"pip install -r {read_config('path', 'requirement') }")
 
 
 if __name__ == '__main__':
