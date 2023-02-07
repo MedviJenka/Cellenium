@@ -3,8 +3,16 @@ from core.components.functional.methods import read_config
 import subprocess
 
 
-def create() -> None:
-    system(fr"python -m venv { read_config('path', 'project') }/venv")
+def create(interpreter='py') -> None:
+    match interpreter:
+        case 'py':
+            system(fr"py -m venv { read_config('path', 'project') }/venv")
+        case 'python':
+            system(fr"py -m venv {read_config('path', 'project')}/venv")
+        case 'python.exe':
+            system(fr"py -m venv {read_config('path', 'project')}/venv")
+        case _:
+            raise Exception
 
 
 def run_venv() -> None:
@@ -21,4 +29,5 @@ def install_requirements() -> None:
 
 
 if __name__ == '__main__':
+    create()
     run_venv()

@@ -1,6 +1,12 @@
-from selenium import webdriver
+def main(name: str) -> None:
+    match name:
+        case 'jenia':
+            print('this is my name')
+        case 'other':
+            print('other')
+        case _:
+            print("NONE")
 
 
-PATH = r'C:\blablabla\chromedriver.exe'
-driver = webdriver.Chrome(executable_path=PATH)
-driver.get('https://www.google.com')
+if __name__ == '__main__':
+    main(name="other")
