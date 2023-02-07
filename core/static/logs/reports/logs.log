@@ -1,0 +1,3 @@
+
+INFO: Tuesday | 07/02/2023 | 11:34:53 :: input
+ERROR: Tuesday | 07/02/2023 | 11:34:53 :: can only concatenate str (not "int") to str

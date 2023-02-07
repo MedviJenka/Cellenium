@@ -3,13 +3,12 @@ import openpyxl
 import json
 from datetime import datetime
 import logging
-from functools import wraps
-from typing import Callable
+global driver
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\utils\config.ini'
+    path: str = r'C:\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -80,23 +79,24 @@ def run_test(class_name: object, methods: list[str]) -> None:
             for each_method in methods:
                 getattr(class_name, each_method)()
     except Exception:
-        global driver
+
         driver.get("https://www.google.com")
         raise
 
 
-def log_decorator(func: Callable[..., any]) -> Callable[..., any]:
-    @wraps(func)
-    def wrapper(*args, **kwargs) -> logging:
-        time = datetime.now()
-        time_format = f'{time: %A | %B | %X}'
-        path = read_config('path', 'logs')
-        logging.basicConfig(filename=path,
-                            format=f'%(levelname)s:{time_format} :: %(message)s',
-                            level=logging.DEBUG)
-        file_handler = logging.FileHandler(path)
-        formatter = logging.Formatter(f'% {time_format} - %(name)s - %(levelname)s - %(message)s')
-        file_handler.setFormatter(formatter)
-
-        return func(*args, **kwargs)
-    return wrapper
+def log(level=logging.INFO, text='') -> None:
+    time = datetime.now()
+    time_format = f'{time: %A | %d/%m/%Y | %X}'
+    path = read_config('path', 'logs')
+    logging.basicConfig(filename=path,
+                        datefmt=time_format,
+                        format=f'%(levelname)s:{time_format} :: %(message)s',
+                        level=level)
+    if level == logging.INFO:
+        logging.info(text)
+    elif level == logging.DEBUG:
+        logging.debug(text)
+    elif level == logging.ERROR:
+        logging.error(text)
+    elif level == logging.CRITICAL:
+        logging.critical(text)

@@ -7,8 +7,9 @@
       <excludeFolder url="file://$MODULE_DIR$/core/static/temp/.pytest_cache/v" />
       <excludeFolder url="file://$MODULE_DIR$/tests/.pytest_cache/v" />
       <excludeFolder url="file://$MODULE_DIR$/tests/google/.pytest_cache/v" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (Cellenium)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyNamespacePackagesService">
