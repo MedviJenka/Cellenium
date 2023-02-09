@@ -39,17 +39,17 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
             'image': row[3]
         }
         cache[result['name']] = result
-
-    if cache[value]['name']:
-        try:
-            return {
-                'name': cache[value]['name'],
-                'locator': cache[value]['locator'],
-                'type': cache[value]['type'],
-                'image': cache[value]['image']
-            }
-        except Exception:
-            raise Exception("no such name in the cell sheet")
+    try:
+        match cache[value]['name']:
+            case _:
+                return {
+                    'name': cache[value]['name'],
+                    'locator': cache[value]['locator'],
+                    'type': cache[value]['type'],
+                    'image': cache[value]['image']
+                }
+    except ValueError:
+        raise Exception('no such type')
 
 
 def get_name(*args: str) -> str:
@@ -71,13 +71,14 @@ def get_image(*args: str) -> str:
 def run_test(class_name: object, methods: list[str]) -> None:
 
     try:
-        if methods == ['*']:
-            for each_step in dir(class_name):
-                if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
-                    getattr(class_name, each_step)()
-        else:
-            for each_method in methods:
-                getattr(class_name, each_method)()
+        match ['*']:
+            case _:
+                for each_step in dir(class_name):
+                    if callable(getattr(class_name, each_step) and not each_step.startswith('__')):
+                        getattr(class_name, each_step)()
+
+        for each_method in methods:
+            getattr(class_name, each_method)()
     except Exception:
 
         driver.get("https://www.google.com")
