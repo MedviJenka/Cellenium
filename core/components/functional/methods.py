@@ -8,7 +8,7 @@ global driver
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Cellenium\core\static\utils\config.ini'
+    path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -80,8 +80,6 @@ def run_test(class_name: object, methods: list[str]) -> None:
         for each_method in methods:
             getattr(class_name, each_method)()
     except Exception:
-
-        driver.get("https://www.google.com")
         raise
 
 

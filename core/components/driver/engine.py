@@ -8,11 +8,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from core.components.tools.image_compare.image_compare_executor import ImageCompare
 from core.components.functional.methods import *
 from os import system
-from dataclasses import dataclass
 from core.components.driver.manager import DriverManager
 
 
-@dataclass
 class DriverEngine(DriverManager):
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
@@ -26,11 +24,12 @@ class DriverEngine(DriverManager):
         updated_image_path = fr'{path}/{name}.png'
         self.driver.save_screenshot(updated_image_path)
 
-        if compare_images:
-            write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
-            write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
-            app = ImageCompare()
-            app.execute(read_config('json', 'image_compare_data'))
+        match compare_images:
+            case _:
+                write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
+                write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
+                app = ImageCompare()
+                app.execute(read_config('json', 'image_compare_data'))
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
         element_locator = get_locator(sheet, name)
@@ -40,31 +39,31 @@ class DriverEngine(DriverManager):
     def get_element(self, sheet: str, name: str) -> webdriver:
         element_locator = get_locator(sheet, name)
         element_type    = get_type(sheet, name)
-        # element_name    = self.excel.get_name(sheet, name)
-        # path            = self.config.read('path', 'screenshots')
 
-        if element_type == 'NAME':
-            element = self.driver.find_element(By.NAME, element_locator)
-            return element
-            # try:
-            #     return element
-            # finally:
-            #     element.screenshot(f'{path}/{element_name}.png')
+        match element_type:
 
-        elif element_type == 'ID':
-            return self.driver.find_element(By.ID, element_locator)
+            case 'NAME':
+                log(level=logging.DEBUG, text='element selected by NAME')
+                return self.driver.find_element(By.NAME, element_locator)
 
-        elif element_type == 'CSS':
-            return self.driver.find_element(By.CSS_SELECTOR, element_locator)
+            case 'ID':
+                log(level=logging.DEBUG, text='element selected by ID')
+                return self.driver.find_element(By.ID, element_locator)
 
-        elif element_type == 'XPATH':
-            return self.driver.find_element(By.XPATH, element_locator)
+            case 'CSS':
+                return self.driver.find_element(By.CSS_SELECTOR, element_locator)
 
-        elif element_type == 'LINK_TEXT':
-            return self.driver.find_element(By.LINK_TEXT, element_locator)
+            case 'XPATH':
+                return self.driver.find_element(By.XPATH, element_locator)
 
-        elif element_type == 'CLASS_NAME':
-            return self.driver.find_element(By.CLASS_NAME, element_locator)
+            case 'LINK_TEXT':
+                return self.driver.find_element(By.LINK_TEXT, element_locator)
+
+            case 'CLASS_NAME':
+                return self.driver.find_element(By.CLASS_NAME, element_locator)
+
+            case _:
+                raise Exception
 
     def dropdown(self, text=None, value=None) -> None:
         select = Select(self.driver.get_element)

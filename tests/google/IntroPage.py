@@ -28,6 +28,3 @@ class IntroPage(DriverEngine):
 def test() -> callable:
     run_test(IntroPage(), ['setup', 'test_screenshot_method', 'exit_all'])
 
-
-if __name__ == '__main__':
-    test()
