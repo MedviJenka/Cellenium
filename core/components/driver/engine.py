@@ -8,11 +8,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from core.components.tools.image_compare.image_compare_executor import ImageCompare
 from core.components.functional.methods import *
 from os import system
-from dataclasses import dataclass
 from core.components.driver.manager import DriverManager
 
 
-@dataclass
 class DriverEngine(DriverManager):
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
