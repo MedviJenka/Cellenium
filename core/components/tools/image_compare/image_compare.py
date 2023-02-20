@@ -6,7 +6,7 @@ from core.components.functional.methods import log
 import logging
 
 
-class Logic:
+class ImageCompareLogic:
 
     @staticmethod
     def _get_image_name(actual_image_path: str) -> dict[str]:

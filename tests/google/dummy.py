@@ -1,12 +1,14 @@
-def main(name: str) -> None:
-    match name:
-        case 'jenia':
-            print('this is my name')
-        case 'other':
-            print('other')
-        case _:
-            print("NONE")
+class App:
+
+    class SubApp:
+
+        def __init__(self, name):
+            self.name = name
+
+        def get_name(self) -> str:
+            return self.name
 
 
-if __name__ == '__main__':
-    main(name="other")
+app = App()
+a = app.SubApp("jenia")
+print(a.get_name())
