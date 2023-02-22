@@ -4,7 +4,6 @@ import logging
 from datetime import datetime
 from configparser import ConfigParser
 from pathlib import Path
-global driver
 
 
 def __get_project_path() -> str:
@@ -97,11 +96,16 @@ def log(level=logging.INFO, text='') -> None:
                         datefmt=time_format,
                         format=f'%(levelname)s:{time_format} :: %(message)s',
                         level=level)
-    if level == logging.INFO:
-        logging.info(text)
-    elif level == logging.DEBUG:
-        logging.debug(text)
-    elif level == logging.ERROR:
-        logging.error(text)
-    elif level == logging.CRITICAL:
-        logging.critical(text)
+    match level:
+        case logging.INFO:
+            logging.info(text)
+        case logging.DEBUG:
+            logging.debug(text)
+        case logging.ERROR:
+            logging.error(text)
+        case logging.CRITICAL:
+            logging.critical(text)
+        case logging.FATAL:
+            logging.fatal(text)
+        case _:
+            raise Exception('no such logging level')
