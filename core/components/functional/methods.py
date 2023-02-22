@@ -1,14 +1,20 @@
-from configparser import ConfigParser
 import openpyxl
 import json
-from datetime import datetime
 import logging
+from datetime import datetime
+from configparser import ConfigParser
+from pathlib import Path
 global driver
+
+
+def __get_project_path() -> str:
+    project_path = str(Path.cwd())
+    return project_path.split('core')[0]
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Users\medvi\IdeaProjects\CelleniumProject\core\static\utils\config.ini'
+    path: str = fr'{__get_project_path()}\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
