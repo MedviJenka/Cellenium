@@ -6,14 +6,14 @@ from configparser import ConfigParser
 from pathlib import Path
 
 
-def __get_project_path() -> str:
+def get_project_path() -> str:
     project_path = str(Path.cwd())
     return project_path.split('core')[0]
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = fr'{__get_project_path()}\core\static\utils\config.ini'
+    path: str = fr'{get_project_path()}\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
