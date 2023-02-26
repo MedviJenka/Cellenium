@@ -125,11 +125,10 @@ def generate_allure_report(file=__file__):
     os.system(fr'allure serve {path}')
     # os.system(fr"pytest {file} --alluredir={PATH, read_config('path', 'allure_reports')}")
     # os.system(fr'allure serve {PATH}\{read_config("path", "allure_reports")}')
-    # os.system(fr'pytest {file} --cov={PATH}\tests\google')
 
 
 def get_test_coverage_state(folder_name: str) -> None:
     try:
-        os.system(fr'pytest --cov={PATH}/tests/{folder_name}')
+        os.system(fr'pytest --cov={PATH}\tests\{folder_name}')
     except ValueError as ve:
         raise ve
