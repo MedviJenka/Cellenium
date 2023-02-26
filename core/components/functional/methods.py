@@ -99,7 +99,7 @@ def run_test(class_name: object, methods: list[str]) -> None:
 def log(level=logging.INFO, text='') -> None:
     time = datetime.now()
     time_format = f'{time: %A | %d/%m/%Y | %X}'
-    path = read_config('path', 'logs')
+    path = fr'{PATH}\core\static\logs\reports\logs.log'
     logging.basicConfig(filename=path,
                         datefmt=time_format,
                         format=f'%(levelname)s:{time_format} :: %(message)s',
@@ -119,14 +119,21 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-path = r"C:\Cellenium\core\static\reports"
-
-
 def generate_allure_report(file=__file__):
+    path = r"C:\Cellenium\core\static\allure\reports"
     os.system(fr"pytest {file} --alluredir={path}")
     os.system(fr'allure serve {path}')
-    os.system(fr'pytest {file} --cov={PATH}\tests\google')
-
     # os.system(fr"pytest {file} --alluredir={PATH, read_config('path', 'allure_reports')}")
     # os.system(fr'allure serve {PATH}\{read_config("path", "allure_reports")}')
     # os.system(fr'pytest {file} --cov={PATH}\tests\google')
+
+
+def get_test_coverage_state(folder_name: str) -> None:
+    try:
+        os.system(fr'pytest --cov={PATH}/tests/{folder_name}')
+    except ValueError as ve:
+        raise ve
+
+
+get_test_coverage_state('google')
+generate_allure_report()

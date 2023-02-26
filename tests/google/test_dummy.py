@@ -1,8 +1,5 @@
 from dataclasses import dataclass
-import os
-import subprocess
-
-from core.components.functional.methods import generate_allure_report
+from core.components.functional.methods import get_test_coverage_state
 
 
 @dataclass
@@ -28,8 +25,9 @@ person = Person('jenia')
 class TestPerson:
 
     def test_name(self) -> None:
-        person.name = 'alex'
-        assert person.get_data() == 'persons name is alex'
+        try:
+            person.name = 'alex'
+            assert person.get_data() == 'persons name is alex'
 
-
-generate_allure_report()
+        finally:
+            get_test_coverage_state("google")
