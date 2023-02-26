@@ -1,0 +1,16 @@
+{
+  "name": "test_name",
+  "status": "passed",
+  "start": 1677406271506,
+  "stop": 1677406271506,
+  "uuid": "e49d79d6-f416-46bf-b51d-8cf9e2b8f9ea",
+  "historyId": "8fd8324ff261f909a25e0e750835ae77",
+  "testCaseId": "c3f9f275a499b40e3b66dc9622b83c3c",
+  "fullName": "tests.suits.google.dummy.TestPerson#test_name",
+  "labels": [
+    {
+      "name": "parentSuite",
+      "value": "tests.suits.google"
+    },
+    {
+      "name": "suite", "value": "dummy"}, {"name": "subSuite", "value": "TestPerson"}, {"name": "host", "value": "IL-EVGENYP-LP"}, {"name": "thread", "value": "18972-MainThread"}, {"name": "framework", "value": "pytest"}, {"name": "language", "value": "cpython3"}, {"name": "package", "value": "tests.suits.google.dummy"}]}
