@@ -7,12 +7,12 @@ from pathlib import Path
 import os
 
 
-def get_project_path() -> str:
+def __get_project_path() -> str:
     project_path = str(Path.cwd())
     return project_path.split('core')[0][:-1]
 
 
-PATH = get_project_path()
+PATH = __get_project_path()
 
 
 def read_config(key: str, value: str) -> str:
@@ -133,7 +133,3 @@ def get_test_coverage_state(folder_name: str) -> None:
         os.system(fr'pytest --cov={PATH}/tests/{folder_name}')
     except ValueError as ve:
         raise ve
-
-
-get_test_coverage_state('google')
-generate_allure_report()
