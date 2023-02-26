@@ -7,12 +7,12 @@ from pathlib import Path
 import os
 
 
-def __get_project_path() -> str:
+def get_project_path() -> str:
     project_path = str(Path.cwd())
     return project_path.split('core')[0][:-1]
 
 
-PATH = __get_project_path()
+PATH = get_project_path()
 
 
 def read_config(key: str, value: str) -> str:

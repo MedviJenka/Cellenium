@@ -28,8 +28,8 @@ def save_requirements() -> None:
 
 
 def install_requirements() -> None:
-    system(fr"pip install -r {read_config('path', 'requirement') }")
+    system(fr"pip install -r {path}/requirements.txt")
 
 
 if __name__ == '__main__':
-    create()
+    install_requirements()
