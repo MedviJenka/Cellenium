@@ -1,10 +1,11 @@
 import openpyxl
 import json
 import logging
+import os
 from datetime import datetime
 from configparser import ConfigParser
 from pathlib import Path
-import os
+from time import time
 
 
 def get_project_path() -> str:
@@ -13,6 +14,15 @@ def get_project_path() -> str:
 
 
 PATH = get_project_path()
+
+
+def measure_execution_time(func: callable) -> callable:
+    def wrapper() -> None:
+        start = time()
+        func()
+        end = time() - start
+        log(text=f'function run took {end} sec')
+    return wrapper
 
 
 def read_config(key: str, value: str) -> str:
@@ -123,8 +133,6 @@ def generate_allure_report(file=__file__):
     path = r"C:\Cellenium\core\static\allure\reports"
     os.system(fr"pytest {file} --alluredir={path}")
     os.system(fr'allure serve {path}')
-    # os.system(fr"pytest {file} --alluredir={PATH, read_config('path', 'allure_reports')}")
-    # os.system(fr'allure serve {PATH}\{read_config("path", "allure_reports")}')
 
 
 def get_test_coverage_state(folder_name: str) -> None:
