@@ -4,16 +4,20 @@ import logging
 from datetime import datetime
 from configparser import ConfigParser
 from pathlib import Path
+import os
 
 
 def get_project_path() -> str:
     project_path = str(Path.cwd())
-    return project_path.split('core')[0]
+    return project_path.split('core')[0][:-1]
+
+
+PATH = get_project_path()
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = fr'{get_project_path()}\core\static\utils\config.ini'
+    path: str = fr'{PATH}\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -109,3 +113,9 @@ def log(level=logging.INFO, text='') -> None:
             logging.fatal(text)
         case _:
             raise Exception('no such logging level')
+
+
+def generate_allure_report(file=__file__):
+    os.system(fr"pytest {file} --alluredir={PATH, read_config('path', 'allure_reports')}")
+    os.system(fr'allure serve {PATH}\{read_config("path", "allure_reports")}')
+    os.system(fr'pytest {file} --cov={PATH}\tests\google')
