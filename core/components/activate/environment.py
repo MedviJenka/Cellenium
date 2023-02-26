@@ -32,4 +32,4 @@ def install_requirements() -> None:
 
 
 if __name__ == '__main__':
-    run_venv()
+    create()

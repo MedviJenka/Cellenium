@@ -88,8 +88,12 @@ def run_test(class_name: object, methods: list[str]) -> None:
 
         for each_method in methods:
             getattr(class_name, each_method)()
+
     except Exception:
         raise
+
+    finally:
+        generate_allure_report()
 
 
 def log(level=logging.INFO, text='') -> None:
@@ -115,7 +119,14 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
+path = r"C:\Cellenium\core\static\reports"
+
+
 def generate_allure_report(file=__file__):
-    os.system(fr"pytest {file} --alluredir={PATH, read_config('path', 'allure_reports')}")
-    os.system(fr'allure serve {PATH}\{read_config("path", "allure_reports")}')
+    os.system(fr"pytest {file} --alluredir={path}")
+    os.system(fr'allure serve {path}')
     os.system(fr'pytest {file} --cov={PATH}\tests\google')
+
+    # os.system(fr"pytest {file} --alluredir={PATH, read_config('path', 'allure_reports')}")
+    # os.system(fr'allure serve {PATH}\{read_config("path", "allure_reports")}')
+    # os.system(fr'pytest {file} --cov={PATH}\tests\google')
