@@ -140,3 +140,15 @@ def get_test_coverage_state(folder_name: str) -> None:
         os.system(fr'pytest --cov={PATH}\tests\{folder_name}')
     except ValueError as ve:
         raise ve
+
+
+def negative(exception_type: Exception(any)):
+    def decorator(func):
+        def wrapper(*args: any, **kwargs: any):
+            try:
+                func(*args, **kwargs)
+            except exception_type:
+                return
+            raise AssertionError(f"{func.__name__} did not raise {exception_type.__name__}")
+        return wrapper
+    return decorator
