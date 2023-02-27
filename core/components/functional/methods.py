@@ -107,8 +107,8 @@ def run_test(class_name: object, methods: list[str]) -> None:
 
 
 def log(level=logging.INFO, text='') -> None:
-    time = datetime.now()
-    time_format = f'{time: %A | %d/%m/%Y | %X}'
+    _time = datetime.now()
+    time_format = f'{_time: %A | %d/%m/%Y | %X}'
     path = fr'{PATH}\core\static\logs\reports\logs.log'
     logging.basicConfig(filename=path,
                         datefmt=time_format,
@@ -143,11 +143,21 @@ def get_test_coverage_state(folder_name: str) -> None:
 
 
 def negative(exception_type: Exception(any)):
+
+    """
+    This decorator function takes in a function as an argument
+    and returns a new function that wraps the original function.
+    When the new function is called, it calls the original
+    function with the same arguments and catches any AssertionError that might be raised.
+    If an AssertionError is caught, it prints out the error message and then re-raises the exception.
+    """
+
     def decorator(func):
         def wrapper(*args: any, **kwargs: any):
             try:
                 func(*args, **kwargs)
             except exception_type:
+                log(text=f"{func.__name__} did not raise {exception_type.__name__}")
                 return
             raise AssertionError(f"{func.__name__} did not raise {exception_type.__name__}")
         return wrapper

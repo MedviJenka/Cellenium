@@ -189,6 +189,7 @@
           <option value="tuple.__next__" />
           <option value="str.size" />
           <option value="tuple.value" />
+          <option value="Exception.__getitem__" />
         </list>
       </option>
     </inspection_tool>

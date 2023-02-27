@@ -1,5 +1,5 @@
 from unittest import TestCase
-from core.components.functional.methods import run_test
+from core.components.functional.methods import run_test, negative
 
 
 class Test(TestCase):
@@ -12,6 +12,10 @@ class Test(TestCase):
 
     def test3(self) -> None:
         self.assertNotEqual(1 + 1, 1)
+
+    @negative(ZeroDivisionError)
+    def test4(self) -> None:
+        assert 1 / 0
 
 
 if __name__ == '__main__':
