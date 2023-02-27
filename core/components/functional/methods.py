@@ -16,15 +16,6 @@ def get_project_path() -> str:
 PATH = get_project_path()
 
 
-def measure_execution_time(func: callable) -> callable:
-    def wrapper() -> None:
-        start = time()
-        func()
-        end = time() - start
-        log(text=f'function run took {end} sec')
-    return wrapper
-
-
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
     path: str = fr'{PATH}\core\static\utils\config.ini'
@@ -142,23 +133,41 @@ def get_test_coverage_state(folder_name: str) -> None:
         raise ve
 
 
-def negative(exception_type: Exception(any)):
+class Decorators:
 
-    """
-    This decorator function takes in a function as an argument
-    and returns a new function that wraps the original function.
-    When the new function is called, it calls the original
-    function with the same arguments and catches any AssertionError that might be raised.
-    If an AssertionError is caught, it prints out the error message and then re-raises the exception.
-    """
+    @staticmethod
+    def measure_execution_time(func: callable) -> callable:
 
-    def decorator(func):
-        def wrapper(*args: any, **kwargs: any):
-            try:
-                func(*args, **kwargs)
-            except exception_type:
-                log(text=f"{func.__name__} did not raise {exception_type.__name__}")
-                return
-            raise AssertionError(f"{func.__name__} did not raise {exception_type.__name__}")
+        """
+        measuring run time of a function
+        """
+
+        def wrapper() -> None:
+            start = time()
+            func()
+            end = time() - start
+            log(text=f'function run took {end:.3f} sec')
+            print(f'function run took {end:.3f} sec')
         return wrapper
-    return decorator
+
+    @staticmethod
+    def negative(exception_type: Exception(any)):
+
+        """
+        This decorator function takes in a function as an argument
+        and returns a new function that wraps the original function.
+        When the new function is called, it calls the original
+        function with the same arguments and catches any AssertionError that might be raised.
+        If an AssertionError is caught, it prints out the error message and then re-raises the exception.
+        """
+
+        def decorator(func):
+            def wrapper(*args: any, **kwargs: any):
+                try:
+                    func(*args, **kwargs)
+                except exception_type:
+                    log(text=f"{func.__name__} did not raise {exception_type.__name__}")
+                    return
+                raise AssertionError(f"{func.__name__} did not raise {exception_type.__name__}")
+            return wrapper
+        return decorator

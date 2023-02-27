@@ -1,22 +1,14 @@
 from unittest import TestCase
-from core.components.functional.methods import run_test, negative
+from core.components.functional.methods import run_test, Decorators
+from time import sleep
 
 
-class Test(TestCase):
-
-    def test1(self) -> None:
-        self.assertEqual(1 + 1, 2)
-
-    def test2(self) -> None:
-        self.assertEqual(1 + 2, 3)
-
-    def test3(self) -> None:
-        self.assertNotEqual(1 + 1, 1)
-
-    @negative(ZeroDivisionError)
-    def test4(self) -> None:
-        assert 1 / 0
+decorator = Decorators()
 
 
-if __name__ == '__main__':
-    run_test(Test(), ['test1', 'test2', 'test3'])
+@decorator.measure_execution_time
+def test_runtime() -> None:
+    for a in range(3):
+        sleep(3)
+        print(a)
+
