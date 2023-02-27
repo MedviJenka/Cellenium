@@ -13,12 +13,12 @@ def get_project_path() -> str:
     return project_path.split('core')[0][:-1]
 
 
-PATH = get_project_path()
+PATH = str(get_project_path())
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = fr'{PATH}\core\static\utils\config.ini'
+    path: str = r'C:\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -121,9 +121,9 @@ def log(level=logging.INFO, text='') -> None:
 
 
 def generate_allure_report(file: __file__):
-    report_path = fr"{PATH}\core\static\reports\allure_report.json"
+    report_path = fr"C:\Cellenium\core\static\reports"
     os.system(f"pytest {file} --alluredir={report_path}")
-    # os.system(f'allure serve {report_path}')
+    os.system(f'allure serve {report_path}')
 
 
 def get_test_coverage_state(folder_name: str) -> None:
