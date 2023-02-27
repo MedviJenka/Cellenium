@@ -120,10 +120,10 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_allure_report(file=__file__):
-    path = r"C:\Cellenium\core\static\allure\reports"
-    os.system(fr"pytest {file} --alluredir={path}")
-    os.system(fr'allure serve {path}')
+def generate_allure_report(file: __file__):
+    report_path = fr"{PATH}\core\static\reports\allure_report.json"
+    os.system(f"pytest {file} --alluredir={report_path}")
+    # os.system(f'allure serve {report_path}')
 
 
 def get_test_coverage_state(folder_name: str) -> None:

@@ -1,0 +1,22 @@
+C:\Cellenium\test\core\static\reports\allure_report.json
+C:\Cellenium\tests\tests.py
+============================= test session starts =============================
+platform win32 -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0
+rootdir: C:\Cellenium\tests
+plugins: allure-pytest-2.9.45, anyio-3.6.1, dash-2.0.0, cov-4.0.0, forked-1.4.0, html-3.1.1, metadata-2.0.1, xdist-2.5.0
+collected 1 item
+
+tests.py .                                                               [100%]
+
+============================== 1 passed in 9.85s ==============================
+Generating report to temp directory...
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 346384 bytes for Chunk::new
+# An error report file with more information is saved as:
+# C:\Cellenium\tests\hs_err_pid38628.log
+[thread 40384 also had an error]
+#
+# Compiler replay data is saved as:
+# C:\Cellenium\tests\replay_pid38628.log
+function run took 14.368 sec
