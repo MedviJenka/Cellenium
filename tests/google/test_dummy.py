@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from core.components.functional.methods import generate_allure_report
 
 
 @dataclass
@@ -26,7 +25,4 @@ class TestPerson:
 
     def test_name(self) -> None:
         person.name = 'alex'
-        assert person.get_data() == 'persons name is alex'
-
-
-generate_allure_report()
+        assert not person.get_data() == 'persons name is alex'

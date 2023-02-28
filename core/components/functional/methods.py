@@ -18,7 +18,7 @@ PATH = str(get_project_path())
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Cellenium\core\static\utils\config.ini'
+    path: str = r'C:\Users\medvi\OneDrive\Desktop\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -93,8 +93,8 @@ def run_test(class_name: object, methods: list[str]) -> None:
     except Exception:
         raise
 
-    finally:
-        generate_allure_report()
+    # finally:
+    #     generate_allure_report()
 
 
 def log(level=logging.INFO, text='') -> None:
@@ -120,10 +120,14 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_allure_report(file: __file__):
-    report_path = fr"C:\Cellenium\core\static\reports"
-    os.system(f"pytest {file} --alluredir={report_path}")
-    os.system(f'allure serve {report_path}')
+def generate_allure_report(test_dir: str, suite_name: str):
+    path = fr'{PATH}\tests\{test_dir}'
+    report_dir = read_config('path', 'allure')
+    os.system(fr"pytest {path}\{suite_name} --alluredir={report_dir}")
+    os.system(fr'allure serve {report_dir}')
+
+
+generate_allure_report('google', 'test_dummy.py')
 
 
 def get_test_coverage_state(folder_name: str) -> None:
