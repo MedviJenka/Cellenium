@@ -26,3 +26,10 @@ class TestPerson:
     def test_negative_name(self) -> None:
         person.name = 'alex'
         assert not person.get_data() == 'persons name is alex'
+
+    def test_name(self) -> None:
+        person.name = 'alex'
+        assert person.get_data() == 'persons name is alex'
+
+    def test_math(self) -> None:
+        assert 1 + 1 == 2

@@ -1,3 +1,4 @@
+import allure
 import openpyxl
 import json
 import logging
@@ -18,7 +19,7 @@ PATH = str(get_project_path())
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Users\medvi\OneDrive\Desktop\Cellenium\core\static\utils\config.ini'
+    path: str = r'C:\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -120,19 +121,20 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_allure_report(test_dir: str, suite_name: str):
-    path = fr'{PATH}\tests\{test_dir}'
+def generate_allure_report(test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
+    tests = fr"{read_config('path', 'tests')}\{test_dir}"
     report_dir = read_config('path', 'allure')
-    os.system(fr"pytest {path}\{suite_name} --alluredir={report_dir}")
-    os.system(fr'allure serve {report_dir}')
+    if show_test_coverage_state:
+        allure.attach(f'{coverage_state(test_dir)}')
+    for each_test in suite_name:
+        os.system(fr"pytest {tests}\{each_test} --alluredir={report_dir}")
+        os.system(fr'allure serve {report_dir}')
 
 
-generate_allure_report('google', 'test_dummy.py')
-
-
-def get_test_coverage_state(folder_name: str) -> None:
+@allure.step('coverage state')
+def coverage_state(folder_name: str) -> None:
     try:
-        os.system(fr'pytest --cov={PATH}\tests\{folder_name}')
+        allure.attach(os.system(fr'pytest --cov={read_config("path", "tests")}\{folder_name}'))
     except ValueError as ve:
         raise ve
 

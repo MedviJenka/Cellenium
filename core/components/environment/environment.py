@@ -1,6 +1,5 @@
-import subprocess
 from os import system
-from core.components.functional.methods import read_config, get_project_path
+from core.components.functional.methods import get_project_path
 
 
 path = get_project_path()
@@ -20,7 +19,7 @@ def create(interpreter='py') -> None:
 
 
 def run_venv() -> None:
-    subprocess.Popen(['powershell.exe', f'{path}/venv/Scripts/Activate.ps1'])
+    system(f'{path}/venv/Scripts/activate.bat')
 
 
 def save_requirements() -> None:
@@ -32,4 +31,6 @@ def install_requirements() -> None:
 
 
 if __name__ == '__main__':
-    install_requirements()
+    # create()
+    # install_requirements()
+    run_venv()
