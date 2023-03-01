@@ -7,6 +7,7 @@ from datetime import datetime
 from configparser import ConfigParser
 from pathlib import Path
 from time import time
+from core.components.constants.variables import PROJECT_PATH
 
 
 def get_project_path() -> str:
@@ -14,12 +15,9 @@ def get_project_path() -> str:
     return project_path.split('core')[0][:-1]
 
 
-PATH = str(get_project_path())
-
-
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = r'C:\Cellenium\core\static\utils\config.ini'
+    path: str = fr'{PROJECT_PATH}\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -30,7 +28,7 @@ def read_json(path: str) -> dict:
         return file
 
 
-def write_json(path: str,  key: str, value: str) -> None:
+def write_json(path: str, key: str, value: str) -> None:
     data = read_json(path)
     data[key] = value
     with open(path, 'w', encoding='utf-8') as json_file:
@@ -38,7 +36,7 @@ def write_json(path: str,  key: str, value: str) -> None:
 
 
 def read_excel(sheet_name: str, value: str) -> dict[str]:
-    path = read_config('path', 'page_base')
+    path = fr"{PROJECT_PATH}\{read_config('path', 'page_base')}"
     workbook = openpyxl.load_workbook(path)
     sheet = workbook[sheet_name]
     cache = {}
@@ -80,7 +78,6 @@ def get_image(*args: str) -> str:
 
 
 def run_test(class_name: object, methods: list[str]) -> None:
-
     try:
         match ['*']:
             case _:
@@ -101,7 +98,8 @@ def run_test(class_name: object, methods: list[str]) -> None:
 def log(level=logging.INFO, text='') -> None:
     _time = datetime.now()
     time_format = f'{_time: %A | %d/%m/%Y | %X}'
-    path = fr'{PATH}\core\static\logs\reports\logs.log'
+    logs = read_config('path', 'logs')
+    path = fr'{PROJECT_PATH}\{logs}'
     logging.basicConfig(filename=path,
                         datefmt=time_format,
                         format=f'%(levelname)s:{time_format} :: %(message)s',
@@ -122,8 +120,9 @@ def log(level=logging.INFO, text='') -> None:
 
 
 def generate_allure_report(test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
-    tests = fr"{read_config('path', 'tests')}\{test_dir}"
-    report_dir = read_config('path', 'allure')
+    tests = read_config('path', 'tests')
+    tests = fr"{PROJECT_PATH}\{tests}\{test_dir}"
+    report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
     if show_test_coverage_state:
         allure.attach(f'{coverage_state(test_dir)}')
     for each_test in suite_name:
@@ -133,8 +132,9 @@ def generate_allure_report(test_dir: str, suite_name: list[str], show_test_cover
 
 @allure.step('coverage state')
 def coverage_state(folder_name: str) -> None:
+    tests = read_config("path", "tests")
     try:
-        allure.attach(os.system(fr'pytest --cov={read_config("path", "tests")}\{folder_name}'))
+        allure.attach(os.system(fr'pytest --cov={PROJECT_PATH}\{tests}\{folder_name}'))
     except ValueError as ve:
         raise ve
 
@@ -154,6 +154,7 @@ class Decorators:
             end = time() - start
             log(text=f'function run took {end:.3f} sec')
             print(f'function run took {end:.3f} sec')
+
         return wrapper
 
     @staticmethod
@@ -175,5 +176,7 @@ class Decorators:
                     log(text=f"{func.__name__} did not raise {exception_type.__name__}")
                     return
                 raise AssertionError(f"{func.__name__} did not raise {exception_type.__name__}")
+
             return wrapper
+
         return decorator

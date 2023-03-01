@@ -29,6 +29,6 @@ class ServiceManager:
 @dataclass
 class DriverManager(ABC):
 
-    service  = ServiceManager()
+    service = ServiceManager()
     _options = Options()
     driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
