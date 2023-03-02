@@ -1,1 +1,1 @@
-PROJECT_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
+PROJECT_PATH = r'C:\Cellenium'

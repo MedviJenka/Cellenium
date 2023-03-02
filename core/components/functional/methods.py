@@ -5,21 +5,18 @@ import logging
 import os
 from datetime import datetime
 from configparser import ConfigParser
-from pathlib import Path
 from time import time
-from core.components.constants.variables import PROJECT_PATH
-
-
-def get_project_path() -> str:
-    project_path = str(Path.cwd())
-    return project_path.split('core')[0][:-1]
 
 
 def read_config(key: str, value: str) -> str:
+    # CWD = str(Path.cwd()).split('core')[0][:-1]
     config = ConfigParser()
-    path: str = fr'{PROJECT_PATH}\core\static\utils\config.ini'
+    path: str = fr'C:\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
+
+
+PROJECT_PATH = read_config('path', 'project')
 
 
 def read_json(path: str) -> dict:
@@ -122,7 +119,7 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_allure_report(test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
+def generate_test(*, test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
     tests = read_config('path', 'tests')
     tests = fr"{PROJECT_PATH}\{tests}\{test_dir}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
@@ -131,14 +128,14 @@ def generate_allure_report(test_dir: str, suite_name: list[str], show_test_cover
         allure.attach(f'{coverage_state(test_dir)}')
     for each_test in suite_name:
         os.system(fr"pytest {tests}\{each_test} --alluredir={report_dir}")
-        os.system(fr'allure serve {report_dir}')
+    os.system(fr'allure serve {report_dir}')
 
 
 @allure.step('coverage state')
 def coverage_state(folder_name: str) -> None:
     tests = read_config("path", "tests")
     try:
-        os.system(fr'pytest --cov={PROJECT_PATH}\{tests}\{folder_name}')
+        os.system(fr'--cov={PROJECT_PATH}\{tests}\{folder_name}')
     except ValueError as ve:
         raise ve
 
