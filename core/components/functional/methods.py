@@ -75,6 +75,9 @@ def get_image(*args: str) -> str:
 
 
 def run_test(class_name: object, methods: list[str]) -> None:
+    """
+    maybe will be usable in the future
+    """
     try:
         match ['*']:
             case _:
@@ -119,13 +122,20 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_test(test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
+def generate_tests(test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
     tests = read_config('path', 'tests')
     tests = fr"{PROJECT_PATH}\{tests}\{test_dir}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
     log(text=fr'allure report located in : {report_dir}')
-    for each_test in suite_name:
-        os.system(fr"pytest {tests}\{each_test} --alluredir={report_dir}")
+
+    match suite_name:
+        case ['*']:
+            os.system(fr"pytest {tests} --alluredir={report_dir}")
+
+        case _:
+            for each_test in suite_name:
+                os.system(fr"pytest {tests}\{each_test} --alluredir={report_dir}")
+
     if show_test_coverage_state:
         coverage_state(test_dir)
     os.system(fr'allure serve {report_dir}')
