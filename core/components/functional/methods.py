@@ -9,9 +9,8 @@ from time import time
 
 
 def read_config(key: str, value: str) -> str:
-    # CWD = str(Path.cwd()).split('core')[0][:-1]
     config = ConfigParser()
-    path: str = fr'C:\Cellenium\core\static\utils\config.ini'
+    path: str = fr'C:\Users\medvi\OneDrive\Desktop\Cellenium\core\static\utils\config.ini'
     config.read(path)
     return config.get(key, value)
 
@@ -122,7 +121,7 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_tests(test_dir: str, suite_name: list[str], show_test_coverage_state=False) -> None:
+def generate_tests(test_dir: str, suite_name: list[str], parallel=1, show_test_coverage_state=False) -> callable:
     tests = read_config('path', 'tests')
     tests = fr"{PROJECT_PATH}\{tests}\{test_dir}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
@@ -130,7 +129,7 @@ def generate_tests(test_dir: str, suite_name: list[str], show_test_coverage_stat
 
     match suite_name:
         case ['*']:
-            os.system(fr"pytest {tests} --alluredir={report_dir}")
+            os.system(fr"pytest {tests} --alluredir={report_dir} -n {parallel}")
 
         case _:
             for each_test in suite_name:
@@ -139,6 +138,10 @@ def generate_tests(test_dir: str, suite_name: list[str], show_test_coverage_stat
     if show_test_coverage_state:
         coverage_state(test_dir)
     os.system(fr'allure serve {report_dir}')
+
+
+def enable_parallel_tests(tests: list[callable], n=1) -> None:
+    os.system(f'pytest {tests} -n {n}')
 
 
 @allure.step('coverage state')
