@@ -190,6 +190,7 @@
           <option value="str.size" />
           <option value="tuple.value" />
           <option value="Exception.__getitem__" />
+          <option value="set.Union" />
         </list>
       </option>
     </inspection_tool>

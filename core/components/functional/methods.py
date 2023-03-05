@@ -140,10 +140,6 @@ def generate_tests(test_dir: str, suite_name: list[str], parallel=1, show_test_c
     os.system(fr'allure serve {report_dir}')
 
 
-def enable_parallel_tests(tests: list[callable], n=1) -> None:
-    os.system(f'pytest {tests} -n {n}')
-
-
 @allure.step('coverage state')
 def coverage_state(folder_name: str) -> None:
     tests = read_config("path", "tests")
