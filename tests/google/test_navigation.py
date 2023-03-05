@@ -1,5 +1,5 @@
-from core.components.driver.engine import DriverEngine
-from core.components.functional.methods import run_test
+from core.infrastructure.driver.engine import DriverEngine
+from core.infrastructure.modules.methods import run_test
 
 
 class TestIntroPage(DriverEngine):
