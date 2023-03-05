@@ -1,15 +1,15 @@
 from dataclasses import dataclass
-from core.components.driver.engine import DriverEngine
-from core.components.functional.methods import run_test
+from core.infrastructure.driver.engine import DriverEngine
+from core.infrastructure.modules.methods import run_test
 
 
 @dataclass
-class IntroPage(DriverEngine):
+class TestIntroPage(DriverEngine):
 
     def setup(self) -> None:
         self.get_web(web_link='https://www.google.com', maximize_window=True)
 
-    def test_screenshot_method(self) -> None:
+    def screenshot_method(self) -> None:
         element = self.get_element('FirstPage', 'search').send_keys('cats')
         self.take_screenshot(name=element,
                              compare_images=True,
@@ -26,5 +26,4 @@ class IntroPage(DriverEngine):
 
 
 def test() -> callable:
-    run_test(IntroPage(), ['setup', 'test_screenshot_method', 'exit_all'])
-
+    run_test(TestIntroPage(), ['setup', 'screenshot_method', 'exit_all'])

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from core.components.api.manager import RestRequests
-from core.components.functional.methods import run_test
+from core.infrastructure.api.manager import RestRequests
+from core.infrastructure.modules.methods import run_test
 
 
 @dataclass
