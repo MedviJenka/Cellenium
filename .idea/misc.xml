@@ -4,4 +4,7 @@
   <component name="ProjectType">
     <option name="id" value="jpab" />
   </component>
+  <component name="PyCharmProfessionalAdvertiser">
+    <option name="shown" value="true" />
+  </component>
 </project>
