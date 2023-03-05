@@ -15,13 +15,17 @@ class RestRequests:
     def generate_request(self, method: str, params: dict[str, str] = None) -> Response:
         match method:
             case "GET":
-                return requests.get(f'{self.base_url}/{self.query}', params=params, headers=self.headers).json()
+                respond = requests.get(f'{self.base_url}/{self.query}', params=params, headers=self.headers)
+                return respond.json()
             case "POST":
-                return requests.post(f'{self.base_url}/{self.query}', params=params, headers=self.headers).json()
+                respond = requests.post(f'{self.base_url}/{self.query}', params=params, headers=self.headers)
+                return respond.json()
             case "PUT":
-                return requests.put(f'{self.base_url}/{self.query}', params=params, headers=self.headers).json()
+                respond = requests.put(f'{self.base_url}/{self.query}', params=params, headers=self.headers)
+                return respond.json()
             case "DELETE":
-                return requests.delete(f'{self.base_url}/{self.query}', params=params, headers=self.headers).json()
+                respond = requests.delete(f'{self.base_url}/{self.query}', params=params, headers=self.headers)
+                return respond.json()
             case _:
                 raise Exception('no such method')
 
