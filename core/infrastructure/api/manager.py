@@ -13,7 +13,7 @@ class RestRequests:
 
     # ~~~~~~~~~ Global Data ~~~~~~~~~~~
     def get_response_status_code(self) -> Response:
-        request = requests.get(f'{self.url}appid={self.api_key}')
+        request = requests.get(f'{self.url}/appid={self.api_key}')
         return request
 
     def get_city(self, city: str) -> Response:
