@@ -48,7 +48,7 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_tests(test_dir: str, suite_name: list[str], parallel=1, show_test_coverage_state=False) -> callable:
+def generate_tests(test_dir: str, suite_name: list[str], parallel=1, show_test_coverage_state=False) -> None:
     tests = read_config('path', 'tests')
     tests = fr"{PROJECT_PATH}\{tests}\{test_dir}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
@@ -64,6 +64,7 @@ def generate_tests(test_dir: str, suite_name: list[str], parallel=1, show_test_c
 
     if show_test_coverage_state:
         coverage_state(test_dir)
+
     os.system(fr'allure serve {report_dir}')
 
 

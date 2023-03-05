@@ -34,6 +34,7 @@ class Decorators:
         def decorator(func):
             def wrapper(*args: any, **kwargs: any):
                 try:
+                    log(text=f"{func.__name__} raised {exception_type.__name__}")
                     func(*args, **kwargs)
                 except exception_type:
                     log(text=f"{func.__name__} did not raise {exception_type.__name__}")
