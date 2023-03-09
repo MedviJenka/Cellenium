@@ -1,13 +1,12 @@
 import json
 import openpyxl
 from configparser import ConfigParser
-from core.infrastructure.constants.data import PROJECT_PATH
+from core.infrastructure.constants.data import PROJECT_PATH, CONFIG_PATH
 
 
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
-    path: str = fr'C:\Users\medvi\OneDrive\Desktop\Cellenium\core\static\utils\config.ini'
-    config.read(path)
+    config.read(CONFIG_PATH)
     return config.get(key, value)
 
 
