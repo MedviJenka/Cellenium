@@ -1,22 +1,26 @@
-from core.infrastructure.driver.engine import DriverEngine, Element
+from core.infrastructure.driver.engine import DriverEngine, ScreenshotEngine
 from core.infrastructure.modules.methods import run_test
 
 
-element = Element('TerminalX')
+class TestIntroPage:
 
-
-class TestIntroPage(DriverEngine):
+    engine = DriverEngine('TerminalX')
 
     def test_setup(self) -> None:
-        self.get_web(web_link='https://www.terminalx.com/', maximize_window=False)
+        self.engine.get_web(web_link='https://www.terminalx.com/', maximize_window=False)
 
     def navigate(self) -> None:
-        icon = element.get_element('heart_icon')
-        self.take_screenshot(sheet_name='TerminalX', element=icon, name='heart_icon123')
+
+        screen = ScreenshotEngine('TerminalX')
+
+        heart_icon = self.engine.get_element('heart_icon')
+        suite_case = self.engine.get_element('suite_case')
+        welcome = self.engine.get_element('welcome')
+
+        screen.take_screenshot(element=heart_icon, name='heart_icon111123')
+        screen.take_screenshot(element=suite_case, name='suite')
+        screen.take_screenshot(element=welcome, name='welcome')
 
     def exit_all(self) -> None:
-        self.teardown()
+        self.engine.teardown()
 
-
-def test() -> None:
-    run_test(TestIntroPage(), ['test_setup', 'navigate', 'exit_all'])

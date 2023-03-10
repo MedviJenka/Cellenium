@@ -18,18 +18,19 @@ from dataclasses import dataclass
 @dataclass
 class DriverEngine(DriverManager):
 
+    sheet_name: str
+
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link)
         if maximize_window:
             self.driver.maximize_window()
 
-    @staticmethod
-    def take_screenshot(element: WebElement,
-                        sheet_name: str,
+    def take_screenshot(self,
+                        element: WebElement,
                         name: str,
                         compare_images=False,
                         embed_into_cell=True,
-                        original_image_path=None) -> str:
+                        original_image_path=None) -> None:
 
         path = fr"{PROJECT_PATH}\{read_config('path', 'screenshots')}"
         image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
@@ -44,18 +45,16 @@ class DriverEngine(DriverManager):
             app.execute(path)
 
         if embed_into_cell:
-            write_excel(sheet_name=sheet_name, screenshot_path=updated_image_path)
+            write_excel(sheet_name=self.sheet_name, screenshot_path=updated_image_path)
 
-        return updated_image_path
-
-    def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
-        element_locator = get_locator(sheet, name)
+    def wait_for_element(self, name: str, seconds=3) -> None:
+        element_locator = get_locator(self.sheet_name, name)
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
-    def get_element(self, sheet: str, name: str) -> webdriver:
-        element_locator = get_locator(sheet, name)
-        element_type    = get_type(sheet, name)
+    def get_element(self, name: str) -> webdriver:
+        element_locator = get_locator(self.sheet_name, name)
+        element_type    = get_type(self.sheet_name, name)
 
         match element_type:
 
@@ -107,36 +106,29 @@ class DriverEngine(DriverManager):
         self.driver.save_screenshot(PROJECT_PATH)
 
 
-class Element(DriverManager):
+@dataclass
+class ScreenshotEngine(DriverManager):
 
-    def __init__(self, sheet: str):
-        self.sheet = sheet
+    sheet_name: str
 
-    def get_element(self, name: str) -> webdriver:
-        element_locator = get_locator(self.sheet, name)
-        element_type    = get_type(self.sheet, name)
+    def take_screenshot(self,
+                        element: WebElement,
+                        name: str,
+                        compare_images=False,
+                        embed_into_cell=True,
+                        original_image_path=None) -> None:
 
-        match element_type:
+        path = fr"{PROJECT_PATH}\{read_config('path', 'screenshots')}"
+        image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
+        updated_image_path = fr'{path}\{name}.png'
+        element.screenshot(updated_image_path)
 
-            case 'NAME':
-                log(level=logging.DEBUG, text='element selected by NAME')
-                return self.driver.find_element(By.NAME, element_locator)
+        if compare_images:
+            write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
+            write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
+            app = ImageCompare()
+            path = fr'{PROJECT_PATH}\{read_config("json", "image_compare_data")}'
+            app.execute(path)
 
-            case 'ID':
-                log(level=logging.DEBUG, text='element selected by ID')
-                return self.driver.find_element(By.ID, element_locator)
-
-            case 'CSS':
-                return self.driver.find_element(By.CSS_SELECTOR, element_locator)
-
-            case 'XPATH':
-                return self.driver.find_element(By.XPATH, element_locator)
-
-            case 'LINK_TEXT':
-                return self.driver.find_element(By.LINK_TEXT, element_locator)
-
-            case 'CLASS_NAME':
-                return self.driver.find_element(By.CLASS_NAME, element_locator)
-
-            case _:
-                raise Exception
+        if embed_into_cell:
+            write_excel(sheet_name=self.sheet_name, screenshot_path=updated_image_path)

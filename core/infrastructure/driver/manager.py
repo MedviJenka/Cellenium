@@ -27,9 +27,8 @@ class ServiceManager:
             return Service(executable_path=self.edge_driver.install())
 
 
-@dataclass
 class DriverManager(ABC):
 
-    service = ServiceManager()
+    _service = ServiceManager()
     _options = Options()
-    driver: None = webdriver.Chrome(service=service.set_service(), options=_options)
+    driver: None = webdriver.Chrome(service=_service.set_service(), options=_options)

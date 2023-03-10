@@ -48,19 +48,18 @@ def log(level=logging.INFO, text='') -> None:
             raise Exception('no such logging level')
 
 
-def generate_tests(test_dir: str, suite_name: list[str], parallel=1, show_test_coverage_state=False) -> None:
-    tests = read_config('path', 'tests')
-    tests = fr"{PROJECT_PATH}\{tests}\{test_dir}"
+def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_test_coverage_state=False) -> None:
+    path = read_config('path', 'tests')
+    tests = fr"{PROJECT_PATH}\{path}\{test_dir}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
     log(text=fr'allure report located in : {report_dir}')
 
     match suite_name:
-        case ['*']:
+        case '*':
             os.system(fr"pytest {tests} --alluredir={report_dir} -n {parallel}")
 
         case _:
-            for each_test in suite_name:
-                os.system(fr"pytest {tests}\{each_test} --alluredir={report_dir}")
+            os.system(fr"pytest {tests}\{suite_name} --alluredir={report_dir} -n {parallel}")
 
     if show_test_coverage_state:
         coverage_state(test_dir)
