@@ -65,7 +65,7 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(screenshot_path: str):
+def write_excel(sheet_name: str, screenshot_path: str):
 
     width = 23
     height = 23
@@ -76,13 +76,13 @@ def write_excel(screenshot_path: str):
 
     path = fr"{PROJECT_PATH}\{read_config('path', 'page_base')}"
 
-    wb = openpyxl.load_workbook(path)
-    ws = wb['TerminalX']
+    workbook = openpyxl.load_workbook(path)
+    sheet = workbook[sheet_name]
 
     img = openpyxl.drawing.image.Image(screenshot_path)
-    ws.add_image(img, 'D2')
-    wb.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
+    sheet.add_image(img, 'D2')
+    workbook.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
 
 
 if __name__ == '__main__':
-    write_excel(screenshot_path=r'C:\Users\medvi\OneDrive\Desktop\Cellenium\icon.png')
+    write_excel(sheet_name='TerminalX', screenshot_path=r'C:\Users\medvi\OneDrive\Desktop\Cellenium\icon.png')

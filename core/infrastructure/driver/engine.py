@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
@@ -22,19 +23,30 @@ class DriverEngine(DriverManager):
         if maximize_window:
             self.driver.maximize_window()
 
-    def take_screenshot(self, name: str, compare_images=False, original_image_path=None) -> None:
+    @staticmethod
+    def take_screenshot(element: WebElement,
+                        sheet_name: str,
+                        name: str,
+                        compare_images=False,
+                        embed_into_cell=True,
+                        original_image_path=None) -> str:
+
         path = fr"{PROJECT_PATH}\{read_config('path', 'screenshots')}"
         image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
-        updated_image_path = fr'{path}/{name}.png'
-        self.driver.save_screenshot(updated_image_path)
+        updated_image_path = fr'{path}\{name}.png'
+        element.screenshot(updated_image_path)
 
-        match compare_images:
-            case _:
-                write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
-                write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
-                app = ImageCompare()
-                path = fr'{PROJECT_PATH}\{read_config("json", "image_compare_data")}'
-                app.execute(path)
+        if compare_images:
+            write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
+            write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
+            app = ImageCompare()
+            path = fr'{PROJECT_PATH}\{read_config("json", "image_compare_data")}'
+            app.execute(path)
+
+        if embed_into_cell:
+            write_excel(sheet_name=sheet_name, screenshot_path=updated_image_path)
+
+        return updated_image_path
 
     def wait_for_element(self, sheet: str, name: str, seconds=3) -> None:
         element_locator = get_locator(sheet, name)

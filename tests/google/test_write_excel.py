@@ -12,7 +12,7 @@ class TestIntroPage(DriverEngine):
 
     def navigate(self) -> None:
         icon = element.get_element('heart_icon')
-        icon.screenshot(r'C:\Users\medvi\OneDrive\Desktop\Cellenium\icon.png')
+        self.take_screenshot(sheet_name='TerminalX', element=icon, name='heart_icon123')
 
     def exit_all(self) -> None:
         self.teardown()
