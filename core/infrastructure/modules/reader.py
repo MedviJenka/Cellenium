@@ -38,14 +38,13 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
         }
         cache[result['name']] = result
     try:
-        match cache[value]['name']:
-            case _:
-                return {
-                    'name': cache[value]['name'],
-                    'locator': cache[value]['locator'],
-                    'type': cache[value]['type'],
-                    'image': cache[value]['image']
-                }
+        if cache[value]['name']:
+            return {
+                'name': cache[value]['name'],
+                'locator': cache[value]['locator'],
+                'type': cache[value]['type'],
+                'image': cache[value]['image']
+            }
     except ValueError:
         raise Exception('no such type')
 
@@ -66,13 +65,24 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(screenshot_path: str, location='B6') -> None:
-    workbook = openpyxl.Workbook()
-    worksheet = workbook.active
-    image = Image.open(screenshot_path)
-    worksheet.add_image(image, location)
-    workbook.save(fr"{PROJECT_PATH}\{read_config('path', 'page_base')}")
+def write_excel(screenshot_path: str):
+
+    width = 23
+    height = 23
+
+    img = Image.open(screenshot_path)
+    img = img.resize((width, height), Image.BOX)
+    img.save(screenshot_path)
+
+    path = fr"{PROJECT_PATH}\{read_config('path', 'page_base')}"
+
+    wb = openpyxl.load_workbook(path)
+    ws = wb['TerminalX']
+
+    img = openpyxl.drawing.image.Image(screenshot_path)
+    ws.add_image(img, 'D2')
+    wb.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
 
 
 if __name__ == '__main__':
-    write_excel(r'C:\Users\medvi\OneDrive\Desktop\Cellenium\icon.png')
+    write_excel(screenshot_path=r'C:\Users\medvi\OneDrive\Desktop\Cellenium\icon.png')
