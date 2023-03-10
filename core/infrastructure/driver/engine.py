@@ -11,8 +11,10 @@ from core.infrastructure.modules.reader import *
 from os import system
 from core.infrastructure.driver.manager import DriverManager
 from core.infrastructure.constants.data import PROJECT_PATH
+from dataclasses import dataclass
 
 
+@dataclass
 class DriverEngine(DriverManager):
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
@@ -88,3 +90,41 @@ class DriverEngine(DriverManager):
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
             raise Exception("driver's N/A")
+
+    def attach_screenshot(self) -> None:
+        self.driver.save_screenshot(PROJECT_PATH)
+
+
+class Element(DriverManager):
+
+    def __init__(self, sheet: str):
+        self.sheet = sheet
+
+    def get_element(self, name: str) -> webdriver:
+        element_locator = get_locator(self.sheet, name)
+        element_type    = get_type(self.sheet, name)
+
+        match element_type:
+
+            case 'NAME':
+                log(level=logging.DEBUG, text='element selected by NAME')
+                return self.driver.find_element(By.NAME, element_locator)
+
+            case 'ID':
+                log(level=logging.DEBUG, text='element selected by ID')
+                return self.driver.find_element(By.ID, element_locator)
+
+            case 'CSS':
+                return self.driver.find_element(By.CSS_SELECTOR, element_locator)
+
+            case 'XPATH':
+                return self.driver.find_element(By.XPATH, element_locator)
+
+            case 'LINK_TEXT':
+                return self.driver.find_element(By.LINK_TEXT, element_locator)
+
+            case 'CLASS_NAME':
+                return self.driver.find_element(By.CLASS_NAME, element_locator)
+
+            case _:
+                raise Exception

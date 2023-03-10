@@ -1,5 +1,6 @@
 import json
 import openpyxl
+from PIL import Image
 from configparser import ConfigParser
 from core.infrastructure.constants.data import PROJECT_PATH, CONFIG_PATH
 
@@ -63,3 +64,15 @@ def get_type(*args: str) -> str:
 
 def get_image(*args: str) -> str:
     return read_excel(*args)['image']
+
+
+def write_excel(screenshot_path: str, location='B6') -> None:
+    workbook = openpyxl.Workbook()
+    worksheet = workbook.active
+    image = Image.open(screenshot_path)
+    worksheet.add_image(image, location)
+    workbook.save(fr"{PROJECT_PATH}\{read_config('path', 'page_base')}")
+
+
+if __name__ == '__main__':
+    write_excel(r'C:\Users\medvi\OneDrive\Desktop\Cellenium\icon.png')

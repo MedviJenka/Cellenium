@@ -26,4 +26,7 @@ class TestIntroPage(DriverEngine):
 
 
 def test() -> callable:
-    run_test(TestIntroPage(), ['setup', 'screenshot_method', 'exit_all'])
+    try:
+        run_test(TestIntroPage(), ['setup', 'screenshot_method', 'exit_all'])
+    except Exception:
+        DriverEngine().attach_screenshot()

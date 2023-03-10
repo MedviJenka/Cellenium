@@ -5,6 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from dataclasses import dataclass
 from abc import ABC
+global driver
 
 
 @dataclass
