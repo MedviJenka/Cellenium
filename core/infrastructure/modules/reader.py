@@ -25,10 +25,12 @@ def write_json(path: str, key: str, value: str) -> None:
 
 
 def read_excel(sheet_name: str, value: str) -> dict[str]:
+
     path = fr"{PROJECT_PATH}\{read_config('path', 'page_base')}"
     workbook = openpyxl.load_workbook(path)
     sheet = workbook[sheet_name]
-    cache = {}
+    data = {}
+
     for row in sheet.iter_rows(min_row=2, values_only=True):
         result = {
             'name': row[0],
@@ -36,15 +38,17 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
             'type': row[2],
             'image': row[3]
         }
-        cache[result['name']] = result
+        data[result['name']] = result
+
     try:
-        if cache[value]['name']:
+        if data[value]['name']:
             return {
-                'name': cache[value]['name'],
-                'locator': cache[value]['locator'],
-                'type': cache[value]['type'],
-                'image': cache[value]['image']
+                'name': data[value]['name'],
+                'locator': data[value]['locator'],
+                'type': data[value]['type'],
+                'image': data[value]['image']
             }
+
     except ValueError:
         raise Exception('no such type')
 
@@ -65,10 +69,10 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(sheet_name: str, screenshot_path: str):
+def write_excel(sheet_name: str, screenshot_path: str) -> None:
 
-    width = 25
-    height = 25
+    width = 100
+    height = 100
 
     img = Image.open(screenshot_path)
     img = img.resize((width, height), Image.NEAREST)

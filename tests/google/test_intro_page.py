@@ -1,32 +1,19 @@
 from dataclasses import dataclass
 from core.infrastructure.driver.engine import DriverEngine
-from core.infrastructure.modules.methods import run_test
 
 
 @dataclass
-class TestIntroPage(DriverEngine):
+class TestIntroPage:
 
-    def setup(self) -> None:
-        self.get_web(web_link='https://www.google.com', maximize_window=True)
+    engine = DriverEngine('IntroPage')
 
-    def screenshot_method(self) -> None:
-        element = self.get_element('FirstPage', 'search').send_keys('cats')
-        self.take_screenshot(name=element,
-                             compare_images=True,
-                             original_image_path=r"C:\Users\medvi\OneDrive\Desktop\Screenshot.png")
+    def test_setup(self) -> None:
+        self.engine.get_web(web_link='https://www.google.com', maximize_window=True)
 
-    def navigate(self) -> None:
-        self.get_element('FirstPage', 'search').send_keys('cats')
-        self.take_screenshot('web2')
-        self.wait_for_element('FirstPage', 'search', seconds=3)
-        self.press_keyboard_key('ENTER')
+    def test_navigate(self) -> None:
+        self.engine.get_element('search').send_keys('cats')
+        self.engine.wait_for_element('search', seconds=3)
+        self.engine.press_keyboard_key('ENTER')
 
-    def exit_all(self) -> None:
-        self.teardown()
-
-
-def test() -> callable:
-    try:
-        run_test(TestIntroPage(), ['setup', 'screenshot_method', 'exit_all'])
-    except Exception:
-        DriverEngine().attach_screenshot()
+    def test_exit_all(self) -> None:
+        self.engine.teardown()

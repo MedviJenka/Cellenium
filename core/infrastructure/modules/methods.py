@@ -24,7 +24,7 @@ def run_test(class_name: object, methods: list[str]) -> None:
         raise
 
 
-def log(level=logging.INFO, text='') -> None:
+def log(level=logging.INFO, text='') -> callable:
     _time = datetime.now()
     time_format = f'{_time: %A | %d/%m/%Y | %X}'
     logs = read_config('path', 'logs')
