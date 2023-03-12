@@ -69,7 +69,7 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(sheet_name: str, screenshot_path: str):
+def write_excel(sheet_name: str, screenshot_path: str) -> None:
 
     width = 100
     height = 100
