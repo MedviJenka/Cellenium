@@ -27,6 +27,7 @@ person = Person('jenia')
 
 class TestPerson:
 
+    @test.negative
     def test_negative_name(self) -> None:
         person.name = 'alex'
         assert person.get_data() == 'persons name is jenia'

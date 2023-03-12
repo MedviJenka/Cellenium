@@ -1,20 +1,13 @@
+from core.infrastructure.constants.data import Type
 from core.infrastructure.driver.engine import DriverEngine
-from core.infrastructure.modules.methods import run_test
 
 
-class TestIntroPage(DriverEngine):
+class TestIntroPage:
 
-    __test__ = False
+    driver = DriverEngine(sheet_name='ST')
 
-    def test_setup(self) -> None:
-        self.get_web(web_link='https://www.terminalx.com/', maximize_window=False)
+    def setup(self) -> None:
+        self.driver.get_web(web_link='https://nextgenkube.ai-logix.net/interactions', maximize_window=False)
 
-    def navigate(self) -> None:
-        self.get_element('TermianlX', 'men_dropdown')
-
-    def test_exit_all(self) -> None:
-        self.teardown()
-
-
-def test() -> None:
-    run_test(TestIntroPage(), ['test_setup', 'test_exit_all'])
+    def test_navigate(self) -> None:
+        assert self.driver.count_elements(name='table', tag='div', selector=Type.XPATH) == 100

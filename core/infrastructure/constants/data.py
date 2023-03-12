@@ -1,11 +1,14 @@
-from enum import Enum
+from selenium.webdriver.common.by import By
 
 
-PROJECT_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
-CONFIG_PATH = fr'C:\Users\medvi\OneDrive\Desktop\Cellenium\core\static\utils\config.ini'
+PROJECT_PATH = r'C:\Users\evgenyp\Desktop\Cell\Cellenium'
+CONFIG_PATH = r'C:\Users\evgenyp\Desktop\Cell\Cellenium\core\static\utils\config.ini'
 
 
-class Functional(Enum):
-    STARTUP  = 1
-    RUN      = 2
-    TEARDOWN = 3
+class Type:
+    CLASS = By.CLASS_NAME
+    ID = By.ID
+    NAME = By.NAME
+    CSS = By.CSS_SELECTOR
+    XPATH = By.XPATH
+    TEXT = By.LINK_TEXT

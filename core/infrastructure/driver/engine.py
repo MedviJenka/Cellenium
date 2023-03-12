@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,7 +10,7 @@ from core.infrastructure.modules.methods import *
 from core.infrastructure.modules.reader import *
 from os import system
 from core.infrastructure.driver.manager import DriverManager
-from core.infrastructure.constants.data import PROJECT_PATH
+from core.infrastructure.constants.data import PROJECT_PATH, Type
 from dataclasses import dataclass
 
 
@@ -47,12 +46,15 @@ class DriverEngine(DriverManager):
         if embed_into_cell:
             write_excel(sheet_name=self.sheet_name, screenshot_path=updated_image_path)
 
+        log(text=f"screenshot location: {updated_image_path}")
+
     def wait_for_element(self, name: str, seconds=3) -> None:
         element_locator = get_locator(self.sheet_name, name)
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, name: str) -> webdriver:
+
         element_locator = get_locator(self.sheet_name, name)
         element_type    = get_type(self.sheet_name, name)
 
@@ -60,23 +62,23 @@ class DriverEngine(DriverManager):
 
             case 'NAME':
                 log(level=logging.DEBUG, text='element selected by NAME')
-                return self.driver.find_element(By.NAME, element_locator)
+                return self.driver.find_element(Type.NAME, element_locator)
 
             case 'ID':
                 log(level=logging.DEBUG, text='element selected by ID')
-                return self.driver.find_element(By.ID, element_locator)
+                return self.driver.find_element(Type.ID, element_locator)
 
             case 'CSS':
-                return self.driver.find_element(By.CSS_SELECTOR, element_locator)
+                return self.driver.find_element(Type.CSS, element_locator)
 
             case 'XPATH':
-                return self.driver.find_element(By.XPATH, element_locator)
+                return self.driver.find_element(Type.XPATH, element_locator)
 
             case 'LINK_TEXT':
-                return self.driver.find_element(By.LINK_TEXT, element_locator)
+                return self.driver.find_element(Type.TEXT, element_locator)
 
             case 'CLASS_NAME':
-                return self.driver.find_element(By.CLASS_NAME, element_locator)
+                return self.driver.find_element(Type.CLASS, element_locator)
 
             case _:
                 raise Exception
@@ -87,6 +89,20 @@ class DriverEngine(DriverManager):
             select.select_by_value(text)
         elif value:
             select.select_by_visible_text(value)
+
+    def count_elements(self, name: str, tag: str, selector: Type) -> int:
+
+        """
+        :param: name ............... name is retrieved from get_element()
+        :param: tag ................ div, tr, etc... type it as it is
+        :param: selector ........... inherits By class
+        """
+
+        table = self.get_element(name)
+        rows = len(table.find_elements(selector, f'.//{tag}'))
+        print(fr'number of rows in this page is: {rows}')
+        log(level=logging.INFO, text=f'number of rows: {rows}')
+        return rows
 
     def press_keyboard_key(self, key: str) -> ActionChains:
         action = ActionChains(self.driver)
@@ -124,9 +140,9 @@ class ScreenshotEngine(DriverManager):
         element.screenshot(updated_image_path)
 
         if compare_images:
+            app = ImageCompare()
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
-            app = ImageCompare()
             path = fr'{PROJECT_PATH}\{read_config("json", "image_compare_data")}'
             app.execute(path)
 
