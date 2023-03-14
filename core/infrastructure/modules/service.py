@@ -5,5 +5,5 @@ from typing import Optional
 class Service(ABC):
 
     @abstractmethod
-    def run(self, args: Optional[any]) -> any:
+    def run(self, *args: Optional[any], **kw: Optional[any]) -> any:
         ...
