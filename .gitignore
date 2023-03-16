@@ -1,3 +1,5 @@
 /venv/
 /core/static/reports/
 /core/static/utils/
+/tests/STNG/
+/core/infrastructure/tools/test_plan/api_key.json
