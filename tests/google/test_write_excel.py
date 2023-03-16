@@ -1,4 +1,5 @@
 from core.infrastructure.driver.engine import DriverEngine, ScreenshotEngine
+from core.infrastructure.modules.reader import get_locator
 
 
 class TestIntroPage:
@@ -10,6 +11,7 @@ class TestIntroPage:
 
     def test_navigate(self) -> None:
 
+<<<<<<< HEAD
         self.engine.scroll_page(direction='down', px=-500)
 
         # heart_icon = self.engine.get_element('heart_icon')
@@ -21,4 +23,19 @@ class TestIntroPage:
         # screen.take_screenshot(element=welcome, name='welcome')
 
     def test_exit_all(self) -> None:
+=======
+        screen = ScreenshotEngine('TerminalX')
+        heart_icon_type = get_locator('TerminalX', 'heart_icon')
+
+        heart_icon = self.engine.get_element('heart_icon')
+        suite_case = self.engine.get_element('suite_case')
+        welcome = self.engine.get_element('welcome')
+        print(self.engine.driver.value_of_css_property(heart_icon_type))
+
+        # screen.take_screenshot(element=heart_icon, name='heart_icon')
+        # screen.take_screenshot(element=suite_case, name='suite')
+        # screen.take_screenshot(element=welcome, name='welcome')
+
+    def exit_all(self) -> None:
+>>>>>>> c569f319c763324bc232746e75a17b4c84f13a6f
         self.engine.teardown()

@@ -17,7 +17,7 @@ from dataclasses import dataclass
 @dataclass
 class DriverEngine(DriverManager):
 
-    sheet_name: str
+    screen: str
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link)
@@ -44,19 +44,19 @@ class DriverEngine(DriverManager):
             app.execute(path)
 
         if embed_into_cell:
-            write_excel(sheet_name=self.sheet_name, screenshot_path=updated_image_path)
+            write_excel(sheet_name=self.screen, screenshot_path=updated_image_path)
 
         log(text=f"screenshot location: {updated_image_path}")
 
     def wait_for_element(self, name: str, seconds=3) -> None:
-        element_locator = get_locator(self.sheet_name, name)
+        element_locator = get_locator(self.screen, name)
         wait = WebDriverWait(self.driver, seconds)
         wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, name: str) -> webdriver:
 
-        element_locator = get_locator(self.sheet_name, name)
-        element_type    = get_type(self.sheet_name, name)
+        element_locator = get_locator(self.screen, name)
+        element_type    = get_type(self.screen, name)
 
         match element_type:
 

@@ -4,7 +4,7 @@ from core.infrastructure.driver.engine import DriverEngine
 
 class TestIntroPage:
 
-    driver = DriverEngine(sheet_name='ST')
+    driver = DriverEngine(screen='ST')
 
     def setup(self) -> None:
         self.driver.get_web(web_link='https://nextgenkube.ai-logix.net/interactions', maximize_window=False)

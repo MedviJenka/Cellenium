@@ -3,7 +3,7 @@ import logging
 import os
 from datetime import datetime
 from core.infrastructure.constants.data import PROJECT_PATH
-from core.infrastructure.modules.reader import read_config
+from core.infrastructure.modules.reader import read_config, read_test_case
 
 
 def run_test(class_name: object, methods: list[str]) -> None:
@@ -85,3 +85,14 @@ def get_test_files(directory: str) -> list[str]:
             if file.endswith('.py'):
                 python_files.append(os.path.join(root, file))
     return python_files
+
+
+def generate_tests_from_excel(suite_name: str, parallel=1, show_test_coverage_state=False) -> None:
+    tests = read_test_case(suite_name)
+    report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
+    log(text=fr'allure report located in : {report_dir}')
+
+    os.system(fr"pytest {tests} --alluredir={report_dir} -n {parallel}")
+
+    if show_test_coverage_state:
+        os.system(f'pytest -cov {tests}')

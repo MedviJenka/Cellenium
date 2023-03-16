@@ -69,7 +69,7 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(sheet_name: str, screenshot_path: str) -> None:
+def write_excel(sheet_name: str, screenshot_path: str) -> str:
 
     width = 100
     height = 100
@@ -86,3 +86,21 @@ def write_excel(sheet_name: str, screenshot_path: str) -> None:
     img = openpyxl.drawing.image.Image(screenshot_path)
     sheet.add_image(img, 'D2')
     workbook.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
+
+
+def read_test_case(sheet_name: str) -> str:
+
+    path = fr"{PROJECT_PATH}\{read_config('path', 'test_cases')}"
+    test_dir = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
+    workbook = openpyxl.load_workbook(path)
+    sheet = workbook[sheet_name]
+
+    for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
+        result = {
+            "test": row[0],
+            "run": row[1],
+        }
+
+        for _, value in result.items():
+            if value == '.':
+                return fr'{test_dir}\{sheet.title}\{result["test"]}'

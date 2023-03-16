@@ -13,12 +13,3 @@ class Type:
     XPATH = By.XPATH
     TEXT = By.LINK_TEXT
 
-
-from time import sleep
-
-
-for a in range(1, 1000):
-    count = 0
-    count -= a
-    sleep(0.1)
-    print(count)
