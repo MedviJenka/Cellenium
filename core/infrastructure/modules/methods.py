@@ -88,11 +88,18 @@ def get_test_files(directory: str) -> list[str]:
 
 
 def generate_tests_from_excel(suite_name: str, parallel=1, show_test_coverage_state=False) -> None:
+    """
+    :TODO: check why its only tests google
+    :param suite_name:
+    :param parallel:
+    :param show_test_coverage_state:
+    :return:
+    """
     tests = read_test_case(suite_name)
+    path = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
     log(text=fr'allure report located in : {report_dir}')
-
     os.system(fr"pytest {tests} --alluredir={report_dir} -n {parallel}")
-
     if show_test_coverage_state:
-        os.system(f'pytest -cov {tests}')
+        os.system(fr'pytest --cov {path}\{suite_name}')
+    os.system(f'allure serve {report_dir}')
