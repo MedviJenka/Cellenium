@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from core.infrastructure.tools.image_compare.image_compare_executor import ImageCompare
+from core.tools.image_compare.image_compare_executor import ImageCompare
 from core.infrastructure.modules.methods import *
 from core.infrastructure.modules.reader import *
 from os import system

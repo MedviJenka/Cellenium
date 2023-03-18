@@ -10,8 +10,6 @@ class TestIntroPage:
         self.engine.get_web(web_link='https://www.terminalx.com/', maximize_window=False)
 
     def test_navigate(self) -> None:
-
-<<<<<<< HEAD
         self.engine.scroll_page(direction='down', px=-500)
 
         # heart_icon = self.engine.get_element('heart_icon')
@@ -23,7 +21,6 @@ class TestIntroPage:
         # screen.take_screenshot(element=welcome, name='welcome')
 
     def test_exit_all(self) -> None:
-=======
         screen = ScreenshotEngine('TerminalX')
         heart_icon_type = get_locator('TerminalX', 'heart_icon')
 
@@ -37,5 +34,4 @@ class TestIntroPage:
         # screen.take_screenshot(element=welcome, name='welcome')
 
     def exit_all(self) -> None:
->>>>>>> c569f319c763324bc232746e75a17b4c84f13a6f
         self.engine.teardown()

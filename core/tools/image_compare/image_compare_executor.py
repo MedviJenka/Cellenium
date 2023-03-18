@@ -1,15 +1,15 @@
+from dataclasses import dataclass
+
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.modules.reader import read_json
-from core.infrastructure.tools.image_compare.image_compare import Logic
-from core.infrastructure.tools.image_compare.input_data import InputData
-from dataclasses import dataclass
+from core.tools.image_compare.image_compare import Logic
+from core.tools.image_compare.input_data import InputData
 
 
 @dataclass
 class ImageCompare(Executor, Logic):
 
     def execute(self, path: str) -> None:
-
         data = InputData(**read_json(path))
 
         result = self.compare_images(original_image_path=data.original_image_path,

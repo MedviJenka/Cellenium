@@ -69,7 +69,7 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(sheet_name: str, screenshot_path: str) -> str:
+def write_excel(sheet_name: str, screenshot_path: str) -> None:
 
     width = 100
     height = 100
@@ -88,13 +88,13 @@ def write_excel(sheet_name: str, screenshot_path: str) -> str:
     workbook.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
 
 
-def read_test_case(sheet_name: str) -> str:
+def read_test_case(sheet_name: str) -> list[str]:
 
-    path = fr"{PROJECT_PATH}\{read_config('path', 'test_cases')}"
+    test_case = fr"{PROJECT_PATH}\{read_config('path', 'test_case')}"
+    workbook = openpyxl.load_workbook(test_case)
     test_dir = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
-    workbook = openpyxl.load_workbook(path)
     sheet = workbook[sheet_name]
-
+    lists = []
     for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
         result = {
             "test": row[0],
@@ -102,5 +102,10 @@ def read_test_case(sheet_name: str) -> str:
         }
 
         for _, value in result.items():
+
             if value == '.':
-                return fr'{test_dir}\{sheet.title}\{result["test"]}'
+                case = fr'{test_dir}\{sheet.title}\{result["test"]}'
+                # print(case)
+                lists.append(case)
+
+    return lists

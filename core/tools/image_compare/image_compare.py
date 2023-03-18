@@ -1,9 +1,9 @@
-import numpy as np
-import cv2
+import logging
 import os
+import cv2
+import numpy as np
 from skimage.metrics import structural_similarity
 from core.infrastructure.modules.methods import log
-import logging
 
 
 class Logic:

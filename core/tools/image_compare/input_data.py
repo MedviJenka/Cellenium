@@ -3,7 +3,6 @@ from dataclasses import dataclass
 
 @dataclass
 class InputData:
-
     """
     :param: original_image_path ................ path for original image to compare
     :param: actual_image_path .................. path for screenshot

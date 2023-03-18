@@ -1,7 +1,11 @@
 from selenium.webdriver.common.by import By
+import os
 
 
-PROJECT_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
+current_dir = os.getcwd()
+path = os.path.abspath(os.path.join(current_dir, '..'))
+
+PROJECT_PATH = path.split('core')[0][:-1]
 CONFIG_PATH = fr'{PROJECT_PATH}\core\static\utils\config.ini'
 
 
@@ -12,4 +16,3 @@ class Type:
     CSS = By.CSS_SELECTOR
     XPATH = By.XPATH
     TEXT = By.LINK_TEXT
-
