@@ -67,7 +67,6 @@ def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_
     os.system(fr'allure serve {report_dir}')
 
 
-@allure.step('coverage state')
 def coverage_state(folder_name: str) -> None:
     tests = read_config("path", "tests")
     try:
@@ -86,25 +85,3 @@ def get_test_files(directory: str) -> list[str]:
                 python_files.append(os.path.join(root, file))
     return python_files
 
-
-def run_test_suite(suite_name: list[str], parallel=0, show_test_coverage_state=False) -> None:
-    tests = read_test_case(suite_name)
-    path = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
-    report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
-    log(text=fr'allure report located in : {report_dir}')
-    _list = []
-    for each_suite in suite_name:
-        suite_path = fr'{path}\{each_suite}'
-        _list.append(suite_path)
-
-    for each_test in _list:
-        # os.system(fr"pytest {each_test} --alluredir={report_dir} -n {parallel}")
-        print(fr"pytest {each_test} --alluredir={report_dir} -n {parallel}")
-
-    if show_test_coverage_state:
-        os.system(fr'pytest --cov {path}\{suite_name}')
-
-    # os.system(f'allure serve {report_dir}')
-
-
-run_test_suite(['google', 'module'])

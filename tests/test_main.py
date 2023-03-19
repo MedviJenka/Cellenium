@@ -1,5 +1,6 @@
-from core.infrastructure.modules.methods import run_test_suite
+from core.tools.suite_runner.suite_runner import RunSuite
 
 
 def test_automation() -> None:
-    run_test_suite(suite_name=['module'])
+    run = RunSuite(['module', 'app1'])
+    run.execute()
