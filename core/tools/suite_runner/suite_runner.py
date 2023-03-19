@@ -1,11 +1,7 @@
-import os
-import sys
 import openpyxl
 from dataclasses import dataclass
-from core.infrastructure.constants.data import PROJECT_PATH
 from core.infrastructure.modules.executor import Executor
-from core.infrastructure.modules.methods import log
-from core.infrastructure.modules.reader import read_config
+from core.infrastructure.constants.data import *
 
 
 @dataclass
@@ -15,8 +11,7 @@ class RunSuite(Executor):
     display_coverage_state: bool = False
 
     def get_sheet_titles(self) -> list[str]:
-        test_case = fr"{PROJECT_PATH}\{read_config('path', 'test_case')}"
-        workbook = openpyxl.load_workbook(test_case)
+        workbook = openpyxl.load_workbook(TEST_CASE)
         _list = []
         for each_sheet_name in self.suite_name:
             sheet = workbook[each_sheet_name]
@@ -26,10 +21,7 @@ class RunSuite(Executor):
     def algorythm(self) -> None:
 
         sheet_title = self.get_sheet_titles()
-        report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
-        test_case = fr"{PROJECT_PATH}\{read_config('path', 'test_case')}"
-        workbook = openpyxl.load_workbook(test_case)
-        test_dir = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
+        workbook = openpyxl.load_workbook(TEST_CASE)
 
         for each_sheet_name in sheet_title:
 
@@ -43,23 +35,18 @@ class RunSuite(Executor):
 
                 for _, value in result.items():
                     if value == '.':
-                        os.system(fr'pytest {test_dir}\{sheet.title}\{result["test"]} --alluredir={report_dir}')
-                    log(text=fr'running:{test_dir}\{sheet.title}\{result["test"]}')
+                        os.system(fr'pytest {TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}')
 
-        os.system(fr'allure serve {report_dir}')
+        os.system(fr'allure serve {ALLURE}')
 
     def coverage_state(self) -> None:
-        tests = read_config("path", "tests")
         try:
             for each in self.get_sheet_titles():
-                os.system(fr'pytest --cov={PROJECT_PATH}\{tests}\{each}')
+                os.system(fr'pytest --cov={TESTS}\{each}')
         except ValueError as ve:
             raise ve
 
     def execute(self) -> None:
-        try:
-            self.algorythm()
-            if self.display_coverage_state:
-                self.coverage_state()
-        finally:
-            sys.exit()
+        self.algorythm()
+        if self.display_coverage_state:
+            self.coverage_state()
