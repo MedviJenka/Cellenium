@@ -1,7 +1,19 @@
-from core.infrastructure.modules.reader import read_test_case
+class Dog:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def bark() -> None:
+        print('bark')
+
+    @staticmethod
+    def get_bark() -> str:
+        return 'bark'
 
 
-print(read_test_case('app1'))
-print(read_test_case('google'))
-print(read_test_case('module'))
-print(read_test_case('weathermap'))
+dog = Dog('tim', 32)
+dog.bark()
+print(dog.get_bark())
+

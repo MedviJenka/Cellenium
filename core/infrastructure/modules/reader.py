@@ -88,12 +88,15 @@ def write_excel(sheet_name: str, screenshot_path: str) -> None:
     workbook.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
 
 
-def read_test_case(sheet_name: str) -> list[str]:
+def read_test_case(sheet_name: list[str]) -> list[str]:
 
     test_case = fr"{PROJECT_PATH}\{read_config('path', 'test_case')}"
     workbook = openpyxl.load_workbook(test_case)
     test_dir = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
-    sheet = workbook[sheet_name]
+    sheet = []
+    for each_sheet_name in sheet_name:
+        sheet = workbook[each_sheet_name]
+        # print(sheet)
     lists = []
     for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
         result = {
@@ -105,7 +108,5 @@ def read_test_case(sheet_name: str) -> list[str]:
 
             if value == '.':
                 case = fr'{test_dir}\{sheet.title}\{result["test"]}'
-                # print(case)
                 lists.append(case)
-
     return lists

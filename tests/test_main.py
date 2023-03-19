@@ -1,5 +1,5 @@
-from core.infrastructure.modules.methods import generate_tests_from_excel
+from core.infrastructure.modules.methods import run_test_suite
 
 
 def test_automation() -> None:
-    generate_tests_from_excel(suite_name='app1')
+    run_test_suite(suite_name=['module'])

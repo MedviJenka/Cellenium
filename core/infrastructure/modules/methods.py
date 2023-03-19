@@ -87,20 +87,24 @@ def get_test_files(directory: str) -> list[str]:
     return python_files
 
 
-def generate_tests_from_excel(suite_name: str, parallel=0, show_test_coverage_state=False) -> None:
+def run_test_suite(suite_name: list[str], parallel=0, show_test_coverage_state=False) -> None:
     tests = read_test_case(suite_name)
-    print(tests)
-
     path = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
     report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
     log(text=fr'allure report located in : {report_dir}')
-    for each_test in tests:
-        os.system(fr"pytest {each_test} --alluredir={report_dir} -n {parallel}")
+    _list = []
+    for each_suite in suite_name:
+        suite_path = fr'{path}\{each_suite}'
+        _list.append(suite_path)
+
+    for each_test in _list:
+        # os.system(fr"pytest {each_test} --alluredir={report_dir} -n {parallel}")
+        print(fr"pytest {each_test} --alluredir={report_dir} -n {parallel}")
 
     if show_test_coverage_state:
         os.system(fr'pytest --cov {path}\{suite_name}')
 
-    os.system(f'allure serve {report_dir}')
+    # os.system(f'allure serve {report_dir}')
 
 
-generate_tests_from_excel('app1')
+run_test_suite(['google', 'module'])
