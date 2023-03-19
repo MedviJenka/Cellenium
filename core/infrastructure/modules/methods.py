@@ -1,9 +1,8 @@
-import allure
 import logging
 import os
 from datetime import datetime
 from core.infrastructure.constants.data import PROJECT_PATH
-from core.infrastructure.modules.reader import read_config, read_test_case
+from core.infrastructure.modules.reader import read_config
 
 
 def run_test(class_name: object, methods: list[str]) -> None:
@@ -84,4 +83,3 @@ def get_test_files(directory: str) -> list[str]:
             if file.endswith('.py'):
                 python_files.append(os.path.join(root, file))
     return python_files
-

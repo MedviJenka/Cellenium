@@ -1,8 +1,10 @@
 import os
+import sys
 import openpyxl
 from dataclasses import dataclass
 from core.infrastructure.constants.data import PROJECT_PATH
 from core.infrastructure.modules.executor import Executor
+from core.infrastructure.modules.methods import log
 from core.infrastructure.modules.reader import read_config
 
 
@@ -20,14 +22,6 @@ class RunSuite(Executor):
             sheet = workbook[each_sheet_name]
             _list.append(sheet.title)
         return _list
-
-    def coverage_state(self) -> None:
-        tests = read_config("path", "tests")
-        try:
-            for each in self.get_sheet_titles():
-                print(fr'pytest --cov={PROJECT_PATH}\{tests}\{each}')
-        except ValueError as ve:
-            raise ve
 
     def algorythm(self) -> None:
 
@@ -50,13 +44,22 @@ class RunSuite(Executor):
                 for _, value in result.items():
                     if value == '.':
                         os.system(fr'pytest {test_dir}\{sheet.title}\{result["test"]} --alluredir={report_dir}')
-
-            if self.display_coverage_state:
-                os.system(fr'pytest --cov {test_dir}\{sheet.title}')
+                    log(text=fr'running:{test_dir}\{sheet.title}\{result["test"]}')
 
         os.system(fr'allure serve {report_dir}')
 
+    def coverage_state(self) -> None:
+        tests = read_config("path", "tests")
+        try:
+            for each in self.get_sheet_titles():
+                os.system(fr'pytest --cov={PROJECT_PATH}\{tests}\{each}')
+        except ValueError as ve:
+            raise ve
+
     def execute(self) -> None:
-        self.algorythm()
-        if self.display_coverage_state:
-            self.coverage_state()
+        try:
+            self.algorythm()
+            if self.display_coverage_state:
+                self.coverage_state()
+        finally:
+            sys.exit()
