@@ -24,15 +24,12 @@ class RunSuite(Executor):
         workbook = openpyxl.load_workbook(TEST_CASE)
 
         for each_sheet_name in sheet_title:
-
             sheet = workbook[each_sheet_name]
-
             for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
                 result = {
                     "test": row[0],
                     "run": row[1],
                 }
-
                 for _, value in result.items():
                     if value == '.':
                         os.system(fr'pytest {TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}')
