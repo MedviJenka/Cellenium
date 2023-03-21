@@ -5,13 +5,13 @@ from core.infrastructure.constants.data import *
 
 
 @dataclass
-class RunSuite(Executor):
+class TestSuite(Executor):
 
     suite_name: list[str]
     display_coverage_state: bool = False
 
     def get_sheet_titles(self) -> list[str]:
-        workbook = openpyxl.load_workbook(TEST_CASE)
+        workbook = openpyxl.load_workbook(TEST_SUITE)
         _list = []
         for each_sheet_name in self.suite_name:
             sheet = workbook[each_sheet_name]
@@ -21,7 +21,7 @@ class RunSuite(Executor):
     def algorythm(self) -> None:
 
         sheet_title = self.get_sheet_titles()
-        workbook = openpyxl.load_workbook(TEST_CASE)
+        workbook = openpyxl.load_workbook(TEST_SUITE)
 
         for each_sheet_name in sheet_title:
 
@@ -36,8 +36,6 @@ class RunSuite(Executor):
                 for _, value in result.items():
                     if value == '.':
                         os.system(fr'pytest {TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}')
-
-        os.system(fr'allure serve {ALLURE}')
 
     def coverage_state(self) -> None:
         try:
