@@ -2,7 +2,7 @@ import json
 import openpyxl
 from PIL import Image
 from configparser import ConfigParser
-from core.infrastructure.constants.data import PROJECT_PATH, CONFIG_PATH
+from core.infrastructure.constants.data import *
 
 
 def read_config(key: str, value: str) -> str:
@@ -90,9 +90,9 @@ def write_excel(sheet_name: str, screenshot_path: str) -> None:
 
 def read_test_case(sheet_name: list[str]) -> list[str]:
 
-    test_case = fr"{PROJECT_PATH}\{read_config('path', 'test_case')}"
+    test_case = fr"{PROJECT_PATH}\{TEST_SUITE}"
     workbook = openpyxl.load_workbook(test_case)
-    test_dir = fr"{PROJECT_PATH}\{read_config('path', 'tests')}"
+    test_dir = fr"{PROJECT_PATH}\{TESTS}"
     sheet = []
     for each_sheet_name in sheet_name:
         sheet = workbook[each_sheet_name]

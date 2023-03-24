@@ -12,12 +12,14 @@ from os import system
 from core.infrastructure.driver.manager import DriverManager
 from core.infrastructure.constants.data import PROJECT_PATH, Type
 from dataclasses import dataclass
+from typing import Optional
+global driver
 
 
 @dataclass
 class DriverEngine(DriverManager):
 
-    screen: str
+    screen: Optional[str] = ''
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link)
