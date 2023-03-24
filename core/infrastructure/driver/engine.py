@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
@@ -13,6 +14,7 @@ from core.infrastructure.driver.manager import DriverManager
 from core.infrastructure.constants.data import PROJECT_PATH, Type
 from dataclasses import dataclass
 from typing import Optional
+from allure_commons.types import AttachmentType
 global driver
 
 
@@ -59,31 +61,35 @@ class DriverEngine(DriverManager):
 
         element_locator = get_locator(self.screen, name)
         element_type    = get_type(self.screen, name)
+        try:
+            match element_type:
 
-        match element_type:
+                case 'NAME':
+                    log(level=logging.DEBUG, text='element selected by NAME')
+                    return self.driver.find_element(Type.NAME, element_locator)
 
-            case 'NAME':
-                log(level=logging.DEBUG, text='element selected by NAME')
-                return self.driver.find_element(Type.NAME, element_locator)
+                case 'ID':
+                    log(level=logging.DEBUG, text='element selected by ID')
+                    return self.driver.find_element(Type.ID, element_locator)
 
-            case 'ID':
-                log(level=logging.DEBUG, text='element selected by ID')
-                return self.driver.find_element(Type.ID, element_locator)
+                case 'CSS':
+                    return self.driver.find_element(Type.CSS, element_locator)
 
-            case 'CSS':
-                return self.driver.find_element(Type.CSS, element_locator)
+                case 'XPATH':
+                    return self.driver.find_element(Type.XPATH, element_locator)
 
-            case 'XPATH':
-                return self.driver.find_element(Type.XPATH, element_locator)
+                case 'LINK_TEXT':
+                    return self.driver.find_element(Type.TEXT, element_locator)
 
-            case 'LINK_TEXT':
-                return self.driver.find_element(Type.TEXT, element_locator)
+                case 'CLASS_NAME':
+                    return self.driver.find_element(Type.CLASS, element_locator)
 
-            case 'CLASS_NAME':
-                return self.driver.find_element(Type.CLASS, element_locator)
+                case _:
+                    raise Exception
 
-            case _:
-                raise Exception
+        except Exception as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name='screenshot', attachment_type=AttachmentType.PNG)
+            raise e
 
     def dropdown(self, text=None, value=None) -> None:
         select = Select(self.driver.get_element)

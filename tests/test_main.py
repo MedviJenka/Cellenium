@@ -3,7 +3,7 @@ from core.infrastructure.constants.data import ALLURE
 from core.tools.suite_runner.suite_runner import TestSuite
 
 
-suite = ['weathermap']
+suite = ['google']
 
 
 def test_automation() -> None:
