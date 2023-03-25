@@ -113,4 +113,5 @@ def read_test_case(sheet_name: list[str]) -> list[str]:
             if value == '.':
                 case = fr'{test_dir}\{sheet.title}\{result["test"]}'
                 lists.append(case)
+
     return lists

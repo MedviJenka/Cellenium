@@ -24,6 +24,13 @@ def run_test(class_name: object, methods: list[str]) -> None:
 
 
 def log(level=logging.INFO, text='') -> callable:
+
+    """"
+    logger method
+    :params: level ........... logging level, debug, info, etc...
+             text ............ text displayed in logger
+    """
+
     _time = datetime.now()
     time_format = f'{_time: %A | %d/%m/%Y | %X}'
     logs = read_config('path', 'logs')
@@ -82,4 +89,5 @@ def get_test_files(directory: str) -> list[str]:
         for file in files:
             if file.endswith('.py'):
                 python_files.append(os.path.join(root, file))
+
     return python_files

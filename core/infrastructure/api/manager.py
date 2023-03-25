@@ -12,9 +12,9 @@ class RestRequests:
     api_key: str = read_config('open_weather', 'API_KEY')
 
     # ~~~~~~~~~ Global Data ~~~~~~~~~~~
-    def get_response_status_code(self) -> Response:
+    def get_response_status_code(self) -> int:
         request = requests.get(f'{self.url}/appid={self.api_key}')
-        return request
+        return request.status_code
 
     def get_city(self, city: str) -> Response:
         call = fr"appid={ self.api_key }&q={ city }"
