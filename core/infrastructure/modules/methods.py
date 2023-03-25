@@ -1,7 +1,7 @@
 import logging
 import os
 from datetime import datetime
-from core.infrastructure.constants.data import PROJECT_PATH
+from core.infrastructure.constants.data import PROJECT_PATH, LOGS
 from core.infrastructure.modules.reader import read_config
 
 
@@ -33,9 +33,7 @@ def log(level=logging.INFO, text='') -> callable:
 
     _time = datetime.now()
     time_format = f'{_time: %A | %d/%m/%Y | %X}'
-    logs = read_config('path', 'logs')
-    path = fr'{PROJECT_PATH}\{logs}'
-    logging.basicConfig(filename=path,
+    logging.basicConfig(filename=LOGS,
                         datefmt=time_format,
                         format=f'%(levelname)s:{time_format} :: %(message)s',
                         level=level)

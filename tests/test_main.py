@@ -3,10 +3,10 @@ from core.infrastructure.constants.data import ALLURE
 from core.tools.suite_runner.suite_runner import TestSuite
 
 
-suite = ['google', 'app1', 'module']
+suite = ['app1']
 
 
 def test_automation() -> None:
-    run = TestSuite(suite, display_coverage_state=False)
+    run = TestSuite(suite, display_coverage_state=True)
     run.execute()
     os.system(fr'allure serve {ALLURE}')

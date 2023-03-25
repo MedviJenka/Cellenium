@@ -8,6 +8,10 @@ from core.infrastructure.constants.data import *
 @dataclass
 class TestSuite(Executor):
 
+    """"
+    :TODO: fix ................. problem with execution integration with coverage state
+    """
+
     suite_name: list[str]
     display_coverage_state: bool = False
 
@@ -39,10 +43,11 @@ class TestSuite(Executor):
         try:
             for each in self.get_sheet_titles():
                 os.system(fr'pytest --cov={TESTS}\{each}')
+
         except ValueError as ve:
             raise ve
 
     def execute(self) -> None:
-        self.algorythm()
         if self.display_coverage_state:
             self.coverage_state()
+        self.algorythm()
