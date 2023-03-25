@@ -1,20 +1,16 @@
 from selenium.webdriver.common.by import By
 
 
-# current_dir = os.getcwd()
-# path = os.path.abspath(os.path.join(current_dir, '..'))
+# :TODO: make a class for these, solve circular import problem
 
-"""
-:TODO: make a class for these, solve circular import problem 
-"""
 
 PROJECT_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
-CONFIG_PATH = fr'{PROJECT_PATH}\core\static\utils\config.ini'
-PAGE_BASE = fr'{PROJECT_PATH}\core\static\utils\page_base.xlsx'
-TEST_SUITE = fr'{PROJECT_PATH}\core\static\utils\test_suite.xlsx'
-SCREENSHOTS = fr'{PROJECT_PATH}\core\static\screenshots\reports'
-LOGS = fr'{PROJECT_PATH}\core\static\logs\logs.log'
-ALLURE = fr'{PROJECT_PATH}\core\static\reports'
+CONFIG_PATH = fr'{PROJECT_PATH}\core\utils\data\config.ini'
+PAGE_BASE = fr'{PROJECT_PATH}\core\utils\data\page_base.xlsx'
+TEST_SUITE = fr'{PROJECT_PATH}\core\utils\data\test_suite.xlsx'
+SCREENSHOTS = fr'{PROJECT_PATH}\core\utils\data\screenshots\reports'
+LOGS = fr'{PROJECT_PATH}\core\utils\data\logs\logs.log'
+ALLURE = fr'{PROJECT_PATH}\core\utils\reports'
 TESTS = fr'{PROJECT_PATH}\tests'
 JENKINS = fr'{PROJECT_PATH}\jenkins\jenkins.war'
 

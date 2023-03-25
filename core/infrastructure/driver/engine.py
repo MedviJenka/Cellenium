@@ -15,7 +15,6 @@ from core.infrastructure.constants.data import PROJECT_PATH, Type
 from dataclasses import dataclass
 from typing import Optional
 from allure_commons.types import AttachmentType
-global driver
 
 
 @dataclass
@@ -35,9 +34,8 @@ class DriverEngine(DriverManager):
                         embed_into_cell=True,
                         original_image_path=None) -> None:
 
-        path = fr"{PROJECT_PATH}\{read_config('path', 'screenshots')}"
         image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
-        updated_image_path = fr'{path}\{name}.png'
+        updated_image_path = fr'{SCREENSHOTS}\{name}.png'
         element.screenshot(updated_image_path)
 
         if compare_images:
@@ -157,9 +155,8 @@ class ScreenshotEngine(DriverManager):
                         embed_into_cell=True,
                         original_image_path=None) -> None:
 
-        path = fr"{PROJECT_PATH}\{read_config('path', 'screenshots')}"
         image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
-        updated_image_path = fr'{path}\{name}.png'
+        updated_image_path = fr'{SCREENSHOTS}\{name}.png'
         element.screenshot(updated_image_path)
 
         if compare_images:

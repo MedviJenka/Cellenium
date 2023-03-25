@@ -3,7 +3,7 @@ from core.infrastructure.constants.data import ALLURE
 from core.tools.suite_runner.suite_runner import TestSuite
 
 
-suite = ['google']
+suite = ['google', 'app1', 'module']
 
 
 def test_automation() -> None:

@@ -26,8 +26,7 @@ def write_json(path: str, key: str, value: str) -> None:
 
 def read_excel(sheet_name: str, value: str) -> dict[str]:
 
-    path = fr"{PROJECT_PATH}\{read_config('path', 'page_base')}"
-    workbook = openpyxl.load_workbook(path)
+    workbook = openpyxl.load_workbook(PAGE_BASE)
     sheet = workbook[sheet_name]
     data = {}
 
@@ -53,7 +52,12 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
         raise Exception('no such type')
 
 
-def get_name(*args: str) -> str:
+"""
+:params: *args ........... sheet_name, value inherited from read_excel
+"""
+
+
+def get_name(*args) -> str:
     return read_excel(*args)['name']
 
 
