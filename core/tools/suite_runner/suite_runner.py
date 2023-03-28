@@ -18,7 +18,7 @@ class TestSuite(Executor):
             _list.append(sheet.title)
         return _list
 
-    def algorythm(self) -> None:
+    def algorythm(self) -> str:
 
         sheet_title = self.get_sheet_titles()
         workbook = openpyxl.load_workbook(TEST_SUITE)
@@ -35,7 +35,7 @@ class TestSuite(Executor):
 
                 for _, value in result.items():
                     if value == '.':
-                        os.system(fr'pytest {TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}')
+                        return fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}'
 
     def coverage_state(self) -> None:
         try:
@@ -44,7 +44,9 @@ class TestSuite(Executor):
         except ValueError as ve:
             raise ve
 
-    def execute(self) -> None:
-        self.algorythm()
+    def execute(self, debug=False) -> None:
+        os.system(fr'pytest {self.algorythm()}')
+        if debug:
+            os.system(fr'pytest -m pdb {self.algorythm()}')
         if self.display_coverage_state:
             self.coverage_state()
