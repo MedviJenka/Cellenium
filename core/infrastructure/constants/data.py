@@ -1,13 +1,6 @@
+import uuid
 from selenium.webdriver.common.by import By
-import os
 
-
-current_dir = os.getcwd()
-path = os.path.abspath(os.path.join(current_dir, '..'))
-
-"""
-:TODO: make a class for these, solve circular import problem 
-"""
 
 PROJECT_PATH = r'C:\Cellenium'
 CONFIG_PATH = fr'{PROJECT_PATH}\core\static\utils\config.ini'
@@ -26,3 +19,8 @@ class Type:
     CSS = By.CSS_SELECTOR
     XPATH = By.XPATH
     TEXT = By.LINK_TEXT
+
+
+def generate_random_id() -> str:
+    random_id = str(uuid.uuid4())
+    return random_id
