@@ -1,12 +1,10 @@
-import os
-from core.infrastructure.constants.data import ALLURE
 from core.tools.suite_runner.suite_runner import TestSuite
 
 
-suite = ['app1']
+suite = ['cupid']
 
 
 def test_automation() -> None:
-    run = TestSuite(suite, display_coverage_state=True)
+    run = TestSuite(suite)
     run.execute()
-    os.system(fr'allure serve {ALLURE}')
+    # os.system(fr'allure serve {ALLURE}')

@@ -89,6 +89,9 @@ class DriverEngine(DriverManager):
             allure.attach(self.driver.get_screenshot_as_png(), name='screenshot', attachment_type=AttachmentType.PNG)
             raise e
 
+        finally:
+            self.wait_for_element(element_locator)
+
     def dropdown(self, text=None, value=None) -> None:
         select = Select(self.driver.get_element)
         if text:

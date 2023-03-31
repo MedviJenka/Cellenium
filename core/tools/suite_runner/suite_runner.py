@@ -23,7 +23,7 @@ class TestSuite(Executor):
             _list.append(sheet.title)
         return _list
 
-    def algorythm(self) -> None:
+    def algorythm(self) -> str:
 
         sheet_title = self.get_sheet_titles()
         workbook = openpyxl.load_workbook(TEST_SUITE)
@@ -37,7 +37,7 @@ class TestSuite(Executor):
                 }
                 for _, value in result.items():
                     if value == '.':
-                        os.system(fr'pytest {TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}')
+                        return fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={ALLURE}'
 
     def coverage_state(self) -> None:
         try:
@@ -50,4 +50,4 @@ class TestSuite(Executor):
     def execute(self) -> None:
         if self.display_coverage_state:
             self.coverage_state()
-        self.algorythm()
+        os.system(fr'pytest {self.algorythm()}')
