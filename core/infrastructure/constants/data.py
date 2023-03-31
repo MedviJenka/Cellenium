@@ -1,3 +1,4 @@
+import uuid
 from selenium.webdriver.common.by import By
 
 
@@ -8,6 +9,8 @@ PROJECT_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
 CONFIG_PATH = fr'{PROJECT_PATH}\core\utils\data\config.ini'
 PAGE_BASE = fr'{PROJECT_PATH}\core\utils\data\page_base.xlsx'
 TEST_SUITE = fr'{PROJECT_PATH}\core\utils\data\test_suite.xlsx'
+
+TEST_LIST = fr'{PROJECT_PATH}\core\utils\data\test_list.json'
 SCREENSHOTS = fr'{PROJECT_PATH}\core\utils\data\screenshots\reports'
 LOGS = fr'{PROJECT_PATH}\core\utils\logs\logs.log'
 ALLURE = fr'{PROJECT_PATH}\core\utils\reports'
@@ -22,3 +25,8 @@ class Type:
     CSS = By.CSS_SELECTOR
     XPATH = By.XPATH
     TEXT = By.LINK_TEXT
+
+
+def generate_random_id() -> str:
+    random_id = str(uuid.uuid4())
+    return random_id
