@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.modules.reader import read_json
 from core.tools.image_compare.image_compare import Logic

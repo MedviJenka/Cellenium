@@ -11,7 +11,7 @@ from core.infrastructure.modules.methods import *
 from core.infrastructure.modules.reader import *
 from os import system
 from core.infrastructure.driver.manager import DriverManager
-from core.infrastructure.constants.data import PROJECT_PATH, Type
+from core.infrastructure.constants.data import Type, GLOBAL_PATH
 from dataclasses import dataclass
 from typing import Optional
 from allure_commons.types import AttachmentType
@@ -34,7 +34,7 @@ class DriverEngine(DriverManager):
                         embed_into_cell=True,
                         original_image_path=None) -> None:
 
-        image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
+        image_compare_data = fr"{GLOBAL_PATH}\{read_config('json', 'image_compare_data')}"
         updated_image_path = fr'{SCREENSHOTS}\{name}.png'
         element.screenshot(updated_image_path)
 
@@ -42,7 +42,7 @@ class DriverEngine(DriverManager):
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
             app = ImageCompare()
-            path = fr'{PROJECT_PATH}\{read_config("json", "image_compare_data")}'
+            path = fr'{GLOBAL_PATH}\{read_config("json", "image_compare_data")}'
             app.execute(path)
 
         if embed_into_cell:
@@ -86,7 +86,9 @@ class DriverEngine(DriverManager):
                     raise Exception
 
         except Exception as e:
-            allure.attach(self.driver.get_screenshot_as_png(), name='screenshot', attachment_type=AttachmentType.PNG)
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name='screenshot',
+                          attachment_type=AttachmentType.PNG)
             raise e
 
         finally:
@@ -143,7 +145,7 @@ class DriverEngine(DriverManager):
                 self.driver.execute_script(f"window.scrollBy(0, {px});")
 
     def attach_screenshot(self) -> None:
-        self.driver.save_screenshot(PROJECT_PATH)
+        self.driver.save_screenshot(GLOBAL_PATH)
 
 
 @dataclass
@@ -158,7 +160,7 @@ class ScreenshotEngine(DriverManager):
                         embed_into_cell=True,
                         original_image_path=None) -> None:
 
-        image_compare_data = fr"{PROJECT_PATH}\{read_config('json', 'image_compare_data')}"
+        image_compare_data = fr"{GLOBAL_PATH}\{read_config('json', 'image_compare_data')}"
         updated_image_path = fr'{SCREENSHOTS}\{name}.png'
         element.screenshot(updated_image_path)
 
@@ -166,7 +168,7 @@ class ScreenshotEngine(DriverManager):
             app = ImageCompare()
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
-            path = fr'{PROJECT_PATH}\{read_config("json", "image_compare_data")}'
+            path = fr'{GLOBAL_PATH}\{read_config("json", "image_compare_data")}'
             app.execute(path)
 
         if embed_into_cell:

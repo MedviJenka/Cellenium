@@ -1,7 +1,7 @@
 import logging
 import os
 from datetime import datetime
-from core.infrastructure.constants.data import PROJECT_PATH, LOGS
+from core.infrastructure.constants.data import GLOBAL_PATH, LOGS
 from core.infrastructure.modules.reader import read_config
 
 
@@ -54,8 +54,8 @@ def log(level=logging.INFO, text='') -> callable:
 
 def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_test_coverage_state=False) -> None:
     path = read_config('path', 'tests')
-    tests = fr"{PROJECT_PATH}\{path}\{test_dir}"
-    report_dir = fr"{PROJECT_PATH}\{read_config('path', 'allure')}"
+    tests = fr"{GLOBAL_PATH}\{path}\{test_dir}"
+    report_dir = fr"{GLOBAL_PATH}\{read_config('path', 'allure')}"
     log(text=fr'allure report located in : {report_dir}')
 
     match suite_name:
@@ -74,14 +74,14 @@ def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_
 def coverage_state(folder_name: str) -> None:
     tests = read_config("path", "tests")
     try:
-        os.system(fr'pytest --cov={PROJECT_PATH}\{tests}\{folder_name}')
+        os.system(fr'pytest --cov={GLOBAL_PATH}\{tests}\{folder_name}')
     except ValueError as ve:
         raise ve
 
 
 def get_test_files(directory: str) -> list[str]:
     test = read_config('path', 'tests')
-    tests = fr"{PROJECT_PATH}\{test}\{directory}"
+    tests = fr"{GLOBAL_PATH}\{test}\{directory}"
     python_files = []
     for root, dirs, files in os.walk(tests):
         for file in files:

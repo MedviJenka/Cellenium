@@ -82,21 +82,21 @@ def write_excel(sheet_name: str, screenshot_path: str) -> None:
     img = img.resize((width, height), Image.NEAREST)
     img.save(screenshot_path)
 
-    path = fr"{PROJECT_PATH}\{read_config('path', 'page_base')}"
+    path = fr"{GLOBAL_PATH}\{read_config('path', 'page_base')}"
 
     workbook = openpyxl.load_workbook(path)
     sheet = workbook[sheet_name]
 
     img = openpyxl.drawing.image.Image(screenshot_path)
     sheet.add_image(img, 'D2')
-    workbook.save(fr'{PROJECT_PATH}\{read_config("path", "page_base")}')
+    workbook.save(fr'{GLOBAL_PATH}\{read_config("path", "page_base")}')
 
 
 def read_test_case(sheet_name: list[str]) -> list[str]:
 
-    test_case = fr"{PROJECT_PATH}\{TEST_SUITE}"
+    test_case = fr"{GLOBAL_PATH}\{TEST_SUITE}"
     workbook = openpyxl.load_workbook(test_case)
-    test_dir = fr"{PROJECT_PATH}\{TESTS}"
+    test_dir = fr"{GLOBAL_PATH}\{TESTS}"
     sheet = []
     for each_sheet_name in sheet_name:
         sheet = workbook[each_sheet_name]
