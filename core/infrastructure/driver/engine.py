@@ -23,7 +23,7 @@ class DriverEngine(DriverManager):
     screen: Optional[str] = ''
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
-        self.driver.get(web_link)
+        self.driver.get(web_link or web_link)
         if maximize_window:
             self.driver.maximize_window()
 
@@ -50,24 +50,28 @@ class DriverEngine(DriverManager):
 
         log(text=f"screenshot location: {updated_image_path}")
 
-    def wait_for_element(self, name: str, seconds=3) -> None:
+    def wait_for_element(self, name: str, seconds=5) -> None:
         element_locator = get_locator(self.screen, name)
         wait = WebDriverWait(self.driver, seconds)
-        wait.until(expected_conditions.visibility_of_element_located(element_locator))
+        return wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, name: str) -> webdriver:
 
         element_locator = get_locator(self.screen, name)
-        element_type    = get_type(self.screen, name)
+        element_type = get_type(self.screen, name)
+        print(element_locator, element_type)
+
+        """
+        :TODO: ..... fix wait for element 
+        """
+
         try:
             match element_type:
 
                 case 'NAME':
-                    log(level=logging.DEBUG, text='element selected by NAME')
                     return self.driver.find_element(Type.NAME, element_locator)
 
                 case 'ID':
-                    log(level=logging.DEBUG, text='element selected by ID')
                     return self.driver.find_element(Type.ID, element_locator)
 
                 case 'CSS':
@@ -90,9 +94,6 @@ class DriverEngine(DriverManager):
                           name='screenshot',
                           attachment_type=AttachmentType.PNG)
             raise e
-
-        finally:
-            self.wait_for_element(element_locator)
 
     def dropdown(self, text=None, value=None) -> None:
         select = Select(self.driver.get_element)
