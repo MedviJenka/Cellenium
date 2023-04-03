@@ -1,10 +1,11 @@
+import logging
 import os
 import uuid
 import openpyxl
 from dataclasses import dataclass
 
 from core.infrastructure.modules.methods import log
-from core.infrastructure.modules.reader import read_json
+from core.infrastructure.modules.reader import read_json, write_json
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
 
@@ -22,6 +23,7 @@ class TestSuite(Executor):
 
     suite_name = read_json(TEST_LIST)['test_suites']
     display_coverage_state: bool = False
+    workbook = openpyxl.load_workbook(TEST_SUITE)
 
     @staticmethod
     def _generate_random_id() -> str:
@@ -30,23 +32,29 @@ class TestSuite(Executor):
 
     @property
     def _get_sheet_titles(self) -> list[str]:
-        workbook = openpyxl.load_workbook(TEST_SUITE)
-        _list = []
-        for each_sheet_name in self.suite_name:
-            sheet = workbook[each_sheet_name]
-            _list.append(sheet.title)
 
+        _list = []
+
+        # gets all titles from the test sheet
+        for each in self.workbook:
+            _list.append(each.title)
+
+        # log and updates in json
+        for _ in self.suite_name:
+            write_json(TEST_LIST, "test_suites", _list)
+
+        log(logging.DEBUG, text=f'tests list: {_list}')
         return _list
 
     def algorythm(self, report=True) -> None:
 
+        _list = []
         sheet_title = self._get_sheet_titles
-        workbook = openpyxl.load_workbook(TEST_SUITE)
         allure_path = fr'{ALLURE}\{self._generate_random_id()}'
 
         # gets each sheet title
         for each_sheet_name in sheet_title:
-            sheet = workbook[each_sheet_name]
+            sheet = self.workbook[each_sheet_name]
 
             # for each title iterates through all tests
             for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
@@ -59,9 +67,11 @@ class TestSuite(Executor):
                 for _, value in result.items():
                     if value == 'run':
                         path = fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={allure_path}'
-                        log(text=f'tests: {path}')
-                        os.system(fr'pytest {path}')
 
+                        os.system(fr'pytest {path}')
+                        _list.append(result['test'])
+
+        write_json(TEST_LIST, "tested_scenarios", _list)
         # generate web allure report
         if report:
             os.system(fr'allure serve {allure_path}')
@@ -80,3 +90,8 @@ class TestSuite(Executor):
                 self.algorythm(report=False)
             case _:
                 self.algorythm()
+
+
+if __name__ == '__main__':
+    a = TestSuite()
+    a.execute()
