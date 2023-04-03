@@ -1,6 +1,6 @@
 from core.tools.suite_runner.suite_runner import TestSuite
 
 
-def test_automation() -> None:
+def test_run() -> None:
     run = TestSuite()
     run.execute(report=False)
