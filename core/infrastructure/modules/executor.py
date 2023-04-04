@@ -8,5 +8,5 @@ class Executor(ABC):
     """
 
     @abstractmethod
-    def execute(self, *args: any, **kwargs: any) -> None:
+    def execute(self, *args: any, **kwargs: any) -> any:
         ...

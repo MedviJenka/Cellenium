@@ -75,21 +75,21 @@ def get_image(*args: str) -> str:
     return read_excel(*args)['image']
 
 
-def write_excel(sheet_name: str, screenshot_path: str) -> None:
+def write_excel(sheet_name: str, value: str) -> None:
 
     width = 100
     height = 100
 
-    img = Image.open(screenshot_path)
+    img = Image.open(value)
     img = img.resize((width, height), Image.NEAREST)
-    img.save(screenshot_path)
+    img.save(value)
 
     path = fr"{GLOBAL_PATH}\{read_config('path', 'page_base')}"
 
     workbook = openpyxl.load_workbook(path)
     sheet = workbook[sheet_name]
 
-    img = openpyxl.drawing.image.Image(screenshot_path)
+    img = openpyxl.drawing.image.Image(value)
     sheet.add_image(img, 'D2')
     workbook.save(fr'{GLOBAL_PATH}\{read_config("path", "page_base")}')
 

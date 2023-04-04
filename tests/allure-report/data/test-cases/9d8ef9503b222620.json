@@ -1,0 +1,57 @@
+{
+  "uid" : "9d8ef9503b222620",
+  "name" : "test",
+  "fullName" : "call_service.test_5#test",
+  "historyId" : "d7fdbb7c7588519920b4cc00d4861dfc",
+  "time" : {
+    "start" : 1680597388186,
+    "stop" : 1680597388186,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "call_service"
+  }, {
+    "name" : "suite",
+    "value" : "test_5"
+  }, {
+    "name" : "host",
+    "value" : "IL-EVGENYP-LP"
+  }, {
+    "name" : "thread",
+    "value" : "30432-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "call_service.test_5"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9d8ef9503b222620.json",
+  "parameterValues" : [ ]
+}
