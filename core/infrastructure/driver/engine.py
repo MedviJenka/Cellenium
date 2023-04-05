@@ -66,6 +66,7 @@ class DriverEngine(DriverManager):
         """
 
         try:
+            self.driver.implicitly_wait(5)
             match element_type:
 
                 case 'NAME':

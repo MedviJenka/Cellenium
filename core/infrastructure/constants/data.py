@@ -1,6 +1,5 @@
-import uuid
 from selenium.webdriver.common.by import By
-global GLOBAL_PATH
+
 
 # :TODO: make a class for these, solve circular import problem
 
@@ -25,8 +24,3 @@ class Type:
     CSS = By.CSS_SELECTOR
     XPATH = By.XPATH
     TEXT = By.LINK_TEXT
-
-
-def generate_random_id() -> str:
-    random_id = str(uuid.uuid4())
-    return random_id

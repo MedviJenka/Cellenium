@@ -1,4 +1,6 @@
 import json
+from typing import Optional
+
 import openpyxl
 from PIL import Image
 from configparser import ConfigParser
@@ -17,7 +19,7 @@ def read_json(path: str) -> dict:
         return file
 
 
-def write_json(path: str, key: str, value: str) -> None:
+def write_json(path: str, key: str, value: str | Optional[list[str]]) -> None:
     data = read_json(path)
     data[key] = value
     with open(path, 'w', encoding='utf-8') as json_file:
