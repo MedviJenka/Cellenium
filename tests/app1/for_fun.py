@@ -9,7 +9,7 @@ PASSWORD = file['password']
 
 class TestIntroPage:
 
-    driver = DriverEngine(screen='cupid')
+    driver = DriverEngine(page_base_screen='cupid')
 
     def test_setup(self) -> None:
         self.driver.get_web(web_link='https://www.okcupid.com/who-you-like?cf=likesIncoming', maximize_window=False)
@@ -19,4 +19,3 @@ class TestIntroPage:
         self.driver.get_element('password').send_keys(PASSWORD)
         self.driver.get_element('login_button').click()
         # [self.driver.get_element('send_code_button').click() for _ in range(3)]
-

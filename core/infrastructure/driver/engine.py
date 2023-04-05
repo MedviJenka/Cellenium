@@ -20,7 +20,7 @@ from allure_commons.types import AttachmentType
 @dataclass
 class DriverEngine(DriverManager):
 
-    screen: Optional[str] = ''
+    page_base_screen: Optional[str] = ''
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
         self.driver.get(web_link or web_link)
