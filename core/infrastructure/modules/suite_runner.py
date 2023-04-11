@@ -14,7 +14,7 @@ class TestSuite(Executor):
     """"
     :TODO:  fix execution problem with coverage state
 
-    :param: suite_name .................... reads data from json file
+    :param: suite_name .................... reads _data from json file
     :param: display_coverage_state ........ coverage state %
 
     """
@@ -67,21 +67,9 @@ class TestSuite(Executor):
         if report:
             os.system(fr'allure serve {allure_path}')
 
-    def coverage_state(self) -> None:
-        try:
-            for each in self._get_sheet_titles:
-                os.system(fr'pytest --cov={TESTS}\{each}')
-
-        except ValueError as ve:
-            raise ve
-
     def execute(self, report=True) -> None:
         match report:
             case False:
                 self.algorythm(report=False)
             case _:
                 self.algorythm()
-
-
-if __name__ == '__main__':
-    TestSuite()

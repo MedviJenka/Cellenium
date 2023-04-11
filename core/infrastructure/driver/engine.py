@@ -46,19 +46,19 @@ class DriverEngine(DriverManager):
             app.execute(path)
 
         if embed_into_cell:
-            write_excel(sheet_name=self.screen, screenshot_path=updated_image_path)
+            write_excel(sheet_name=self.page_base_screen, screenshot_path=updated_image_path)
 
         log(text=f"screenshot location: {updated_image_path}")
 
-    def wait_for_element(self, name: str, seconds=5) -> None:
-        element_locator = get_locator(self.screen, name)
+    def wait_for_element(self, name: str, seconds=10) -> None:
+        element_locator = get_locator(self.page_base_screen, name)
         wait = WebDriverWait(self.driver, seconds)
         return wait.until(expected_conditions.visibility_of_element_located(element_locator))
 
     def get_element(self, name: str) -> webdriver:
 
-        element_locator = get_locator(self.screen, name)
-        element_type = get_type(self.screen, name)
+        element_locator = get_locator(self.page_base_screen, name)
+        element_type = get_type(self.page_base_screen, name)
         print(element_locator, element_type)
 
         """
@@ -66,7 +66,8 @@ class DriverEngine(DriverManager):
         """
 
         try:
-            self.driver.implicitly_wait(5)
+            # self.driver.implicitly_wait(5)
+            self.wait_for_element(element_locator)
             match element_type:
 
                 case 'NAME':

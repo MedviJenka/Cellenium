@@ -19,5 +19,5 @@ class ImageCompare(Executor, Logic):
                                  success_rate=data.success_rate,
                                  break_test=data.break_test)
 
-        # self.generate_shadow(original_image_path=data.original_image_path,
-        #                      actual_image_path=data.actual_image_path)
+        # self.generate_shadow(original_image_path=_data.original_image_path,
+        #                      actual_image_path=_data.actual_image_path)

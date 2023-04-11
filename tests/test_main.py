@@ -1,4 +1,4 @@
-from core.tools.suite_runner.suite_runner import TestSuite
+from core.infrastructure.modules.suite_runner import TestSuite
 
 
 def test_run() -> None:
