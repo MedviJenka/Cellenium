@@ -8,6 +8,14 @@ from core.infrastructure.modules.methods import log
 
 class Logic:
 
+    """
+    :param: original_image_path ................ path for original image to compare
+    :param: actual_image_path .................. path for screenshot
+    :param: success_rate ....................... wanted percentage of success
+    :param: break_test ......................... choose if the test will stop or continue
+    :param: screen_resolution .................. set resolution, default is 800x800
+    """
+
     @staticmethod
     def _get_image_name(actual_image_path: str) -> dict[str]:
         image_name = os.path.split(actual_image_path)
@@ -80,8 +88,7 @@ class Logic:
     def generate_rectangles(result: float, success_rate: int, break_test: bool) -> None:
 
         if result >= success_rate:
-            log(f'PASSED:\n'
-                f'Image similarity between both images is: {result:.1f}%')
+            log(f'PASSED:\n' f'Image similarity between both images is: {result:.1f}%')
         else:
             if break_test:
                 log(text=f'STOPPED: Test Stopped due to low similarity, result is {result:.1f}/100%',
