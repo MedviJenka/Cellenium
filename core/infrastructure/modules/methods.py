@@ -35,7 +35,7 @@ def log(level=logging.INFO, text='') -> callable:
     time_format = f'{_time: %A | %d/%m/%Y | %X}'
     logging.basicConfig(filename=LOGS,
                         datefmt=time_format,
-                        format=f'%(levelname)s:{time_format} :: %(message)s',
+                        format=f'%(levelname)s:{time_format} .......... %(message)s',
                         level=level)
     match level:
         case logging.INFO:

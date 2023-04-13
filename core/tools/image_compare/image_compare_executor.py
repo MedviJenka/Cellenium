@@ -20,8 +20,3 @@ class ImageCompare(Executor, Logic):
 
         # self.generate_shadow(original_image_path=_data.original_image_path,
         #                      actual_image_path=_data.actual_image_path)
-
-
-if __name__ == '__main__':
-    image = ImageCompare()
-    image.execute(r'C:\Users\medvi\OneDrive\Desktop\Cellenium\core\utils\data\data.json')
