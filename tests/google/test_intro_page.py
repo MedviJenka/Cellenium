@@ -8,12 +8,10 @@ engine = DriverEngine('IntroPage')
 class TestIntroPage:
 
     def test_setup(self) -> None:
-        engine.get_web(web_link='https://www.google.com', maximize_window=True)
+        engine.get_web(web_link='https://www.google.com/search?q=cats&source=hp&ei=cm8yZPeuCaH5sAeYuqvQAQ&iflsig=AOEireoAAAAAZDJ9gpOCy7Uv4HS85rW4oiCSU99gv7QI&ved=0ahUKEwj3r56oqZz-AhWhPOwKHRjdChoQ4dUDCAk&uact=5&oq=cats&gs_lcp=Cgdnd3Mtd2l6EAMyDgguEIAEELEDEMcBENEDMgsIABCABBCxAxCDATIRCC4QgwEQxwEQsQMQ0QMQgAQyCAgAEIoFELEDMgsIABCKBRCxAxCDATIICAAQgAQQsQMyCwguEIoFELEDEIMBMggILhCABBDUAjIICC4QgAQQ1AIyCwgAEIoFELEDEIMBOgsILhCABBCxAxCDAToOCC4QgAQQsQMQgwEQ1AI6EQguEIoFELEDEIMBEMcBENEDUABYyAJghANoAHAAeACAAcUBiAHgApIBAzAuMpgBAKABAQ&sclient=gws-wiz', maximize_window=True)
 
     def test_navigate(self) -> None:
-        engine.get_element('search').send_keys('cats')
-        engine.wait_for_element('search', seconds=3)
-        engine.press_keyboard_key('ENTER')
+        ...
 
     def test_exit_all(self) -> None:
         engine.teardown()

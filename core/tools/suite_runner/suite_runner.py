@@ -67,7 +67,7 @@ class TestSuite(Executor):
     def coverage_state(self) -> None:
         try:
             for each in self._get_sheet_titles:
-                os.system(fr'pytest --cov={TESTS}\{each}')
+                log(text=os.system(fr'pytest --cov={TESTS}\{each}'))
 
         except ValueError as ve:
             raise ve
