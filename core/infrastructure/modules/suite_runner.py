@@ -19,7 +19,6 @@ class TestSuite(Executor):
 
     """
 
-    display_coverage_state: bool = False
     workbook = openpyxl.load_workbook(TEST_SUITE)
     _list: list = field(default_factory=list)
 
