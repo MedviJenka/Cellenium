@@ -40,13 +40,13 @@ class DriverEngine(DriverManager):
 
         if compare_images:
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
-            write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
+            write_json(path=image_compare_data, key="actual_image_path", value=[updated_image_path])
             app = ImageCompare()
             path = fr'{GLOBAL_PATH}\{read_config("json", "image_compare_data")}'
             app.execute(path)
 
         if embed_into_cell:
-            write_excel(sheet_name=self.screen, screenshot_path=updated_image_path)
+            write_excel(sheet_name=self.screen, value=updated_image_path)
 
         log(text=f"screenshot location: {updated_image_path}")
 
@@ -168,12 +168,12 @@ class ScreenshotEngine(DriverManager):
         if compare_images:
             app = ImageCompare()
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
-            write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
+            write_json(path=image_compare_data, key="actual_image_path", value=[updated_image_path])
             path = fr'{GLOBAL_PATH}\{read_config("json", "image_compare_data")}'
             app.execute(path)
 
         if embed_into_cell:
-            write_excel(sheet_name=self.sheet_name, screenshot_path=updated_image_path)
+            write_excel(sheet_name=self.sheet_name, value=updated_image_path)
 
 
 if __name__ == '__main__':

@@ -1,20 +1,16 @@
 from selenium.webdriver.common.by import By
 
 
-# :TODO: make a class for these, solve circular import problem
-
-
 GLOBAL_PATH = r'C:\Cellenium'
-
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
-PAGE_BASE = fr'{GLOBAL_PATH}\core\utils\data\page_base.xlsx'
-TEST_SUITE = fr'{GLOBAL_PATH}\core\utils\data\test_suite.xlsx'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
 SCREENSHOTS = fr'{GLOBAL_PATH}\core\utils\data\screenshots\reports'
-LOGS = fr'{GLOBAL_PATH}\core\utils\logs\logs.log'
-ALLURE = fr'{GLOBAL_PATH}\core\utils\reports'
-TESTS = fr'{GLOBAL_PATH}\tests'
 JENKINS = fr'{GLOBAL_PATH}\jenkins\jenkins.war'
+TESTS = fr'{GLOBAL_PATH}\tests'
+LOGS = fr'{TESTS}\_data\logs'
+ALLURE = fr'{TESTS}\_data\reports'
+PAGE_BASE = fr'{TESTS}\_data\page_base.xlsx'
+TEST_SUITE = fr'{TESTS}\_data\test_suite.xlsx'
 
 
 class Type:
