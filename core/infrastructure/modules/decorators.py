@@ -3,7 +3,7 @@ from core.infrastructure.modules.methods import log
 from functools import wraps
 
 
-def memoize(func: callable) -> callable:
+def memoize(function: callable) -> callable:
 
     """
     optimizing the function runtime
@@ -11,11 +11,11 @@ def memoize(func: callable) -> callable:
 
     cache = {}
 
-    @wraps(func)
+    @wraps(function)
     def wrapper(*args: any, **kw: any) -> any:
         key = str(args) + str(kw)
         if key not in cache:
-            cache[key] = func(*args, **kw)
+            cache[key] = function(*args, **kw)
 
         return cache[key]
 
@@ -39,7 +39,7 @@ def measure_execution_time(func: callable) -> callable:
     return wrapper
 
 
-def negative(exception_type: Exception(any)):
+def negative(func: callable):
 
     """
     This decorator function takes in a function as an argument
@@ -49,16 +49,15 @@ def negative(exception_type: Exception(any)):
     If an AssertionError is caught, it prints out the error message and then re-raises the exception.
     """
 
-    def decorator(func):
-        def wrapper(*args: any, **kwargs: any):
-            try:
-                log(text=f"{func.__name__} raised {exception_type.__name__}")
-                func(*args, **kwargs)
-            except exception_type:
-                log(text=f"{func.__name__} did not raise {exception_type.__name__}")
-                return
-            raise AssertionError(f"{func.__name__} did not raise {exception_type.__name__}")
+    @wraps(func)
+    def wrapper(*args: any, **kwargs: any):
+        try:
+            log(text=f"{func.__name__} raised {Exception.__name__}")
+            func(*args, **kwargs)
+        except [Exception]:
+            log(text=f"{func.__name__} did not raise {Exception.__name__}")
+            return
 
-        return wrapper
+        raise AssertionError(f"{func.__name__} did not raise {Exception.__name__}")
 
-    return decorator
+    return wrapper

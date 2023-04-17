@@ -14,7 +14,7 @@ class NoSuchTypeException(AbstractMessage):
         raise "no such type in the page base file"
 
 
-class GlobalError(Exception, AbstractMessage):
+class GlobalError(AbstractMessage):
 
     @staticmethod
     def message() -> str:

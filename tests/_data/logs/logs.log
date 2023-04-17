@@ -4109,3 +4109,13 @@ DEBUG: Wednesday | 12/04/2023 | 22:08:53 .......... area: 630111.5
 INFO: Wednesday | 12/04/2023 | 22:08:53 .......... generated result image name is: 1.jpg
 DEBUG: Wednesday | 12/04/2023 | 22:08:53 .......... saving images in: C:\Users\medvi\OneDrive\Desktop
 DEBUG: Wednesday | 12/04/2023 | 22:08:53 .......... FAILED:Image similarity between both images is: 12.8% when the success rate threshold was 80,please consult with developer or your team.
+INFO: Saturday | 15/04/2023 | 04:08:24 .......... num raised Exception
+INFO: Saturday | 15/04/2023 | 04:08:24 .......... num did not raise Exception
+INFO: Saturday | 15/04/2023 | 04:08:51 .......... num raised Exception
+INFO: Saturday | 15/04/2023 | 04:08:51 .......... num did not raise Exception
+INFO: Saturday | 15/04/2023 | 04:08:59 .......... num raised Exception
+INFO: Saturday | 15/04/2023 | 04:08:59 .......... num did not raise Exception
+INFO: Saturday | 15/04/2023 | 04:09:09 .......... num raised Exception
+INFO: Saturday | 15/04/2023 | 04:09:09 .......... num did not raise Exception
+INFO: Saturday | 15/04/2023 | 04:09:19 .......... num raised Exception
+INFO: Saturday | 15/04/2023 | 04:09:19 .......... num did not raise Exception

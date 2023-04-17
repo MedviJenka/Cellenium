@@ -66,8 +66,12 @@ class DriverEngine(DriverManager):
         """
 
         try:
+<<<<<<< HEAD
             # self.driver.implicitly_wait(5)
             self.wait_for_element(element_locator)
+=======
+            self.driver.implicitly_wait(5)
+>>>>>>> a6ecf81 (fun)
             match element_type:
 
                 case 'NAME':
@@ -168,11 +172,11 @@ class ScreenshotEngine(DriverManager):
         element.screenshot(updated_image_path)
 
         if compare_images:
-            app = ImageCompare()
+            image_compare = ImageCompare()
             write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
             write_json(path=image_compare_data, key="actual_image_path", value=updated_image_path)
             path = fr'{GLOBAL_PATH}\{read_config("json", "image_compare_data")}'
-            app.execute(path)
+            image_compare.execute(path)
 
         if embed_into_cell:
             write_excel(sheet_name=self.sheet_name, screenshot_path=updated_image_path)

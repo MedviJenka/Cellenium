@@ -1,4 +1,6 @@
 import json
+from typing import Optional
+
 import openpyxl
 from typing import Optional
 from PIL import Image

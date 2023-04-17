@@ -1,8 +1,8 @@
-from core.infrastructure.modules.decorators import memoize
+from functools import lru_cache as cache
 from core.infrastructure.modules.suite_runner import TestSuite
 
 
-@memoize
+@cache
 def test_run() -> None:
     run = TestSuite()
-    run.execute(report=False)
+    run.execute(report=True)
