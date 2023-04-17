@@ -1,37 +1,24 @@
-from dataclasses import dataclass
-from core.infrastructure.modules.decorators import Decorators
+from selenium.webdriver.common.by import By
+from core.infrastructure.driver.engine import DriverEngine
 
 
-test = Decorators()
+engine = DriverEngine('IntroPage')
 
 
-@dataclass
-class Person:
-
-    _name: str
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-    @name.setter
-    def name(self, new: str) -> None:
-        self._name = new
-
-    def get_data(self) -> str:
-        return f'persons name is {self.name}'
+def get_xpath_text_by_index(xpath: str, _from: int, to: int) -> None:
+    old_xpath = xpath.split('div')[:-1]
+    new_xpath = 'div'.join(old_xpath)
+    for index in range(_from, to):
+        return engine.driver.find_element(By.XPATH, new_xpath).text
 
 
-person = Person('jenia')
+class TestIntroPage:
 
+    def test_setup(self) -> None:
+        engine.get_web(web_link='https://www.google.com/search?q=gov&ei=iCA9ZLGvOIvixc8Ph9aI2Ac&ved=0ahUKEwixk8XN27D-AhULcfEDHQcrAnsQ4dUDCA8&uact=5&oq=gov&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzILCAAQigUQsQMQkQIyCwgAEIAEELEDEIMBMgsIABCABBCxAxCDATILCAAQgAQQsQMQgwEyBQgAEIAEMgsIABCABBCxAxCDATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCC4QgAQ6DQgAEIoFELEDEIMBEEM6EwguEIoFELEDEIMBEMcBENEDEEM6DgguEIoFEMcBENEDEJECOg4IABCKBRCxAxCDARCRAjoHCAAQigUQQzoWCC4QigUQsQMQgwEQxwEQ0QMQQxDqBDohCC4QigUQsQMQgwEQxwEQ0QMQQxDqBBDcBBDeBBDgBBgBSgQIQRgAUABYnAJg2AVoAHABeACAAaYCiAH-BZIBAzItM5gBAKABAcABAdoBBggBEAEYFA&sclient=gws-wiz-serp', maximize_window=True)
 
-class TestPerson:
+    def test_navigation(self) -> None:
+        print(get_xpath_text_by_index('//*[@id="rso"]/div[6]/div', 1, 5))
 
-    @test.negative
-    def test_negative_name(self) -> None:
-        person.name = 'alex'
-        assert person.get_data() == 'persons name is jenia'
-
-    def test_name(self) -> None:
-        person.name = 'alex'
-        assert person.get_data() == 'persons name is alex'
+    def test_exit_all(self) -> None:
+        engine.teardown()

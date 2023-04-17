@@ -6,9 +6,11 @@ from core.infrastructure.modules.reader import read_config
 
 
 def run_test(class_name: object, methods: list[str]) -> None:
+
     """
     maybe will be usable in the future
     """
+
     try:
         match ['*']:
             case _:
@@ -53,6 +55,7 @@ def log(level=logging.INFO, text='') -> callable:
 
 
 def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_test_coverage_state=False) -> None:
+
     path = read_config('path', 'tests')
     tests = fr"{GLOBAL_PATH}\{path}\{test_dir}"
     report_dir = fr"{GLOBAL_PATH}\{read_config('path', 'allure')}"
