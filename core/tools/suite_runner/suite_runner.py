@@ -60,12 +60,14 @@ class TestSuite(Executor):
                     if value == 'run':
                         path = fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={allure_path}'
                         os.system(fr'pytest {path}')
+
                         match self.parallel:
                             case _:
                                 os.system(fr'pytest {path} -n={self.parallel}')
                                 allure.attach.file(LOGS,
                                                    name=f'parallel data: {self.parallel}',
                                                    attachment_type=AttachmentType.TEXT)
+
         # generate allure web report
         if report:
             os.system(fr'allure serve {allure_path}')
