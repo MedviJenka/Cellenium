@@ -1,33 +1,35 @@
 from os import system
-from core.infrastructure.constants.data import PROJECT_PATH
+from core.infrastructure.constants.data import GLOBAL_PATH
 
 
 def create(interpreter='py') -> None:
 
+    try:
+        system(fr"py -m venv {GLOBAL_PATH}/venv")
+    except ValueError:
+        system(fr"{interpreter} -m venv {GLOBAL_PATH}/venv")
+
     match interpreter:
-        case 'py':
-            system(fr"py -m venv {PROJECT_PATH}/venv")
         case 'python':
-            system(fr"py -m venv {PROJECT_PATH}/venv")
+            system(fr"python -m venv {GLOBAL_PATH}/venv")
         case 'python.exe':
-            system(fr"py -m venv {PROJECT_PATH}/venv")
+            system(fr"python.exe -m venv {GLOBAL_PATH}/venv")
         case _:
-            raise Exception
+            system(fr"py -m venv {GLOBAL_PATH}/venv")
 
 
 def run_venv() -> None:
-    system(f'{PROJECT_PATH}/venv/Scripts/activate.bat')
+    system(f'{GLOBAL_PATH}/venv/Scripts/activate.bat')
 
 
 def save_requirements() -> None:
-    system(fr"pip freeze {PROJECT_PATH}/venv")
+    system(fr"py -m pip freeze {GLOBAL_PATH}/venv")
 
 
 def install_requirements() -> None:
-    system(fr"pip install -r {PROJECT_PATH}/requirements.txt")
+    system(fr"py -m pip install -r {GLOBAL_PATH}/requirements.txt")
 
 
 if __name__ == '__main__':
-    create()
+    # create()
     install_requirements()
-    run_venv()
