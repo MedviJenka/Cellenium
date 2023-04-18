@@ -2,9 +2,7 @@ import logging
 import os
 import uuid
 import openpyxl
-import allure
 from dataclasses import dataclass, field
-from allure_commons.types import AttachmentType
 from core.infrastructure.modules.methods import log
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
@@ -21,9 +19,8 @@ class TestSuite(Executor):
 
     """
 
-    workbook = openpyxl.load_workbook(TEST_SUITE)
+    workbook: dict = openpyxl.load_workbook(TEST_SUITE)
     _list: list = field(default_factory=list)
-    parallel: int = None
 
     @staticmethod
     def _generate_random_id() -> str:
@@ -60,13 +57,6 @@ class TestSuite(Executor):
                     if value == 'run':
                         path = fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={allure_path}'
                         os.system(fr'pytest {path}')
-
-                        match self.parallel:
-                            case _:
-                                os.system(fr'pytest {path} -n={self.parallel}')
-                                allure.attach.file(LOGS,
-                                                   name=f'parallel data: {self.parallel}',
-                                                   attachment_type=AttachmentType.TEXT)
 
         # generate allure web report
         if report:
