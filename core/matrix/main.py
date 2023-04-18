@@ -3,12 +3,12 @@ from random import choice, randrange
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from typing import Optional
-
+from core.infrastructure.constants.data import GLOBAL_PATH
 
 WIDTH, HEIGHT = 400, 200
 RESOLUTION = (WIDTH, HEIGHT)
 FONT_SIZE = 10
-FONT_PATH = r'C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\core\matrix\font\MS Mincho.ttf'
+FONT_PATH = fr'{GLOBAL_PATH}\core\matrix\font\MS Mincho.ttf'
 
 
 class Constant:
