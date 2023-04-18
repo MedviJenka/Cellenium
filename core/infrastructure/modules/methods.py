@@ -36,6 +36,7 @@ def log(level=logging.INFO, text='') -> callable:
     _time = datetime.now()
     time_format = f'{_time: %A | %d/%m/%Y | %X}'
     logging.basicConfig(filename=LOGS,
+                        filemode='w',
                         datefmt=time_format,
                         format=f'%(levelname)s:{time_format} :: %(message)s',
                         level=level)

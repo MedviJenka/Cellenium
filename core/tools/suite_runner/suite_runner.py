@@ -12,8 +12,6 @@ from core.infrastructure.constants.data import *
 class TestSuite(Executor):
 
     """"
-    :TODO:  fix execution problem with coverage state
-
     :param: suite_name .................... reads data from json file
     :param: display_coverage_state ........ coverage state %
 
@@ -40,6 +38,7 @@ class TestSuite(Executor):
     def algorythm(self, report=True) -> None:
 
         allure_path = fr'{ALLURE}\{self._generate_random_id()}'
+        log(logging.DEBUG, text=f'allure report files in: {allure_path}')
 
         # gets each sheet title
         for each_sheet_name in self._get_sheet_titles:
@@ -57,6 +56,7 @@ class TestSuite(Executor):
                     if value == 'run':
                         path = fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={allure_path}'
                         os.system(fr'pytest {path}')
+                        log(logging.DEBUG, text=f'items tested: {result["test"]}')
 
         # generate allure web report
         if report:
@@ -67,5 +67,12 @@ class TestSuite(Executor):
         match report:
             case False:
                 self.algorythm(report=False)
+
             case _:
                 self.algorythm()
+        log(logging.DEBUG, text=f'executing: {self.algorythm()}')
+
+
+if __name__ == '__main__':
+    run = TestSuite()
+    run.execute(report=True)
