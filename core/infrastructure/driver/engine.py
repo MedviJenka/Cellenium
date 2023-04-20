@@ -1,4 +1,5 @@
 import allure
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
@@ -83,7 +84,7 @@ class DriverEngine(DriverManager):
                 case 'LINK_TEXT':
                     return self.driver.find_element(Type.TEXT, element_locator)
 
-                case 'CLASS_NAME':
+                case 'CLASS':
                     return self.driver.find_element(Type.CLASS, element_locator)
 
                 case _:
@@ -95,12 +96,9 @@ class DriverEngine(DriverManager):
                           attachment_type=AttachmentType.PNG)
             raise e
 
-    def dropdown(self, text=None, value=None) -> None:
-        select = Select(self.driver.get_element)
-        if text:
-            select.select_by_value(text)
-        elif value:
-            select.select_by_visible_text(value)
+    def dropdown(self, by: By, locator: str) -> webdriver:
+        select = Select(self.driver.find_element(by, get_locator(self.screen, locator)))
+        return select.select_by_visible_text(locator)
 
     def count_elements(self, name: str, tag: str, selector: Type) -> int:
 
@@ -122,6 +120,7 @@ class DriverEngine(DriverManager):
         return press.perform()
 
     def teardown(self) -> None:
+        sleep(5)
         try:
             self.driver.close()
             self.driver.quit()
@@ -175,6 +174,3 @@ class ScreenshotEngine(DriverManager):
         if embed_into_cell:
             write_excel(sheet_name=self.sheet_name, value=updated_image_path)
 
-
-if __name__ == '__main__':
-    DriverEngine()

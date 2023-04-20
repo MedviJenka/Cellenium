@@ -31,4 +31,4 @@ class DriverManager(ABC):
 
     _service = ServiceManager()
     _options = Options()
-    driver: None = webdriver.Chrome(service=_service.set_service(), options=_options)
+    driver: webdriver = webdriver.Chrome(service=_service.set_service(), options=_options)
