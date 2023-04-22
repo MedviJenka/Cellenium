@@ -1,6 +1,5 @@
 import json
 from typing import Optional
-
 import openpyxl
 from PIL import Image
 from configparser import ConfigParser

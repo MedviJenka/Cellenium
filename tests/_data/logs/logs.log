@@ -1,4 +1,3 @@
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: allure report files in: C:\Cellenium\tests\_data\reports\d415be80-4d8e-40ff-b3b3-f8f00188adc5
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: tests list: ['recording_profile', 'sync_service', 'retention', 'call_service', 'google']
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: items tested: test_1.py
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: items tested: test_2.py
+DEBUG: Saturday | 22/04/2023 | 14:21:04 :: allure report files in: C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\tests\_data\reports\56a2df83-41a2-45d8-9716-35e531d75c08
+DEBUG: Saturday | 22/04/2023 | 14:21:04 :: tests list: ['recording_profile', 'sync_service', 'retention', 'call_service', 'google', 'gov']
+DEBUG: Saturday | 22/04/2023 | 14:21:04 :: items tested: test_sanity.py
