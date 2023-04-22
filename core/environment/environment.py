@@ -31,5 +31,6 @@ def install_requirements() -> None:
 
 
 if __name__ == '__main__':
-    create()
+    # create()
+    install_requirements()
 
