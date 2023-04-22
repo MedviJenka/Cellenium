@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Data:
+class Input:
 
     name: str
     player_class: str
@@ -12,4 +12,3 @@ class Data:
 
     def __post_init__(self) -> None:
         self.exp = f'{self.exp * 100}%'
-
