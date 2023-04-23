@@ -1,4 +1,0 @@
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: allure report files in: C:\Cellenium\tests\_data\reports\d415be80-4d8e-40ff-b3b3-f8f00188adc5
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: tests list: ['recording_profile', 'sync_service', 'retention', 'call_service', 'google']
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: items tested: test_1.py
-DEBUG: Tuesday | 18/04/2023 | 13:56:50 :: items tested: test_2.py

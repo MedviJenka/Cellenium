@@ -71,8 +71,3 @@ class TestSuite(Executor):
             case _:
                 self.algorythm()
         log(logging.DEBUG, text=f'executing: {self.algorythm()}')
-
-
-if __name__ == '__main__':
-    run = TestSuite()
-    run.execute(report=True)
