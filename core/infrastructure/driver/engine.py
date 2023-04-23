@@ -173,4 +173,3 @@ class ScreenshotEngine(DriverManager):
 
         if embed_into_cell:
             write_excel(sheet_name=self.sheet_name, value=updated_image_path)
-

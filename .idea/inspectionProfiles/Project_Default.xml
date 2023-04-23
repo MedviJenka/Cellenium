@@ -191,6 +191,7 @@
           <option value="tuple.value" />
           <option value="Exception.__getitem__" />
           <option value="set.Union" />
+          <option value="object.execute" />
         </list>
       </option>
     </inspection_tool>

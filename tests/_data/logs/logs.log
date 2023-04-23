@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+=======
+DEBUG: Saturday | 22/04/2023 | 14:24:16 :: allure report files in: C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\tests\_data\reports\c275ff89-8213-4c92-b3dd-3997f9928307
+DEBUG: Saturday | 22/04/2023 | 14:24:16 :: tests list: ['recording_profile', 'sync_service', 'retention', 'call_service', 'google', 'gov']
+DEBUG: Saturday | 22/04/2023 | 14:24:16 :: items tested: test_sanity.py
+>>>>>>> 38327b221b420a96513f2f82fbb2b2069d81fb5b
