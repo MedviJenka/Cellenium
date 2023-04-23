@@ -1,7 +1,7 @@
 {
-  "name": "SmellMyGun",
-  "player_class": "corsair",
-  "level": 175,
-  "attack_range": 90000,
+  "name": "Geralt",
+  "player_class": "Witcher",
+  "level": 88,
+  "attack_range": 15000,
   "exp": 0.97
 }

@@ -10,15 +10,16 @@ class Player(Abstract):
     _list: list = field(default_factory=list)
 
     def __post_init__(self) -> None:
-        self.data = self.read_json(PLAYER_DATA)
-        self.player = Input(**self.data)
+        self.json = self.read_json(PLAYER_DATA)
+        self.data = Input(**self.json)
 
     @property
     def execute(self) -> list[str]:
-        for each_field in fields(self.player):
-            name, _type = each_field.name, each_field.type.__name__
-            attribute = getattr(self.player, name)
-            result = f'{name}: {_type} = {attribute!r}'
+        for each_field in fields(self.data):
+            name = each_field.name
+            _type = each_field.type.__name__
+            attributes = getattr(self.data, name)
+            result = f'{name}: {_type} = {attributes!r}'
             self._list.append(result)
 
         return self._list
