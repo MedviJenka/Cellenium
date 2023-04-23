@@ -1,88 +1,10 @@
 import pygame
-from random import choice, randrange
+from random import randrange
 from dataclasses import dataclass
-from abc import ABC, abstractmethod
-from typing import Optional
-from core.infrastructure.constants.data import GLOBAL_PATH
-
-WIDTH, HEIGHT = 400, 200
-RESOLUTION = (WIDTH, HEIGHT)
-FONT_SIZE = 10
-FONT_PATH = fr'{GLOBAL_PATH}\core\matrix\font\MS Mincho.ttf'
-
-
-class Constant:
-
-    pygame.init()
-    alpha_value = randrange(35, 40, 5)
-
-    chars = [
-        'あ', 'み', 'む', 'め',
-        'も', 'さ', 'し', 'す',
-        'せ', 'そ', 'や', 'よ',
-        'と', 'り', 'る', 'れ',
-        'ゑ', 'を', 'あ', 'い',
-        'う', 'え', 'か', 'り',
-        '+', '=', '*', '/',
-        '$', '1', '2', '3',
-        '4', '5', '6', '7', '8',
-        '9', '0', '#', "@"
-    ]
-
-
-class Fonts:
-
-    font_1 = pygame.font.Font(FONT_PATH, FONT_SIZE)
-    font_2 = pygame.font.Font(FONT_PATH, FONT_SIZE - FONT_SIZE // 10)
-    font_3 = pygame.font.Font(FONT_PATH, FONT_SIZE - FONT_SIZE // 3)
-
-
-class GreenChars:
-
-    green_chars = [Fonts.font_1.render(char, True, (0, 255, 0)) for char in Constant.chars]
-    green_chars_2 = [Fonts.font_2.render(char, True, (0, 255, 0)) for char in Constant.chars]
-    green_chars_3 = [Fonts.font_3.render(char, True, (0, 255, 0)) for char in Constant.chars]
-
-
-class Screen:
-
-    screen = pygame.display.set_mode(RESOLUTION)
-    display_surface = pygame.Surface(RESOLUTION)
-    display_surface.set_alpha(Constant.alpha_value)
-    clock = pygame.time.Clock()
-
-
-class Execute(ABC):
-
-    @abstractmethod
-    def execute(self, *args: Optional[any], **kwargs: Optional[any]) -> None:
-        ...
-
-
-@dataclass
-class Symbols(GreenChars):
-
-    x: int
-    y: int
-    speed = 15
-    value_1 = choice(GreenChars.green_chars)
-    value_2 = choice(GreenChars.green_chars)
-    value_3 = choice(GreenChars.green_chars)
-
-    def draw(self) -> None:
-        self.value_1 = choice(GreenChars.green_chars)
-        self.y = self.y + self.speed if self.y < HEIGHT else - FONT_SIZE * randrange(1, 10)
-        Screen.screen.blit(self.value_1, (self.x, self.y))
-
-    def draw1(self) -> None:
-        self.value_2 = choice(GreenChars.green_chars)
-        self.y = self.y + self.speed if self.y < HEIGHT else - FONT_SIZE * randrange(1, 10)
-        Screen.screen.blit(self.value_2, (self.x, self.y))
-
-    def draw2(self) -> None:
-        self.value_3 = choice(GreenChars.green_chars)
-        self.y = self.y + self.speed if self.y < HEIGHT else - FONT_SIZE * randrange(1, 10)
-        Screen.screen.blit(self.value_3, (self.x, self.y))
+from core.matrix.executor import Execute
+from core.matrix.symbols import Symbols
+from core.matrix.ui import Screen
+from core.matrix.globals import *
 
 
 @dataclass
