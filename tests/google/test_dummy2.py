@@ -1,8 +1,5 @@
 from dataclasses import dataclass
-from core.infrastructure.modules.decorators import Decorators
-
-
-test = Decorators()
+from core.infrastructure.modules.decorators import negative
 
 
 @dataclass
@@ -26,7 +23,8 @@ person = Person('jenia')
 
 
 class TestPerson:
-    @test.negative
+
+    @negative
     def test_negative_name(self) -> None:
         person.name = 'jenia'
         assert person.get_data() == 'persons name is alex'

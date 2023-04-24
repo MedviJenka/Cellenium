@@ -192,6 +192,7 @@
           <option value="Exception.__getitem__" />
           <option value="set.Union" />
           <option value="object.execute" />
+          <option value="property.setter" />
         </list>
       </option>
     </inspection_tool>

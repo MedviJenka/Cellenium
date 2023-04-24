@@ -8,14 +8,12 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from core.tools.image_compare.image_compare_executor import ImageCompare
-from core.infrastructure.modules.methods import *
-from core.infrastructure.modules.reader import *
 from os import system
 from core.infrastructure.driver.manager import DriverManager
-from core.infrastructure.constants.data import Type, GLOBAL_PATH
 from dataclasses import dataclass
-from typing import Optional
 from allure_commons.types import AttachmentType
+from core.infrastructure.modules.methods import *
+from core.infrastructure.modules.reader import *
 
 
 @dataclass

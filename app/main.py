@@ -23,6 +23,8 @@ class Buttons(Root):
 class Slider(Root):
     slider_1 = customtkinter.CTkSlider(master=Root.frame,
                                        fg_color='white')
+    slider_2 = customtkinter.CTkSlider(master=Root.frame,
+                                       fg_color='white')
 
 
 @dataclass
