@@ -1,6 +1,6 @@
 import pygame
-from core.matrix.constants import Constant
-from core.matrix.globals import FONT_PATH, FONT_SIZE, RESOLUTION
+from app.matrix.constants import Constant
+from app.matrix.globals import FONT_PATH, FONT_SIZE, RESOLUTION
 
 
 class Fonts:

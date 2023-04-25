@@ -1,10 +1,10 @@
 import pygame
 from random import randrange
 from dataclasses import dataclass
-from core.matrix.executor import Execute
-from core.matrix.symbols import Symbols
-from core.matrix.ui import Screen
-from core.matrix.globals import *
+from app.matrix.executor import Execute
+from app.matrix.symbols import Symbols
+from app.matrix.ui import Screen
+from app.matrix.globals import *
 
 
 @dataclass

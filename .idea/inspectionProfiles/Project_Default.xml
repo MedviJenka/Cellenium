@@ -193,6 +193,7 @@
           <option value="set.Union" />
           <option value="object.execute" />
           <option value="property.setter" />
+          <option value="set.__getitem__" />
         </list>
       </option>
     </inspection_tool>

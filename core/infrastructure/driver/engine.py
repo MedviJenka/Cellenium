@@ -22,7 +22,7 @@ class DriverEngine(DriverManager):
     screen: Optional[str] = ''
 
     def get_web(self, web_link: str, maximize_window=False) -> None:
-        self.driver.get(web_link or web_link)
+        self.driver.get(web_link)
         if maximize_window:
             self.driver.maximize_window()
 
@@ -117,16 +117,6 @@ class DriverEngine(DriverManager):
         press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
         return press.perform()
 
-    def teardown(self) -> None:
-        sleep(5)
-        try:
-            self.driver.close()
-            self.driver.quit()
-        except not self.driver:
-            system("taskkill /f /im chromedriver.exe")
-            system("taskkill /f /im chrome.exe")
-            raise Exception("driver's N/A")
-
     def scroll_page(self, direction: str, px: int) -> None:
 
         """
@@ -144,6 +134,16 @@ class DriverEngine(DriverManager):
 
     def attach_screenshot(self) -> None:
         self.driver.save_screenshot(GLOBAL_PATH)
+
+    def teardown(self) -> None:
+        sleep(5)
+        try:
+            self.driver.close()
+            self.driver.quit()
+        except self.driver is None:
+            system("taskkill /f /im chromedriver.exe")
+            system("taskkill /f /im chrome.exe")
+            raise Exception("driver's N/A")
 
 
 @dataclass

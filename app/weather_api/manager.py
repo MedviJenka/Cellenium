@@ -12,6 +12,7 @@ class RestRequests:
     api_key: str = read_config('open_weather', 'API_KEY')
 
     # ~~~~~~~~~ Global Data ~~~~~~~~~~~
+    @property
     def get_response_status_code(self) -> int:
         request = requests.get(f'{self.url}/appid={self.api_key}')
         return request.status_code

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from random import choice, randrange
-from core.matrix.globals import HEIGHT, FONT_SIZE
-from core.matrix.ui import GreenChars, Screen
+from app.matrix.globals import HEIGHT, FONT_SIZE
+from app.matrix.ui import GreenChars, Screen
 
 
 @dataclass

@@ -1,17 +1,17 @@
 from abc import ABC, abstractmethod
 
 
-class AbstractMessage(ABC, Exception):
+class AbstractMessage(ABC):
     @abstractmethod
     def message(self, *args: str, **kw: str) -> str:
         raise Exception
 
 
-class NoSuchTypeException(AbstractMessage):
+class NoSuchTypeException(AbstractMessage, BaseException):
 
     @staticmethod
     def message() -> str:
-        raise "no such type in the page base file"
+        raise Exception("no such type in the page base file")
 
 
 class GlobalError(Exception, AbstractMessage):
