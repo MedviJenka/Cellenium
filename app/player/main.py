@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field, fields
-from app import Abstract
-from app import Input
+from app.player.data_input import Input
+from app.player.modules import Abstract
 from core.infrastructure.constants.data import PLAYER_DATA
 
 
