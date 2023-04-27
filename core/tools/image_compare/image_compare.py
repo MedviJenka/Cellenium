@@ -60,6 +60,7 @@ class Logic:
                 cv2.rectangle(diff_box, (x, y), (x + w, y + h), (0, 255, 0), 1)
                 cv2.drawContours(mask, [i], 0, (255, 255, 255), -1)
                 cv2.drawContours(filled_after, [i], 0, (250, 0, 0), -1)
+
             log(level=logging.DEBUG, text=f'area: {area}')
 
         cv2.imshow('before', before)
@@ -94,7 +95,10 @@ class Logic:
                          f'please consult with developer or your team.',
                     level=logging.DEBUG)
 
-    def generate_shadow(self, image_resolution: list[int], original_image_path: str, actual_image_path: str) -> None:
+    def generate_shadow(self,
+                        image_resolution: list[int],
+                        original_image_path: str,
+                        actual_image_path: str) -> None:
 
         original_image = cv2.imread(original_image_path)
         actual_image = cv2.imread(actual_image_path)
