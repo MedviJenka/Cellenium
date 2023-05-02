@@ -3,7 +3,7 @@ $packages = 'virtualbox', 'vagrant', 'awscli', 'sublimetext3.app'
 
 if (Test-Path -Path "$env:ProgramData\Chocolatey") {
   # DoYourPackageInstallStuff
-  ForEach ($packageName in $packages)
+  foreach ($packageName in $packages)
     {
         choco install $packageName -y
     }

@@ -2,11 +2,11 @@ from selenium.webdriver.common.by import By
 
 
 GLOBAL_PATH = r'C:\Cellenium'
+TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
 SCREENSHOTS = fr'{GLOBAL_PATH}\core\utils\data\screenshots\reports'
 JENKINS = fr'{GLOBAL_PATH}\jenkins\jenkins.war'
-TESTS = fr'{GLOBAL_PATH}\tests'
 LOGS = fr'{TESTS}\_data\logs\logs.log'
 ALLURE = fr'{TESTS}\_data\reports'
 PAGE_BASE = fr'{TESTS}\_data\page_base.xlsx'

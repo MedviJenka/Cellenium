@@ -14,8 +14,7 @@ def read_config(key: str, value: str) -> str:
 
 def read_json(path: str) -> dict:
     with open(path, 'r', encoding='utf-8') as json_file:
-        file = json.load(json_file)
-        return file
+        return json.load(json_file)
 
 
 def write_json(path: str, key: str, value: Optional[list[str]]) -> None:
