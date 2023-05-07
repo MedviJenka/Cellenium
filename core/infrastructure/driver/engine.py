@@ -1,6 +1,8 @@
 import allure
+from os import system
 from time import sleep
 from selenium import webdriver
+from dataclasses import dataclass
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -8,9 +10,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from core.tools.image_compare.image_compare_executor import ImageCompare
-from os import system
 from core.infrastructure.driver.manager import DriverManager
-from dataclasses import dataclass
 from allure_commons.types import AttachmentType
 from core.infrastructure.modules.methods import *
 from core.infrastructure.modules.reader import *
@@ -21,7 +21,7 @@ class DriverEngine(DriverManager):
 
     screen: Optional[str] = ''
 
-    def get_web(self, web_link: str, maximize_window=False) -> None:
+    def get_web(self, web_link: str, maximize_window=True) -> None:
         self.driver.get(web_link)
         if maximize_window:
             self.driver.maximize_window()
@@ -64,7 +64,10 @@ class DriverEngine(DriverManager):
         :TODO: ..... fix wait for element 
         """
 
+        self.driver.implicitly_wait(30)
+
         try:
+
             match element_type:
 
                 case 'NAME':
@@ -123,8 +126,11 @@ class DriverEngine(DriverManager):
         :param: px ................ pixels
         :param: up ................ px = negative number
         :param: down .............. px = positive number
+
         """
 
+        # screen_height: int = self.driver.execute_script("return window.innerHeight")
+        
         match direction:
             case "up":
                 self.driver.execute_script(f"window.scrollBy(0, {px});")

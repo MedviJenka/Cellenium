@@ -1,4 +1,4 @@
-from app import Player
+from app.player.main import Player
 
 
 class TestPlayer:
