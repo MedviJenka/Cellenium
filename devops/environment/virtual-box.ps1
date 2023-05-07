@@ -1,7 +1,7 @@
 mkdir "C:\vm-box"
 
 
-function Create-VMFolders {
+function CreateVMFolders {
 
     [CmdletBinding()]
     param (
@@ -16,8 +16,6 @@ function Create-VMFolders {
         [string]$FolderPath
     )
 
-    # Create the "ubuntu" and "centos" subfolders
-
     $ubuntuFolder = Join-Path -Path $FolderPath -ChildPath "ubuntu"
     $centosFolder = Join-Path -Path $FolderPath -ChildPath "centos"
     New-Item -ItemType Directory -Path $ubuntuFolder | Out-Null
@@ -25,10 +23,10 @@ function Create-VMFolders {
 }
 
 
-function Centos-Setup {
+function CentosSetup {
 
     $boxName = "geerlingguy/centos7"
-    cd "C:\vm-box\centos"
+    Set-Location "C:\vm-box\centos"
     vagrant init $boxName
     vagrant up
     vagrant halt
@@ -36,10 +34,10 @@ function Centos-Setup {
 }
 
 
-function Ubuntu-Setup {
+function UbuntuSetup {
 
     $boxName = "ubuntu/bionic64"
-    cd "C:\vm-box\ubuntu"
+    Set-Location "C:\vm-box\ubuntu"
     vagrant init $boxName
     vagrant up
     vagrant halt
@@ -56,8 +54,8 @@ function Login {
 
 
 
-Create-VMFolders -FolderPath "C:\vm-box"
-Centos-Setup
-Ubuntu-Setup
-start VirtualBox.exe
+CreateVMFolders -FolderPath "C:\vm-box"
+CentosSetup
+UbuntuSetup
+Start-Process VirtualBox.exe
 Login
