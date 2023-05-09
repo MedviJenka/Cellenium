@@ -1,27 +1,15 @@
-from dataclasses import dataclass, field
-from random import randint
+def generate_hashtag(text: str) -> str:
+    _list: list = []
+    new_text = text.split(' ')
+
+    for each in new_text:
+        result = each.title()
+        _list.append(result.replace(' ', ''))
+        result = "".join(_list)
+        if len(new_text) == 1:
+            return f'#{result.upper()}'
+        return f'#{result}'
 
 
-@dataclass
-class Random:
-
-    _list: list = field(default_factory=list)
-    num = randint(0, 50000)
-
-    def __post_init__(self):
-        self.result = self.num/50000
-        self._list.append(self.result)
-
-    def random(self) -> None:
-
-        if self.result > 0.5:
-            print(round(self.result))
-        else:
-            print(0)
-
-        print(self._list)
-
-
-random = Random()
 if __name__ == '__main__':
-    random.random()
+    print(generate_hashtag('sdfsd fdf'))

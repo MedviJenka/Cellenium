@@ -1,12 +1,8 @@
 from selenium.webdriver.common.by import By
 
 
-<<<<<<< HEAD
-GLOBAL_PATH = r'C:\Users\medvi\OneDrive\Desktop\Project\Cellenium'
-=======
 GLOBAL_PATH = r'C:\Cellenium'
 TESTS = fr'{GLOBAL_PATH}\tests'
->>>>>>> ae4cbfe556aa68ef93ce728ef91ae8b249147202
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
 SCREENSHOTS = fr'{GLOBAL_PATH}\core\utils\data\screenshots\reports'
