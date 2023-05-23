@@ -6,3 +6,4 @@
 /tests/CallServiceAPI/
 /tests/cupid/credentials.json
 /tests/st_login/data.json
+/tests/sync_service/data.json

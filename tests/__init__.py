@@ -1,15 +1,21 @@
-def generate_hashtag(text: str) -> str:
-    _list: list = []
-    new_text = text.split(' ')
-
-    for each in new_text:
-        result = each.title()
-        _list.append(result.replace(' ', ''))
-        result = "".join(_list)
-        if len(new_text) == 1:
-            return f'#{result.upper()}'
-        return f'#{result}'
+import subprocess
+from dataclasses import dataclass
 
 
+@dataclass
+class GenerateTeamsMeeting:
+
+    exe_path: str = r'C:\Users\evgenyp\vision\core\repo_test\_tools\TeamsUsersSimulator\TeamsUsersSimulator.exe'
+
+    def meeting_call(self) -> None:
+        process = subprocess.Popen(self.exe_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        output, error = process.communicate()
+        if process.returncode != 0:
+            print('Error:', error.decode('utf-8'))
+        else:
+            print('Output:', output.decode('utf-8'))
+
+
+generate = GenerateTeamsMeeting()
 if __name__ == '__main__':
-    print(generate_hashtag('sdfsd fdf'))
+    generate.meeting_call()

@@ -12,8 +12,9 @@ from core.infrastructure.constants.data import *
 class TestSuite(Executor):
 
     """"
-    :param: suite_name .................... reads data from json file
-    :param: display_coverage_state ........ coverage state %
+    :param: workbook ...................... excel screen sheet name
+    :param: _list ......................... empty list to store values for farther iteration
+    :param: report ........................ generate allure report bool
 
     """
 
