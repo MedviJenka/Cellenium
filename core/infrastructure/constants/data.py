@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-GLOBAL_PATH = r'C:\Cellenium'
+GLOBAL_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'

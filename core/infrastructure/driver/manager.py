@@ -29,6 +29,9 @@ class ServiceManager:
 
 class DriverManager(ABC):
 
-    _service = ServiceManager()
-    _options = Options()
-    driver: webdriver = webdriver.Chrome(service=_service.set_service(), options=_options)
+    service = ServiceManager()
+    options = Options()
+    options.add_argument('--ignore-ssl-errors=yes')
+    options.add_argument('--ignore-certificate-errors')
+
+    driver: webdriver = webdriver.Chrome(service=service.set_service(), options=options)

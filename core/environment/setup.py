@@ -5,6 +5,7 @@ from core.infrastructure.constants.data import GLOBAL_PATH
 def create(interpreter='py') -> None:
 
     try:
+
         system(fr"py -m venv {GLOBAL_PATH}/venv")
     except ValueError:
         system(fr"{interpreter} -m venv {GLOBAL_PATH}/venv")
@@ -31,5 +32,5 @@ def install_requirements() -> None:
 
 
 if __name__ == '__main__':
-    # create()
+    create()
     install_requirements()
