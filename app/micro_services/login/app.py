@@ -1,13 +1,6 @@
 from dataclasses import dataclass
-from typing import Optional
-from abc import ABC, abstractmethod
 from flask import Flask, render_template, request
-
-
-class Executor(ABC):
-
-    @abstractmethod
-    def execute(self, *args: Optional[any], **kwargs: Optional[any]) -> None: ...
+from core.infrastructure.modules.executor import Executor
 
 
 @dataclass
