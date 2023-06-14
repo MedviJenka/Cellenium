@@ -40,13 +40,12 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
         data[result['name']] = result
 
     try:
-        if data[value]['name']:
-            return {
-                'name': data[value]['name'],
-                'locator': data[value]['locator'],
-                'type': data[value]['type'],
-                'image': data[value]['image']
-            }
+        return {
+            'name': data[value]['name'],
+            'locator': data[value]['locator'],
+            'type': data[value]['type'],
+            'image': data[value]['image']
+        }
 
     except ValueError:
         raise Exception('no such type')
