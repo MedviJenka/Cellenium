@@ -18,8 +18,7 @@ class TestSuite(Executor):
 
     """
 
-    workbook: dict = openpyxl.load_workbook(TEST_SUITE)
-    _list: list = field(default_factory=list)
+    workbook: openpyxl.Workbook = field(default_factory=lambda: openpyxl.load_workbook(TEST_SUITE))
 
     @staticmethod
     def _generate_random_id() -> str:
@@ -28,13 +27,9 @@ class TestSuite(Executor):
 
     @property
     def _get_sheet_titles(self) -> list[str]:
-
-        # gets all titles from the test sheet
-        for each in self.workbook:
-            self._list.append(each.title)
-
-        log(logging.DEBUG, text=f'tests list: {self._list}')
-        return self._list
+        result = [sheet.title for sheet in self.workbook]
+        log(logging.DEBUG, text=f'tests list: {result}')
+        return result
 
     def algorythm(self, report=True) -> None:
 
@@ -47,17 +42,13 @@ class TestSuite(Executor):
 
             # for each title iterates through all tests
             for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
-                result = {
-                    "test": row[0],
-                    "action": row[1]
-                }
+                test_name, action = row[0], row[1]
 
                 # runs each test that is marked with 'run'
-                for _, value in result.items():
-                    if value == 'run':
-                        path = fr'{TESTS}\{sheet.title}\{result["test"]} --alluredir={allure_path}'
-                        os.system(fr'pytest {path}')
-                        log(logging.DEBUG, text=f'items tested: {result["test"]}')
+                if action == 'run':
+                    path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={allure_path}'
+                    os.system(fr'pytest {path}')
+                    log(logging.DEBUG, text=f'items tested: {test_name}')
 
         # generate allure web report
         if report:
