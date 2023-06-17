@@ -11,7 +11,7 @@ LOGS = fr'{TESTS}\_data\logs\logs.log'
 ALLURE = fr'{TESTS}\_data\reports'
 PAGE_BASE = fr'{TESTS}\_data\page_base.xlsx'
 TEST_SUITE = fr'{TESTS}\_data\test_suite.xlsx'
-PLAYER_DATA  = fr'{GLOBAL_PATH}\app\player\data.json'
+PLAYER_DATA = fr'{GLOBAL_PATH}\app\player\data.json'
 
 
 class Type:

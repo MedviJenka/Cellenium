@@ -1,6 +1,5 @@
 import logging
 import os
-import uuid
 import openpyxl
 from dataclasses import dataclass, field
 from core.infrastructure.modules.methods import log
@@ -20,24 +19,12 @@ class TestSuite(Executor):
 
     workbook: openpyxl.Workbook = field(default_factory=lambda: openpyxl.load_workbook(TEST_SUITE))
 
-    @staticmethod
-    def _generate_random_id() -> str:
-        random_id = str(uuid.uuid4())
-        return random_id
-
-    @property
-    def _get_sheet_titles(self) -> list[str]:
-        result = [sheet.title for sheet in self.workbook]
-        log(logging.DEBUG, text=f'tests list: {result}')
-        return result
-
     def algorythm(self, report=True) -> None:
 
-        allure_path = fr'{ALLURE}\{self._generate_random_id()}'
-        log(logging.DEBUG, text=f'allure report files in: {allure_path}')
+        log(logging.DEBUG, text=f'allure report files in: {ALLURE}')
 
         # gets each sheet title
-        for each_sheet_name in self._get_sheet_titles:
+        for each_sheet_name in [sheet.title for sheet in self.workbook]:
             sheet = self.workbook[each_sheet_name]
 
             # for each title iterates through all tests
@@ -46,13 +33,13 @@ class TestSuite(Executor):
 
                 # runs each test that is marked with 'run'
                 if action == 'run':
-                    path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={allure_path}'
+                    path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={ALLURE}'
                     os.system(fr'pytest {path}')
                     log(logging.DEBUG, text=f'items tested: {test_name}')
 
         # generate allure web report
         if report:
-            os.system(fr'allure serve {allure_path}')
+            os.system(fr'allure serve {ALLURE}')
 
     def execute(self, report=True) -> None:
 
