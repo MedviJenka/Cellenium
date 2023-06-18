@@ -66,14 +66,18 @@ class DriverEngine(DriverManager):
 
         self.driver.implicitly_wait(wait)
         element_locator = get_locator(self.screen, name)
+        element_type = get_type(self.screen, name)
 
-        try:
-            path = f"//*[contains(@{element_attribute}, '{element_locator}')]"
-            # path = f"//{element_attribute}[starts-with(@{element_type.lower()}, {element_locator})"
-            return self.driver.find_elements(By.XPATH, path)[0]
+        match element_type:
 
-        except Exception as e:
-            raise e
+            case 'DYNAMIC':
+                try:
+                    path = f"//*[contains(@{element_attribute}, '{element_locator}')]"
+                    # path = f"//{element_attribute}[starts-with(@{element_type.lower()}, {element_locator})"
+                    return self.driver.find_elements(By.XPATH, path)[0]
+
+                except Exception as e:
+                    raise e
 
     def take_screenshot(self,
                         element: WebElement,
