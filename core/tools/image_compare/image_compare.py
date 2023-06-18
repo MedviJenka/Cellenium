@@ -70,7 +70,7 @@ class Logic:
         log(text=f'generated result image name is: {image_name}')
 
         image_path_folder = self._get_image_name(actual_image_path)['folder_path']
-        cv2.imwrite(fr'{image_path_folder}\rectangle_result_{image_name}', before)
+        cv2.imwrite(fr'{image_path_folder}\{image_name}_RESULT.png', before)
         log(level=logging.DEBUG, text=f'saving images in: {image_path_folder}')
         result = score * 100
         cv2.destroyAllWindows()
@@ -95,6 +95,7 @@ class Logic:
                          f'please consult with developer or your team.',
                     level=logging.DEBUG)
 
+    # WIP
     def generate_shadow(self,
                         image_resolution: list[int],
                         original_image_path: str,
