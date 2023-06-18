@@ -1,9 +1,0 @@
-{
-  "player_1": {
-    "name": "Geralt",
-    "player_class": "Witcher",
-    "level": 88,
-    "attack_range": 15000,
-    "exp": 0.97
-  }
-}
