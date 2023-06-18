@@ -1,8 +1,8 @@
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: allure report files in: C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\tests\_reports
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: items tested: dummy.py
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: items tested: test_intro_page.py
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: items tested: Navigation.py
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: items tested: test_dummy.py
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: items tested: test_dummy2.py
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: items tested: test_intro.py
-DEBUG: Sunday | 18/06/2023 | 22:15:17 :: executing: execute
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: allure report files in: C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\tests\_reports
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: items tested: dummy.py
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: items tested: test_intro_page.py
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: items tested: Navigation.py
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: items tested: test_dummy.py
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: items tested: test_dummy2.py
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: items tested: test_intro.py
+DEBUG: Sunday | 18/06/2023 | 23:12:38 :: executing: execute

@@ -35,7 +35,7 @@ class SuiteRunner(Executor):
                 # runs each test that is marked with 'run'
                 if action == 'RUN':
                     path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
-                    os.system(fr'pytest {path}')
+                    os.system(fr'py -m pytest {path}')
                     log(logging.DEBUG, text=f'items tested: {test_name}')
 
         # generate allure web report
@@ -43,3 +43,7 @@ class SuiteRunner(Executor):
             os.system(fr'allure serve {REPORTS}')
 
         log(logging.DEBUG, text=f'executing: {self.execute.__name__}')
+
+
+suite = SuiteRunner()
+suite.execute()
