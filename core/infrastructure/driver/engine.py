@@ -1,6 +1,5 @@
 import allure
 from os import system
-from time import sleep
 from selenium import webdriver
 from dataclasses import dataclass
 from selenium.webdriver.remote.webelement import WebElement
@@ -11,9 +10,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from core.tools.image_compare.image_compare_executor import ImageCompare
 from core.infrastructure.driver.manager import DriverManager
-from allure_commons.types import AttachmentType
 from core.infrastructure.modules.methods import *
 from core.infrastructure.modules.reader import *
+from allure_commons.types import AttachmentType
 
 
 @dataclass
@@ -58,9 +57,7 @@ class DriverEngine(DriverManager):
                     raise Exception
 
         except Exception as e:
-            allure.attach(self.driver.get_screenshot_as_png(),
-                          name='screenshot',
-                          attachment_type=AttachmentType.PNG)
+            self.attach_screenshot()
             raise e
 
     def take_screenshot(self,
@@ -89,7 +86,7 @@ class DriverEngine(DriverManager):
     def wait_for_element(self, name: str, seconds=5) -> None:
         element_locator = get_locator(self.screen, name)
         wait = WebDriverWait(self.driver, seconds)
-        return wait.until(expected_conditions.visibility_of_element_located(element_locator))
+        return wait.until(expected_conditions.visibility_of_element_located(('', element_locator)))
 
     def dropdown(self, by: By, locator: str) -> webdriver:
         select = Select(self.driver.find_element(by, get_locator(self.screen, locator)))
@@ -133,10 +130,11 @@ class DriverEngine(DriverManager):
                 self.driver.execute_script(f"window.scrollBy(0, {px});")
 
     def attach_screenshot(self) -> None:
-        self.driver.save_screenshot(GLOBAL_PATH)
+        allure.attach(fixture_funcction=self.driver.get_screenshot_as_png(),
+                      name="Screenshot",
+                      attachment_type=AttachmentType.PNG)
 
     def teardown(self) -> None:
-        sleep(5)
         try:
             self.driver.close()
             self.driver.quit()
@@ -144,30 +142,3 @@ class DriverEngine(DriverManager):
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
             raise Exception("driver's N/A")
-
-
-@dataclass
-class ScreenshotEngine(DriverManager):
-
-    sheet_name: str
-
-    def take_screenshot(self,
-                        element: WebElement,
-                        name: str,
-                        compare_images=False,
-                        embed_into_cell=True,
-                        original_image_path=None) -> None:
-
-        image_compare_data = fr"{GLOBAL_PATH}\{read_config('json', 'image_compare_data')}"
-        updated_image_path = fr'{SCREENSHOTS}\{name}.png'
-        element.screenshot(updated_image_path)
-
-        if compare_images:
-            app = ImageCompare()
-            write_json(path=image_compare_data, key="original_image_path", value=original_image_path)
-            write_json(path=image_compare_data, key="actual_image_path", value=[updated_image_path])
-            path = fr'{GLOBAL_PATH}\{read_config("json", "image_compare_data")}'
-            app.execute(path)
-
-        if embed_into_cell:
-            write_excel(sheet_name=self.sheet_name, value=updated_image_path)
