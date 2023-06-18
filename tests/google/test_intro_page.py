@@ -1,4 +1,5 @@
 from core.infrastructure.driver.engine import DriverEngine
+from core.tools.image_compare.image_compare_executor import ImageCompare
 
 
 class TestIntroPage:
@@ -15,6 +16,10 @@ class TestIntroPage:
         except Exception as e:
             self.engine.attach_screenshot()
             raise e
+
+    def test_image_compare(self) -> None:
+        image_compare = ImageCompare()
+        image_compare.execute()
 
     def test_exit_all(self) -> None:
         self.engine.teardown()

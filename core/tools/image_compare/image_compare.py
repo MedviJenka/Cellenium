@@ -4,8 +4,10 @@ import cv2
 import numpy as np
 from skimage.metrics import structural_similarity
 from core.infrastructure.modules.methods import log
+from dataclasses import dataclass
 
 
+@dataclass
 class Logic:
 
     @staticmethod

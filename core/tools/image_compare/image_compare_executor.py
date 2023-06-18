@@ -23,8 +23,3 @@ class ImageCompare(Executor, Logic):
         # self.generate_shadow(original_image_path=data.original_image_path,
         #                      actual_image_path=data.actual_image_path,
         #                      image_resolution=data.image_resolution)
-
-
-if __name__ == '__main__':
-    image = ImageCompare()
-    image.execute()
