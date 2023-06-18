@@ -1,6 +1,6 @@
 {
-  "original_image_path": "C:\\Users\\evgenyp\\Desktop\\1.png",
-  "actual_image_path": "C:\\Users\\evgenyp\\Desktop\\2.png",
+  "original_image_path": "C:\\Users\\medvi\\OneDrive\\Desktop\\Project\\Cellenium\\core\\tools\\image_compare\\images\\1.png",
+  "actual_image_path": "C:\\Users\\medvi\\OneDrive\\Desktop\\Project\\Cellenium\\core\\tools\\image_compare\\images\\2.png",
   "success_rate": 90,
   "image_resolution": [800, 800],
   "break_test": false

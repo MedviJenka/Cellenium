@@ -22,7 +22,3 @@ class ImageCompare(Executor, Logic):
 
         self.combine_images_into_one_image(original_image_path=data.original_image_path,
                                            actual_image_path=data.actual_image_path)
-
-
-image = ImageCompare()
-image.execute()
