@@ -20,6 +20,9 @@ class ImageCompare(Executor, Logic):
                                  success_rate=data.success_rate,
                                  break_test=data.break_test)
 
-        # self.generate_shadow(original_image_path=data.original_image_path,
-        #                      actual_image_path=data.actual_image_path,
-        #                      image_resolution=data.image_resolution)
+        self.combine_images_into_one_image(original_image_path=data.original_image_path,
+                                           actual_image_path=data.actual_image_path)
+
+
+image = ImageCompare()
+image.execute()

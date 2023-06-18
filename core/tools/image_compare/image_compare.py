@@ -5,6 +5,7 @@ import numpy as np
 from skimage.metrics import structural_similarity
 from core.infrastructure.modules.methods import log
 from dataclasses import dataclass
+from PIL import Image
 
 
 @dataclass
@@ -72,12 +73,34 @@ class Logic:
         log(text=f'generated result image name is: {image_name}')
 
         image_path_folder = self._get_image_name(actual_image_path)['folder_path']
-        cv2.imwrite(fr'{image_path_folder}\{image_name}_RESULT.png', before)
+        image_result = fr'{image_path_folder}\{image_name}_RESULT.png'
+        cv2.imwrite(f'{image_result}', before)
         log(level=logging.DEBUG, text=f'saving images in: {image_path_folder}')
         result = score * 100
         cv2.destroyAllWindows()
 
         return result
+
+    def combine_images_into_one_image(self,
+                                      original_image_path: str,
+                                      actual_image_path: str,) -> None:
+
+        image_name = self._get_image_name(actual_image_path)['image_name']
+        image_path_folder = self._get_image_name(actual_image_path)['folder_path']
+        image_result = fr'{image_path_folder}\{image_name}_RESULT.png'
+
+        images = [Image.open(x) for x in [original_image_path, actual_image_path, image_result]]
+        widths, heights = zip(*(i.size for i in images))
+        total_width = sum(widths)
+        max_height = max(heights)
+        new_im = Image.new('RGB', (total_width, max_height))
+        x_offset = 0
+
+        for each_image in images:
+            new_im.paste(each_image, (x_offset, 0))
+            x_offset += each_image.size[0]
+
+        new_im.save(image_result)
 
     @staticmethod
     def generate_rectangles(result: float, success_rate: int, break_test: bool) -> None:
@@ -96,31 +119,3 @@ class Logic:
                          f'when the success rate threshold was {success_rate},'
                          f'please consult with developer or your team.',
                     level=logging.DEBUG)
-
-    # WIP
-    def generate_shadow(self,
-                        image_resolution: list[int],
-                        original_image_path: str,
-                        actual_image_path: str) -> None:
-
-        original_image = cv2.imread(original_image_path)
-        actual_image = cv2.imread(actual_image_path)
-
-        resize_original_image = cv2.resize(original_image, image_resolution)
-        resize_actual_image = cv2.resize(actual_image_path, image_resolution)
-
-        before_gray = cv2.cvtColor(resize_original_image, cv2.COLOR_BGR2GRAY)
-        after_gray = cv2.cvtColor(resize_actual_image, cv2.COLOR_BGR2GRAY)
-
-        score, diff = structural_similarity(before_gray, after_gray, full=True)
-        result = score * 100
-
-        ret, thresh = cv2.threshold(after_gray, 127, 255, 0)
-        contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        cv2.drawContours(actual_image, contours, -1, (255, 0, 0), 1)
-
-        log(f'result is {result}%')
-
-        image_name = self._get_image_name(actual_image_path)['image_name']
-        image_path_folder = self._get_image_name(actual_image_path)['folder_path']
-        cv2.imwrite(f'{image_path_folder}\\shadow_result_{image_name}', actual_image)

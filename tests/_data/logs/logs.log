@@ -1,6 +1,6 @@
-DEBUG: Sunday | 18/06/2023 | 16:24:33 ::  Test: core.tools.image_compare.image_compare, load and resize images
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: resolution is set to: [800, 800]
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: converting images to grayscale, before: 
+DEBUG: Sunday | 18/06/2023 | 17:14:24 ::  Test: core.tools.image_compare.image_compare, load and resize images
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: resolution is set to: [800, 800]
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: converting images to grayscale, before: 
 [[[255 255 255]
   [255 255 255]
   [255 255 255]
@@ -99,14 +99,14 @@ DEBUG: Sunday | 18/06/2023 | 16:24:33 :: converting images to grayscale, before:
   [254 254 254]
   [253 255 253]
   [253 255 253]]]]
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: calculating structural similarity differences, score: 0.8221489450265761, diff: [[1.         1.         0.99965139 ... 0.99645212 0.99786847 1.        ]
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: calculating structural similarity differences, score: 0.8221489450265761, diff: [[1.         1.         0.99965139 ... 0.99645212 0.99786847 1.        ]
  [1.         0.99965139 0.9989984  ... 0.99547184 0.99762252 0.99965139]
  [0.99769475 0.9975804  0.99716273 ... 0.99298659 0.99717431 0.99869394]
  ...
  [0.98968343 0.9913511  0.99155018 ... 0.98410282 0.99123629 0.995266  ]
  [0.99173992 0.99278365 0.9939587  ... 0.99204818 0.99435812 0.99670658]
  [0.99565788 0.99580125 0.99617522 ... 0.99556412 0.99715248 0.99828159]]
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: threshold the difference image, followed by findingcontours to obtain the regions of the two input images that differ (array([[[333, 720]],
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: threshold the difference image, followed by findingcontours to obtain the regions of the two input images that differ (array([[[333, 720]],
 
        [[332, 721]],
 
@@ -9075,7 +9075,7 @@ DEBUG: Sunday | 18/06/2023 | 16:24:33 :: threshold the difference image, followe
        [[17,  1]],
 
        [[17,  0]]], dtype=int32))
-INFO: Sunday | 18/06/2023 | 16:24:33 :: filler: [[[255 255 255]
+INFO: Sunday | 18/06/2023 | 17:14:24 :: filler: [[[255 255 255]
   [255 255 255]
   [255 255 255]
   ...
@@ -9124,166 +9124,178 @@ INFO: Sunday | 18/06/2023 | 16:24:33 :: filler: [[[255 255 255]
   [254 254 254]
   [253 255 253]
   [253 255 253]]]
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 462.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 460.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 3.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 3.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 3.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 16.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2015.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 81.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2320.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 23.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 420.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 36.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 7816.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 11.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 377.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1213.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 72.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 8.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 24.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 136.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 449.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 40.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 33.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 26.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 14.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 33.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 27.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 41.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 17.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 3.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 7.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 8.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 3.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 5.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 37.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 24.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 105.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 109.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 323.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 53.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 339.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 346.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 36.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 8.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 3.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 22.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 6164.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 97.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 60.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 13886.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 148.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 247.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 397.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1052.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 573.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2700.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 4.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2276.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 198.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 230.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 327.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 251.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 0.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 276.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 184.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 554.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 63.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 270.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 162.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2589.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 1637.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 5094.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 279.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 494.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 188.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2379.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 2362.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 340.5
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 60598.0
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: area: 31282.0
-INFO: Sunday | 18/06/2023 | 16:24:33 :: generated result image name is: 2.png
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: saving images in: C:\Users\evgenyp\Desktop
-DEBUG: Sunday | 18/06/2023 | 16:24:33 :: FAILED:Image similarity between both images is: 82.2% when the success rate threshold was 90,please consult with developer or your team.
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 462.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 460.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 3.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 3.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 3.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 16.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2015.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 81.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2320.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 23.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 420.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 36.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 7816.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 11.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 377.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1213.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 72.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 8.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 24.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 136.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 449.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 40.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 33.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 26.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 14.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 33.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 27.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 41.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 17.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 3.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 7.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 8.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 3.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 5.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 37.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 24.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 105.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 109.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 323.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 53.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 339.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 346.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 36.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 8.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 3.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 22.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 6164.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 97.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 60.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 13886.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 148.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 247.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 397.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1052.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 573.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2700.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 4.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2276.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 198.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 230.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 327.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 251.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 0.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 276.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 184.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 554.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 63.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 270.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 162.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2589.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 1637.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 5094.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 279.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 494.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 188.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2379.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 2362.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 340.5
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 60598.0
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: area: 31282.0
+INFO: Sunday | 18/06/2023 | 17:14:24 :: generated result image name is: 2.png
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: saving images in: C:\Users\evgenyp\Desktop
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: FAILED:Image similarity between both images is: 82.2% when the success rate threshold was 90,please consult with developer or your team.
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'IHDR' 16 13
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'sRGB' 41 1
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'gAMA' 54 4
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'pHYs' 70 9
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'IDAT' 91 46428
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'IHDR' 16 13
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'sRGB' 41 1
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'gAMA' 54 4
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'pHYs' 70 9
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'IDAT' 91 49753
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'IHDR' 16 13
+DEBUG: Sunday | 18/06/2023 | 17:14:24 :: STREAM b'IDAT' 41 8192
