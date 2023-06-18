@@ -1,6 +1,6 @@
-from core.tools.suite_runner.suite_runner import TestSuite
+from core.tools.suite.runner import SuiteRunner
 
 
 def test_run_suite() -> None:
-    run = TestSuite()
-    run.execute(report=True)
+    run = SuiteRunner(report=True)
+    run.execute()
