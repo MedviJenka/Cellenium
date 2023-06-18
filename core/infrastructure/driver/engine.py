@@ -57,7 +57,22 @@ class DriverEngine(DriverManager):
                     raise Exception
 
         except Exception as e:
-            self.attach_screenshot()
+            raise e
+
+    def get_dynamic_element(self, element_attribute: str, name: str, wait=10) -> webdriver:
+
+        #                      element_type               excel element
+        # example ............ //button[starts-with(@id, 'save')
+
+        self.driver.implicitly_wait(wait)
+        element_locator = get_locator(self.screen, name)
+
+        try:
+            path = f"//*[contains(@{element_attribute}, '{element_locator}')]"
+            # path = f"//{element_attribute}[starts-with(@{element_type.lower()}, {element_locator})"
+            return self.driver.find_elements(By.XPATH, path)[0]
+
+        except Exception as e:
             raise e
 
     def take_screenshot(self,
@@ -142,3 +157,4 @@ class DriverEngine(DriverManager):
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
             raise Exception("driver's N/A")
+
