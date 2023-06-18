@@ -43,7 +43,3 @@ class SuiteRunner(Executor):
             os.system(fr'allure serve {REPORTS}')
 
         log(logging.DEBUG, text=f'executing: {self.execute.__name__}')
-
-
-suite = SuiteRunner()
-suite.execute()

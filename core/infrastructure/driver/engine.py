@@ -61,7 +61,7 @@ class DriverEngine(DriverManager):
 
     def get_dynamic_element(self, element_attribute: str, name: str, wait=10) -> webdriver:
 
-        #                      element_type               excel element
+        #                       element_type             excel element
         # example ............ //button[starts-with(@id, 'save')
 
         self.driver.implicitly_wait(wait)
@@ -73,7 +73,6 @@ class DriverEngine(DriverManager):
             case 'DYNAMIC':
                 try:
                     path = f"//*[contains(@{element_attribute}, '{element_locator}')]"
-                    # path = f"//{element_attribute}[starts-with(@{element_type.lower()}, {element_locator})"
                     return self.driver.find_elements(By.XPATH, path)[0]
 
                 except Exception as e:
