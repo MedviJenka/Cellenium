@@ -8,14 +8,12 @@ class AbstractMessage(ABC):
 
 
 class NoSuchTypeException(AbstractMessage, BaseException):
-
     @staticmethod
     def message() -> str:
         raise Exception("no such type in the page base file")
 
 
 class GlobalError(Exception, AbstractMessage):
-
     @staticmethod
     def message() -> str:
         raise 'an error has been made'

@@ -47,8 +47,8 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
         raise Exception('no such type')
 
 
-"""
-:params: *args ........... sheet_name, value inherited from read_excel
+""""
+*args ........... sheet_name, value inherited from read_excel
 """
 
 
@@ -69,22 +69,15 @@ def get_image(*args: str) -> str:
 
 
 def write_excel(sheet_name: str, value: str) -> None:
-
     width = 100
     height = 100
-
     img = Image.open(value)
     img = img.resize((width, height), Image.NEAREST)
     img.save(value)
-
-    path = fr"{GLOBAL_PATH}\{read_config('path', 'page_base')}"
-
-    workbook = openpyxl.load_workbook(path)
+    workbook = openpyxl.load_workbook(PAGE_BASE)
     sheet = workbook[sheet_name]
-
-    img = openpyxl.drawing.image.Image(value)
     sheet.add_image(img, 'D2')
-    workbook.save(fr'{GLOBAL_PATH}\{read_config("path", "page_base")}')
+    workbook.save(fr'{GLOBAL_PATH}\{PAGE_BASE}')
 
 
 def read_test_case(sheet_name: list[str]) -> list[str]:
