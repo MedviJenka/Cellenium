@@ -1,14 +1,14 @@
 from selenium.webdriver.common.by import By
 
 
-GLOBAL_PATH = r'C:\Users\medvi\OneDrive\Desktop\Cellenium'
+GLOBAL_PATH = r'C:\Users\evgenyp\Cellenium'
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
 SCREENSHOTS = fr'{GLOBAL_PATH}\core\utils\data\screenshots\reports'
 JENKINS = fr'{GLOBAL_PATH}\jenkins\jenkins.war'
 LOGS = fr'{TESTS}\_data\logs\logs.log'
-ALLURE = fr'{TESTS}\_data\reports'
+REPORTS = fr'{TESTS}\_reports'
 PAGE_BASE = fr'{TESTS}\_data\page_base.xlsx'
 TEST_SUITE = fr'{TESTS}\_data\test_suite.xlsx'
 PLAYER_DATA = fr'{GLOBAL_PATH}\app\player\data.json'

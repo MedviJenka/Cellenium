@@ -28,24 +28,20 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
 
     workbook = openpyxl.load_workbook(PAGE_BASE)
     sheet = workbook[sheet_name]
-    data = {}
+    data: dict = {}
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
-        result = {
-            'name': row[0],
-            'locator': row[1],
-            'type': row[2],
-            'image': row[3]
+
+        name, locator, _type, image = row[0], row[1], row[2], row[3]
+        data[name] = {
+            'name': name,
+            'locator': locator,
+            'type': _type,
+            'image': image
         }
-        data[result['name']] = result
 
     try:
-        return {
-            'name': data[value]['name'],
-            'locator': data[value]['locator'],
-            'type': data[value]['type'],
-            'image': data[value]['image']
-        }
+        return data[value]
 
     except ValueError:
         raise Exception('no such type')

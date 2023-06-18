@@ -7,4 +7,4 @@ from core.infrastructure.driver.service import ServiceManager
 class DriverManager(ServiceManager):
 
     def __post_init__(self) -> None:
-        self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
+        self.driver: webdriver = webdriver.Chrome(service=self.service)

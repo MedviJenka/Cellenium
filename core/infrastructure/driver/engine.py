@@ -26,6 +26,43 @@ class DriverEngine(DriverManager):
         if maximize_window:
             self.driver.maximize_window()
 
+    def get_element(self, name: str, wait=10) -> webdriver:
+
+        self.driver.implicitly_wait(wait)
+        element_locator = get_locator(self.screen, name)
+        element_type = get_type(self.screen, name)
+
+        try:
+
+            match element_type:
+
+                case 'NAME':
+                    return self.driver.find_element(Type.NAME, element_locator)
+
+                case 'ID':
+                    return self.driver.find_element(Type.ID, element_locator)
+
+                case 'CSS':
+                    return self.driver.find_element(Type.CSS, element_locator)
+
+                case 'XPATH':
+                    return self.driver.find_element(Type.XPATH, element_locator)
+
+                case 'TEXT':
+                    return self.driver.find_element(Type.TEXT, element_locator)
+
+                case 'CLASS':
+                    return self.driver.find_element(Type.CLASS, element_locator)
+
+                case _:
+                    raise Exception
+
+        except Exception as e:
+            allure.attach(self.driver.get_screenshot_as_png(),
+                          name='screenshot',
+                          attachment_type=AttachmentType.PNG)
+            raise e
+
     def take_screenshot(self,
                         element: WebElement,
                         name: str,
@@ -53,49 +90,6 @@ class DriverEngine(DriverManager):
         element_locator = get_locator(self.screen, name)
         wait = WebDriverWait(self.driver, seconds)
         return wait.until(expected_conditions.visibility_of_element_located(element_locator))
-
-    def get_element(self, name: str) -> webdriver:
-
-        element_locator = get_locator(self.screen, name)
-        element_type = get_type(self.screen, name)
-        print(element_locator, element_type)
-
-        """
-        :TODO: ..... fix wait for element 
-        """
-
-        self.driver.implicitly_wait(30)
-
-        try:
-
-            match element_type:
-
-                case 'NAME':
-                    return self.driver.find_element(Type.NAME, element_locator)
-
-                case 'ID':
-                    return self.driver.find_element(Type.ID, element_locator)
-
-                case 'CSS':
-                    return self.driver.find_element(Type.CSS, element_locator)
-
-                case 'XPATH':
-                    return self.driver.find_element(Type.XPATH, element_locator)
-
-                case 'LINK_TEXT':
-                    return self.driver.find_element(Type.TEXT, element_locator)
-
-                case 'CLASS':
-                    return self.driver.find_element(Type.CLASS, element_locator)
-
-                case _:
-                    raise Exception
-
-        except Exception as e:
-            allure.attach(self.driver.get_screenshot_as_png(),
-                          name='screenshot',
-                          attachment_type=AttachmentType.PNG)
-            raise e
 
     def dropdown(self, by: By, locator: str) -> webdriver:
         select = Select(self.driver.find_element(by, get_locator(self.screen, locator)))

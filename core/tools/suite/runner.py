@@ -8,7 +8,7 @@ from core.infrastructure.constants.data import *
 
 
 @dataclass
-class TestSuite(Executor):
+class SuiteRunner(Executor):
 
     """"
     :param: workbook ...................... excel screen sheet name
@@ -17,11 +17,12 @@ class TestSuite(Executor):
 
     """
 
+    report: bool = False
     workbook: openpyxl.Workbook = field(default_factory=lambda: openpyxl.load_workbook(TEST_SUITE))
 
-    def algorythm(self, report=True) -> None:
+    def execute(self) -> None:
 
-        log(logging.DEBUG, text=f'allure report files in: {ALLURE}')
+        log(logging.DEBUG, text=f'allure report files in: {REPORTS}')
 
         # gets each sheet title
         for each_sheet_name in [sheet.title for sheet in self.workbook]:
@@ -32,21 +33,18 @@ class TestSuite(Executor):
                 test_name, action = row[0], row[1]
 
                 # runs each test that is marked with 'run'
-                if action == 'run':
-                    path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={ALLURE}'
+                if action == 'RUN':
+                    path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
                     os.system(fr'pytest {path}')
                     log(logging.DEBUG, text=f'items tested: {test_name}')
 
         # generate allure web report
-        if report:
-            os.system(fr'allure serve {ALLURE}')
+        if self.report:
+            os.system(fr'allure serve {REPORTS}')
 
-    def execute(self, report=True) -> None:
+        log(logging.DEBUG, text=f'executing: {self.execute.__name__}')
 
-        match report:
-            case False:
-                self.algorythm(report=False)
 
-            case _:
-                self.algorythm()
-        log(logging.DEBUG, text=f'executing: {self.algorythm()}')
+if __name__ == '__main__':
+    suite = SuiteRunner()
+    suite.execute()
