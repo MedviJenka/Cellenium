@@ -41,6 +41,7 @@ class DriverEngine(DriverManager):
         self.driver.implicitly_wait(seconds)
         element_locator = get_locator(self.screen, name)
         element_type = get_type(self.screen, name)
+        actions = get_actions(self.screen, name)
 
         try:
 
@@ -56,6 +57,13 @@ class DriverEngine(DriverManager):
                     return self.driver.find_element(Type.CSS, element_locator)
 
                 case 'XPATH':
+                    if actions == 'MULTIPLE_ELEMENTS':
+                        data = self.driver.find_elements(By.XPATH, element_locator)
+                        for matched_element in data:
+                            text = matched_element.text
+                            print(text)
+                            log(text=text)
+                            return text
                     return self.driver.find_element(Type.XPATH, element_locator)
 
                 case 'TEXT':
@@ -63,9 +71,6 @@ class DriverEngine(DriverManager):
 
                 case 'CLASS':
                     return self.driver.find_element(Type.CLASS, element_locator)
-
-                case _:
-                    raise Exception
 
         except Exception as e:
             raise e
@@ -78,12 +83,12 @@ class DriverEngine(DriverManager):
         self.driver.implicitly_wait(seconds)
         element_locator = get_locator(self.screen, name)
         element_type = get_type(self.screen, name)
+        path = f"//*[contains(@{attribute}, '{element_locator}')]"
 
         match element_type:
 
             case 'DYNAMIC':
                 try:
-                    path = f"//*[contains(@{attribute}, '{element_locator}')]"
                     return self.driver.find_elements(By.XPATH, path)[0]
 
                 except Exception as e:

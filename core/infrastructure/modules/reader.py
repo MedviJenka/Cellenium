@@ -32,11 +32,18 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
 
-        name, locator, _type, image = row[0], row[1], row[2], row[3]
+        name = row[0]
+        locator = row[1]
+        element_type = row[2]
+        actions = row[3]
+        image = row[4]
+
         data[name] = {
+
             'name': name,
             'locator': locator,
-            'type': _type,
+            'type': element_type,
+            'actions': actions,
             'image': image
         }
 
@@ -62,6 +69,10 @@ def get_locator(*args: str) -> str:
 
 def get_type(*args: str) -> str:
     return read_excel(*args)['type']
+
+
+def get_actions(*args: str) -> str:
+    return read_excel(*args)['actions']
 
 
 def get_image(*args: str) -> str:
