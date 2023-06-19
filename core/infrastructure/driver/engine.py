@@ -25,9 +25,9 @@ class DriverEngine(DriverManager):
         if maximize_window:
             self.driver.maximize_window()
 
-    def get_element(self, name: str, wait=10) -> webdriver:
+    def get_element(self, name: str, seconds=10) -> webdriver:
 
-        self.driver.implicitly_wait(wait)
+        self.driver.implicitly_wait(seconds)
         element_locator = get_locator(self.screen, name)
         element_type = get_type(self.screen, name)
 
@@ -59,12 +59,12 @@ class DriverEngine(DriverManager):
         except Exception as e:
             raise e
 
-    def get_dynamic_element(self, element_attribute: str, name: str, wait=10) -> webdriver:
+    def get_dynamic_element(self, attribute: str, name: str, seconds=10) -> webdriver:
 
-        #                       element_type             excel element
-        # example ............ //button[starts-with(@id, 'save')
+        # explanation ............ //*[contains(@<attribute>, <name>)]
+        # example ................ //*[contains(@name, "btnK")]
 
-        self.driver.implicitly_wait(wait)
+        self.driver.implicitly_wait(seconds)
         element_locator = get_locator(self.screen, name)
         element_type = get_type(self.screen, name)
 
@@ -72,7 +72,7 @@ class DriverEngine(DriverManager):
 
             case 'DYNAMIC':
                 try:
-                    path = f"//*[contains(@{element_attribute}, '{element_locator}')]"
+                    path = f"//*[contains(@{attribute}, '{element_locator}')]"
                     return self.driver.find_elements(By.XPATH, path)[0]
 
                 except Exception as e:

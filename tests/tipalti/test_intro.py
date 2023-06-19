@@ -10,3 +10,4 @@ class TestTipalti:
 
     def test_navigation(self) -> None:
         self.engine.get_dynamic_element('class', 'ap_automation').click()
+
