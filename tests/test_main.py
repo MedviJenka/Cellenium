@@ -1,6 +1,9 @@
 from core.tools.suite.runner import SuiteRunner
 
 
-def test_run_suite() -> None:
+def run_suite() -> None:
     run = SuiteRunner(report=True)
     run.execute()
+
+
+run_suite()

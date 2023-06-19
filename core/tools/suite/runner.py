@@ -12,7 +12,6 @@ class SuiteRunner(Executor):
 
     """"
     :param: workbook ...................... excel screen sheet name
-    :param: _list ......................... empty list to store values for farther iteration
     :param: report ........................ generate allure report bool
 
     """
