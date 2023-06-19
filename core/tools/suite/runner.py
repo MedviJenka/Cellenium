@@ -1,7 +1,7 @@
 import logging
 import os
 import openpyxl
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from core.infrastructure.modules.methods import log
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
@@ -18,7 +18,7 @@ class SuiteRunner(Executor):
     """
 
     report: bool = False
-    workbook: openpyxl.Workbook = field(default_factory=lambda: openpyxl.load_workbook(TEST_SUITE))
+    workbook: openpyxl.Workbook = openpyxl.load_workbook(TEST_SUITE)
 
     def execute(self) -> None:
 
