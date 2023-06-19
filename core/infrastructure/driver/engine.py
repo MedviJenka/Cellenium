@@ -18,6 +18,17 @@ from allure_commons.types import AttachmentType
 @dataclass
 class DriverEngine(DriverManager):
 
+    """
+    :class: DriverManager ................. inherits selenium webdriver functionality for navigating into
+                                            a deeper state of selenium:
+                                            example: engine = DriverEngine(...)
+                                                     self.engine.driver...
+
+    :param: screen ........................ screen reads from page_base sheet name and makes it to iterate through
+                                            different screens, overall for usability and order.
+
+    """
+
     screen: Optional[str] = ''
 
     def get_web(self, web_link: str, maximize_window=True) -> None:
