@@ -1,4 +1,3 @@
-import allure
 from os import system
 from selenium import webdriver
 from dataclasses import dataclass
@@ -33,6 +32,8 @@ class DriverEngine(DriverManager):
 
     def get_web(self, web_link: str, maximize_window=True) -> None:
         self.driver.get(web_link)
+        log(header='url link',
+            content=f'started: {web_link}')
         if maximize_window:
             self.driver.maximize_window()
 
@@ -61,9 +62,8 @@ class DriverEngine(DriverManager):
                         data = self.driver.find_elements(By.XPATH, element_locator)
                         for matched_element in data:
                             text = matched_element.text
-                            print(text)
-                            log(text=text)
-                            return text
+                            log(header='elements list',
+                                content=f'used: {actions}, elements: {element_locator}, data: \n{text}')
                     return self.driver.find_element(Type.XPATH, element_locator)
 
                 case 'TEXT':
@@ -115,7 +115,6 @@ class DriverEngine(DriverManager):
         if embed_into_cell:
             write_excel(sheet_name=self.screen, value=updated_image_path)
 
-        log(text=f"screenshot location: {updated_image_path}")
 
     def wait_for_element(self, name: str, seconds=5) -> None:
         element_locator = get_locator(self.screen, name)
@@ -137,7 +136,6 @@ class DriverEngine(DriverManager):
         table = self.get_element(name)
         rows = len(table.find_elements(selector, f'.//{tag}'))
         print(fr'number of rows in this page is: {rows}')
-        log(level=logging.INFO, text=f'number of rows: {rows}')
         return rows
 
     def press_keyboard_key(self, key: str) -> ActionChains:

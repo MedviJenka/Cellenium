@@ -1,6 +1,7 @@
 import logging
 import os
 from datetime import datetime
+import allure
 from core.infrastructure.constants.data import GLOBAL_PATH, LOGS
 from core.infrastructure.modules.reader import read_config
 
@@ -25,7 +26,11 @@ def run_test(class_name: object, methods: list[str]) -> None:
         raise
 
 
-def log(level=logging.INFO, text='') -> callable:
+def log(header: str, content: str, file_type=allure.attachment_type.TEXT) -> allure:
+    return allure.attach(f'{content}', header, file_type)
+
+
+def _log(level=logging.INFO, text='') -> callable:
 
     """"
     logger method
