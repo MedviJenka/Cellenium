@@ -1,0 +1,15 @@
+used: MULTIPLE_ELEMENTS, elements: /html/body/div[2]/div[2]/div/div[2], data: 
+WHY TIPALTI
+Why Tipalti
+Customer Stories
+Invoice-Based Workflow
+Performance-Based Workflow
+Benefits by Role
+Benefits by Industry
+TECHNOLOGY
+The Tipalti Platform
+Multi-Entity Architecture
+Financial Controls
+Payment API
+Secure Cloud
+Pi Payables Intelligence

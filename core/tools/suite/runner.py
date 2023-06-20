@@ -21,7 +21,7 @@ class SuiteRunner(Executor):
 
     def execute(self) -> None:
 
-        log(header='executor is running', content=f'allure report files in: {REPORTS}')
+        log(logging.DEBUG, text=f'allure report files in: {REPORTS}')
 
         # gets each sheet title
         for each_sheet_name in [sheet.title for sheet in self.workbook]:
@@ -35,10 +35,10 @@ class SuiteRunner(Executor):
                 if action == 'RUN':
                     path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
                     os.system(fr'py -m pytest {path}')
-                    log(header=str(logging.DEBUG), content=f'items tested: {test_name}')
+                    log(logging.DEBUG, text=f'items tested: {test_name}')
 
         # generate allure web report
         if self.report:
             os.system(fr'allure serve {REPORTS}')
 
-        log(str(logging.DEBUG), content=f'executing: {self.execute.__name__}')
+        log(logging.DEBUG, text=f'executing: {self.execute.__name__}')

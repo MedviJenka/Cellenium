@@ -12,12 +12,15 @@ from core.infrastructure.driver.manager import DriverManager
 from core.infrastructure.modules.methods import *
 from core.infrastructure.modules.reader import *
 from allure_commons.types import AttachmentType
+from browsermobproxy import Server
 
 
 @dataclass
 class DriverEngine(DriverManager):
 
     """
+    :TODO: test lines 171 and on
+
     :class: DriverManager ................. inherits selenium webdriver functionality for navigating into
                                             a deeper state of selenium:
                                             example: engine = DriverEngine(...)
@@ -32,8 +35,8 @@ class DriverEngine(DriverManager):
 
     def get_web(self, web_link: str, maximize_window=True) -> None:
         self.driver.get(web_link)
-        log(header='url link',
-            content=f'started: {web_link}')
+        allure_log(header='url link',
+                   content=f'started: {web_link}')
         if maximize_window:
             self.driver.maximize_window()
 
@@ -58,13 +61,17 @@ class DriverEngine(DriverManager):
                     return self.driver.find_element(Type.CSS, element_locator)
 
                 case 'XPATH':
+
+                    xpath = self.driver.find_elements(By.XPATH, element_locator)
+
                     if actions == 'MULTIPLE_ELEMENTS':
-                        data = self.driver.find_elements(By.XPATH, element_locator)
-                        for matched_element in data:
+
+                        for matched_element in xpath:
                             text = matched_element.text
-                            log(header='elements list',
-                                content=f'used: {actions}, elements: {element_locator}, data: \n{text}')
-                    return self.driver.find_element(Type.XPATH, element_locator)
+                            allure_log(header='elements list',
+                                       content=f'used: {actions}, elements: {element_locator}, data: \n{text}')
+                    else:
+                        return xpath
 
                 case 'TEXT':
                     return self.driver.find_element(Type.TEXT, element_locator)
@@ -115,7 +122,6 @@ class DriverEngine(DriverManager):
         if embed_into_cell:
             write_excel(sheet_name=self.screen, value=updated_image_path)
 
-
     def wait_for_element(self, name: str, seconds=5) -> None:
         element_locator = get_locator(self.screen, name)
         wait = WebDriverWait(self.driver, seconds)
@@ -165,6 +171,39 @@ class DriverEngine(DriverManager):
         allure.attach(fixture_funcction=self.driver.get_screenshot_as_png(),
                       name="Screenshot",
                       attachment_type=AttachmentType.PNG)
+
+    def switch_to_new_tab(self) -> None:
+        window_handles = self.driver.window_handles
+        self.driver.switch_to.window(window_handles[-1])
+
+    def switch_to_main_tab(self) -> None:
+        window_handles = self.driver.window_handles
+        self.driver.switch_to.window(window_handles[0])
+
+    def handle_basic_auth(self, username: str, password: str) -> None:
+        url = f"{username}:{password}@{self.driver.current_url}"
+        self.driver.get(url)
+
+    def capture_network_traffic(self, proxy_path: str) -> list[str]:
+        server = Server(proxy_path)
+        server.start()
+        proxy = server.create_proxy()
+
+        selenium_proxy = self.driver.common.proxy.Proxy({
+            "httpProxy": proxy.proxy,
+            "httpsProxy": proxy.proxy,
+            "noProxy": None,
+            "proxyType": "MANUAL",
+        })
+
+        capabilities = self.driver.common.desired_capabilities.DesiredCapabilities.CHROME.copy()
+        selenium_proxy.add_to_capabilities(capabilities)
+        driver = self.driver.Chrome(desired_capabilities=capabilities)
+        proxy.new_har("traffic")
+        har = proxy.har
+        server.stop()
+
+        return [driver, har]
 
     def teardown(self) -> None:
         try:
