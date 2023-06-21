@@ -12,4 +12,3 @@ class Authorization:
         "Content-Type": "application/json",
         "Authorization": TOKEN
     }
-

@@ -1,9 +1,10 @@
+import logging
 import requests
 import warnings
-import logging
+from typing import Optional
 from dataclasses import dataclass
-from core.infrastructure.api.constants import Authorization
 from core.infrastructure.modules.methods import log
+from core.infrastructure.api.constants import Authorization
 
 
 warnings.filterwarnings('ignore')
@@ -31,7 +32,7 @@ class RestRequest:
     base_url: str = 'https://qastng.ai-logix.net'
     status_code: bool = False
 
-    def get_request(self, query_path: str, params=None, verify=False) -> any:
+    def get_request(self, query_path: str, params=Optional[dict], verify=False) -> any:
         url = f'{self.base_url}/{query_path}'
         response = requests.get(url, headers=Authorization.HEADERS, params=params, verify=verify)
         if self.status_code:
@@ -40,7 +41,7 @@ class RestRequest:
         log(level=logging.DEBUG, text=f'sent {response} with status code: {response.status_code}')
         return response.json()
 
-    def post_request(self, query_path: str, body: dict[str], params=None, verify=False) -> dict | int:
+    def post_request(self, query_path: str, body: dict[str], params=Optional[dict], verify=False) -> dict | int:
         url = f'{self.base_url}/{query_path}'
         response = requests.post(url, headers=Authorization.HEADERS, json=body, params=params, verify=verify)
         if self.status_code:
@@ -49,7 +50,7 @@ class RestRequest:
         log(level=logging.DEBUG, text=f'sent {response} with status code: {response.status_code}')
         return response.json()
 
-    def put_request(self, query_path: str, body: dict[str], params=None, verify=False) -> dict | int:
+    def put_request(self, query_path: str, body: dict[str], params=Optional[dict], verify=False) -> dict | int:
         url = f'{self.base_url}/{query_path}'
         response = requests.put(url, headers=Authorization.HEADERS, json=body, params=params, verify=verify)
         if self.status_code:
@@ -58,7 +59,7 @@ class RestRequest:
         log(level=logging.DEBUG, text=f'sent {response} with status code: {response.status_code}')
         return response.json()
 
-    def delete_request(self, query_path: str, params=None, verify=False) -> dict | int:
+    def delete_request(self, query_path: str, params=Optional[dict], verify=False) -> dict | int:
         url = f'{self.base_url}/{query_path}'
         response = requests.delete(url, headers=Authorization.HEADERS, params=params, verify=verify)
         if self.status_code:
