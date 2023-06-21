@@ -29,7 +29,7 @@ class RestRequest:
     :returns: response in a json format
     """
 
-    base_url: str = 'https://qastng.ai-logix.net'
+    base_url: str = ''
     status_code: bool = False
 
     def get_request(self, query_path: str, params=Optional[dict], verify=False) -> any:
