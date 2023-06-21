@@ -9,3 +9,6 @@ def ai_test_plan(text: str) -> None:
     response = session_api.send_message(text)
     result = "".join(response.get(f'write a test plan for {text}'))
     print(result)
+
+
+ai_test_plan("write a 3 step test plan for snake game")

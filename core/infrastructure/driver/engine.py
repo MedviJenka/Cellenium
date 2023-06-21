@@ -36,7 +36,7 @@ class DriverEngine(DriverManager):
     def get_web(self, web_link: str, maximize_window=True) -> None:
         self.driver.get(web_link)
         allure_log(header='url link',
-                   content=f'started: {web_link}')
+                   content=f'webdriver used:\n {self.driver} \n started: \n {web_link}')
         if maximize_window:
             self.driver.maximize_window()
 
@@ -52,12 +52,15 @@ class DriverEngine(DriverManager):
             match element_type:
 
                 case 'NAME':
+                    allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                     return self.driver.find_element(Type.NAME, element_locator)
 
                 case 'ID':
+                    allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                     return self.driver.find_element(Type.ID, element_locator)
 
                 case 'CSS':
+                    allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                     return self.driver.find_element(Type.CSS, element_locator)
 
                 case 'XPATH':
@@ -69,8 +72,9 @@ class DriverEngine(DriverManager):
                         for matched_element in xpath:
                             text = matched_element.text
                             allure_log(header='elements list',
-                                       content=f'used: {actions}, elements: {element_locator}, data: \n{text}')
+                                       content=f'used: {actions}, data: \n{text}')
                     else:
+                        allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                         return xpath
 
                 case 'TEXT':

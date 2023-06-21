@@ -34,6 +34,7 @@ class SuiteRunner(Executor):
                 # runs each test that is marked with 'run'
                 if action == 'RUN':
                     path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
+
                     os.system(fr'py -m pytest {path}')
                     log(logging.DEBUG, text=f'items tested: {test_name}')
 
