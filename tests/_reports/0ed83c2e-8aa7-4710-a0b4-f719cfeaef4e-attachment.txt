@@ -1,0 +1,3 @@
+element name: search
+ elements locator: q
+ element type: NAME

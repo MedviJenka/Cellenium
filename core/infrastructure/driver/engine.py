@@ -47,13 +47,11 @@ class DriverEngine(DriverManager):
         element_type = get_type(self.screen, name)
         element_name = get_name(self.screen, name)
         actions = get_actions(self.screen, name)
+        output = f'element name: {element_name} | elements locator: {element_locator} | element type: {element_type}'
 
         try:
 
-            allure_log(header='elements used',
-                       content=f'element name: {element_name}\n'
-                               f'elements locator: {element_locator}\n'
-                               f'element type: {element_type}\n')
+            allure_log(header='elements used', content=output)
 
             match element_type:
 
@@ -87,6 +85,7 @@ class DriverEngine(DriverManager):
                     return self.driver.find_element(Type.CLASS, element_locator)
 
         except Exception as e:
+            self.attach_screenshot()
             raise e
 
     def get_dynamic_element(self, attribute: str, name: str, seconds=10) -> webdriver:
@@ -179,13 +178,15 @@ class DriverEngine(DriverManager):
                       name="Screenshot",
                       attachment_type=AttachmentType.PNG)
 
-    def switch_to_new_tab(self) -> None:
-        window_handles = self.driver.window_handles
-        self.driver.switch_to.window(window_handles[-1])
+    def switch_to_new_tab(self, url: str) -> None:
+        self.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.CONTROL + 'T')
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+        self.driver.get(url)
+        return self.driver.switch_to.window(self.driver.window_handles[0])
 
     def switch_to_main_tab(self) -> None:
         window_handles = self.driver.window_handles
-        self.driver.switch_to.window(window_handles[0])
+        return self.driver.switch_to.window(window_handles[0])
 
     def handle_basic_auth(self, username: str, password: str) -> None:
         url = f"{username}:{password}@{self.driver.current_url}"
