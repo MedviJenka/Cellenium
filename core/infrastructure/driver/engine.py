@@ -150,9 +150,12 @@ class DriverEngine(DriverManager):
         print(fr'number of rows in this page is: {rows}')
         return rows
 
-    def press_keyboard_key(self, key: str) -> ActionChains:
+    def press_keyboard_key(self, key: str, hold=False) -> ActionChains:
         action = ActionChains(self.driver)
         press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
+        if hold:
+            press = action.key_down(Keys.CONTROL + 'T').send_keys(key).key_up(Keys.CONTROL)
+            return press.perform()
         return press.perform()
 
     def scroll_page(self, direction: str, px: int) -> None:
