@@ -45,22 +45,25 @@ class DriverEngine(DriverManager):
         self.driver.implicitly_wait(seconds)
         element_locator = get_locator(self.screen, name)
         element_type = get_type(self.screen, name)
+        element_name = get_name(self.screen, name)
         actions = get_actions(self.screen, name)
 
         try:
 
+            allure_log(header='elements used',
+                       content=f'element name: {element_name}\n'
+                               f'elements locator: {element_locator}\n'
+                               f'element type: {element_type}\n')
+
             match element_type:
 
                 case 'NAME':
-                    allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                     return self.driver.find_element(Type.NAME, element_locator)
 
                 case 'ID':
-                    allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                     return self.driver.find_element(Type.ID, element_locator)
 
                 case 'CSS':
-                    allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                     return self.driver.find_element(Type.CSS, element_locator)
 
                 case 'XPATH':
