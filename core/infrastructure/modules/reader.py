@@ -12,8 +12,10 @@ def read_config(key: str, value: str) -> str:
     return config.get(key, value)
 
 
-def read_json(path: str) -> dict:
+def read_json(path: str, value: Optional[str] = None) -> str | dict:
     with open(path, 'r', encoding='utf-8') as json_file:
+        if value:
+            return json.load(json_file)[value]
         return json.load(json_file)
 
 

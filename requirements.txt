@@ -53,3 +53,9 @@ webdriver-manager==3.8.6
 websockets==11.0.3
 wsproto==1.2.0
 XlsxWriter==3.1.2
+
+botbuilder~=0.0.1
+aiohttp~=3.8.4
+gTTS~=2.3.2
+
+pyttsx3~=2.90
