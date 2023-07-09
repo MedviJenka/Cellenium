@@ -2,3 +2,4 @@
 /core/utils/data/
 /core/tools/test_plan/api_key.json
 /core/tools/test_plan/token.json
+/devops/ec2/data.json
