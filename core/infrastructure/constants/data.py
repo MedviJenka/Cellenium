@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
-# Copy Cellenium folder path over here
-GLOBAL_PATH = r'C:\Users\evgenyp\Cellenium'
+###################################################################
+# Copy Cellenium project folder path over here
+GLOBAL_PATH = r'C:\Users\medvi\OneDrive\Desktop\Project\Cellenium'
+###################################################################
 
 
 TESTS = fr'{GLOBAL_PATH}\tests'

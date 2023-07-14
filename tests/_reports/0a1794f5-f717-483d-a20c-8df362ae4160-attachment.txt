@@ -1,3 +1,0 @@
-element name: button elements locator: 
-btnKelement type: 
-NAME
