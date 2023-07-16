@@ -30,35 +30,19 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
 
     workbook = openpyxl.load_workbook(PAGE_BASE)
     sheet = workbook[sheet_name]
-    data: dict = {}
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
 
-        name = row[0]
-        locator = row[1]
-        element_type = row[2]
-        actions = row[3]
-        image = row[4]
+        name, locator, element_type, actions, image = row[:5]
 
-        data[name] = {
-
-            'name': name,
-            'locator': locator,
-            'type': element_type,
-            'actions': actions,
-            'image': image
-        }
-
-    try:
-        return data[value]
-
-    except ValueError:
-        raise Exception('no such type')
-
-
-""""
-*args ........... sheet_name, value inherited from read_excel
-"""
+        if name == value:
+            return {
+                'name': name,
+                'locator': locator,
+                'type': element_type,
+                'actions': actions,
+                'image': image
+            }
 
 
 def get_name(*args) -> str:
