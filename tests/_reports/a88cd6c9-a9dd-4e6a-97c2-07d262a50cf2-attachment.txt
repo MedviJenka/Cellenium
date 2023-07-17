@@ -1,2 +1,0 @@
-[ WARN:0@17.455] global D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp (239) cv::findDecoder imread_('C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\core\tools\image_compare\images\1.png'): can't open/read file: check file path/integrity
-[ WARN:0@17.455] global D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp (239) cv::findDecoder imread_('C:\Users\medvi\OneDrive\Desktop\Project\Cellenium\core\tools\image_compare\images\2.png'): can't open/read file: check file path/integrity

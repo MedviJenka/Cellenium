@@ -1,4 +1,0 @@
-webdriver used:
- <selenium.webdriver.chrome.webdriver.WebDriver (session="042546f88f2d86b4c27a964d80cf0f71")> 
- started: 
- https://www.google.com

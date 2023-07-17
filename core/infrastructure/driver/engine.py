@@ -26,9 +26,8 @@ class DriverEngine(DriverManager):
                                             example: engine = DriverEngine(...)
                                                      self.engine.driver...
 
-    :param: screen ........................ screen reads from page_base sheet name and makes it to iterate through
+    :param: screen ........................ screen reads from page_base.xlsx sheet name and iterates through
                                             different screens, overall for usability and order.
-
     """
 
     screen: Optional[str] = ''

@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from core.infrastructure.constants.data import IMAGE_COMPARE_DATA
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.modules.reader import read_json
@@ -6,7 +5,6 @@ from core.tools.image_compare.image_compare import Logic
 from core.tools.image_compare.input_data import InputData
 
 
-@dataclass
 class ImageCompare(Executor, Logic):
 
     def execute(self, path=IMAGE_COMPARE_DATA) -> None:
