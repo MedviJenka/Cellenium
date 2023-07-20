@@ -1,5 +1,9 @@
-$commands = @("init", "fmt", "plan", "apply")
-foreach ($command in $commands) {
-    Write-Host "executing: $command"
+set-location -path "C:\Users\evgenyp\Cellenium\devops\ubuntu\"
+
+# aws configure
+
+$commands = @('fmt', 'validate', 'plan', 'init', 'apply')
+foreach($command in $commands) {
+    write-host "executing terraform $command"
     terraform $command
 }
