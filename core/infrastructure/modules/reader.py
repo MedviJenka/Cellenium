@@ -19,7 +19,7 @@ def read_json(path: str, value: Optional[str] = None) -> str | dict:
         return json.load(json_file)
 
 
-def write_json(path: str, key: str, value: Optional[list[str]]) -> None:
+def write_json(path: str, key: str, value: Optional[any]) -> None:
     data = read_json(path)
     data[key] = value
     with open(path, 'w', encoding='utf-8') as json_file:
