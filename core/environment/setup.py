@@ -33,5 +33,5 @@ def install_requirements(interpreter='py') -> None:
 
 if __name__ == '__main__':
     create()
-    install_requirements()
+    # install_requirements()
     run_venv()

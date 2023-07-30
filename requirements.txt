@@ -59,3 +59,5 @@ aiohttp~=3.8.4
 gTTS~=2.3.2
 
 pyttsx3~=2.90
+
+boto3~=1.28.15
