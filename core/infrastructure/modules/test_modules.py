@@ -1,4 +1,14 @@
-from core.infrastructure.modules.reader import get_name, get_type, get_locator
+from core.infrastructure.modules.reader import get_name, get_type, get_locator, _read_excel
+
+
+def test_excel() -> None:
+    assert _read_excel('IntroPage', 'button') == {
+        'name': 'button',
+        'locator': 'btnK',
+        'type': 'NAME',
+        'actions': None,
+        'image': None,
+    }
 
 
 def test_get_name() -> None:

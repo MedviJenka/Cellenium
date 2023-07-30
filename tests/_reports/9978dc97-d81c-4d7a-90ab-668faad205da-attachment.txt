@@ -1,4 +1,0 @@
-webdriver used:
- <selenium.webdriver.chrome.webdriver.WebDriver (session="8281bc97bb785109a9536e1c17c19793")> 
- started: 
- https://acjira/browse/SMAR-7397?filter=-1

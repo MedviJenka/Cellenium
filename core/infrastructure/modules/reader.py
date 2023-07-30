@@ -26,7 +26,7 @@ def write_json(path: str, key: str, value: Optional[any]) -> None:
         json.dump(data, json_file)
 
 
-def read_excel(sheet_name: str, value: str) -> dict[str]:
+def _read_excel(sheet_name: str, value: str) -> dict[str]:
 
     workbook = openpyxl.load_workbook(PAGE_BASE)
     sheet = workbook[sheet_name]
@@ -46,23 +46,23 @@ def read_excel(sheet_name: str, value: str) -> dict[str]:
 
 
 def get_name(*args) -> str:
-    return read_excel(*args)['name']
+    return _read_excel(*args)['name']
 
 
 def get_locator(*args: str) -> str:
-    return read_excel(*args)['locator']
+    return _read_excel(*args)['locator']
 
 
 def get_type(*args: str) -> str:
-    return read_excel(*args)['type']
+    return _read_excel(*args)['type']
 
 
 def get_actions(*args: str) -> str:
-    return read_excel(*args)['actions']
+    return _read_excel(*args)['actions']
 
 
 def get_image(*args: str) -> str:
-    return read_excel(*args)['image']
+    return _read_excel(*args)['image']
 
 
 def write_excel(sheet_name: str, value: str) -> None:
