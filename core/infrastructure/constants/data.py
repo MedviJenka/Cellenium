@@ -7,6 +7,7 @@ GLOBAL_PATH = r'C:\Users\medvi\OneDrive\Desktop\Project\Cellenium'
 ###################################################################
 
 
+# Automation
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
@@ -18,6 +19,9 @@ PAGE_BASE = fr'{TESTS}\_data\page_base.xlsx'
 TEST_SUITE = fr'{TESTS}\_data\test_suite.xlsx'
 PLAYER_DATA = fr'{GLOBAL_PATH}\app\player\data.json'
 IMAGE_COMPARE_DATA = fr'{GLOBAL_PATH}\core\tools\image_compare\data.json'
+
+# DEVSECOPS
+EC2 = fr'{GLOBAL_PATH}\devops\infrastructure\core\deployment\data\ec2.json'
 
 
 class Type:

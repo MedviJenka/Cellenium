@@ -6,6 +6,7 @@ from infrastructure.core.deployment.ec2.image_ids import NorthVirginia as NV
 @dataclass
 class CreateEC2Instance:
 
+    name: str
     device_name: str = '/dev/xvda'
     region: str = 'us-east-1'
     instance_type: str = 't2.micro'
@@ -16,8 +17,10 @@ class CreateEC2Instance:
     def __post_init__(self) -> None:
         self.client: boto3 = boto3.client('ec2', region_name=self.region)
         self.response = self.client.run_instances(
+
             BlockDeviceMappings=[
                 {
+                    'VirtualName': self.name,
                     'DeviceName': self.device_name,
                     'Ebs': {
                         'DeleteOnTermination': True,
@@ -25,6 +28,7 @@ class CreateEC2Instance:
                         'VolumeType': 'gp2'
                     },
                 },
+
             ],
             ImageId=self.image_id,
             InstanceType=self.instance_type,
@@ -34,3 +38,6 @@ class CreateEC2Instance:
                 'Enabled': False
             },
             SecurityGroupIds=self.security_group)
+
+
+CreateEC2Instance(name='jeniajen')
