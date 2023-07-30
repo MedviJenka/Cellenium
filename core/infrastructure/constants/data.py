@@ -22,6 +22,7 @@ IMAGE_COMPARE_DATA = fr'{GLOBAL_PATH}\core\tools\image_compare\data.json'
 
 # DEVSECOPS
 EC2 = fr'{GLOBAL_PATH}\devops\infrastructure\core\deployment\data\ec2.json'
+IAM_SECRETS_CSV = ''
 
 
 class Type:
