@@ -1,19 +1,15 @@
 import boto3
 from dataclasses import dataclass, field
+from infrastructure.core.deployment.ec2.image_ids import NorthVirginia as NV
 
 
 @dataclass
 class CreateEC2Instance:
 
-    """
-    Example: CreateEC2Instance(image_id='ami-0f34c5ae932e6f0e4')
-
-    """
-
     device_name: str = '/dev/xvda'
     region: str = 'us-east-1'
     instance_type: str = 't2.micro'
-    image_id: str = ''
+    image_id: str = NV.amazon_linux
     volume_size: int = 8
     security_group: list[str] = field(default_factory=list)
 
