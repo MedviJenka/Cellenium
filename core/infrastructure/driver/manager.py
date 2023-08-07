@@ -20,4 +20,4 @@ class DriverManager(ServiceManager):
     """
 
     def __post_init__(self) -> None:
-        self.driver: webdriver = webdriver.Chrome(service=self.service)
+        self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
