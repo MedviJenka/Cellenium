@@ -1,5 +1,4 @@
 import logging
-import os
 import openpyxl
 from dataclasses import dataclass
 from core.infrastructure.modules.methods import log

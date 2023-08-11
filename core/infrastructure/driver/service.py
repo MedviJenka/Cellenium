@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @dataclass
@@ -15,8 +15,7 @@ class ServiceManager:
 
     """
 
-    # older_version = '114.0.5735.90'
-    # chrome_driver = ChromeDriverManager(version=older_version)
-    service = Service()
+    older_version = '114.0.5735.90'
+    chrome_driver = ChromeDriverManager(version=older_version)
+    service = Service(executable_path=chrome_driver.install())
     options = Options()
-

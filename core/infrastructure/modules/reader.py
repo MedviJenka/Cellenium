@@ -6,6 +6,16 @@ from configparser import ConfigParser
 from core.infrastructure.constants.data import *
 
 
+"""
+:TODO:
+    IN FUTURE PYTHON 3.12 USE
+    from typing import Unpack
+    example: 
+        def get_name(*args: Unpack[_read_excel]) -> str: ...
+            
+"""
+
+
 def read_config(key: str, value: str) -> str:
     config = ConfigParser()
     config.read(CONFIG_PATH)

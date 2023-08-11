@@ -1,13 +1,11 @@
+import os
 from selenium.webdriver.common.by import By
 
 
-###################################################################
-# Copy Cellenium project folder path over here
-GLOBAL_PATH = r'C:\Users\evgenyp\Cellenium'
-###################################################################
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 
-# Automation
+GLOBAL_PATH = script_dir.split('core')[0][:-1]
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
