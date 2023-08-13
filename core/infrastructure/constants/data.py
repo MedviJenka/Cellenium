@@ -2,10 +2,10 @@ import os
 from selenium.webdriver.common.by import By
 
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
+abstract_dir = os.path.dirname(os.path.abspath(__file__))
 
 
-GLOBAL_PATH = script_dir.split('core')[0][:-1]
+GLOBAL_PATH = abstract_dir.split('core')[0][:-1]
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
