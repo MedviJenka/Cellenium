@@ -162,8 +162,7 @@ class DriverEngine(DriverManager):
 
         """
         :param: px ................ pixels
-        :param: up ................ px = negative number
-        :param: down .............. px = positive number
+        :param: up or down
 
         """
 
@@ -171,7 +170,7 @@ class DriverEngine(DriverManager):
         
         match direction:
             case "up":
-                self.driver.execute_script(f"window.scrollBy(0, {px});")
+                self.driver.execute_script(f"window.scrollBy(0, {-px});")
 
             case "down":
                 self.driver.execute_script(f"window.scrollBy(0, {px});")
