@@ -215,6 +215,19 @@ class DriverEngine(DriverManager):
 
         return [driver, har]
 
+    def count_rows(self, name: str, structure: str) -> int:
+
+        """
+        :param name .................. element name
+        :param structure ............. div, tr, etc..
+        :return:  integer
+        """
+
+        locator = get_locator(self.screen, name)
+        table = self.driver.find_element(Type.XPATH, locator)
+        rows = table.find_elements(By.XPATH, structure)
+        return len(rows)
+
     def teardown(self) -> None:
         try:
             self.driver.close()
