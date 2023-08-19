@@ -2,10 +2,12 @@ import os
 from selenium.webdriver.common.by import By
 
 
+# Full project path which used to strip to get global path
 abstract_dir = os.path.dirname(os.path.abspath(__file__))
 
-
-GLOBAL_PATH = abstract_dir.split('core')[0][:-1]
+# Automation
+GLOBAL_PATH = abstract_dir.removesuffix('core\\infrastructure\\constants')[:-1]
+print(GLOBAL_PATH)
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
