@@ -1,1 +1,0 @@
-element name: logos | elements locator: /html/body/div[2]/div[2]/div/div[2] | element type: XPATH

@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 abstract_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Automation
-GLOBAL_PATH = abstract_dir.removesuffix('core\\infrastructure\\constants')[:-1]
+GLOBAL_PATH = abstract_dir.removesuffix('infrastructure\\infrastructure\\constants')[:-1]
 print(GLOBAL_PATH)
 TESTS = fr'{GLOBAL_PATH}\tests'
 CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
