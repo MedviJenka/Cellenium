@@ -42,8 +42,8 @@ def negative(exception_type: Exception(any)):
     If an AssertionError is caught, it prints out the error message and then re-raises the exception.
     """
 
-    def decorator(func):
-        def wrapper(*args: any, **kwargs: any):
+    def decorator(func) -> callable:
+        def wrapper(*args: any, **kwargs: any) -> None:
             try:
                 log(text=f"{func.__name__} raised {exception_type.__name__}")
                 func(*args, **kwargs)
