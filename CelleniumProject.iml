@@ -10,7 +10,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_tests/google/.pytest_cache/v" />
       <excludeFolder url="file://$MODULE_DIR$/tests/.pytest_cache/v" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

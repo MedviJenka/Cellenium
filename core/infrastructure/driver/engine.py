@@ -150,7 +150,7 @@ class DriverEngine(DriverManager):
         print(fr'number of rows in this page is: {rows}')
         return rows
 
-    def press_keyboard_key(self, key: str, hold=False) -> ActionChains:
+    def press_keyboard_key(self, key: str, hold=False) -> ActionChains | None:
         action = ActionChains(self.driver)
         press = action.key_down(Keys.CONTROL).send_keys(key).key_up(Keys.CONTROL)
         if hold:
