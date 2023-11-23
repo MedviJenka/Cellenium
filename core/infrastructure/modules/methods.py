@@ -1,7 +1,7 @@
-import logging
-import os
-from datetime import datetime
 import allure
+import os
+import logging
+from datetime import datetime
 from core.infrastructure.constants.data import GLOBAL_PATH, LOGS
 from core.infrastructure.modules.reader import read_config
 
@@ -30,7 +30,8 @@ def allure_log(header: str, content: str, file_type=allure.attachment_type.TEXT)
     return allure.attach(f'{content}', header, file_type)
 
 
-def log(level=logging.INFO, text='') -> callable:
+@property
+def log() -> callable:
 
     """"
     logger method
@@ -43,21 +44,9 @@ def log(level=logging.INFO, text='') -> callable:
     logging.basicConfig(filename=LOGS,
                         filemode='w',
                         datefmt=time_format,
-                        format=f'%(levelname)s:{time_format} :: %(message)s',
-                        level=level)
-    match level:
-        case logging.INFO:
-            logging.info(text)
-        case logging.DEBUG:
-            logging.debug(text)
-        case logging.ERROR:
-            logging.error(text)
-        case logging.CRITICAL:
-            logging.critical(text)
-        case logging.FATAL:
-            logging.fatal(text)
-        case _:
-            raise Exception('no such logging level')
+                        format=f'%(levelname)s:{time_format} | %(message)s | function: %(funcName)s | line: %(lineno)d',
+                        level=logging.INFO)
+    return logging
 
 
 def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_test_coverage_state=False) -> None:
@@ -65,7 +54,7 @@ def generate_tests(test_dir: str, suite_name: list[str] | str, parallel=1, show_
     path = read_config('path', 'tests')
     tests = fr"{GLOBAL_PATH}\{path}\{test_dir}"
     report_dir = fr"{GLOBAL_PATH}\{read_config('path', 'allure')}"
-    log(text=fr'allure report located in : {report_dir}')
+    log().info(fr'allure report located in : {report_dir}')
 
     match suite_name:
         case '*':
