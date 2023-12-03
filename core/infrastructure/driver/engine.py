@@ -31,7 +31,7 @@ class DriverEngine(DriverManager):
 
     """
 
-    screen: Optional[str] = ''
+    screen: Optional[str] = None
 
     def get_web(self, web_link: str, maximize_window=True) -> None:
         self.driver.get(web_link)

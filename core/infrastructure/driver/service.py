@@ -15,10 +15,13 @@ class ServiceManager:
 
     """
 
-    # older_version = '114.0.5735.90'
-    chrome_driver = ChromeDriverManager()
+    older_version = '114.0.5735.90'
+    chrome_driver = ChromeDriverManager(version=older_version)
     service = Service(executable_path=chrome_driver.install())
     options = Options()
 
     def __post_init__(self) -> None:
         self.options.add_argument('--headless')
+        self.options.add_experimental_option(
+            "prefs", {"credentials_enable_service": False, "profile.password_manager_enabled": False}
+        )

@@ -9,7 +9,7 @@ class Logger:
 
     time: object = datetime.now()
     time_format: str = f'{time: %A | %d/%m/%Y | %X}'
-    format: str = f'%(levelname)s | {time_format} | %(message)s | Function: %(funcName)s | Line: %(lineno)d'
+    format: str = f'%(levelname)s |{time_format} | %(message)s | Function: %(funcName)s | Line: %(lineno)d'
 
     @property
     def level(self) -> callable:
