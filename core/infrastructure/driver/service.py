@@ -15,8 +15,12 @@ class ServiceManager:
 
     """
 
-    older_version = '114.0.5735.90'
-    chrome_driver = ChromeDriverManager(version=older_version)
+    versions = {
+        'old': '114.0.5735.90',
+        'current': '119.0.6045.105'
+    }
+
+    chrome_driver = ChromeDriverManager(version=versions['current'])
     service = Service(executable_path=chrome_driver.install())
     options = Options()
 
