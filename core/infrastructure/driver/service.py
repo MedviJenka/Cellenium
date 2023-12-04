@@ -19,3 +19,4 @@ class ServiceManager:
     chrome_driver = ChromeDriverManager()
     service = Service(executable_path=chrome_driver.install())
     options = Options()
+    options.add_argument('--headless')

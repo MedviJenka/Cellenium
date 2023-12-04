@@ -15,6 +15,9 @@ from allure_commons.types import AttachmentType
 from browsermobproxy import Server
 
 
+log = Logger()
+
+
 @dataclass
 class DriverEngine(DriverManager):
 
@@ -37,6 +40,7 @@ class DriverEngine(DriverManager):
         self.driver.get(web_link)
         allure_log(header='url link',
                    content=f'webdriver used:\n {self.driver} \n started: \n {web_link}')
+        log.level.info(f'webdriver used:\n {self.driver} \n started: \n {web_link}')
         if maximize_window:
             self.driver.maximize_window()
 
@@ -52,6 +56,7 @@ class DriverEngine(DriverManager):
         try:
 
             allure_log(header='elements used', content=output)
+            log.level.info(output)
 
             match element_type:
 
