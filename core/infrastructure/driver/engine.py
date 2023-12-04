@@ -34,7 +34,7 @@ class DriverEngine(DriverManager):
 
     """
 
-    screen: Optional[str] = ''
+    screen: Optional[str] = None
 
     def get_web(self, web_link: str, maximize_window=True) -> None:
         self.driver.get(web_link)
@@ -55,7 +55,7 @@ class DriverEngine(DriverManager):
 
         try:
 
-            allure_log(header='elements used', content=output)
+            # allure_log(header='elements used', content=output)
             log.level.info(output)
 
             match element_type:
@@ -80,7 +80,7 @@ class DriverEngine(DriverManager):
                             allure_log(header='elements list',
                                        content=f'used: {actions}, data: \n{text}')
                     else:
-                        allure_log(header='elements: used', content=f'elements: \n{element_locator}')
+                        # allure_log(header='elements: used', content=f'elements: \n{element_locator}')
                         return xpath
 
                 case 'TEXT':
@@ -90,7 +90,7 @@ class DriverEngine(DriverManager):
                     return self.driver.find_element(Type.CLASS, element_locator)
 
         except Exception as e:
-            self.attach_screenshot()
+            # self.attach_screenshot()
             raise e
 
     def get_dynamic_element(self, attribute: str, name: str, seconds=10) -> webdriver:
@@ -241,3 +241,30 @@ class DriverEngine(DriverManager):
             system("taskkill /f /im chromedriver.exe")
             system("taskkill /f /im chrome.exe")
             raise Exception("driver's N/A")
+
+    def load_cookies(self) -> None:
+
+        path = COOKIES
+
+        with open(path) as file:
+            cookies = json.load(file)
+
+            for i in cookies:
+                cookie_with_name_and_value = {
+                    "name": i["name"],
+                    "value": i["value"]
+                }
+
+            self.driver.add_cookie(cookie_with_name_and_value)
+
+    def save_storage(self) -> None:
+        local_storage = self.driver.execute_script(
+            "var items = {}, ls = window.localStorage; for (var i = 0; i < ls.length; i++)  items[ls.key(i)] = ls.getItem(ls.key(i)); return items;")
+        with open(COOKIES, "w") as f:
+            json.dump(local_storage, f)
+
+    def load_storage(self):
+        with open(COOKIES, "r") as f:
+            local_storage = json.load(f)
+        for key, value in local_storage.items():
+            self.driver.execute_script(f"window.localStorage.setItem('{key}', '{value}')")

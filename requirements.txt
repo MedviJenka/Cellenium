@@ -62,4 +62,8 @@ pyttsx3~=2.90
 
 boto3~=1.28.15
 
+<<<<<<< HEAD
 webdrivermanager~=0.10.0
+=======
+configparser~=6.0.0
+>>>>>>> af5c24fffe756185b76f9a57eeaaaf5f31b39659

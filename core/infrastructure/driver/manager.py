@@ -1,9 +1,6 @@
 from dataclasses import dataclass
 from selenium import webdriver
-
-from core.infrastructure.constants.data import COOKIES
 from core.infrastructure.driver.service import ServiceManager
-from core.infrastructure.modules.reader import read_json
 
 
 @dataclass
@@ -23,14 +20,4 @@ class DriverManager(ServiceManager):
     """
 
     def __post_init__(self) -> None:
-
         self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
-        self.cookies = [read_json(COOKIES)]
-        self.driver.get("https://chat.openai.com/")
-
-        for cookie in self.cookies:
-
-            if isinstance(cookie, dict) and 'name' in cookie and 'value' in cookie:
-                self.driver.add_cookie(cookie)
-            else:
-                print(f"Invalid cookie format: {cookie}")

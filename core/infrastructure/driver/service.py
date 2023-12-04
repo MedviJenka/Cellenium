@@ -8,15 +8,20 @@ from webdriver_manager.chrome import ChromeDriverManager
 class ServiceManager:
 
     """
-    :TODO: fix try if statements with older version and newer, because currently it doesnt work
-
     :param: chrome_driver .............. driver.exe (for now supports only chrome)
     :param: service ...................  for now supports only chrome
 
     """
 
-    # older_version = '114.0.5735.90'
-    chrome_driver = ChromeDriverManager()
+    versions = {
+        'old': '114.0.5735.90',
+        'current': '119.0.6045.105'
+    }
+
+    chrome_driver = ChromeDriverManager(driver_version=versions['current'])
     service = Service(executable_path=chrome_driver.install())
     options = Options()
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
+    options.add_argument("start-maximized")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)

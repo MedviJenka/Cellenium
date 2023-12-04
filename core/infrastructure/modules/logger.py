@@ -1,6 +1,6 @@
 import logging
-from dataclasses import dataclass
 from datetime import datetime
+from dataclasses import dataclass
 from core.infrastructure.constants.data import LOGS
 
 
