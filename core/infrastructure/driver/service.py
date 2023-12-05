@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import ChromeOptions
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -20,8 +20,8 @@ class ServiceManager:
 
     chrome_driver = ChromeDriverManager(driver_version=versions['current'])
     service = Service(executable_path=chrome_driver.install())
-    options = Options()
+    options = ChromeOptions()
     # options.add_argument('--headless')
-    options.add_argument("start-maximized")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
+    # options.add_argument("start-maximized")
+    # options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    # options.add_experimental_option('useAutomationExtension', False)

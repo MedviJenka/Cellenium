@@ -1,5 +1,5 @@
 from core.infrastructure.modules.reader import (
-    read_excel,
+    _read_excel,
     get_name,
     get_type,
     get_locator,
@@ -20,7 +20,7 @@ class TestModule:
             'image': None
         }
 
-        assert read_excel('IntroPage', 'button') == result
+        assert _read_excel('IntroPage', 'button') == result
 
     def test_name(self) -> None:
         assert get_name('IntroPage', 'button') == 'button'

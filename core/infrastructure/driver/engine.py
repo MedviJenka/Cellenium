@@ -243,19 +243,14 @@ class DriverEngine(DriverManager):
             raise Exception("driver's N/A")
 
     def load_cookies(self) -> None:
-
-        path = COOKIES
-
-        with open(path) as file:
+        with open(COOKIES) as file:
             cookies = json.load(file)
-
-            for i in cookies:
-                cookie_with_name_and_value = {
-                    "name": i["name"],
-                    "value": i["value"]
+            for each in cookies:
+                output = {
+                    "name": each["name"],
+                    "value": each["value"]
                 }
-
-            self.driver.add_cookie(cookie_with_name_and_value)
+            self.driver.add_cookie(output)
 
     def save_storage(self) -> None:
         local_storage = self.driver.execute_script(
@@ -264,7 +259,8 @@ class DriverEngine(DriverManager):
             json.dump(local_storage, f)
 
     def load_storage(self):
-        with open(COOKIES, "r") as f:
-            local_storage = json.load(f)
-        for key, value in local_storage.items():
-            self.driver.execute_script(f"window.localStorage.setItem('{key}', '{value}')")
+        with open(COOKIES, "r") as file:
+            local_storage = json.load(file)
+        for each in local_storage:
+            for key, value in each.items():
+                self.driver.execute_script(f"window.localStorage.setItem('{key}', '{value}')")

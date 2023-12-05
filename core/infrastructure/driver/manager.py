@@ -1,6 +1,8 @@
+import undetected_chromedriver as uc
 from dataclasses import dataclass
 from selenium import webdriver
 from core.infrastructure.driver.service import ServiceManager
+from typing import Optional
 
 
 @dataclass
@@ -19,5 +21,11 @@ class DriverManager(ServiceManager):
 
     """
 
+    undetected: Optional[any] = None
+
     def __post_init__(self) -> None:
         self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
+        if self.undetected:
+            self.driver: webdriver = uc.Chrome(service=self.service, options=self.options)
+
+

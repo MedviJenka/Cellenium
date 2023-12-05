@@ -1,11 +1,9 @@
 from time import sleep
-
 from selenium.webdriver.common.by import By
-
 from core.infrastructure.driver.engine import DriverEngine
 
 
-engine = DriverEngine(screen='ChatGPT')
+engine = DriverEngine(screen='ChatGPT', undetected=True)
 
 
 class TestGetDataFromChatGPT:
@@ -15,10 +13,12 @@ class TestGetDataFromChatGPT:
 
     def test_load_cookies(self) -> None:
         engine.load_cookies()
+        sleep(15)
         engine.driver.refresh()
-        engine.save_storage()
-        engine.load_storage()
-        sleep(10)
+        sleep(15)
+        # engine.save_storage()
+        # engine.load_storage()
+        # sleep(10)
 
     def test(self) -> None:
         print(engine.driver.find_element(By.XPATH, '//*[@id="__next"]/div[1]/div[2]/main/div[2]/div[1]/div/div[2]/div[2]').text)
