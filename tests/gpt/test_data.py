@@ -1,6 +1,7 @@
 from time import sleep
 from selenium.webdriver.common.by import By
 from core.infrastructure.driver.engine import DriverEngine
+from core.infrastructure.modules.decorators import memoize
 
 
 engine = DriverEngine(screen='ChatGPT', undetected=True)
@@ -11,6 +12,7 @@ class TestGetDataFromChatGPT:
     def test_setup(self) -> None:
         engine.get_web(web_link='https://chat.openai.com/', maximize_window=True)
 
+    @memoize
     def test_load_cookies(self) -> None:
         engine.load_cookies()
         sleep(15)

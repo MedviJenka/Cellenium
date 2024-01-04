@@ -1,6 +1,6 @@
 import boto3
 from dataclasses import dataclass, field
-from infrastructure.core.deployment.ec2.image_ids import NorthVirginia as NV
+from core.infrastructure.devops.deployment.ec2.image_ids import NorthVirginia as NV
 
 
 @dataclass

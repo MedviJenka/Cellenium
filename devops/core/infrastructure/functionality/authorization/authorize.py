@@ -1,6 +1,6 @@
 import boto3
 from core.infrastructure.constants.data import IAM_SECRETS_CSV
-from infrastructure.modules.get_auth_from_excel import get_access_key, get_secret_key
+from core.infrastructure.modules.get_auth_from_excel import get_access_key, get_secret_key
 
 
 access_key_id = get_access_key(IAM_SECRETS_CSV)

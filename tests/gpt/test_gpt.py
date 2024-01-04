@@ -1,5 +1,9 @@
 from dataclasses import dataclass
 from core.infrastructure.driver.engine import DriverEngine
+from core.infrastructure.modules.logger import Logger
+
+
+log = Logger()
 
 
 @dataclass

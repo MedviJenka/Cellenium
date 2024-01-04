@@ -23,5 +23,8 @@ class ServiceManager:
     options = ChromeOptions()
     # options.add_argument('--headless')
     # options.add_argument("start-maximized")
-    # options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
     # options.add_experimental_option('useAutomationExtension', False)
+    # preferences = {"download.default_directory": GLOBAL_PATH}
+    # options.add_experimental_option("prefs", preferences)
+    # options.add_experimental_option("debuggerAddress", "127.0.0.1:8080")

@@ -12,7 +12,7 @@ class Logger:
     format: str = f'%(levelname)s | {time_format} | %(message)s | Function: %(funcName)s | Line: %(lineno)d'
 
     @property
-    def level(self) -> callable:
+    def level(self) -> logging:
 
         """"
         logger method

@@ -1,9 +1,11 @@
-import logging
 import openpyxl
 from dataclasses import dataclass
-from core.infrastructure.modules.methods import log
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
+from core.infrastructure.modules.logger import Logger
+
+
+log = Logger()
 
 
 @dataclass
@@ -20,7 +22,7 @@ class SuiteRunner(Executor):
 
     def execute(self) -> None:
 
-        log(logging.DEBUG, text=f'allure report files in: {REPORTS}')
+        log.level.debug(f'allure report files in: {REPORTS}')
 
         # gets each sheet title
         for each_sheet_name in [sheet.title for sheet in self.workbook]:
@@ -35,10 +37,10 @@ class SuiteRunner(Executor):
                     path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
 
                     os.system(fr'py -m pytest {path}')
-                    log(logging.DEBUG, text=f'items tested: {test_name}')
+                    log.level.debug(f'items tested: {test_name}')
 
         # generate allure web report
         if self.report:
             os.system(fr'allure serve {REPORTS}')
 
-        log(logging.DEBUG, text=f'executing: {self.execute.__name__}')
+        log.level.debug(f'executing: {self.execute.__name__}')
