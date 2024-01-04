@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
-from threading import Thread, Lock
+from threading import Thread
 
 
 log = Logger()
