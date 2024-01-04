@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
+from threading import Thread, Lock
 
 
 log = Logger()
@@ -20,7 +21,12 @@ class SuiteRunner(Executor):
     report: bool = False
     workbook: openpyxl.Workbook = openpyxl.load_workbook(TEST_SUITE)
 
-    def execute(self) -> None:
+    @staticmethod
+    def multi_process(function: callable) -> None:
+        thread = Thread(target=function)
+        thread.start()
+
+    def logic(self) -> None:
 
         log.level.debug(f'allure report files in: {REPORTS}')
 
@@ -44,3 +50,6 @@ class SuiteRunner(Executor):
             os.system(fr'allure serve {REPORTS}')
 
         log.level.debug(f'executing: {self.execute.__name__}')
+
+    def execute(self) -> any:
+        self.multi_process(function=self.logic)
