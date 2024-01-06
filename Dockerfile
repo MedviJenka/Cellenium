@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Set the working directory in the container
-WORKDIR /C:/Users/evgenyp/Desktop/Assets/Cellenium/tests/google/test_dummy.py
+WORKDIR /home/jenia/Desktop/Cellenium/tests/google/test_dummy.py
 
 # Copy the current directory contents into the container at /usr/src/app
 COPY . .
@@ -17,4 +17,4 @@ EXPOSE 8000
 ENV NAME Cellenium
 
 # Run tests when the container launches
-CMD ["python", "./tests/google/test_dummy.py"]
+CMD ["python", "./tests"]
