@@ -1,0 +1,19 @@
+version: "3"
+services:
+  cellenium:
+    image: selenium/standalone-chrome
+    ports:
+      - "8082:80"
+    restart: always
+    networks:
+      cellenium_network:
+        ipv4_address: 192.168.92.2
+
+networks:
+  cellenium_network:
+    # ip address management
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.92.2/24"
+
