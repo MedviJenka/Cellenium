@@ -51,5 +51,9 @@ class SuiteRunner(Executor):
 
         log.level.debug(f'executing: {self.execute.__name__}')
 
-    def execute(self) -> any:
-        self.multi_process(function=self.logic)
+    def execute(self, multi_process: bool = False) -> any:
+        match multi_process:
+            case True:
+                self.multi_process(function=self.logic)
+            case _:
+                self.logic()
