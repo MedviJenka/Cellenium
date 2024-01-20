@@ -7,7 +7,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-
 from core.infrastructure.modules.enums import Type
 from core.tools.image_compare.image_compare_executor import ImageCompare
 from core.infrastructure.driver.manager import DriverManager
@@ -52,15 +51,12 @@ class DriverEngine(DriverManager):
         element_locator = get_locator(self.screen, name)
         element_type = get_type(self.screen, name)
         element_name = get_name(self.screen, name)
-        actions = get_actions(self.screen, name)
         output = f'element name: {element_name} | elements locator: {element_locator} | element type: {element_type}'
 
         try:
-
             # allure_log(header='elements used', content=output)
-            log.level.info(output)
-
             if element_type in Type.__members__:
+                log.level.info(output)
                 return self.driver.find_element(Type[element_type].value, element_locator)
 
         except Exception as e:

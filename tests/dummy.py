@@ -1,23 +1,22 @@
 from dataclasses import dataclass
-from core.infrastructure.modules.logger import Logger
+from enum import Enum
 
 
-log = Logger()
+class Function:
+
+    @staticmethod
+    def func1() -> int:
+        return 1
+
+    @staticmethod
+    def func2() -> int:
+        return 2
 
 
-@dataclass
-class App:
+class Types(Enum):
 
-    numbers: list
-
-    def sun_last_2_numbers(self) -> int:
-
-        self.numbers.sort(reverse=True)
-        outcome = self.numbers[0] + self.numbers[1]
-        log.level.info(f'result is: {outcome}')
-        return outcome
+    ONE = Function.func1()
+    TWO = Function.func2()
 
 
-app = App([1, 4, 40, 2])
-if __name__ == '__main__':
-    app.sun_last_2_numbers()
+print(Types.__members__)
