@@ -55,24 +55,24 @@ def _read_excel(sheet_name: str, value: str) -> dict[str]:
             }
 
 
-def get_name(*args) -> str:
-    return _read_excel(*args)['name']
+def get_name(**kwargs) -> str:
+    return _read_excel(**kwargs)['name']
 
 
-def get_locator(*args: str) -> str:
-    return _read_excel(*args)['locator']
+def get_locator(**kwargs: str) -> str:
+    return _read_excel(**kwargs)['locator']
 
 
-def get_type(*args: str) -> str:
-    return _read_excel(*args)['type']
+def get_type(**kwargs: str) -> str:
+    return _read_excel(*kwargs)['type']
 
 
-def get_actions(*args: str) -> str:
-    return _read_excel(*args)['actions']
+def get_actions(**kwargs: str) -> str:
+    return _read_excel(**kwargs)['actions']
 
 
-def get_image(*args: str) -> str:
-    return _read_excel(*args)['image']
+def get_image(**kwargs: str) -> str:
+    return _read_excel(**kwargs)['image']
 
 
 def write_excel(sheet_name: str, value: str) -> None:

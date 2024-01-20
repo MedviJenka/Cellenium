@@ -27,5 +27,3 @@ class DriverManager(ServiceManager):
         self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
         if self.undetected:
             self.driver: webdriver = uc.Chrome(service=self.service, options=self.options)
-
-
