@@ -23,12 +23,3 @@ COOKIES = fr'{GLOBAL_PATH}\core\infrastructure\constants\data\cookies.json'
 # DEVSECOPS
 EC2 = fr'{GLOBAL_PATH}\devops\infrastructure\core\deployment\data\ec2.json'
 IAM_SECRETS_CSV = ''
-
-
-class Type:
-    CLASS = By.CLASS_NAME
-    ID = By.ID
-    NAME = By.NAME
-    CSS = By.CSS_SELECTOR
-    XPATH = By.XPATH
-    TEXT = By.LINK_TEXT

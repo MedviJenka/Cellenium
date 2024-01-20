@@ -7,6 +7,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+
+from core.infrastructure.modules.enums import Type
 from core.tools.image_compare.image_compare_executor import ImageCompare
 from core.infrastructure.driver.manager import DriverManager
 from core.infrastructure.modules.methods import *
@@ -58,36 +60,8 @@ class DriverEngine(DriverManager):
             # allure_log(header='elements used', content=output)
             log.level.info(output)
 
-            match element_type:
-
-                case 'NAME':
-                    return self.driver.find_element(Type.NAME, element_locator)
-
-                case 'ID':
-                    return self.driver.find_element(Type.ID, element_locator)
-
-                case 'CSS':
-                    return self.driver.find_element(Type.CSS, element_locator)
-
-                case 'XPATH':
-
-                    xpath = self.driver.find_elements(By.XPATH, element_locator)
-
-                    if actions == 'MULTIPLE_ELEMENTS':
-
-                        for matched_element in xpath:
-                            text = matched_element.text
-                            allure_log(header='elements list',
-                                       content=f'used: {actions}, data: \n{text}')
-                    else:
-                        # allure_log(header='elements: used', content=f'elements: \n{element_locator}')
-                        return xpath
-
-                case 'TEXT':
-                    return self.driver.find_element(Type.TEXT, element_locator)
-
-                case 'CLASS':
-                    return self.driver.find_element(Type.CLASS, element_locator)
+            if element_type in Type.__members__:
+                return self.driver.find_element(Type[element_type].value, element_locator)
 
         except Exception as e:
             # self.attach_screenshot()
