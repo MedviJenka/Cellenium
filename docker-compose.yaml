@@ -1,27 +1,22 @@
 version: '3'
 services:
 
-#  firefox:
-#    image: selenium/node-firefox:latest
-#    volumes:
-#      - /dev/shm:/dev/shm
-#    depends_on:
-#      - hub
-#    environment:
-#      HUB_HOST: hub
-#    restart: always
-
-  chrome:
-    image: selenium/node-chrome:latest
+  core:
     volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - hub
-    environment:
-      HUB_HOST: hub
-    restart: always
+      - '/core:/app/core'
+    build:
+      context: /core/
 
-  hub:
-    image: selenium/hub:latest
-    ports:
-      - "4444:4444"
+  tests:
+    volumes:
+      - '/tests:/app/tests'
+    build:
+      context: /test/
+
+
+  app:
+    command: pytest
+    restart: always
+    depends_on:
+      - core
+      - tests
