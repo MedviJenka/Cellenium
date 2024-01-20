@@ -20,3 +20,4 @@ class Types(Enum):
 
 
 print(Types.__members__)
+print(Types.__members__.values())

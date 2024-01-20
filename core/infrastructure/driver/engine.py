@@ -54,7 +54,6 @@ class DriverEngine(DriverManager):
         output = f'element name: {element_name} | elements locator: {element_locator} | element type: {element_type}'
 
         try:
-            # allure_log(header='elements used', content=output)
             if element_type in Type.__members__:
                 log.level.info(output)
                 return self.driver.find_element(Type[element_type].value, element_locator)
