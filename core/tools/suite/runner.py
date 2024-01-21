@@ -1,9 +1,9 @@
 import openpyxl
+from typing import Optional
 from dataclasses import dataclass
-from core.infrastructure.modules.executor import Executor
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
-from threading import Thread
+from core.infrastructure.modules.executor import Executor
 
 
 log = Logger()
@@ -13,20 +13,18 @@ log = Logger()
 class SuiteRunner(Executor):
 
     """"
-    :param: workbook ...................... excel screen sheet name
     :param: report ........................ generate allure report bool
+    :param: workbook ...................... excel screen sheet name
+    :param: multiprocessing ............... parallel run
+    :param: n ............................. number of parallel tests
 
     """
 
     report: bool = False
     workbook: openpyxl.Workbook = openpyxl.load_workbook(TEST_SUITE)
+    multiprocessing: Optional[int] = None
 
-    @staticmethod
-    def multi_process(function: callable) -> None:
-        thread = Thread(target=function)
-        thread.start()
-
-    def logic(self) -> None:
+    def execute(self) -> None:
 
         log.level.debug(f'allure report files in: {REPORTS}')
 
@@ -45,15 +43,13 @@ class SuiteRunner(Executor):
                     os.system(fr'py -m pytest {path}')
                     log.level.debug(f'items tested: {test_name}')
 
+                if self.multiprocessing > 0:
+                    os.system(f'pytest -n {self.multiprocessing}')
+                else:
+                    pass
+
         # generate allure web report
         if self.report:
             os.system(fr'allure serve {REPORTS}')
 
         log.level.debug(f'executing: {self.execute.__name__}')
-
-    def execute(self, multi_process: bool = False) -> any:
-        match multi_process:
-            case True:
-                self.multi_process(function=self.logic)
-            case _:
-                self.logic()

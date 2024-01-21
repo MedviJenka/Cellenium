@@ -2,5 +2,5 @@ from core.tools.suite.runner import SuiteRunner
 
 
 def test_run_suite() -> None:
-    run = SuiteRunner(report=True)
-    run.execute(multi_process=False)
+    run = SuiteRunner(report=True, multiprocessing=5)
+    run.execute()

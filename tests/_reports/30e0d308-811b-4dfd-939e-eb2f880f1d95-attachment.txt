@@ -1,0 +1,4 @@
+webdriver used:
+ <selenium.webdriver.chrome.webdriver.WebDriver (session="1d3cfa523dc4579e7c429b1c8c210b50")> 
+ started: 
+ https://tipalti.com/en-uk/
