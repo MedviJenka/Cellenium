@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
 from core.infrastructure.modules.executor import Executor
+global path
 
 
 log = Logger()
@@ -34,7 +35,7 @@ class SuiteRunner(Executor):
 
             # for each title iterates through all tests
             for row in sheet.iter_rows(min_row=2, min_col=1, values_only=True):
-                test_name, action = row[0], row[1]
+                test_name, action = row[:2]  # was row[0], row[1]
 
                 # runs each test that is marked with 'run'
                 if action == 'RUN':
@@ -51,5 +52,9 @@ class SuiteRunner(Executor):
         # generate allure web report
         if self.report:
             os.system(fr'allure serve {REPORTS}')
+
+        elif self.report and self.multiprocessing:
+            global path
+            os.system(f'pytest -n {self.multiprocessing} {path}')
 
         log.level.debug(f'executing: {self.execute.__name__}')
