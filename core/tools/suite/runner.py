@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
 from core.infrastructure.modules.executor import Executor
-global path
 
 
 log = Logger()
@@ -23,7 +22,7 @@ class SuiteRunner(Executor):
 
     report: bool = False
     workbook: openpyxl.Workbook = openpyxl.load_workbook(TEST_SUITE)
-    multiprocessing: Optional[int] = None
+    multiprocessing: Optional[int] = 0
 
     def execute(self) -> None:
 
@@ -31,6 +30,7 @@ class SuiteRunner(Executor):
 
         # gets each sheet title
         for each_sheet_name in [sheet.title for sheet in self.workbook]:
+
             sheet = self.workbook[each_sheet_name]
 
             # for each title iterates through all tests
@@ -44,17 +44,17 @@ class SuiteRunner(Executor):
                     os.system(fr'py -m pytest {path}')
                     log.level.debug(f'items tested: {test_name}')
 
-                if self.multiprocessing > 0:
-                    os.system(f'pytest -n {self.multiprocessing}')
-                else:
-                    pass
+                # if self.multiprocessing > 0:
+                #     os.system(f'pytest -n {self.multiprocessing}')
+                # else:
+                #     pass
 
         # generate allure web report
         if self.report:
             os.system(fr'allure serve {REPORTS}')
 
-        elif self.report and self.multiprocessing:
-            global path
-            os.system(f'pytest -n {self.multiprocessing} {path}')
-
-        log.level.debug(f'executing: {self.execute.__name__}')
+        # elif self.report and self.multiprocessing:
+        #     _path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
+        #     os.system(f'pytest -n {self.multiprocessing} {_path}')
+        #
+        # log.level.debug(f'executing: {self.execute.__name__}')
