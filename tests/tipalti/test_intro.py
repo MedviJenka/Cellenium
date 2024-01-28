@@ -1,3 +1,4 @@
+from core.infrastructure.constants.data import dir_list
 from core.infrastructure.driver.engine import DriverEngine
 
 
@@ -6,7 +7,7 @@ class TestTipalti:
     engine = DriverEngine(screen='tipalti')
 
     def test_web(self) -> None:
-        self.engine.get_web("https://tipalti.com/en-uk/")
+        self.engine.get_web(dir_list['tipalti'])
 
     def test_get_logos_list(self) -> None:
         self.engine.get_element('logos')

@@ -23,3 +23,13 @@ COOKIES = fr'{GLOBAL_PATH}\core\infrastructure\constants\data\cookies.json'
 # DEVSECOPS
 EC2 = fr'{GLOBAL_PATH}\devops\infrastructure\core\deployment\data\ec2.json'
 IAM_SECRETS_CSV = ''
+
+
+https = 'https://www'
+
+
+dir_list = {
+    'google': f'{https}.google.com',
+    'youtube': f'{https}.youtube.com',
+    'tipalti': f'{https}.tipalti.com/en-uk/'
+}

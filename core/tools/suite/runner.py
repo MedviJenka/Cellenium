@@ -44,17 +44,5 @@ class SuiteRunner(Executor):
                     os.system(fr'py -m pytest {path}')
                     log.level.debug(f'items tested: {test_name}')
 
-                # if self.multiprocessing > 0:
-                #     os.system(f'pytest -n {self.multiprocessing}')
-                # else:
-                #     pass
-
-        # generate allure web report
         if self.report:
             os.system(fr'allure serve {REPORTS}')
-
-        # elif self.report and self.multiprocessing:
-        #     _path = fr'{os.path.join(TESTS, sheet.title, test_name)} --alluredir={REPORTS}'
-        #     os.system(f'pytest -n {self.multiprocessing} {_path}')
-        #
-        # log.level.debug(f'executing: {self.execute.__name__}')
