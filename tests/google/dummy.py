@@ -3,7 +3,7 @@ from core.infrastructure.driver.engine import DriverEngine
 
 class TestTitle:
 
-    engine = DriverEngine(screen='IntroPage')
+    engine = DriverEngine(screen='IntroPage', headless=True)
 
     def test_web(self) -> None:
         self.engine.get_web("https://www.google.com")
