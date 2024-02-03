@@ -8,7 +8,7 @@ abstract_dir = os.path.dirname(os.path.abspath(__file__))
 # Automation
 GLOBAL_PATH = abstract_dir.split('core')[0][:-1]
 TESTS = fr'{GLOBAL_PATH}\tests'
-CONFIG_PATH = fr'{GLOBAL_PATH}\core\utils\data\config.ini'
+CONFIG_PATH = fr'{GLOBAL_PATH}\core\static\utils\config.ini'
 TEST_LIST = fr'{GLOBAL_PATH}\core\utils\data\test_list.json'
 SCREENSHOTS = fr'{GLOBAL_PATH}\core\utils\data\screenshots\reports'
 JENKINS = fr'{GLOBAL_PATH}\jenkins\jenkins.war'

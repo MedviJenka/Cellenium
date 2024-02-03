@@ -27,19 +27,6 @@ log = Logger()
 @dataclass
 class DriverEngine(DriverManager):
 
-    """
-    :TODO: test lines 171 and on
-
-    :class: DriverManager ................. inherits selenium webdriver functionality for navigating into
-                                            a deeper state of selenium:
-                                            example: engine = DriverEngine(...)
-                                                     self.engine.driver...
-
-    :param: screen ........................ screen reads from page_base.xlsx sheet name and iterates through
-                                            different screens, overall for usability and order.
-
-    """
-
     screen: Optional[str] = None
 
     def get_web(self, web_link: str, maximize_window=True) -> None:
@@ -53,9 +40,9 @@ class DriverEngine(DriverManager):
     def get_element(self, name: str, seconds=10) -> webdriver:
 
         self.driver.implicitly_wait(seconds)
-        element_locator = get_locator(self.screen, name)
-        element_type = get_type(self.screen, name)
-        element_name = get_name(self.screen, name)
+        element_locator = get_locator_api(self.screen, name)
+        element_type = get_type_api(self.screen, name)
+        element_name = get_name_api(self.screen, name)
         output = f'element name: {element_name} | elements locator: {element_locator} | element type: {element_type}'
 
         try:

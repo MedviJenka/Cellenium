@@ -1,7 +1,7 @@
-from typing import Optional
 from dataclasses import dataclass
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @dataclass
@@ -12,6 +12,6 @@ class ServiceManager:
     :param: service ...................  for now supports only chrome
 
     """
-
-    service: any = Service()
-    options: any = Options()
+    chrome = ChromeDriverManager()
+    service: Service = Service(executable_path=chrome.install())
+    options: Options = Options()

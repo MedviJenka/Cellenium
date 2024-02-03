@@ -1,19 +1,12 @@
 import json
-from typing import Optional
+import gspread
 import openpyxl
+from google.oauth2.service_account import Credentials
+from typing import Optional
 from PIL import Image
 from configparser import ConfigParser
+from gspread import Spreadsheet
 from core.infrastructure.constants.data import *
-
-
-"""
-:TODO:
-    IN FUTURE PYTHON 3.12 USE
-    from typing import Unpack
-    example: 
-        def get_name(*args: Unpack[_read_excel]) -> str: ...
-            
-"""
 
 
 def read_config(key: str, value: str) -> str:
@@ -110,3 +103,52 @@ def read_test_case(sheet_name: list[str]) -> list[str]:
                 lists.append(case)
 
     return lists
+
+
+class GoogleAPIAuth:
+
+    def __init__(self) -> None:
+        self.api_json_path = read_config(key='api', value='google_sheet_json')
+        self.scopes = ['https://www.googleapis.com/auth/spreadsheets']
+        self.credentials = Credentials.from_service_account_file(filename=self.api_json_path, scopes=self.scopes)
+        self.client = gspread.authorize(self.credentials)
+        self.sheet_id = '1HiBBUWKS_wheb3ANqCGVtOCpZPCFuN3KSae0hZOD0QE'
+
+    @property
+    def get_sheet(self) -> Spreadsheet:
+        sheet = self.client.open_by_key(self.sheet_id)
+        return sheet
+
+
+def __read_google_sheet(api: GoogleAPIAuth, sheet_name: str, value: str) -> dict:
+    sheet = api.get_sheet.worksheet(sheet_name)
+    all_rows = sheet.get_all_values()  # Gets all rows from the first sheet
+    headers = all_rows[0]  # Assumes the first row contains headers
+    value_index = headers.index('name')  # Adjust 'name' to the actual header name you are looking for
+
+    for row in all_rows[1:]:  # Skip the header row
+        if row[value_index] == value:
+            return {
+                'name': row[headers.index('name')],
+                'locator': row[headers.index('locator')],
+                'type': row[headers.index('type')],
+                'actions': row[headers.index('actions')],
+                'image': row[headers.index('image')]
+            }
+    return {}  # Return an empty dict if the value is not found
+
+
+def get_name_api(sheet_name: str, value: str, api=GoogleAPIAuth()) -> str:
+    return __read_google_sheet(api, sheet_name, value)['name']
+
+
+def get_locator_api(sheet_name: str, value: str, api=GoogleAPIAuth()) -> str:
+    return __read_google_sheet(api, sheet_name, value)['locator']
+
+
+def get_type_api(sheet_name: str, value: str, api=GoogleAPIAuth()) -> str:
+    return __read_google_sheet(api, sheet_name, value)['type']
+
+
+def get_action_api(sheet_name: str, value: str, api=GoogleAPIAuth()) -> str:
+    return __read_google_sheet(api, sheet_name, value)['action']
