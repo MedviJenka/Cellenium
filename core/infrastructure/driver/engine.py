@@ -39,13 +39,8 @@ class DriverEngine(DriverManager):
 
     def get_element(self, name: str, seconds=10) -> webdriver:
 
-        kwargs = {
-            'sheet_name': self.screen,
-            'value': name
-        }
-
         self.driver.implicitly_wait(seconds)
-        element_name, element_type, element_locator = self.__get_element_properties(**kwargs)
+        element_name, element_type, element_locator = self.__get_element_properties(sheet_name=self.screen, value=name)
         output = f'element name: {element_name} | elements locator: {element_locator} | element type: {element_type}'
 
         try:
