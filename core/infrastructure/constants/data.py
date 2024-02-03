@@ -19,6 +19,7 @@ TEST_SUITE = fr'{TESTS}\_data\test_suite.xlsx'
 PLAYER_DATA = fr'{GLOBAL_PATH}\app\player\data.json'
 IMAGE_COMPARE_DATA = fr'{GLOBAL_PATH}\core\tools\image_compare\data.json'
 COOKIES = fr'{GLOBAL_PATH}\core\infrastructure\constants\data\cookies.json'
+GOOGLE_SHEET_JSON  = r'C:\Users\evgenyp\Downloads\cellenium-screen-52bab8a2e210.json'
 
 # DEVSECOPS
 EC2 = fr'{GLOBAL_PATH}\devops\infrastructure\core\deployment\data\ec2.json'

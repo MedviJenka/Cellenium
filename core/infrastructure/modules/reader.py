@@ -7,6 +7,10 @@ from typing import Optional
 from PIL import Image
 from configparser import ConfigParser
 from core.infrastructure.constants.data import *
+from core.infrastructure.modules.logger import Logger
+
+
+log = Logger()
 
 
 def read_config(key: str, value: str) -> str:
@@ -108,9 +112,8 @@ def read_test_case(sheet_name: list[str]) -> list[str]:
 class GoogleAPIAuth:
 
     def __init__(self) -> None:
-        self.api_json_path = read_config(key='api', value='google_sheet_json')
         self.scopes = ['https://www.googleapis.com/auth/spreadsheets']
-        self.credentials = Credentials.from_service_account_file(filename=self.api_json_path, scopes=self.scopes)
+        self.credentials = Credentials.from_service_account_file(filename=GOOGLE_SHEET_JSON, scopes=self.scopes)
         self.client = gspread.authorize(self.credentials)
         self.sheet_id = '1HiBBUWKS_wheb3ANqCGVtOCpZPCFuN3KSae0hZOD0QE'
 

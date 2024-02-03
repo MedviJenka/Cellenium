@@ -39,10 +39,13 @@ class DriverEngine(DriverManager):
 
     def get_element(self, name: str, seconds=10) -> webdriver:
 
+        kwargs = {
+            'sheet_name': self.screen,
+            'value': name
+        }
+
         self.driver.implicitly_wait(seconds)
-        element_name = get_name_api(sheet_name=self.screen, value=name)
-        element_locator = get_locator_api(sheet_name=self.screen, value=name)
-        element_type = get_type_api(sheet_name=self.screen, value=name)
+        element_name, element_type, element_locator = self.__get_element_properties(**kwargs)
         output = f'element name: {element_name} | elements locator: {element_locator} | element type: {element_type}'
 
         try:
@@ -53,6 +56,13 @@ class DriverEngine(DriverManager):
         except Exception as e:
             # self.attach_screenshot()
             raise e
+
+    @staticmethod
+    def __get_element_properties(**kwargs) -> tuple:
+        element_name = get_name_api(**kwargs)
+        element_locator = get_locator_api(**kwargs)
+        element_type = get_type_api(**kwargs)
+        return element_name, element_locator, element_type
 
     def get_dynamic_element(self, attribute: str, name: str, seconds=10) -> webdriver:
 

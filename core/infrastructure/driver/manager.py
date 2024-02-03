@@ -33,4 +33,3 @@ class DriverManager(ServiceManager):
             self.options.add_argument('--headless')
 
         self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
-
