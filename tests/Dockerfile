@@ -1,5 +1,5 @@
-FROM python:3.8 as build
-WORKDIR /tests/
-COPY requirements.txt .
-COPY . .
-RUN pip install --upgrade pip && run pip install -r requirements.txt
+ARG PYTHON=3.8-slim
+FROM python:${PYTHON} as build
+WORKDIR /tests
+COPY . /tests
+RUN pip install --upgrade pip && run pip install --no-cache-dir --compile -r requirements.txt
