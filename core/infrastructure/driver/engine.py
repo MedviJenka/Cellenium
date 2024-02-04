@@ -9,6 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from core.infrastructure.modules.cloud_reader import get_name_api, get_locator_api, get_type_api
 from core.infrastructure.modules.enums import Type
 from core.tools.image_compare.image_compare_executor import ImageCompare
 from core.infrastructure.driver.manager import DriverManager
