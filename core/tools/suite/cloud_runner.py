@@ -1,9 +1,9 @@
 import os
 from dataclasses import dataclass
 from core.infrastructure.constants.data import REPORTS, TESTS
+from core.infrastructure.modules.cloud_reader import GoogleAPIAuth
 from core.infrastructure.modules.executor import Executor
 from core.infrastructure.modules.logger import Logger
-from core.infrastructure.modules.reader import GoogleAPIAuth
 
 
 log = Logger()
@@ -29,7 +29,7 @@ class SuiteRunnerAPI(Executor):
                     path = os.path.join(TESTS, sheet_name, row[0])
                     allure_path = fr'pytest {path} --alluredir={REPORTS}'
                     _list.append(allure_path)
-                    # os.system(allure_path)
+
         for each in _list:
             os.system(each)
 
