@@ -8,6 +8,7 @@ from PIL import Image
 from configparser import ConfigParser
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
+from dataclasses import dataclass
 
 
 log = Logger()
@@ -109,17 +110,23 @@ def read_test_case(sheet_name: list[str]) -> list[str]:
     return lists
 
 
+@dataclass
 class GoogleAPIAuth:
 
-    def __init__(self, sheet_id: str = '1HiBBUWKS_wheb3ANqCGVtOCpZPCFuN3KSae0hZOD0QE') -> None:
+    sheet_id: str = '1HiBBUWKS_wheb3ANqCGVtOCpZPCFuN3KSae0hZOD0QE'
+
+    def __post_init__(self) -> None:
         self.scopes = ['https://www.googleapis.com/auth/spreadsheets']
         self.credentials = Credentials.from_service_account_file(filename=GOOGLE_SHEET_JSON, scopes=self.scopes)
         self.client = gspread.authorize(self.credentials)
-        self.sheet_id = sheet_id
 
     @property
     def get_sheet(self) -> gspread.Spreadsheet:
         return self.client.open_by_key(self.sheet_id)
+
+    @property
+    def get_all_sheets(self) -> list[str]:
+        return [sheet.title for sheet in self.client.open_by_key(self.sheet_id).worksheets()]
 
 
 @lru_cache(maxsize=32)  # minimize repetitive API calls
