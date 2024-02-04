@@ -111,11 +111,11 @@ def read_test_case(sheet_name: list[str]) -> list[str]:
 
 class GoogleAPIAuth:
 
-    def __init__(self) -> None:
+    def __init__(self, sheet_id: str = '1HiBBUWKS_wheb3ANqCGVtOCpZPCFuN3KSae0hZOD0QE') -> None:
         self.scopes = ['https://www.googleapis.com/auth/spreadsheets']
         self.credentials = Credentials.from_service_account_file(filename=GOOGLE_SHEET_JSON, scopes=self.scopes)
         self.client = gspread.authorize(self.credentials)
-        self.sheet_id = '1HiBBUWKS_wheb3ANqCGVtOCpZPCFuN3KSae0hZOD0QE'
+        self.sheet_id = sheet_id
 
     @property
     def get_sheet(self) -> gspread.Spreadsheet:
@@ -123,19 +123,22 @@ class GoogleAPIAuth:
 
 
 @lru_cache(maxsize=32)  # minimize repetitive API calls
-def __read_google_sheet(api: GoogleAPIAuth, sheet_name: str, value: str) -> dict:
+def __read_google_sheet(sheet_name: str, value: str, api: GoogleAPIAuth) -> dict:
+
     sheet = api.get_sheet.worksheet(sheet_name)
     all_rows = sheet.get_all_values()
     headers = all_rows[0]
 
     for row in all_rows[1:]:
         row_dict = dict(zip(headers, row))
-        if row_dict.get('name') == value:
+        if row_dict['name'] == value:
             return row_dict
+
     return {}
 
 
 def get_row_data(sheet_name: str, value: str, api=GoogleAPIAuth()) -> dict:
+
     """
     Retrieve a row from a Google Sheet based on a specific value.
 
@@ -143,8 +146,10 @@ def get_row_data(sheet_name: str, value: str, api=GoogleAPIAuth()) -> dict:
     :param value: The value to search for in the 'name' column.
     :param api: An instance of GoogleAPIAuth to use for accessing the sheet.
     :return: A dictionary containing the row data or an empty dict if not found.
+
     """
-    return __read_google_sheet(api, sheet_name, value)
+
+    return __read_google_sheet(sheet_name, value, api)
 
 
 def get_name_api(sheet_name: str, value: str) -> str:
