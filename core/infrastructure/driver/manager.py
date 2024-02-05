@@ -22,8 +22,14 @@ class DriverManager(ServiceManager):
     """
 
     undetected: Optional[any] = None
+    headless: Optional[bool] = False
 
     def __post_init__(self) -> None:
-        self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)
+
         if self.undetected:
             self.driver: webdriver = uc.Chrome(service=self.service, options=self.options)
+
+        if self.headless:
+            self.options.add_argument('--headless')
+
+        self.driver: webdriver = webdriver.Chrome(service=self.service, options=self.options)

@@ -1,22 +1,19 @@
-version: '3'
+version: '2.18.1'
+
 services:
 
   core:
+    container_name: cellenium-core
     volumes:
       - '/core:/app/core'
     build:
-      context: /core/
+      context: /core
 
   tests:
+    container_name: cellenium_core
     volumes:
       - '/tests:/app/tests'
     build:
-      context: /test/
-
-
-  app:
-    command: pytest
-    restart: always
+      context: /test
     depends_on:
       - core
-      - tests

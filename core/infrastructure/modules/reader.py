@@ -1,19 +1,13 @@
 import json
-from typing import Optional
 import openpyxl
+from typing import Optional
 from PIL import Image
 from configparser import ConfigParser
 from core.infrastructure.constants.data import *
+from core.infrastructure.modules.logger import Logger
 
 
-"""
-:TODO:
-    IN FUTURE PYTHON 3.12 USE
-    from typing import Unpack
-    example: 
-        def get_name(*args: Unpack[_read_excel]) -> str: ...
-            
-"""
+log = Logger()
 
 
 def read_config(key: str, value: str) -> str:
