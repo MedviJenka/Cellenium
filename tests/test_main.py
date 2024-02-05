@@ -1,6 +1,6 @@
-from core.tools.suite.cloud_runner import SuiteRunnerAPI
+from core.tools.suite.runner import SuiteRunner
 
 
 def test_run_suite() -> None:
-    run = SuiteRunnerAPI(report=False)
+    run = SuiteRunner(report=False, run_with_google_sheets=True)
     run.execute()

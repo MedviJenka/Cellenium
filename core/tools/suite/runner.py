@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from core.infrastructure.constants.data import *
 from core.infrastructure.modules.logger import Logger
 from core.infrastructure.modules.executor import Executor
-
+from core.tools.suite.cloud_runner import SuiteRunnerAPI
 
 log = Logger()
 
@@ -23,8 +23,13 @@ class SuiteRunner(Executor):
     report: bool = False
     workbook: openpyxl.Workbook = openpyxl.load_workbook(TEST_SUITE)
     multiprocessing: Optional[int] = 0
+    run_with_google_sheets: Optional[bool] = False
 
     def execute(self) -> None:
+
+        if self.run_with_google_sheets:
+            api = SuiteRunnerAPI()
+            api.execute()
 
         log.level.debug(f'allure report files in: {REPORTS}')
 
