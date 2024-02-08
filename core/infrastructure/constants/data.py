@@ -21,6 +21,7 @@ IMAGE_COMPARE_DATA = fr'{GLOBAL_PATH}\core\tools\image_compare\data.json'
 COOKIES = fr'{GLOBAL_PATH}\core\infrastructure\constants\data\cookies.json'
 GOOGLE_SHEET_JSON = r"C:\Users\medvi\Downloads\credentials.json"
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+
 # DEVSECOPS
 EC2 = fr'{GLOBAL_PATH}\devops\infrastructure\core\deployment\data\ec2.json'
 IAM_SECRETS_CSV = ''

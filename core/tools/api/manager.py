@@ -4,7 +4,7 @@ import warnings
 from typing import Optional
 from dataclasses import dataclass
 from core.infrastructure.modules.methods import log
-from core.infrastructure.api.constants import Authorization
+from core.tools.api.constants import Authorization
 
 
 warnings.filterwarnings('ignore')

@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class AbstractMessage(ABC):
+
     @abstractmethod
     def message(self, *args: str, **kw: str) -> str:
         raise Exception

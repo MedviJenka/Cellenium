@@ -18,7 +18,7 @@ from core.infrastructure.modules.reader import *
 from allure_commons.types import AttachmentType
 from browsermobproxy import Server
 from typing import Optional
-from core.infrastructure.api.constants import Authorization
+from core.tools.api.constants import Authorization
 
 
 warnings.filterwarnings('ignore')
