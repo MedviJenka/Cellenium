@@ -100,7 +100,7 @@ class DriverEngine(DriverManager):
         if embed_into_cell:
             write_excel(sheet_name=self.screen, value=updated_image_path)
 
-    def wait_for_element(self, name: str, seconds=5) -> None:
+    def wait_for_element(self, name: str, seconds=5) -> callable:
         element_locator = get_locator(self.screen, name)
         wait = WebDriverWait(self.driver, seconds)
         return wait.until(expected_conditions.visibility_of_element_located(('', element_locator)))
@@ -221,7 +221,12 @@ class DriverEngine(DriverManager):
 
     def save_storage(self) -> None:
         local_storage = self.driver.execute_script(
-            "var items = {}, ls = window.localStorage; for (var i = 0; i < ls.length; i++)  items[ls.key(i)] = ls.getItem(ls.key(i)); return items;")
+
+            """
+            var items = {}, ls = window.localStorage; 
+            for (var i = 0; i < ls.length; i++)  items[ls.key(i)] = ls.getItem(ls.key(i)); return items;
+            """
+        )
         with open(COOKIES, "w") as f:
             json.dump(local_storage, f)
 
@@ -245,11 +250,12 @@ class APIEngine:
                                                        path to be appended to the base URL.
     :params: headers (optional) ...................... A dictionary containing the headers to be sent with the request.
 
-    :params (optional) ............................... A dictionary containing the query parameters.
+    :params: (optional) ............................... A dictionary containing the query parameters.
                                                        to be sent with the request.
     :params: verify (optional) ....................... A boolean indicating whether to verify the SSL certificate.
 
     :returns: response in a json format
+
     """
 
     base_url: str = ''
