@@ -10,7 +10,6 @@ class ServiceManager:
 
     version: Optional[str] = None
     use_chrome_driver_manager: Optional[bool] = False
-    chrome = ChromeDriverManager()
     options: Options = Options()
     service: Service = Service()
 
