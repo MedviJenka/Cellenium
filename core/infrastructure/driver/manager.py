@@ -14,10 +14,13 @@ class DriverManager(ServiceManager):
 
 
     :params: driver (webdriver) .................... The Selenium web driver instance.
-    :args: service (Service) ....................... The service object to use for managing the driver.
+    :args:
+        service (Service) ....................... The service object to use for managing the driver.
                                                      It should be an instance of
                                                      a class that extends the `Service` class from
                                                      the `selenium.webdriver` module.
+        undetected: ............................ For bypass captcha (WIP)
+        headless: .............................. Testing in background with no UI
 
     """
 
